@@ -1,22 +1,22 @@
+var TelegramBot = require('node-telegram-bot-api');
+var TelegramBot = require('node-telegram-bot-api');
 
-const Extra = require('telegraf/extra')
-const Markup = require('telegraf/markup')
+// Устанавливаем токен, который выдавал нам бот.
+var token = '783491645:AAGp_rUoPcyRDfgfGZzsXIzJ8HtXbpJThyk';
+// Включить опрос сервера
+var bot = new TelegramBot(token, {polling: true});
 
-// npm install -g localtunnel && lt --port 3000
-const Telegraf = require('telegraph')
+// Написать мне ... (/echo Hello World! - пришлет сообщение с этим приветствием.)
+bot.onText(//echo (.+)/, function (msg, match) {
+    var fromId = msg.from.id;
+    var resp = match[1];
+    bot.sendMessage(fromId, resp);
+});
 
-const bot = new Telegraf(process.env.783491645:AAGp_rUoPcyRDfgfGZzsXIzJ8HtXbpJThyk)
-bot.command('image', (ctx) => ctx.replyWithPhoto({ url: 'https://picsum.photos/200/300/?random' }))
-bot.on('text', ({ replyWithHTML }) => replyWithHTML('<b>Hello</b>'))
-
-// Start webhook directly
-// bot.startWebhook('/secret-path', null, 3000)
-// bot.telegram.setWebhook('https://---.localtunnel.me/secret-path')
-
-// Start webhook via launch (preffered)
-bot.launch({
-  webhook: {
-    domain: 'https://---.localtunnel.me',
-    port: 3000
-  }
-})
+// Простая команда без параметров.
+bot.on('message', function (msg) {
+    var chatId = msg.chat.id;
+    // Фотография может быть: путь к файлу, поток(stream) или параметр file_id
+    var photo = 'http://pngimg.com/uploads/cat/cat_PNG50550.png';
+    bot.sendPhoto(chatId, photo, {caption: 'Милые котята'});
+});
