@@ -1,19 +1,8 @@
+const Telegraf = require('telegraf')
 
-var telegramBot = require('node-telegram-bot-api');
-
-// Устанавливаем токен, который выдавал нам бот.
-var token = '783491645:AAGp_rUoPcyRDfgfGZzsXIzJ8HtXbpJThyk';
-// Включить опрос сервера
-var bot = new telegramBot(token, {polling: true});
-
-// Написать мне ... (/echo Hello World! - пришлет сообщение с этим приветствием.)
-
-// Простая команда без параметров.
-bot.on('message', function (msg) {
-  var chatId = msg.chat.id;
-  // photo can be: a file path, a stream or a Telegram file_id
-  var photo = 'cats.png';
-  bot.sendPhoto(chatId, photo, {caption: 'Lovely kittens'});
-});
-
-
+const bot = new Telegraf(process.env.783491645:AAGp_rUoPcyRDfgfGZzsXIzJ8HtXbpJThyk, {polling: true})
+bot.start((ctx) => ctx.reply('Welcome!'))
+bot.help((ctx) => ctx.reply('Send me a sticker'))
+bot.on('sticker', (ctx) => ctx.reply('👍'))
+bot.hears('hi', (ctx) => ctx.reply('Hey there'))
+bot.launch()
