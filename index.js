@@ -1,6 +1,4 @@
 
-  
-const telegramBot = require('node-telegram-bot-api');
 const telegramBot = require('node-telegram-bot-api');
 
 // Устанавливаем токен, который выдавал нам бот.
