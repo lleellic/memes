@@ -8,34 +8,6 @@ const AnimationUrl2 = 'https://media.giphy.com/media/LrmU6jXIjwziE/giphy.gif'
 
 const bot = new Telegraf("783491645:AAGp_rUoPcyRDfgfGZzsXIzJ8HtXbpJThyk");
 
-bot.use(Telegraf.log())
-
-bot.command('onetime', ({ reply }) =>
-  reply('One time keyboard', Markup
-    .keyboard(['/simple', '/inline', '/pyramid'])
-    .oneTime()
-    .resize()
-    .extra()
-  )
-)
-
-bot.command('custom', ({ reply }) => {
-  return reply('Custom buttons keyboard', Markup
-    .keyboard([
-      ['Maxim', 'Alice'], // Row1 with 2 buttons
-      ['☸ Setting', '📞 Feedback'], // Row2 with 2 buttons
-      ['📢 Ads', '⭐️ Rate us', '👥 Share'] // Row3 with 3 buttons
-    ])
-    .oneTime()
-    .resize()
-    .extra()
-  )
-})
-
-
-
-
-
 
 bot.start((ctx) => ctx.reply('Привет! Я бот IT_camp и Profcamp версия 0.1! Рад познакомиться! Сейчас ты можешь узнать, как выглядит твой преподаватель или наставник. Для этого просто пришли мне его имя. Будь уважителен - используй полное имя и заглавную первую букву.'))
 bot.help((ctx) => ctx.reply('Пришли мне стикер'))
