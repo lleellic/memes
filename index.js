@@ -7,7 +7,7 @@ const AnimationUrl2 = 'https://media.giphy.com/media/LrmU6jXIjwziE/giphy.gif'
 
 
 const bot = new Telegraf("783491645:AAGp_rUoPcyRDfgfGZzsXIzJ8HtXbpJThyk");
-
+bot.use(Telegraf.log())
 
 bot.command('custom', ({ reply }) => {
   return reply('Custom buttons keyboard', Markup
