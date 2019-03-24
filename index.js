@@ -4,7 +4,7 @@ var telegramBot = require('node-telegram-bot-api');
 // Устанавливаем токен, который выдавал нам бот.
 var token = '783491645:AAGp_rUoPcyRDfgfGZzsXIzJ8HtXbpJThyk';
 // Включить опрос сервера
-var bot = new TelegramBot(token, {polling: true});
+var bot = new telegramBot(token, {polling: true});
 
 // Написать мне ... (/echo Hello World! - пришлет сообщение с этим приветствием.)
 
