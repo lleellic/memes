@@ -13,7 +13,9 @@ bot.help((ctx) => ctx.reply('Пришли мне стикер'))
 bot.on('sticker', (ctx) => ctx.reply('👍'))
 bot.hears('привет', (ctx) => ctx.replyWithPhoto('https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png'))
 bot.hears('Адвокат', (ctx) => ctx.replyWithPhoto('https://nv.ua/img/article/24576/91_main.jpeg'))
-//bot.hears('Алиса', (ctx) => ctx.replyWithPhoto({ source: './media/Alice.jpeg' }))
+bot.hears('Алиса', (ctx) => ctx.replyWithPhoto({ 
+  url:'/media/' 
+  filename: 'Alice.jpg'                                             }))
 //bot.hears('Максим', (ctx) => ctx.replyWithPhoto({ source: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png' }))
 //bot.hears('Лера', (ctx) => ctx.replyWithPhoto({ source: '/media/Lera.jpeg' }))
 //bot.hears('Паша', (ctx) => ctx.replyWithPhoto('Паша сделал этого бота'))
