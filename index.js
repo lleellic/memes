@@ -40,7 +40,9 @@ bot.command('custom', ({ reply }) => {
 bot.start((ctx) => ctx.reply('Привет! Я бот IT_camp и Profcamp версия 0.1! Рад познакомиться! Сейчас ты можешь узнать, как выглядит твой преподаватель или наставник. Для этого просто пришли мне его имя.'))
 bot.help((ctx) => ctx.reply('Пришли мне стикер'))
 bot.on('sticker', (ctx) => ctx.reply('👍'))
-bot.hear('Макс', (ctx) => bot.command('Max', (ctx) => ctx.replyWithPhoto('https://drive.google.com/uc?export=download&id=1Ya0Vcvug1qWNJsD5G2p4xexFI5hT8_9Y')))
+bot.hear('Макс', (ctx) => {
+  () => bot.command('Max', (ctx))})
+bot.command('Max', (ctx) => ctx.replyWithPhoto('https://drive.google.com/uc?export=download&id=1Ya0Vcvug1qWNJsD5G2p4xexFI5hT8_9Y')))
 bot.command('Алиса', (ctx) => ctx.replyWithPhoto('https://drive.google.com/uc?export=download&id=16c8d5woUroD-pFEUkmuQGhqVmS9EHeYV'))
 bot.command('Максим', (ctx) => ctx.replyWithPhoto('https://drive.google.com/uc?export=download&id=1i-vrc6s4xKNSnGzF2uBjWYvH3NWxqVmc'))
 bot.command('Lera', (ctx) => ctx.replyWithPhoto('https://drive.google.com/uc?export=download&id=1jfnmj4B_0ZJNGyqHXCqrFGPK5_0DO1XX' ))
