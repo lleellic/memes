@@ -1,13 +1,12 @@
 const Telegraf = require('telegraf')
 const Extra = require('telegraf/extra')
 const fs = require('fs')
-const AnimationUrl1 = 'https://media.giphy.com/media/ya4eevXU490Iw/giphy.gif'
-const AnimationUrl2 = 'https://media.giphy.com/media/LrmU6jXIjwziE/giphy.gif'
+
 const Markup = require('telegraf/markup')
 
 const keyboard = Markup.inlineKeyboard([
   Markup.urlButton('❤️', 'http://telegraf.js.org'),
-  Markup.callbackButton('Delete', 'delete')
+  Markup.callbackButton('Мобильная разработка', 'delete')
 ])
 
 
@@ -30,5 +29,6 @@ bot.hears('Павел', (ctx) => ctx.replyWithPhoto( 'https://drive.google.com/u
 bot.hears('Лера', (ctx) => ctx.reply( 'Ты уверен, что Лера - это полное имя?'))
 bot.hears('Лера', (ctx) => ctx.reply( 'Ты уверен, что Лера - это полное имя?'))
 bot.hears('Мобильная разработка', (ctx) => ctx.reply ('Они лучшие'))
+bot.hears('джейк', (ctx) => ctx.replyWithAnimation('https://99px.ru/sstorage/86/2017/07/image_86100717001237906221.gif'))
 
 bot.launch()
