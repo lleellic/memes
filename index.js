@@ -23,6 +23,6 @@ bot.hears('Анастасия', (ctx) => ctx.replyWithPhoto( 'https://drive.goog
 bot.hears('Павел', (ctx) => ctx.replyWithPhoto( 'https://drive.google.com/uc?export=download&id=1kBQdOrDQuFsRoIlXWUwH6QJFWUZ0SF2o' ))
 bot.hears('Лера', (ctx) => ctx.reply( 'Ты уверен, что Лера - это полное имя?'))
 bot.hears('Лера', (ctx) => ctx.reply( 'Ты уверен, что Лера - это полное имя?'))
-bot.hears('Мобильная разработка', (ctx) => ctx.reply ('Они лучшие')
+bot.hears('Мобильная разработка', (ctx) => ctx.reply ('Они лучшие'))
 
 bot.launch()
