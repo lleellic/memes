@@ -2,12 +2,12 @@ const Telegraf = require('telegraf')
 const Extra = require('telegraf/extra')
 const fs = require('fs')
 
-const Markup = require('telegraf/markup')
+/*const Markup = require('telegraf/markup')
 
 const keyboard = Markup.inlineKeyboard([
   Markup.urlButton('❤️', 'http://telegraf.js.org'),
   Markup.callbackButton('Мобильная разработка', 'delete')
-])
+])*/
 
 
 
