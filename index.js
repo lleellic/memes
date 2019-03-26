@@ -30,5 +30,8 @@ bot.hears('Лера', (ctx) => ctx.reply( 'Ты уверен, что Лера - 
 bot.hears('Лера', (ctx) => ctx.reply( 'Ты уверен, что Лера - это полное имя?'))
 bot.hears('Мобильная разработка', (ctx) => ctx.reply ('Они лучшие'))
 bot.hears('джейк', (ctx) => ctx.replyWithAnimation('https://99px.ru/sstorage/86/2017/07/image_86100717001237906221.gif'))
+bot.hears('Привет',(ctx) => ctx.reply('Привет'))
+bot.hear('Покажи лучший сериал',(ctx) => ctx.replyWithAnimation('https://i.gifer.com/W8zq.gif'))
+bot.hear('i want to belive', (ctx) => ctx.replyWithPhoto('https://d2h1pu99sxkfvn.cloudfront.net/b0/10474470/422884304_fMSA87eogk/P7.jpg'))
 
 bot.launch()
