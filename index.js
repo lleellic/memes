@@ -4,7 +4,8 @@ const fs = require('fs')
 
 
 
-const bot = new Telegraf("token");
+const bot = new Telegraf("1097903013:AAHqfjyVsppFchDSZj9S_gJ6-MrZlgvDHyQ
+");
 
 
 bot.start((ctx) => ctx.reply('Привет! Я бот IT_camp и Profcamp версия 0.1! Рад познакомиться! Сейчас ты можешь узнать, как выглядит твой инвестор или ментор. Для этого просто пришли мне его имя. Будь уважителен - используй полное имя и заглавную первую букву.'))
