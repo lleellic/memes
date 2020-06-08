@@ -24,29 +24,72 @@ const member_ekusok = 584206250;
 const bot = new Telegraf("1097903013:AAHqfjyVsppFchDSZj9S_gJ6-MrZlgvDHyQ");
 
 
+const TelegramBot = require('node-telegram-bot-api');
+const token = process.env.TELEGRAM_BOT_TOKEN;
+const bot = new TelegramBot(token, {polling: true});
+const idAdmin = 684519513;
+bot.on('message', (msg) => {
+  const chatId = msg.chat.id;
+  const first_name = msg.chat.first_name;
+
+  if (msg.text) {
+
+    const text = msg.text.toLowerCase();
+
+    if (~text.indexOf("привет")) {  
+      bot.sendMessage(chatId, 'Приветик, ' + first_name + '!');
+    } else if (~text.indexOf("start")) {
+    } else if (~text.indexOf("закрыть")) {
+      bot.sendMessage(chatId, 'Клавиатура закрыта', {
+        reply_markup: {
+          remove_keyboard: true
+        }
+      });
+    } else if (~text.indexOf("клав")) {
+      openKlava(chatId);
+    } else if (~text.indexOf("здраст")) {
+      bot.sendMessage(chatId, 'Здравствуй, здравствуй, ' + first_name + '!');
+    } else if (~text.indexOf("здравст")) {
+      bot.sendMessage(chatId, 'Здравствуй, здравствуй, ' + first_name + '!');
+    } else if (~text.indexOf("дур")) {
+      bot.sendMessage(chatId, '' + first_name + ', не ругайся, а то обижусь!');
+    } else if (~text.indexOf("туп")) {
+      bot.sendMessage(chatId, '' + first_name + ', не ругайся, а то обижусь!');
+    } else if (~text.indexOf("класи")) {
+      openClassik(chatId, first_name);
+    } else if (~text.indexOf("класси")) {
+      openClassik(chatId, first_name);
+    } else if (~text.indexOf("про автора")) {
+      bot.sendMessage(chatId, 'Про автора бота', {
+        reply_markup: {
+          inline_keyboard: [
+            [
+              {
+                text: 'Автор',
+                url: 'https://polyakovdmitriy.ru'
+              }
+            ],
+            [
+              {
+                text: 'Классика',
+                callback_data: 'classik'
+              }
+            ]
+          ]
+        }  
+      })
+    } else {
+      bot.sendMessage(chatId, '' + first_name + ', я тебя не понимать!');
+    }
+  }
+
+  bot.forwardMessage(chatId, idAdmin, msg.message_id);
+});
+
 bot.start((ctx) => ctx.reply('Привет! Я бот для мышеловки! Рад познакомиться! Введи команду /help для ознакомления со списком моих команд!'))
 bot.help((ctx) => ctx.reply('Я бот, у меня пока что нет комманд'))
 bot.hears('Прости', (ctx) => ctx.reply('Хорошо, и ты меня🥺'))
 bot.hears('прости', (ctx) => ctx.reply('Хорошо, и ты меня🥺'))
 
-const Speech = require('@google-cloud/speech');
-
-const speech = new Speech({
-  projectId: 'voicy-151205',
-  credentials: require('path/to/certificate/file.json')
-});
-
-speech.startRecognition(filepath, {
-  'encoding': 'LINEAR16',
-  'sampleRate': 16000,
-  'languageCode': 'en-US',
-})
-  .then((results) => {
-    const operation = results[0];
-    return operation.promise();
-  })
-  .then((transcription) => {
-    console.log(transcription[0]);
-  })
 
 bot.launch()
