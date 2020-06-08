@@ -26,7 +26,7 @@ const bot = new Telegraf("1097903013:AAHqfjyVsppFchDSZj9S_gJ6-MrZlgvDHyQ");
 
 bot.start((ctx) => ctx.reply('Привет! Я бот для мышеловки! Рад познакомиться! Введи команду /help для ознакомления со списком моих команд!'))
 bot.help((ctx) => ctx.reply('Я бот, у меня пока что нет комманд'))
-bot.onText(/\/echo (.+)/, function (msg, match) {
+bot.hears('Шип',(ctx) => function (msg, match) {
   var chadId = ms.chat.id;
   var fromId = msg.from.id;
  bot.SendMessage(chatId,'Пара дня: ', fromId ,' + ', fromId ,' = 🥰');
