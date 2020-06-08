@@ -26,7 +26,7 @@ const bot = new Telegraf("1097903013:AAHqfjyVsppFchDSZj9S_gJ6-MrZlgvDHyQ");
 
 bot.start((ctx) => ctx.reply('Привет! Я бот для мышеловки! Рад познакомиться! Введи команду /help для ознакомления со списком моих команд!'))
 bot.help((ctx) => ctx.reply('Я бот, у меня пока что нет комманд'))
-bot.shipper((ctx) => ctx.reply('Пара дня: ', random_id ,' + ', random_id,' = 🥰'))
+bot.hears('/shipper', (ctx) => ctx.reply('Пара дня: ', random_id ,' + ', random_id,' = 🥰'))
 bot.hears('Прости', (ctx) => ctx.reply('Хорошо, и ты меня🥺'))
 bot.hears('прости', (ctx) => ctx.reply('Хорошо, и ты меня🥺'))
 
