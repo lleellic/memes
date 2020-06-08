@@ -28,7 +28,7 @@ bot.start((ctx) => ctx.reply('Привет! Я бот для мышеловки!
 bot.help((ctx) => ctx.reply('Я бот, у меня пока что нет комманд'))
 bot.hears('Прости', (ctx) => ctx.reply('Хорошо, и ты меня🥺'))
 bot.hears('прости', (ctx) => ctx.reply('Хорошо, и ты меня🥺'))
-bot.command('shipper', => ctx.reply(member_gerpa,' + ',member_gerda))
+bot.command('shipper',(ctx) => ctx.reply(member_gerpa,' + ',member_gerda))
 
 
 bot.launch()
