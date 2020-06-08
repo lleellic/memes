@@ -28,9 +28,25 @@ bot.start((ctx) => ctx.reply('Привет! Я бот для мышеловки!
 bot.help((ctx) => ctx.reply('Я бот, у меня пока что нет комманд'))
 bot.hears('Прости', (ctx) => ctx.reply('Хорошо, и ты меня🥺'))
 bot.hears('прости', (ctx) => ctx.reply('Хорошо, и ты меня🥺'))
-bot.command('shipper',(ctx) => function(){
-  var idname = message.chat.username;
-  ctx.reply(idname,', сегодня пара дня: @gerpaS + @GeniusIlya')})
 
+const Speech = require('@google-cloud/speech');
+
+const speech = new Speech({
+  projectId: 'voicy-151205',
+  credentials: require('path/to/certificate/file.json')
+});
+
+speech.startRecognition(filepath, {
+  'encoding': 'LINEAR16',
+  'sampleRate': 16000,
+  'languageCode': 'en-US',
+})
+  .then((results) => {
+    const operation = results[0];
+    return operation.promise();
+  })
+  .then((transcription) => {
+    console.log(transcription[0]);
+  })
 
 bot.launch()
