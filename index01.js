@@ -21,16 +21,10 @@ const member_saggitarius = 957137055;
 const member_lockteva = 565160580;
 const member_ekusok = 584206250;
   
-//const bot = new Telegraf("1097903013:AAHqfjyVsppFchDSZj9S_gJ6-MrZlgvDHyQ");
+const bot = new Telegraf("1097903013:AAHqfjyVsppFchDSZj9S_gJ6-MrZlgvDHyQ");
 
 
-const TelegramBot = require('node-telegram-bot-api');
-const token = process.env.AAHqfjyVsppFchDSZj9S_gJ6-MrZlgvDHyQ;
-const bot = new TelegramBot(token, {polling: true});
-const idAdmin = 684519513;
-bot.on('message', (msg) => {
-  const chatId = msg.chat.id;
-  const first_name = msg.chat.first_name;
+
 
   if (msg.text) {
 
