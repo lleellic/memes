@@ -13,6 +13,10 @@ bot.help((ctx) => {
   console.log(ctx)
   ctx.reply('Я бот, пока что я умею только прощать (уже не умею)')
                   })
+bot.heard('Сколько учатников в чате?', (ctx) => {
+  const idichat = IdChat;
+  ctx.reply(getChatMembersCount(idichat))
+            })
 
 
 bot.launch()
