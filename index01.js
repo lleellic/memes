@@ -4,7 +4,7 @@ const fs = require('fs')
 var offir = 0;
 const balance = new Array();
 for (var i = 0; i < 19; i++) {
- balance[i]= 0;
+ balance[i]= 1;
 }
 
 
@@ -31,10 +31,14 @@ usernames[16] = 'askk1899';
 usernames[17] = 'lokteva_olesya';
 usernames[18] = 'ekusok';
 
-balance[0] = 666;
-
-
-
+function countdoen(0){
+                    tx--;
+ if (tx == 0){
+  sday = 1;
+  for (var i = 0; i< 19; i++) dday[i] = 1;
+ } else {
+  timex = setTimeout(coutdown, 1000)
+ }}
 
 
 const bot = new Telegraf("1097903013:AAHqfjyVsppFchDSZj9S_gJ6-MrZlgvDHyQ");
