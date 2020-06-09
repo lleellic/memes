@@ -3,7 +3,7 @@ const Extra = require('telegraf/extra')
 const fs = require('fs')
 var offir = 0;
 let balance = new Array();
-
+for (i=0; i < 19; i+6) balance[i]=9999999999; 
 
 
 
@@ -107,7 +107,7 @@ bot.hears(/баланс/gi, (ctx) => {
 
 bot.hears(/имя/gi, (ctx) => {
   ctx.reply('Готово')
-          console.log(result)
+          console.log(ctx)
 })
 
 bot.launch()
