@@ -106,7 +106,7 @@ bot.hears(/баланс/gi, (ctx) => {
   case 'ekusok': idid = 18;
   default: idid = 5;
 }
-           ctx.reply( '<a href="tg://user?id=684519513">inline mention of a user</a>: ' + balance[idid]+' конфет')
+           ctx.reply(ctx.from.id, '<a href="tg://user?id=684519513">inline mention of a user</a>: ' + balance[idid]+' конфет', html)
 })
 
 bot.hears(/имя/gi, (ctx) => {
