@@ -37,8 +37,8 @@ bot.help((ctx) => ctx.reply('@'+ctx.from.username+', я пока ничего н
 
 bot.hears(/прости/gi, (ctx) => ctx.reply('Хорошо, и ты меня🥺'))
 bot.hears(/извин/gi, (ctx) => ctx.reply('Прости меня🥺'))
-bot.command('shipper', => { 
-            
+bot.command('shipper', (ctx) => { 
+            console.log(ctx.from.id)
             
             
             
