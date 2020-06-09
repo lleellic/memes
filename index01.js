@@ -90,7 +90,6 @@ bot.hears(/баланс/gi, (ctx) => {
   case 'gloomyXIII': idid = 2;
   case 'Son_Of_Moon_69': idid = 3;
   case 'bnnclvr': idid = 4;
-  case : ;  
   case 'linaaaaaaaaaaaaaaaaaaaaaaaaaq': idid = 6;
   case 'nicebanana': idid = 7;
   case 'Akana_Unamori': idid = 8;  
