@@ -20,11 +20,10 @@ polling: {
 
 bot.on('message', msg => {
        const { id } = msg.chat
-       
-       bot.sendMessage(id, debug)
-       })
-function debug(obj = {}) {
- return JSON.stringify(obj, null, 4)
-}
+     if(msg.text.toLowerCase(0 === 'hello') {
+        bot.SendMessage(id, 'Hello, $(msg.from.firstname)')
+        } else 
+       bot.sendMessage(id, "  i do not understand!)
+})
 
 
