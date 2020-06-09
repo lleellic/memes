@@ -1,7 +1,7 @@
 const Telegraf = require('telegraf')
 const Extra = require('telegraf/extra')
 const fs = require('fs')
-const offir = 0;
+var offir = 0;
 
 let balance = new Array();
 balance[0] = 1000;
