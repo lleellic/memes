@@ -1,14 +1,11 @@
 {
- "name": "course-telegram-bot",
+ "name": "root",
  "version": "1.0.0",
- "description": "",
  "main": "index01.js",
- "scripts":{
+ "scripts": {
   "start": "node index01.js"
  },
  "author": "",
  "license": "ISC",
- "dependencies": {
-  "node-telegram-bot-api": "^0.28.0"
- }
+ "description": ""
 }
