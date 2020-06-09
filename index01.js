@@ -10,7 +10,7 @@ for (var i = 0; i < 19; i++) {
 
 
 var members = [684519513, 687542018, 240481520, 757403329, 1178427119, 645483421, 721564120, 1045964979, 1074618502, 851957031, 612495949, 932348113, 687329153, 564553040, 691269383, 751498406, 957137055, 565160580, 584206250]
-const usernames =  new array();
+const usernames =  new Array();
 usernames[0] = 'oscu1um';
 usernames[1] = 'karenbrattt';
 usernames[2] = 'gloomyXIII';
