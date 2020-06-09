@@ -23,25 +23,7 @@ const member_18 = 565160580;
 const member_19 = 910787068;
 const member_20 = 584206250;
 
-const balance_01;
-const balance_02;
-const balance_03;
-const balance_04;
-const balance_06;
-const balance_07;
-const balance_08;
-const balance_09;
-const balance_10;
-const balance_11;
-const balance_12;
-const balance_13;
-const balance_14;
-const balance_15;
-const balance_16;
-const balance_17;
-const balance_18;
-const balance_19;
-const balance_20;
+
 
 
 const bot = new Telegraf("1097903013:AAHqfjyVsppFchDSZj9S_gJ6-MrZlgvDHyQ");
