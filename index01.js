@@ -122,7 +122,7 @@ bot.command('shipper', (ctx) => {
      case 17: sh22 = 'lokteva_olesya';
      case 18: sh22 = 'ekusok';
 }
-          ctx.reply('Пара дня: @' + sh11 +' + @' + sh22 + ' = 🥰')
+          ctx.reply('Пара дня: @' + (sh11) +' + @' + (sh22) + ' = 🥰')
             
  })
 
