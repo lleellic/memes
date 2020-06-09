@@ -120,7 +120,7 @@ bot.hears(/баланс/gi, (ctx) => {
 
 bot.hears(/имя/gi, (ctx) => {
   ctx.reply('Готово')
-          console.log(ctx.from)
+          console.log(ctx)
 })
 
 bot.launch()
