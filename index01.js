@@ -101,7 +101,7 @@ bot.hears(/баланс/gi, (ctx) => {
   case 'askk1899': idid = 16;
   case 'lokteva_olesya': idid = 17;
   case 'ekusok': idid = 18;
-               default idid = 5;
+  default: idid = 5;
 }
            ctx.reply('@'+ctx.from.username+', твой баланс: '+ balance[idid]+' конфет')
 })
