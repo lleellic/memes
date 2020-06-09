@@ -7,8 +7,6 @@
  },
  "author": "",
  "license": "ISC",
- "description": ""
- "dependencies": {
- "node-telegram-bot-api": "^0.28.0"
+ "description": "",
 }
-}
+
