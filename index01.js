@@ -9,8 +9,26 @@ for (var i = 0; i < 20; i++) {
    balance[i] = 0
 }
 var members = [684519513, 687542018, 240481520, 757403329, 1178427119, 645483421, 721564120, 1045964979, 1074618502, 851957031, 612495949, 932348113, 687329153, 564553040, 691269383, 751498406, 957137055, 565160580, 584206250]
-var usernames = ['oscu1um','karenbrattt','gloomyXIII','Son_Of_Moon_69','bnnclvr','none','linaaaaaaaaaaaaaaaaaaaaaaaaaq','nicebanana','Akana_Unamori','hochy_rollov','GeniusIlya','Get_away3','gerpaS','iraasynytsiaa','StupidKaktus','FastK1ll','askk1899','lokteva_olesya','ekusok']
-
+var usernames = []
+usernames[0] = 'oscu1um';
+usernames[1] = 'karenbrattt';
+usernames[2] = 'gloomyXIII';
+usernames[3] = 'Son_Of_Moon_69';
+usernames[4] = 'bnnclvr';
+usernames[5] = 'none';
+usernames[6] = 'linaaaaaaaaaaaaaaaaaaaaaaaaaq';
+usernames[7] = 'nicebanana'
+usernames[8] = 'Akana_Unamori';
+usernames[9] = 'hochy_rollov';
+usernames[10] = 'GeniusIlya';
+usernames[11] = 'Get_away3';
+usernames[12] = 'gerpaS';
+usernames[13] = 'iraasynytsiaa';
+usernames[14] = 'StupidKaktus';
+usernames[15] = 'FastK1ll';
+usernames[16] = 'askk1899';
+usernames[17] = 'lokteva_olesya';
+usernames[18] = 'ekusok';
 
 
 
