@@ -37,7 +37,6 @@ let tx = 86400;
 function countdown(){
                     tx--;
  if (tx < 0){
-  sday = 1;
   for (var i = 0; i< 19; i++) dday[i] = 1;
  } else {
   timex = setTimeout(coutdown, 1000)
@@ -82,55 +81,6 @@ bot.hears(/извин/gi, (ctx) => {
           if (offir == 0) ctx.reply('Прости меня🥺')
 })
 
-bot.command('shipper', (ctx) => { 
-          var sh1 = Math.random() * 19;
-          var sh2 = Math.random() * 19;
-            for (var i = 0; i < 9; i++) {
-             if (sh1 == sh2) sh2 = Math.floor(Math.random() * 10) + 1;
-}
-  switch (sh1) {
-     case 1: var sh11 = 'oscu1um';
-     case 2: var sh11 = 'karenbrattt';
-     case 3: var sh11 = 'gloomyXIII';
-     case 4: var sh11 = 'Son_Of_Moon_69';
-     case 5: var sh11 = 'bnnclvr';
-     case 6: var sh11 = 'linaaaaaaaaaaaaaaaaaaaaaaaaaq';
-     case 7: var sh11 = 'nicebanana';
-     case 8: var sh11 = 'Akana_Unamori';
-     case 9: var sh11 = 'hochy_rollov';
-     case 10: var sh11 = 'GeniusIlya';
-     case 11: var sh11 = 'Get_away3';
-     case 12: var sh11 = 'gerpaS';
-     case 13: var sh11 = 'iraasynytsiaa';
-     case 14: var sh11 = 'StupidKaktus';
-     case 15: var sh11 = 'FastK1ll';
-     case 16: var sh11 = 'askk1899';
-     case 17: var sh11 = 'lokteva_olesya';
-     case 18: var sh11 = 'ekusok';
-}
-     switch (sh2) {
-     case 1: var sh22 = 'oscu1um';
-     case 2: var sh22 = 'karenbrattt';
-     case 3: var sh22 = 'gloomyXIII';
-     case 4: var sh22 = 'Son_Of_Moon_69';
-     case 5: var sh22 = 'bnnclvr';
-     case 6: var sh22 = 'linaaaaaaaaaaaaaaaaaaaaaaaaaq';
-     case 7: var sh22 = 'nicebanana';
-     case 8: var sh22 = 'Akana_Unamori';
-     case 9: var sh22 = 'hochy_rollov';
-     case 10: var sh22 = 'GeniusIlya';
-     case 11: var sh22 = 'Get_away3';
-     case 12: var sh22 = 'gerpaS';
-     case 13: var sh22 = 'iraasynytsiaa';
-     case 14: var sh22 = 'StupidKaktus';
-     case 15: var sh22 = 'FastK1ll';
-     case 16: var sh22 = 'askk1899';
-     case 17: var sh22 = 'lokteva_olesya';
-     case 18: var sh22 = 'ekusok';
-}
-          ctx.reply('Пара дня: @' + (sh11) +' + @' + (sh22) + ' = 🥰')
-            
- })
 
 bot.hears(/баланс/gi, (ctx) => {
    var idid;
@@ -157,5 +107,6 @@ bot.hears(/баланс/gi, (ctx) => {
            ctx.reply('@'+ctx.from.username+', твой баланс: '+ balance[idid]+' конфет')
 })
 
+balance[0]++;
 
 bot.launch()
