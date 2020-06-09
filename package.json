@@ -5,7 +5,7 @@
  "main": "index01.js",
  "scripts":{
   "start": "node index01.js"
- }
+ },
  "author": "",
  "license": "ISC",
  "dependencies": {
