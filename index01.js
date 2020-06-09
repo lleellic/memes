@@ -19,7 +19,7 @@ polling: {
 
 
 bot.on('message', msg => {
-       const { id } = msg.chat.id
+       const { id } = msg.chat
        
        bot.sendMessage(id, debug)
        })
