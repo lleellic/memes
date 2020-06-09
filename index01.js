@@ -31,9 +31,12 @@ usernames[16] = 'askk1899';
 usernames[17] = 'lokteva_olesya';
 usernames[18] = 'ekusok';
 
+
+let timex;
+let tx = 86400;
 function countdown(){
                     tx--;
- if (tx == 0){
+ if (tx < 0){
   sday = 1;
   for (var i = 0; i< 19; i++) dday[i] = 1;
  } else {
