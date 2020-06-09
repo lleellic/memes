@@ -2,7 +2,6 @@ const Telegraf = require('telegraf')
 const Extra = require('telegraf/extra')
 const fs = require('fs')
 var offir = 0;
-
 var balance = new Array();
 balance[0] = 1000;
 for (var i = 0; i < 20; i++) {
@@ -10,14 +9,14 @@ for (var i = 0; i < 20; i++) {
 }
 var members = [684519513, 687542018, 240481520, 757403329, 1178427119, 645483421, 721564120, 1045964979, 1074618502, 851957031, 612495949, 932348113, 687329153, 564553040, 691269383, 751498406, 957137055, 565160580, 584206250]
 var usernames = []
-usernames[0] = 'oscu1um';
+usernames[0] = "oscu1um";
 usernames[1] = 'karenbrattt';
 usernames[2] = 'gloomyXIII';
 usernames[3] = 'Son_Of_Moon_69';
 usernames[4] = 'bnnclvr';
 usernames[5] = 'none';
 usernames[6] = 'linaaaaaaaaaaaaaaaaaaaaaaaaaq';
-usernames[7] = 'nicebanana'
+usernames[7] = 'nicebanana';
 usernames[8] = 'Akana_Unamori';
 usernames[9] = 'hochy_rollov';
 usernames[10] = 'GeniusIlya';
@@ -83,6 +82,30 @@ bot.command('shipper', (ctx) => {
             
  })
 
+bot.hears(/баланс/gi, (ctx) => {
+   var idid;
+           switch (ctx.from.username) {
+  case 'oscu1um': idid = 0;
+  case 'karenbrattt': idid = 1;
+  case 'gloomyXIII': idid = 2;
+  case 'Son_Of_Moon_69': idid = 3;
+  case 'bnnclvr': idid = 4;
+  case : ;  
+  case 'linaaaaaaaaaaaaaaaaaaaaaaaaaq': idid = 6;
+  case 'nicebanana': idid = 7;
+  case 'Akana_Unamori': idid = 8;  
+  case 'hochy_rollov': idid = 9 ;
+  case 'GeniusIlya':idid = 10 ;
+  case 'Get_away3': idid = 11;  
+  case 'gerpaS': idid = 12;
+  case 'iraasynytsiaa': idid = 13;
+  case 'FastK1ll': idid = 14;
+  case 'askk1899': idid = 15;
+  case 'lokteva_olesya': idid = 16;
+  case 'ekusok': idid = 17;
+}
+           ctx.reply('@'+ctx.from.username+', твой баланс: '+ balance[idid]+' кофет')
+})
 
 
 bot.launch()
