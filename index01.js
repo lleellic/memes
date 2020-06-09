@@ -1,5 +1,8 @@
 const Telegrambot = require('node-telegram-bot-api')
 const TOKEN = '1097903013:AAHqfjyVsppFchDSZj9S_gJ6-MrZlgvDHyQ'
+
+console.log('Бот стартовал...')
+
 cons bot = new TelegramBot(TOKEN, {
 polling: {
  interval: 300,
@@ -15,8 +18,8 @@ polling: {
 
 
 
-bot.on('message', msg =>{
-       const { id } = msg.chat
+bot.on('message', msg => {
+       const { id } = msg.chat.id
        
        bot.sendMessage(id, JSON.stringify(msg))
        })
