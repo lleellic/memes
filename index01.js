@@ -15,7 +15,7 @@ polling: {
 
 
 
-bot.on('Тест' msg =>{
+bot.on('Тест', msg =>{
        console.log()
        bot.sendmessage(msg.chat.id, 'Тест прошёл успешно!')
        })
