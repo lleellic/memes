@@ -15,7 +15,7 @@ bot.help((ctx) => {
                   })
 bot.hears('Сколько учатников в чате?', (ctx) => {
   const idichat = IdChat;
-  ctx.reply(getChatMembersCount(idichat))
+  ctx.reply('getChatMembersCount(idichat)')
             })
 
 
