@@ -3,7 +3,7 @@ const Extra = require('telegraf/extra')
 const fs = require('fs')
 var offir = 0;
 const balance = new Array();
-for (i=0; i < 19; i++) balance[i]=9999999999; 
+for (i=0; i < 19; i++) balance[i]= 1; 
 
 
 
@@ -101,6 +101,7 @@ bot.hears(/баланс/gi, (ctx) => {
   case 'askk1899': idid = 16;
   case 'lokteva_olesya': idid = 17;
   case 'ekusok': idid = 18;
+               default idid = 5;
 }
            ctx.reply('@'+ctx.from.username+', твой баланс: '+ balance[idid]+' конфет')
 })
