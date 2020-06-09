@@ -28,7 +28,7 @@ usernames[15] = 'FastK1ll';
 usernames[16] = 'askk1899';
 usernames[17] = 'lokteva_olesya';
 usernames[18] = 'ekusok';
-
+ balance[0] = 666;
 
 
 
@@ -103,7 +103,7 @@ bot.hears(/баланс/gi, (ctx) => {
   case 'lokteva_olesya': idid = 16;
   case 'ekusok': idid = 17;
 }
-           ctx.reply('@'+ctx.from.username+', твой баланс: '+ balance[idid]+' кофет')
+           ctx.reply('@'+ctx.from.username+', твой баланс: '+ balance[idid]+' конфет')
 })
 
 
