@@ -12,7 +12,10 @@ bot.start((ctx) => ctx.reply('Привет, ${ctx.from.username}! Я бот дл
 bot.help((ctx) => ctx.reply('@'+ctx.from.username+', я пока ничего не умею'))
 
 
-bot.hears(/прости/gi, (ctx) => ctx.reply('Хорошо, и ты меня🥺'))
+bot.hears(/прости/gi, (ctx) => {
+  console.log(ctx.message)
+  ctx.reply('Хорошо, и ты меня🥺')
+})
 bot.hears(/извин/gi, (ctx) => ctx.reply('Прости меня🥺'))
 
 
