@@ -2,13 +2,13 @@ const Telegraf = require('telegraf')
 const Extra = require('telegraf/extra')
 const fs = require('fs')
 var offir = 0;
-var balance = new Array();
+const balance = new Array();
 balance[0] = 1000;
 for (var i = 0; i < 20; i++) {
    balance[i] = 0
 }
 var members = [684519513, 687542018, 240481520, 757403329, 1178427119, 645483421, 721564120, 1045964979, 1074618502, 851957031, 612495949, 932348113, 687329153, 564553040, 691269383, 751498406, 957137055, 565160580, 584206250]
-var usernames = []
+var usernames = [];
 usernames[0] = "oscu1um";
 usernames[1] = 'karenbrattt';
 usernames[2] = 'gloomyXIII';
@@ -28,7 +28,8 @@ usernames[15] = 'FastK1ll';
 usernames[16] = 'askk1899';
 usernames[17] = 'lokteva_olesya';
 usernames[18] = 'ekusok';
- balance[0] = 666;
+
+balance[0] = 666;
 
 
 
@@ -45,7 +46,7 @@ bot.hears(/Выключить извинения/gi, (ctx) => {
         ctx.reply('Извинения отключены')  
   }}
 else{
- ctx.reply('Недосаточно прав!')
+ ctx.reply('Недостаточно прав!')
 }
 })
           
@@ -57,7 +58,7 @@ bot.hears(/Включить извинения/gi, (ctx) => {
         ctx.reply('Извинения включены')  
   }}
  else{
- ctx.reply('Недосаточно прав!')
+ ctx.reply('Недостаточно прав!')
 }
 })
 
@@ -78,7 +79,7 @@ bot.command('shipper', (ctx) => {
             for (var i = 0; i < 9; i++) {
              if (sh1 == sh2) sh2 = Math.floor(Math.random() * 10) + 1;
 }
-          ctx.reply('Пара дня: @' + usernames[sh1]+' + @' +usernames[sh2]+' = 🥰')
+          ctx.reply('Пара дня: @' + (usernames[sh1]) +' + @' + (usernames[sh2]) + ' = 🥰')
             
  })
 
@@ -98,10 +99,11 @@ bot.hears(/баланс/gi, (ctx) => {
   case 'Get_away3': idid = 11;  
   case 'gerpaS': idid = 12;
   case 'iraasynytsiaa': idid = 13;
-  case 'FastK1ll': idid = 14;
-  case 'askk1899': idid = 15;
-  case 'lokteva_olesya': idid = 16;
-  case 'ekusok': idid = 17;
+  case 'StupidKaktus': idid = 14;
+  case 'FastK1ll': idid = 15;
+  case 'askk1899': idid = 16;
+  case 'lokteva_olesya': idid = 17;
+  case 'ekusok': idid = 18;
 }
            ctx.reply('@'+ctx.from.username+', твой баланс: '+ balance[idid]+' конфет')
 })
