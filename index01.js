@@ -3,7 +3,7 @@ const TOKEN = '1097903013:AAHqfjyVsppFchDSZj9S_gJ6-MrZlgvDHyQ'
 
 console.log('Bot hs been started...')
 
-cons bot = new TelegramBot(TOKEN, {
+const bot = new TelegramBot(TOKEN, {
 polling: {
  interval: 300,
  autoStart: true,
