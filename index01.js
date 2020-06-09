@@ -26,7 +26,7 @@ usernames[13] = iraasynytsiaa;
 usernames[14] = StupidKaktus;
 usernames[15] = FastK1ll;
 usernames[16] = askk1899;
-usernames[17] = lokteva_olesya';
+usernames[17] = lokteva_olesya;
 usernames[18] = ekusok;
 
 balance[0] = 666;
