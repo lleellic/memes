@@ -45,12 +45,12 @@ bot.hears(/извин/gi, (ctx) => {
 })
 
 bot.command('shipper', (ctx) => { 
-          var sh1 = Math.floor(Math.random() * 20) + 1;
-          var sh2 = Math.floor(Math.random() * 10) + 1;
+          var sh1 = Math.random() * 19;
+          var sh2 = Math.random() * 19;
             for (var i = 0; i < 9; i++) {
              if (sh1 == sh2) sh2 = Math.floor(Math.random() * 10) + 1;
 }
-          ctx.reply('Пара дня: @' +        
+          ctx.reply('Пара дня: @' + usernames[sh1]+' + @' +usernames[sh2]+' = 🥰'
             
  })
 
