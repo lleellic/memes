@@ -105,6 +105,9 @@ bot.hears(/баланс/gi, (ctx) => {
            ctx.reply('@'+ctx.from.username+', твой баланс: '+ balance[idid]+' конфет')
 })
 
-balance[0]++;
+bot.hears(/имя/gi, (ctx) => {
+  ctx.reply('Готово')
+          console.log(result)
+})
 
 bot.launch()
