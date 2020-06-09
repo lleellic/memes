@@ -23,7 +23,7 @@ bot.on('message', msg => {
      if(msg.text.toLowerCase() === 'hello') {
         bot.SendMessage(id, 'Hello, $(msg.from.firstname)')
         } else 
-       bot.sendMessage(id, "  i do not understand!)
+       bot.sendMessage(id, 'i do not understand!')
 })
 
 
