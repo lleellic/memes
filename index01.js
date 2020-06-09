@@ -83,16 +83,7 @@ bot.hears(/извин/gi, (ctx) => {
 bot.hears(/баланс/gi, (ctx) => {
    var idid;
   
-  var usernamecode = {
-    parse_mode: "HTML",
-    disable_web_page_preview: false,
-    reply_markup: JSON.stringify({
-        inline_keyboard: [[{
-            text: 'Название кнопки',
-            callback_data: 'do_something'
-        }]]
-    })
-}
+
   
            switch (ctx.from.username) {
   case 'oscu1um': idid = 0;
@@ -115,7 +106,7 @@ bot.hears(/баланс/gi, (ctx) => {
   case 'ekusok': idid = 18;
   default: idid = 5;
 }
-           ctx.reply(usernamecod + balance[idid]+' конфет')
+           ctx.reply( '<a href="tg://user?id=684519513">inline mention of a user</a>: ' + balance[idid]+' конфет')
 })
 
 bot.hears(/имя/gi, (ctx) => {
