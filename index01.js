@@ -31,7 +31,7 @@ usernames[16] = 'askk1899';
 usernames[17] = 'lokteva_olesya';
 usernames[18] = 'ekusok';
 
-function countdoen(0){
+function countdown(){
                     tx--;
  if (tx == 0){
   sday = 1;
