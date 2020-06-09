@@ -20,27 +20,31 @@ let usernames = ['oscu1um','karenbrattt','gloomyXIII','Son_Of_Moon_69','bnnclvr'
 const bot = new Telegraf("1097903013:AAHqfjyVsppFchDSZj9S_gJ6-MrZlgvDHyQ");
 
 
-bot.hears('Выключить извинения', (ctx) => {
+bot.hears(/Выключить извинения/gi, (ctx) => {
           if (ctx.from.id == 684519513 || ctx.from.id == 687542018) {
  if (offir == 1) ctx.reply('Извинения уже отключены')
  else {
         offir = 1;
         ctx.reply('Извинения отключены')  
   }
- }
+else{
+ ctx.reply('Недосаточно прав!')
+}}
 })
           
-bot.hears('Включить извинения', (ctx) => {
+bot.hears(/Включить извинения/gi, (ctx) => {
           if (ctx.from.id == 684519513 || ctx.from.id == 687542018) {
  if (offir == 0) ctx.reply('Извинения уже включены')
  else {
         offir = 0;
         ctx.reply('Извинения включены')  
   }
- }
+ else{
+ ctx.reply('Недосаточно прав!')
+}}
 })
 
-bot.start((ctx) => ctx.reply('Привет @'+ctx.from.username+'! Я бот для мышеловки! Рад познакомиться! Введи команду /help для ознакомления со списком моих команд!'))
+bot.start((ctx) => ctx.reply('Привет @'+ ctx.from.username +'! Я бот для мышеловки! Рад познакомиться! Введи команду /help для ознакомления со списком моих команд!'))
 bot.help((ctx) => ctx.reply('@'+ctx.from.username+', я пока ничего не умею'))
 
 
