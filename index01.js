@@ -50,8 +50,6 @@ bot.command('shipper', (ctx) => {
             for (var i = 0; i < 9; i++) {
              if (sh1 == sh2) sh2 = Math.floor(Math.random() * 10) + 1;
 }
-if (sh1 < 10) sh1 = '0'+sh1;
-if (sh2 < 10) sh2 = '0'+sh1;
           ctx.reply('Пара дня: @' +        
             
  })
