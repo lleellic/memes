@@ -9,7 +9,7 @@ const bot = new Telegraf("1097903013:AAHqfjyVsppFchDSZj9S_gJ6-MrZlgvDHyQ");
 
 
 bot.start((ctx) => ctx.reply('Привет! Я бот для мышеловки! Рад познакомиться! Введи команду /help для ознакомления со списком моих команд!'))
-bot.help((msg) => { 
+bot.help((ctx) => { 
   console.log(msg)
   ctx.reply('Я бот, пока что я умею только прощать (уже не умею)')
                   })
