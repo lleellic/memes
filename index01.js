@@ -21,9 +21,10 @@ polling: {
 bot.on('message', msg => {
        const { id } = msg.chat.id
        
-       bot.sendMessage(id, JSON.stringify(msg))
+       bot.sendMessage(id, debug)
        })
-bot.start((ctx) => ctx.reply('Привет! Я бот для мышеловки! Рад познакомиться! Введи команду /help для ознакомления со списком моих команд!'))
-bot.help((ctx) => ctx.reply('Я бот, пока что я умею только прощать'))
+function debug(obj = {}) {
+ return JSON.stringify(obj, null, 4)
+}
 
-bot.launch()
+
