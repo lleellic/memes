@@ -1,10 +1,13 @@
 const Telegraf = require('telegraf')
 const Extra = require('telegraf/extra')
 const fs = require('fs')
-const members = require('./members')
-const balances = require('./members')
 const offir = 0;
 
+let balance = new Array();
+balance[0] = 1000;
+for (var i = 0; i < 20; i++) {
+   balance[i] = 0
+}
 
 
 
