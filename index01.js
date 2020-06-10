@@ -128,77 +128,54 @@ bot.hears(/баланс/gi, (ctx) => {
 
 ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a>, твой балланс: '+balance[idid]+' конфет(а)', {parse_mode : "HTML"});
 })
-let textofg = {
-    parse_mode: "HTML",
-    disable_web_page_preview: false,
-    reply_markup: ({
-        inline_keyboard: [[
-          {
-            text: 'Играть!',
-            callback_data: '1'
-          },
-          {
-            text: 'Выйти!',
-            callback_data: '2'
-          }],
-          [
-            {
-            text: 'Старт!',
-            callback_data: '3'
-          },
-          {
-            text: 'Стоп!',
-            callback_data: '4'
-          }
-          ]]
-    })
-}
 
 
 
 var gamevalue = 0;
 var gamersb;
 var gamerb = new Array();
+
 bot.hears(/играть было/gi, (ctx) => {
   if (gamevalue == 0) {
 gamevalue = 1;
 var gamersb = 0;
 var gamerb = [];
-  ctx.reply('Начат набор игроков', textofg )
+  ctx.reply('Начат набор игроков', Markup.inlineKeyboard([
+          Markup.callbackButton('Играть!', '1'),
+          Markup.callbackButton('Выйти!', '2')
+          ],
+          [
+          Markup.callbackButton('Старт!', '3'),
+          Markup.callbackButton('Стоп!', '4')
+         ]))
 } else {
     ctx.reply('Игра уже начата')
   }
 })
   
-bot.on('callback_data', (ctx) => {
-  console.log('1')
-switch (ctx.answerCbQuery()) {
-case 1: {
-  console.log('2')
+bot.action('1', ctx => {
 ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
 gamerb[gamersb] = ctx.from.id;
 gamersb++;
-console.log(gamersb);
-}; break
-case 2: {
-gamerb[gamersb] = 'null';
+})
+bot.action('2', ctx => {
+  gamerb[gamersb] = 'null';
 gamersb--;
-}; break
-case 3: {
-if (gamersb > 1) {
+})
+bot.action('3', ctx => {
+  if (gamersb > 1) {
 gameb(gamersb)
 } else {
 ctx.reply('Количество игроков для старта слишком мало. Позовите кого-нибудь для старта');
-}
-}; break
-case 4:{
-for (i=0;i<mesbot.lenght;i++){
+})
+bot.action('4', ctx => {
+  for (i=0;i<mesbot.lenght;i++){
 ctx.deleteMessage(ctx.chatid,mesbot[i])}
 ctx.reply('Игра была отменена');
 gamevalue = 0;
-}; break
-}
-});
+})
+bot.on('callback_data', (ctx) => {
+  console.log('1')
 
 
 
