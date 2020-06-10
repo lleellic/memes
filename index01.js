@@ -148,13 +148,13 @@ var gamerb = [];
 } else {
     ctx.reply('Игра уже начата')
   }
-})
-
-switch (callback_data) {
+  switch (callback_data) {
     case 'ingameb': { ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
 gamerb[gamersb] = ctx.from.id;
 gamersb++;  }
 }    
+})
+
 
 bot.hears('startgameb', (ctx) => {
 if (gamersb > 1) {
