@@ -4,8 +4,6 @@ const Extra = require('telegraf/extra')
 const fs = require('fs')
 var offir = 0;
 
-var balance;
-var zero = balance.zero;
 
 
 
