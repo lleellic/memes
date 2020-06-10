@@ -13,4 +13,19 @@ var startb = {
 
 bot.onText(/Играть в было/i, (msg) => {
  bot.sendMessage(msg.from.id,'Набор игроков для игры: Было не было', startb);
+ switch(callback_query) {
+   case 'COOMMAND1': {
+     bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
+   };
+   case 'COOMMAND2': {
+     bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"})
+   };
+   case 'COOMMAND3': {
+     bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> голосуетза старт', {parse_mode : "HTML"})
+   };
+   case 'COOMMAND4': {
+     bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> хочет отменить игру', {parse_mode : "HTML"})
+   };
+ 
+ }
 })
