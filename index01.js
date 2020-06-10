@@ -88,8 +88,8 @@ bot.hears(/Включить извинения/gi, (ctx) => {
 }
 })
 
-bot.start((ctx) => ctx.reply('Привет, <a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.username+'</a>! Я бот для мышеловки! Рад познакомиться! Введи команду /help для ознакомления со списком моих команд!'))
-bot.help((ctx) => ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.username+'</a>, я пока ничего не умею'))
+bot.start((ctx) => ctx.reply('Привет, <a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.username+'</a>! Я бот для мышеловки! Рад познакомиться! Введи команду /help для ознакомления со списком моих команд!', {parse_mode : "HTML"}))
+bot.help((ctx) => ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.username+'</a>, я пока ничего не умею', {parse_mode : "HTML"}))
 
 
 bot.hears(/прости/gi, (ctx) => {
