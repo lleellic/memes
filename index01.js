@@ -149,7 +149,7 @@ var gamerb = [];
    {text: 'Старт!', callback_data: '3' },
    {text: 'Стоп', callback_data: '4' }
  ]]
-}) }
+}) 
 } else {
     ctx.reply('Игра уже начата')
   }
