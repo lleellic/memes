@@ -16,7 +16,7 @@ bot.onText(/Играть в было/i, (msg) => {
 gamebvalue = 1;
 })
 bot.on('callback_query', function (msg) {
-  if (offers==0) {
+if(offers==0) {
    
             switch(msg.data) {
    case 'COOMMAND1': {
@@ -38,13 +38,12 @@ bot.on('callback_query', function (msg) {
                 break;
               default: console.log('error'); break;
             };
-   offers = 1;
   } else { 
               bot.sendMessage(msg.chat.id, 'Игра уже начата', true);
             }
 });
 
-//function
+function commands1()
 
 
 
