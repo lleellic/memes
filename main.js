@@ -26,6 +26,7 @@ bot.on('callback_query', function (msg) {
    };
                 break;
    case 'COMMAND3': {
+     console(msg);
      bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт',{parse_mode : "HTML"} );
    };
                 break;
