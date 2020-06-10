@@ -135,20 +135,20 @@ let textofg = {
         inline_keyboard: [[
           {
             text: 'Играть!',
-            callback_data: '1_1'
+            callback_data: '1'
           },
           {
             text: 'Выйти!',
-            callback_data: '1_2'
+            callback_data: '2'
           }],
           [
             {
             text: 'Старт!',
-            callback_data: '1_3'
+            callback_data: '3'
           },
           {
             text: 'Стоп!',
-            callback_data: '1_4'
+            callback_data: '4'
           }
           ]]
     })
