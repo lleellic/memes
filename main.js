@@ -20,12 +20,13 @@ bot.onText(/Играть в было/i, (msg) => {
 gamebvalue = 1;
 })
 bot.on('callback_query', function(msg) {
-  if (msg.data == 'COOMMAND1') bot.answerCallbackQuery(msg.id, 'Вы вошли в игру', false);
-  if (msg.data == 'COMMAND2') bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', false);
-  if (msg.data == 'COMMAND3') bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
-  if (msg.data == 'COMMAND4') bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры', false);
-  if (msg.data == 'COOMMAND1') sendMessage(msg.chat.id,'Набор игроков для игры: Было не было', startb);
-msg.data(msg.id, msg.chat.id, msg.from.id, msg.from.first_name)
+(msg.data == 'COOMMAND1') ? bot.answerCallbackQuery(msg.id, 'Вы вошли в игру', false):
+(msg.data == 'COMMAND2') ? bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', false):
+(msg.data == 'COMMAND3') ? bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false):
+(msg.data == 'COMMAND4') ? bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры', false): console.log('error5')
+
+(msg.data == 'COOMMAND1') ? sendMessage(msg.chat.id,'Набор игроков для игры: Было не было', startb)": console.log('error6)
+
               
 });
 
