@@ -19,4 +19,4 @@ balance[17] = 0;
 balance[18] = 0;
 balance[19] = 0;
 
-module.exports = { balancee };
+module.exports = { balance };
