@@ -3,11 +3,6 @@ var TelegramBot = require('node-telegram-bot-api');
 const Extra = require('telegraf/extra')
 const fs = require('fs')
 var balance = require('./balance');
-var offir = 0;
-
-
-
-
 
 
 
