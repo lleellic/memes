@@ -135,10 +135,10 @@ bot.hears(/играть было/gi, (ctx) => {
 gamevalue = 1;
 var gamersb = 0;
 var gamerb = [];
-  ctx.reply('Начат набор игроков',  inline_keyboard: [[{
+  ctx.reply('Начат набор игроков',  {inline_keyboard: [[{
             text: 'Название кнопки',
             callback_data: 'do_something'
-        }]])
+        }]]})
             
 } else {
     ctx.reply('Игра уже начата')
