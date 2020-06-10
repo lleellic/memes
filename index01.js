@@ -146,7 +146,7 @@ var gamerb = [];
     { text: 'Выйти', callback_data: '2' }
 ]
  [
-   {text: 'Старт!', callback_data: '3' }
+   {text: 'Старт!', callback_data: '3' },
    {text: 'Стоп', callback_data: '4' }
  ]
                                                                                      ];
