@@ -25,7 +25,7 @@ bot.on('callback_query', function(msg) {
 (msg.data == 'COMMAND3') ? bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false):
 (msg.data == 'COMMAND4') ? bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры', false): console.log('error5')
 
-(msg.data == 'COOMMAND1') ? sendMessage(msg.chat.id,'Набор игроков для игры: Было не было', startb)": console.log('error6)
+(msg.data == 'COOMMAND1') ? sendMessage(msg.chat.id,'Набор игроков для игры: Было не было', startb): console.log('error6)
 
               
 });
