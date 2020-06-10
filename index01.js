@@ -88,8 +88,8 @@ bot.hears(/Включить извинения/gi, (ctx) => {
 }
 })
 
-bot.start((ctx) => ctx.reply('Привет @'+ ctx.from.username +'! Я бот для мышеловки! Рад познакомиться! Введи команду /help для ознакомления со списком моих команд!'))
-bot.help((ctx) => ctx.reply('@'+ctx.from.username+', я пока ничего не умею'))
+bot.start((ctx) => ctx.reply('Привет, <a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.username+'</a>! Я бот для мышеловки! Рад познакомиться! Введи команду /help для ознакомления со списком моих команд!'))
+bot.help((ctx) => ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.username+'</a>, я пока ничего не умею'))
 
 
 bot.hears(/прости/gi, (ctx) => {
@@ -125,7 +125,7 @@ bot.hears(/баланс/gi, (ctx) => {
   default: idid = 5;
 }
 
-ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.username+'</a>, твой балланс:'+balance[idid]+' конфет(а)', {parse_mode : "HTML"});
+ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.username+'</a>, твой балланс: '+balance[idid]+' конфет(а)', {parse_mode : "HTML"});
 })
 
 bot.hears(/имя/gi, (ctx) => {
