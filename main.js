@@ -18,19 +18,19 @@ gamebvalue = 1;
 bot.on('callback_query', function (msg) {
             switch(msg.data) {
    case 'COOMMAND1': {
-     bot.answerCallbackQuery(msg.chat.id,'<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
+     bot.answerCallbackQuery(msg.id,'<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
    };
                 break;
    case 'COOMMAND2': {
-     bot.answerCallbackQuery(msg.chat.id,'<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"})
+     bot.answerCallbackQuery(msg.cid,'<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"})
    };
                 break;
    case 'COOMMAND3': {
-     bot.answerCallbackQuery(msg.chat.id,'<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> голосуетза старт', {parse_mode : "HTML"})
+     bot.answerCallbackQuery(msg.id,'<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> голосуетза старт', {parse_mode : "HTML"})
    };
                 break;
    case 'COOMMAND4': {
-     bot.answerCallbackQuery(msg.chat.id,'<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> хочет отменить игру', {parse_mode : "HTML"})
+     bot.answerCallbackQuery(msg.id,'<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> хочет отменить игру', {parse_mode : "HTML"})
    };
                 break;
               default: console.log('error'); break;
