@@ -96,7 +96,7 @@ bot.help((ctx) => ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.
 bot.hears(/прости/gi, (ctx) => {
           if (offir == 0) ctx.reply('Хорошо, и ты меня🥺')
 })
-bot.hears(/извин/gi, (msg) => {
+bot.hears(/извин/gi, (msg, ctx) => {
   console.log(msg);
           if (offir == 0) ctx.reply('Прости меня🥺')
 })
