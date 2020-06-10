@@ -141,7 +141,7 @@ var gamerb = [];
     reply_markup: JSON.stringify({
         inline_keyboard: [[{
             text: 'Играть!',
-            callback_data: 'ingameb'
+           var callback_data: 'ingameb'
         }]]
     })
 })
