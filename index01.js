@@ -137,20 +137,25 @@ var textofg = {
     parse_mode: "HTML",
     disable_web_page_preview: false,
     reply_markup: JSON.stringify({
-        inline_keyboard: [
-          [{
+        inline_keyboard: [[
+          {
             text: 'Играть!',
-            callback_data: 'ingameb',
+            callback_data: 'ingameb'
+          },
+          {
             text: 'Выйти!',
             callback_data: 'leavegameb',
           }],
-          [{
+          [
+            {
             text: 'Старт!',
-            callback_data: 'startgameb',
+            callback_data: 'startgameb'
+          },
+          {
             text: 'Стоп!',
             callback_data: 'stopgameb',
-          }]
-        ]
+          }
+          ]]
     })
 }
 
