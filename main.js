@@ -18,19 +18,19 @@ gamebvalue = 1;
 bot.on('callback_query', function (msg) {
             switch(msg.data) {
    case 'COOMMAND1': {
-     bot.answerCallbackQuery(msg.id,'Ты вошёл в игру', true);
+     bot.answerCallbackQuery(msg.id,'Вы вошли в игру', true);
    };
                 break;
    case 'COOMMAND2': {
-     bot.answerCallbackQuery(msg.cid,'<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"})
+     bot.answerCallbackQuery(msg.id,'Вы вышли из игруы', true);
    };
                 break;
    case 'COOMMAND3': {
-     bot.answerCallbackQuery(msg.id,'<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> голосуетза старт', {parse_mode : "HTML"})
+     bot.answerCallbackQuery(msg.id,'Ты проголосовал за старт', true);
    };
                 break;
    case 'COOMMAND4': {
-     bot.answerCallbackQuery(msg.id,'<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> хочет отменить игру', {parse_mode : "HTML"})
+     bot.answerCallbackQuery(msg.id,'Ты проголосовал за закрытие игры', true);
    };
                 break;
               default: console.log('error'); break;
