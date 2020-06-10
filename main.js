@@ -20,15 +20,11 @@ gamebvalue = 1;
 })
 bot.on('callback_query', function (msg) {
    
-           If (msg.data=='COOMMAND1') {
-            commands1(msg.id, msg.chat.id, msg.from.id, msg.from.first_name)
-} else if (msg.data=='COMMAND2') { 
-             bot.answerCallbackQuery(msg.id,'Вы вышли из игры', true)
-} else if (msg.data=='COMMAND3') {
-            bot.answerCallbackQuery(msg.id,'Вы проголосовали за старт', true)
-} else if (msg.data=='COMMAND4') {
-            bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры', true)
-} else console.log('error')
+  if (msg.data=='COOMMAND1') commands1(msg.id, msg.chat.id, msg.from.id, msg.from.first_name)
+  if (msg.data=='COMMAND2') bot.answerCallbackQuery(msg.id,'Вы вышли из игры', true)
+  if (msg.data=='COMMAND3') bot.answerCallbackQuery(msg.id,'Вы проголосовали за старт', true)
+  if (msg.data=='COMMAND4')  bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры', true)
+
              
 });
 
