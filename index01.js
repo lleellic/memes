@@ -172,7 +172,7 @@ var gamerb = [];
   
 bot.on('callback_data', (ctx) => {
   console.log('1')
-switch (ctx.answerInlineQuery(result)) {
+switch (ctx.answerCbQuery()) {
 case 1: {
   console.log('2')
 ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
