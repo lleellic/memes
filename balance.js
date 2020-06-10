@@ -18,5 +18,6 @@ balance[16] = 0;
 balance[17] = 0;
 balance[18] = 0;
 balance[19] = 0;
+var offir = 0;
 
 module.exports = { balance };
