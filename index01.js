@@ -165,9 +165,6 @@ gamersb--;
 });
 
 bot.action('3', ctx => {
-  if (gamersb > 1) {
-gameb(gamersb)
-} else {
 ctx.reply('Количество игроков для старта слишком мало. Позовите кого-нибудь для старта')
 });
   
