@@ -28,12 +28,12 @@ bot.on('callback_query', function (msg) {
                 break;
    case 'COMMAND3': {
      votestart++;
-     bot.answerCallbackQuery(msg.from.id, votestartb+' голоса(ов) за старт', true);
+     bot.answerCallbackQuery(msg.id, votestartb+' голоса(ов) за старт', true);
    };
                 break;
    case 'COMMAND4': {
-     otestart--;
-     bot.answerCallbackQuery(msg.from.id, votestartb+' голоса(ов) за старт', true);
+     votestart--;
+     bot.answerCallbackQuery(msg.id, votestartb+' голоса(ов) за старт', true);
    };
                 break;
               default: console.log('error'); break;
