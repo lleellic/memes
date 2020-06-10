@@ -1,0 +1,22 @@
+var balance = new Array();
+balance[1] = 0;
+balance[2] = 0;
+balance[3] = 0;
+balance[4] = 0;
+balance[5] = 0;
+balance[6] = 0;
+balance[7] = 0;
+balance[8] = 0;
+balance[9] = 0;
+balance[10] = 0;
+balance[11] = 0;
+balance[12] = 0;
+balance[13] = 0;
+balance[14] = 0;
+balance[15] = 0;
+balance[16] = 0;
+balance[17] = 0;
+balance[18] = 0;
+balance[19] = 0;
+
+module.exports = { balancee };
