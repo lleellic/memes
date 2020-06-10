@@ -3,8 +3,13 @@ var TelegramBot = require('node-telegram-bot-api');
 const Extra = require('telegraf/extra')
 const fs = require('fs')
 var offir = 0;
-const balance = new Array();
-for (i=0; i < 19; i++) balance[i]= 1; 
+
+var balance;
+var zero = balance.zero;
+
+
+
+
 var mesbot = new Array();
 
 
