@@ -133,16 +133,16 @@ bot.hears(/играть было/gi, (ctx) => {
   if (gamevalue == 0) {
 gamevalue = 1;
 var gamersb = 0;
-var gamerb = new array();
-bot.hears('ingameb', (ctx) => {
-gamerb[gamersb] = ctx.from.id;
-gamersb++;
-})
+var gamerb = [];
 } else {
     ctx.reply('Игра уже начата')
   }
 })
 
+bot.hears('ingameb', (ctx) => {
+gamerb[gamersb] = ctx.from.id;
+gamersb++;
+})
 bot.hears('startgameb', (ctx) => {
 if (gamersb > 1) {
   gameb(gamersb) 
