@@ -16,7 +16,7 @@ bot.onText(/Играть в было/i, (msg) => {
 gamebvalue = 1;
 })
 bot.on('callback_query', function (msg) {
-            switch(startb[0]) {
+            switch(msg.data) {
    case 'COOMMAND1': {
      bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
    };
