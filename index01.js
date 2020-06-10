@@ -88,8 +88,8 @@ bot.hears(/Включить извинения/gi, (ctx) => {
 }
 })
 
-bot.start((ctx) => ctx.reply('Привет, <a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.username+'</a>! Я бот для мышеловки! Рад познакомиться! Введи команду /help для ознакомления со списком моих команд!', {parse_mode : "HTML"}))
-bot.help((ctx) => ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.username+'</a>, я пока ничего не умею', {parse_mode : "HTML"}))
+bot.start((ctx) => ctx.reply('Привет, <a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a>! Я бот для мышеловки! Рад познакомиться! Введи команду /help для ознакомления со списком моих команд!', {parse_mode : "HTML"}))
+bot.help((ctx) => ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a>, я пока ничего не умею', {parse_mode : "HTML"}))
 
 
 bot.hears(/прости/gi, (ctx) => {
@@ -103,8 +103,8 @@ bot.hears(/извин/gi, (ctx) => {
 bot.hears(/баланс/gi, (ctx) => {
    var idid;
   
-           switch (ctx.from.username) {
-  case 'oscu1um': idid = 0;
+           switch (ctx.from.id) {
+  case 684519513: idid = 0;
   case 'karenbrattt': idid = 1;
   case 'gloomyXIII': idid = 2;
   case 'Son_Of_Moon_69': idid = 3;
@@ -125,12 +125,38 @@ bot.hears(/баланс/gi, (ctx) => {
   default: idid = 5;
 }
 
-ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.username+'</a>, твой балланс: '+balance[idid]+' конфет(а)', {parse_mode : "HTML"});
+ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a>, твой балланс: '+balance[idid]+' конфет(а)', {parse_mode : "HTML"});
 })
 
-bot.hears(/имя/gi, (ctx) => {
-  ctx.reply('Готово')
-          console.log(ctx.macth)
-})
+var gamevalue;
 
+ctx.hears(/играть было/gi, (ctx)=> {
+gamevalue++;
+  if (gamevalue < 2) {
+var buttons1 = [
+botUtils.buildDefaultButton('Я в игре!','ingameb'),
+botUtils.buildDefaultButton('Старт','startgameb'),
+botUtils.buildDefaultButton('Выйти','leavegameb'),
+botUtils.buildDefaultButton('Стоп','stopgameb')
+];
+botUtils.buildMessageOptins(buttons1);
+var gamersb = 0;
+var gamerb = new array();
+bot.hears('ingameb', (ctx) => {
+gamerb[gamersb] = ctx.from.username;
+gamersb++;
+})
+bot.hears('startgameb', (ctx) => {
+if (gamersb > 1) gameb(gamersb)
+Else ctx.reply('Количество игроков для старта слишком мало. Позовите кого-нибудь для старта. Всего: '+ gamersb+' игрока(ов)')
+}))
+bot.hears('leavegameb', (ctx) =>{
+gamerb[gamersb] = 'null';
+gamersb--;
+}))
+bot.hears('stopgameb', (ctx) =>))
+  } else {
+  
+  }
+})
 bot.launch()
