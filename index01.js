@@ -108,7 +108,7 @@ bot.hears(/баланс/gi, (ctx) => {
     parse_mode: "HTML",
     disable_web_page_preview: false,
 }
-ctx.reply (ctx.from.id,'<a href=""//infostart.ru/"">Ссылка на Infostart</a>', optimess);
+ctx.reply ('<a href=""//infostart.ru/"">Ссылка на Infostart</a>', optimess);
 })
 
 bot.hears(/имя/gi, (ctx) => {
