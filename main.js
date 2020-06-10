@@ -22,15 +22,15 @@ bot.on('callback_query', function (msg) {
    };
                 break;
    case 'COMMAND2': {
-     bot.answerCallbackQuery(msg.id,'Вы вышли из игруы', true);
+     bot.answerCallbackQuery(msg.id,'Вы вышли из игры', true);
    };
                 break;
    case 'COMMAND3': {
-     bot.answerCallbackQuery(msg.id,'Ты проголосовал за старт', true);
+     bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> голосует за старт',{parse_mode : "HTML"} );
    };
                 break;
    case 'COMMAND4': {
-     bot.answerCallbackQuery(msg.id,'Ты проголосовал за закрытие игры', true);
+     bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> голосует за старт',{parse_mode : "HTML"});
    };
                 break;
               default: console.log('error'); break;
