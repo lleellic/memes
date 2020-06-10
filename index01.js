@@ -131,7 +131,6 @@ ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a>, 
 var gamevalue;
 ctx.hears(/играть было/gi, (ctx)=> {
 gamevalue++;
-  if (gamevalue < 2) {
 var gamersb = 0;
 var gamerb = new array();
 bot.hears('ingameb', (ctx) => {
