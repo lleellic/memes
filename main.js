@@ -21,8 +21,9 @@ bot.onText(/Играть в было/i, (msg) => {
 })
 bot.on('callback_query', function(msg) {
 if (msg.data === 'COOMMAND1'){
+  console.log(msg)
   bot.answerCallbackQuery(msg.id, 'Вы вошли в игру', true)
-  bot.sendMessage(msg.chat.id, 'Тест')
+  bot.sendMessage(msg.from.id, 'Тест')
 }
 if (msg.data === 'COMMAND2') {
   bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true)
