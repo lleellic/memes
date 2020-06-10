@@ -26,11 +26,11 @@ bot.on('callback_query', function (msg) {
    };
                 break;
    case 'COMMAND3': {
-     bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> голосует за старт',{parse_mode : "HTML"} );
+     bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт',{parse_mode : "HTML"} );
    };
                 break;
    case 'COMMAND4': {
-     bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> голосует за старт',{parse_mode : "HTML"});
+     bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт',{parse_mode : "HTML"});
    };
                 break;
               default: console.log('error'); break;
