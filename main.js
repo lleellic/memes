@@ -20,7 +20,7 @@ bot.onText(/Играть в было/i, (msg) => {
 gamebvalue = 1;
 })
 bot.on('callback_query', function(msg) {
-(msg.data == 'COOMMAND1') ? console.log('6') bot.answerCallbackQuery(msg.id, 'Вы вошли в игру', false):
+(msg.data == 'COOMMAND1') ? console.log('6'), bot.answerCallbackQuery(msg.id, 'Вы вошли в игру', false):
 (msg.data == 'COMMAND2') ? bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', false):
 (msg.data == 'COMMAND3') ? bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false):
 (msg.data == 'COMMAND4') ? bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры', false): console.log('error5')
