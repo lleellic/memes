@@ -158,6 +158,6 @@ gamersb--;
 })
 bot.hears('stopgameb', (ctx) => {
   ctx.reply('Игра была отменена');
-  gamevalue--;
+  gamevalue = 0;
 })
 bot.launch()
