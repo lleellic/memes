@@ -171,9 +171,11 @@ var gamerb = [];
   
 bot.on('callback_query', function(cb, ctx) {
   switch (cb.data) {
-    case 'ingameb': { ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
-gamerb[gamersb] = ctx.from.id;
-gamersb++;  };
+    case 'ingameb': { 
+      console.log(cb);
+      ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
+      gamerb[gamersb] = ctx.from.id;
+      gamersb++;  };
     case 'leavegameb': {
       gamerb[gamersb] = 'null';
       gamersb--;
