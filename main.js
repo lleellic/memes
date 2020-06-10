@@ -14,25 +14,30 @@ var startb = {
     ]
   }
 };
+var votestartb;
 var gamebvalue = 0;
 bot.onText(/Играть в было/i, (msg) => {
  bot.sendMessage(msg.chat.id,'Набор игроков для игры: Было не было', startb);
   gamebvalue = 1;
+  votestartb = 0;
 })
 bot.on('callback_query', function(msg) {
 if (msg.data === 'COOMMAND1'){
-  console.log(msg)
   bot.answerCallbackQuery(msg.id, 'Вы вошли в игру', true)
-  bot.sendMessage(msg.message.chat.id, 'Тест')
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"})
 }
 if (msg.data === 'COMMAND2') {
   bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true)
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"})
 }
 if (msg.data === 'COMMAND3') {
   bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false)
+  votestartb++
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, итого: '+votestartb+' голоса(ов)', {parse_mode : "HTML"})
 }
 if (msg.data === 'COMMAND4') {
   bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры', false)
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"})
 }
        
 });
