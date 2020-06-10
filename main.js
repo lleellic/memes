@@ -7,12 +7,12 @@ var i = 0;
 var gamersb = new Array();
 var gameridb = new Array();
 var startb = {
-  reply_markup: JSON.stringify({
+  reply_markup:{
     inline_keyboard: [
       [{ text: 'Играть😜', callback_data: 'COOMMAND1' }, { text: 'Выйти☹️', callback_data: 'COMMAND2' }],
       [{ text: 'Старт🤪', callback_data: 'COMMAND3' }, { text: '☹️топ☹️', callback_data: 'COMMAND4' }]
     ]
-  })
+  }
 };
 var gamebvalue = 0;
 bot.onText(/Играть в было/i, (msg) => {
@@ -20,7 +20,7 @@ bot.onText(/Играть в было/i, (msg) => {
 gamebvalue = 1;
 })
 bot.on('callback_query', function(msg) {
-(msg.data == 'COOMMAND1') ? msg.answerCallbackQuery(msg.id, 'Вы вошли в игру', false):
+(msg.data == 'COOMMAND1') ? bot.answerCallbackQuery(msg.id, 'Вы вошли в игру', false):
 (msg.data == 'COMMAND2') ? bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', false):
 (msg.data == 'COMMAND3') ? bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false):
 (msg.data == 'COMMAND4') ? bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры', false): console.log('error5')
