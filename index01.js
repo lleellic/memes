@@ -170,9 +170,8 @@ var gamerb = [];
   }
 })
   
-bot.on('callback_query',  (ctx, query)=>{
-  const {message: {chat, message_id, text}= {}} = query
-  switch (query.data) {
+bot.on('callback_query',  (message,  ctx, query)=>{
+  switch (message.originalRequest.callback_query) {
     case 1: { 
       ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
       gamerb[gamersb] = ctx.from.id;
