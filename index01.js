@@ -128,7 +128,7 @@ bot.hears(/баланс/gi, (ctx) => {
 ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a>, твой балланс: '+balance[idid]+' конфет(а)', {parse_mode : "HTML"});
 })
 
-var gamevalue;
+var gamevalue = 0;
 bot.hears(/играть было/gi, (ctx) => {
   if (gamevalue = 0) {
 gamevalue++;
