@@ -170,8 +170,8 @@ var gamerb = [];
   }
 })
   
-bot.on('callback_query', function(msg, ctx) {
-  var button = msg.data;
+bot.on('callback_query', function(ctx) {
+  var button = ctx.data;
   
   switch (button) {
     case 1: { 
