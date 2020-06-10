@@ -7,9 +7,9 @@ var startb = {
     inline_keyboard: [
       [{ text: 'Играть😜', callback_data: 'COOMMAND1' }],
       [{ text: 'Выйти☹️', callback_data: 'COMMAND2' }]
-     ];
+     ],
     [
-     [{ text: 'Старт🤪', callback_data: 'COMMAND3' }],
+     [{ text: 'Старт🤪', callback_data: 'COMMAND3' }]
      [{ text: 'Стоп☹️', callback_data: 'COMMAND4' }]
     ]
   })
