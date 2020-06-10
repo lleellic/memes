@@ -158,16 +158,19 @@ ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> �
 gamerb[gamersb] = ctx.from.id;
 gamersb++;
 });
+
 bot.action('2', ctx => {
   gamerb[gamersb] = 'null';
 gamersb--;
 });
+
 bot.action('3', ctx => {
   if (gamersb > 1) {
 gameb(gamersb)
 } else {
-ctx.reply('Количество игроков для старта слишком мало. Позовите кого-нибудь для старта');
+ctx.reply('Количество игроков для старта слишком мало. Позовите кого-нибудь для старта')
 });
+  
 bot.action('4', ctx => {
   for (i=0;i<mesbot.lenght;i++){
 ctx.deleteMessage(ctx.chatid,mesbot[i])}
