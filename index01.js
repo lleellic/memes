@@ -158,6 +158,7 @@ var textofg = {
 
 var gamevalue = 0;
 var gamersb;
+var gamerb = new Array();
 bot.hears(/играть было/gi, (ctx) => {
   if (gamevalue == 0) {
 gamevalue = 1;
