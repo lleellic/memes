@@ -171,7 +171,7 @@ var gamerb = [];
 })
   
 bot.on('callback_query', function(cb ,msg, ctx) {
-  console.log(cb.data);
+  console.log(callback_data);
  // var answer = msg.data.split('_'); 
   var button =  002; 
   
@@ -188,7 +188,7 @@ bot.on('callback_query', function(cb ,msg, ctx) {
       if (gamersb > 1) {
       gameb(gamersb) 
       } else { 
-      ctx.reply('Количество игроков для старта слишком мало. Позовите кого-нибудь для старта')
+      ctx.reply('Количество игроков для старта слишком мало. Позовите кого-нибудь для старта');
       }
     };
     case 004:{
