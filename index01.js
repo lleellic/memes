@@ -138,6 +138,11 @@ bot.hears('ingameb', (ctx) => {
 gamerb[gamersb] = ctx.from.username;
 gamersb++;
 })
+  } else {
+    ctx.reply('Игра уже начата')
+  }
+})
+
 bot.hears('startgameb', (ctx) => {
 if (gamersb > 1) {
   gameb(gamersb) 
@@ -153,9 +158,4 @@ bot.hears('stopgameb', (ctx) => {
   ctx.reply('Игра была отменена');
   gamevalue--;
 })
-  } else {
-    ctx.reply('Игра уже начата')
-  }
-})
-
 bot.launch()
