@@ -1,5 +1,4 @@
 const TeleBot = require('telebot');
-
 const bot = new TeleBot('1097903013:AAHjon47mwC7BWolEwQTFZn2lA91iud0ge8')
 
 var startb = {
@@ -11,6 +10,6 @@ var startb = {
   })
 };
 
-bot.on('/startb', (msg) => {
+bot.on(/Играть в было/i, (msg) => {
  bot.sendMessage(msg.from.id,'Набор игроков для игры: Было не было', startb);
 })
