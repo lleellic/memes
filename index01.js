@@ -61,9 +61,9 @@ function countdown(){
   timex = setTimeout(coutdown, 1000)
  }}
 
-const telegram = new Telegraf(process.env.1097903013:AAHqfjyVsppFchDSZj9S_gJ6-MrZlgvDHyQ);
-const bot = new Telegraf("1097903013:AAHqfjyVsppFchDSZj9S_gJ6-MrZlgvDHyQ");
 
+const bot = new Telegraf("1097903013:AAHqfjyVsppFchDSZj9S_gJ6-MrZlgvDHyQ");
+const telegram = new Telegraf("1097903013:AAHqfjyVsppFchDSZj9S_gJ6-MrZlgvDHyQ");
 
 bot.hears(/Выключить извинения/gi, (ctx) => {
           if (ctx.from.id == 684519513 || ctx.from.id == 687542018) {
@@ -183,4 +183,4 @@ gamevalue = 0;
 
 
 
-bot.launch()
+telegram.startPolling()
