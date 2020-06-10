@@ -18,7 +18,7 @@ gamebvalue = 1;
 bot.on('callback_query', function (msg) {
             switch(msg.data) {
    case 'COOMMAND1': {
-     bot.answerCallbackQuery(msg.id,'<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
+     bot.answerCallbackQuery(msg.id,'Ты вошёл в игру', true);
    };
                 break;
    case 'COOMMAND2': {
