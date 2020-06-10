@@ -16,7 +16,6 @@ bot.onText(/Играть в было/i, (msg) => {
 gamebvalue = 1;
 })
 bot.on('callback_query', function (msg) {
-  var votestartb = 0;
             switch(msg.data) {
    case 'COOMMAND1': {
      bot.answerCallbackQuery(msg.id,'Вы вошли в игру', true);
@@ -27,12 +26,10 @@ bot.on('callback_query', function (msg) {
    };
                 break;
    case 'COMMAND3': {
-     votestart++;
      bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', true);
    };
                 break;
    case 'COMMAND4': {
-     votestart--;
      bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры', true);
    };
                 break;
