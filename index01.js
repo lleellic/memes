@@ -135,20 +135,20 @@ let textofg = {
         inline_keyboard: [[
           {
             text: 'Играть!',
-            callback_data: '1'
+            callback_data: '1_1'
           },
           {
             text: 'Выйти!',
-            callback_data: '2'
+            callback_data: '1_2'
           }],
           [
             {
             text: 'Старт!',
-            callback_data: '3'
+            callback_data: '1_3'
           },
           {
             text: 'Стоп!',
-            callback_data: '4'
+            callback_data: '1_4'
           }
           ]]
     })
@@ -170,33 +170,23 @@ var gamerb = [];
   }
 })
   
-bot.on('callback_query',  (message,  ctx, query)=>{
-  switch (message.originalRequest) {
-    case 1: { 
-      ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
-      gamerb[gamersb] = ctx.from.id;
-      gamersb++;
-      console.log(gamersb);
-    }; break
-    case 2: {
-      gamerb[gamersb] = 'null';
-      gamersb--;
-    }; break
-    case 3: {
-      if (gamersb > 1) {
-      gameb(gamersb) 
-      } else { 
-      ctx.reply('Количество игроков для старта слишком мало. Позовите кого-нибудь для старта');
-      }
-    }; break
-    case 4:{
-      for (i=0;i<mesbot.lenght;i++){
-      ctx.deleteMessage(ctx.chatid,mesbot[i])}
-      ctx.reply('Игра была отменена');
-  gamevalue = 0;
-    }; break
-}    
+bot.on('callback_query', function (msg) {
+  var answer = msg.data.split('_'); // Делим ответ на две части, превратив в массив. Первый элемент номер вопроса, второй будет вариант ответа.
+  var index = answer[0]; // Получаем номер вопроса
+  var button = answer[1]; // И вариант ответа
+
+  // Если присланный вариант совпадает с вариантом из массива
+  if (questions[index].right_answer==button) {
+    bot.sendMessage(msg.from.id, 'Ответ верный ✅');
+  } else {
+    bot.sendMessage(msg.from.id, 'Ответ неверный ❌');
+  }
+
+  // Отправляем еще один вопрос пользователю
+
 });
+
+
 
 
 
