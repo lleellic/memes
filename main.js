@@ -29,5 +29,5 @@ bot.on('callback_query', function (msg) {
    case 'COOMMAND4': {
      bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> хочет отменить игру', {parse_mode : "HTML"})
    }
-                default;
- });
+            }
+            });
