@@ -2,6 +2,9 @@ const TelegramBot = require('node-telegram-bot-api');
 const token = '1097903013:AAHjon47mwC7BWolEwQTFZn2lA91iud0ge8';
 const bot = new TelegramBot(token, {polling: true});
 var offers = 0;
+var i = 0;
+var gamersb = new Array();
+var gameridb = new Array();
 var startb = {
   reply_markup: JSON.stringify({
     inline_keyboard: [
@@ -19,10 +22,7 @@ bot.on('callback_query', function (msg) {
 if(offers==0) {
    
             switch(msg.data) {
-   case 'COOMMAND1': {
-     bot.answerCallbackQuery(msg.id,'Вы вошли в игру', true);
-     
-   };
+   case 'COOMMAND1': commands1(msg.id, msg.chat.id, msg.from.id, msg.from.first_name);
                 break;
    case 'COMMAND2': {
      bot.answerCallbackQuery(msg.id,'Вы вышли из игры', true);
@@ -43,7 +43,12 @@ if(offers==0) {
             }
 });
 
-function commands1(){};
+function commands1(id, chatid, fromid, firstname){
+ bot.answerCallbackQuery(id,'Вы вошли в игру', true);
+ bot.sendMessage(chatid,'<a href="tg://user?id='+ fromid+'">'+firstname+'</a> вступил(а) в игру', {parse_mode : "HTML"});
+ gameridb[i] = fromid;
+ i++;
+};
 
 
 
