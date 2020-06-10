@@ -83,7 +83,16 @@ bot.hears(/извин/gi, (ctx) => {
 bot.hears(/баланс/gi, (ctx) => {
    var idid;
   
-
+Message message = await botClient.SendTextMessageAsync(
+  text: 'Тупа мем',
+  parseMode: ParseMode.Markdown,
+  disableNotification: true,
+  replyToMessageId: e.Message.MessageId,
+  replyMarkup: new InlineKeyboardMarkup(InlineKeyboardButton.WithUrl(
+    "Твой акк",
+    "tg://user?id=684519513"
+  ))
+);
   
            switch (ctx.from.username) {
   case 'oscu1um': idid = 0;
