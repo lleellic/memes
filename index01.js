@@ -2,7 +2,7 @@ const Telegraf = require('telegraf')
 var TelegramBot = require('node-telegram-bot-api');
 const Extra = require('telegraf/extra')
 const fs = require('fs')
-var balancee = require('./bot/memes/balance');
+var balancee = require('./bot/memes/balancee');
 var offir = 0;
 
 
