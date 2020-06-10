@@ -107,7 +107,7 @@ bot.hears(/баланс/gi, (ctx) => {
   default: idid = 5;
 }
   var messagerr = 'мем';
-           (user.telegramId, messagerr, {});
+           (ctx.fro,.id, messagerr, { html });
 })
 
 bot.hears(/имя/gi, (ctx) => {
