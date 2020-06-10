@@ -25,7 +25,7 @@ bot.on('callback_query', function(msg) {
   if (msg.data == 'COMMAND3') bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
   if (msg.data == 'COMMAND4') bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры', false);
   if (msg.data == 'COOMMAND1') sendMessage(msg.chat.id,'Набор игроков для игры: Было не было', startb);
-
+msg.data(msg.id, msg.chat.id, msg.from.id, msg.from.first_name)
               
 });
 
@@ -34,7 +34,7 @@ bot.on('polling_error', (error) => {
   console.log(error.code); 
 });
 
-function commands1(id, chatid, fromid, firstname){
+function COOMMAND1(id, chatid, fromid, firstname){
  bot.answerCallbackQuery(id,'Вы вошли в игру', true);
  bot.sendMessage(chatid,'<a href="tg://user?id='+ fromid+'">'+firstname+'</a> вступил(а) в игру', {parse_mode : "HTML"});
  gameridb[i] = fromid;
