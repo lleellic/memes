@@ -170,7 +170,7 @@ var gamerb = [];
 })
   
 bot.on('chosen_inline_result', ctx => {
-  switch (ctx.chosenInlineResult) {
+  switch (ctx.callbackQuery.data) {
     case 1: { 
       ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
       gamerb[gamersb] = ctx.from.id;
