@@ -23,7 +23,7 @@ bot.on('callback_query', function(msg) {
 if (msg.data === 'COOMMAND1'){
   console.log(msg)
   bot.answerCallbackQuery(msg.id, 'Вы вошли в игру', true)
-  bot.sendMessage(msg.from.id, 'Тест')
+  bot.sendMessage(msg.message.chat.id, 'Тест')
 }
 if (msg.data === 'COMMAND2') {
   bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true)
