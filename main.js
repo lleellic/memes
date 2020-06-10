@@ -19,12 +19,12 @@ bot.onText(/Играть в было/i, (msg) => {
  bot.sendMessage(msg.chat.id,'Набор игроков для игры: Было не было', startb);
 gamebvalue = 1;
 })
-bot.on('callback_query', function(msg, ctx) {
+bot.on('callback_query', function(msg) {
   if (msg.data == 'COOMMAND1') bot.answerCallbackQuery(msg.id, 'Вы вошли в игру', false);
   if (msg.data == 'COMMAND2') bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', false);
   if (msg.data == 'COMMAND3') bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
   if (msg.data == 'COMMAND4') bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры', false);
-  if (msg.data == 'COOMMAND1') ctx.reply('Кто-то вошёл в игру')
+  if (msg.data == 'COOMMAND1') sendMessage(msg.chat.id,'Набор игроков для игры: Было не было', startb);
 
               
 });
