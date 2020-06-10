@@ -130,6 +130,7 @@ ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a>, 
 
 var gamevalue;
 bot.hears(/играть было/gi, (ctx) => {
+  if (gamevalue = 0) {
 gamevalue++;
 var gamersb = 0;
 var gamerb = new array();
@@ -152,6 +153,9 @@ bot.hears('stopgameb', (ctx) => {
   ctx.reply('Игра была отменена');
   gamevalue--;
 })
+  } else {
+    ctx.reply('Игра уже начата')
+  }
 })
 
 bot.launch()
