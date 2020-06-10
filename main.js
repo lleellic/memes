@@ -1,5 +1,6 @@
-const TeleBot = require('telebot');
-const bot = new TeleBot('1097903013:AAHjon47mwC7BWolEwQTFZn2lA91iud0ge8')
+const TelegramBot = require('node-telegram-bot-api');
+const token = '1097903013:AAHjon47mwC7BWolEwQTFZn2lA91iud0ge8';
+const bot = new TelegramBot(token, {polling: true});
 
 var startb = {
   reply_markup: JSON.stringify({
