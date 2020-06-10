@@ -170,10 +170,10 @@ var gamerb = [];
   }
 })
   
-bot.on('callback_query', function(cb ,msg, ctx) {
+bot.on('callback_query', function(cb, msg, ctx) {
   console.log(callback_data);
  // var answer = msg.data.split('_'); 
-  var button =  002; 
+  var button =  006; 
   
   switch (button) {
     case 001: { 
