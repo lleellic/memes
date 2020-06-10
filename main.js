@@ -11,6 +11,6 @@ var startb = {
   })
 };
 
-bot.on(/Играть в было/i, (msg) => {
+bot.onText(/Играть в было/i, (msg) => {
  bot.sendMessage(msg.from.id,'Набор игроков для игры: Было не было', startb);
 })
