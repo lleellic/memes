@@ -132,7 +132,7 @@ var gamevalue = 0;
 var gamersb;
 var gamerb = new Array();
 
-bot.hears(/играть было/gi, (ctx) => {
+bot.on(/играть было/gi, (ctx) => {
   if (gamevalue == 0) {
 gamevalue = 1;
 var gamersb = 0;
