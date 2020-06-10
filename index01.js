@@ -170,7 +170,7 @@ var gamerb = [];
   }
 })
   
-bot.on('inline_query', (ctx) => {
+bot.on('callback_data', (ctx) => {
   console.log('1')
 switch (ctx.answerInlineQuery(result)) {
 case 1: {
