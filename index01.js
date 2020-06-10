@@ -83,17 +83,6 @@ bot.hears(/извин/gi, (ctx) => {
 bot.hears(/баланс/gi, (ctx) => {
    var idid;
   
-Message message = await botClient.SendTextMessageAsync(
-  text: 'Тупа мем',
-  parseMode: ParseMode.Markdown,
-  disableNotification: true,
-  replyToMessageId: e.Message.MessageId,
-  replyMarkup: new InlineKeyboardMarkup(InlineKeyboardButton.WithUrl(
-    "Твой акк",
-    "tg://user?id=684519513"
-  ))
-);
-  
            switch (ctx.from.username) {
   case 'oscu1um': idid = 0;
   case 'karenbrattt': idid = 1;
@@ -115,8 +104,7 @@ Message message = await botClient.SendTextMessageAsync(
   case 'ekusok': idid = 18;
   default: idid = 5;
 }
-  var messagerr = 'мем';
-           (ctx.from.id, messagerr, { html });
+bot.sendMessage(clientId, 'Привет, хабр!', messageOptions);
 })
 
 bot.hears(/имя/gi, (ctx) => {
