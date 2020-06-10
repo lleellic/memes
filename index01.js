@@ -127,7 +127,7 @@ bot.hears(/баланс/gi, (ctx) => {
 
 ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a>, твой балланс: '+balance[idid]+' конфет(а)', {parse_mode : "HTML"});
 })
-var textofg = {
+let textofg = {
     parse_mode: "HTML",
     disable_web_page_preview: false,
     reply_markup: ({
