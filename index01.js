@@ -138,7 +138,7 @@ var gamerb = [];
         inline_keyboard: [[{
             text: 'Вступить!',
             callback_data: 'ingameb'
-        }]]}
+        }]]
 } else {
     ctx.reply('Игра уже начата')
   }
