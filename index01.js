@@ -152,7 +152,8 @@ gamersb--;
 bot.hears('stopgameb', (ctx) => {
   ctx.reply('Игра была отменена');
   gamevalue--;
-  } else {
+  }
+          } else {
   ctx.reply('Игра уже начата')
   gamevalue--;
   }
