@@ -130,7 +130,7 @@ ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a>, 
 var textofg = {
     parse_mode: "HTML",
     disable_web_page_preview: false,
-    reply_markup: JSON.stringify({
+    reply_markup: ({
         inline_keyboard: [[
           {
             text: 'Играть!',
@@ -169,7 +169,7 @@ var gamerb = [];
   }
 })
   
-bot.on('callback_query',  query=>{
+bot.on('callback_query',  (ctx, query)=>{
   switch (query.data) {
     case 1: { 
       ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
