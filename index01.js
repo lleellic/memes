@@ -130,12 +130,12 @@ ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a>, 
 
 var gamevalue = 0;
 bot.hears(/играть было/gi, (ctx) => {
-  if (gamevalue = 0) {
+  if (gamevalue == 0) {
 gamevalue = 1;
 var gamersb = 0;
 var gamerb = new array();
 bot.hears('ingameb', (ctx) => {
-gamerb[gamersb] = ctx.from.username;
+gamerb[gamersb] = ctx.from.id;
 gamersb++;
 })
 } else {
