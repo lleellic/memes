@@ -48,7 +48,6 @@ usernames[16] = 'askk1899';
 usernames[17] = 'lokteva_olesya';
 usernames[18] = 'ekusok';
 
-let callback_data;
 
 let timex;
 let tx = 86400;
