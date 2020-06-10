@@ -170,9 +170,9 @@ var gamerb = [];
   }
 })
   
-bot.on('callback_query', function onCallbackQuery(callbackQuery) {
+bot.on('inline_query', (ctx) => {
   console.log('1')
-switch (callbackQuery) {
+switch (ctx.answerInlineQuery(result)) {
 case 1: {
   console.log('2')
 ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
