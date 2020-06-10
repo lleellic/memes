@@ -135,20 +135,20 @@ var textofg = {
         inline_keyboard: [[
           {
             text: 'Играть!',
-            callback_data: '1_1'
+            callback_data: '1'
           },
           {
             text: 'Выйти!',
-            callback_data: '1_2',
+            callback_data: '2',
           }],
           [
             {
             text: 'Старт!',
-            callback_data: '1_3'
+            callback_data: '3'
           },
           {
             text: 'Стоп!',
-            callback_data: '1_4',
+            callback_data: '4',
           }
           ]]
     })
@@ -170,10 +170,8 @@ var gamerb = [];
   }
 })
   
-bot.on('callback_query', function(cb, msg, ctx) {
-  var answer = msg.data.split('_');
-  var index = answer[0];
-  var button = answer[1];
+bot.on('callback_query', function(msg, ctx) {
+  var button = msg.data;
   
   switch (button) {
     case 1: { 
