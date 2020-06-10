@@ -20,9 +20,9 @@ bot.onText(/Играть в было/i, (msg) => {
 gamebvalue = 1;
 })
 bot.on('callback_query', function(msg) {
-  if (msg.data == 'COOMMAND1') commands1(msg.id, msg.chat.id, msg.from.id, msg.from.first_name)
-  if (msg.data == 'COMMAND2') bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true)
-  if (msg.data == 'COMMAND3') bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', true)
+  if (msg.data == 'COOMMAND1') bot.answerCallbackQuery(id,'Вы вошли в игру', false);
+  if (msg.data == 'COMMAND2') bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', false)
+  if (msg.data == 'COMMAND3') bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false)
   if (msg.data == 'COMMAND4')  bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры', false)
   
  bot.answerCallbackQuery(msg.id, 'Вы выбрали: '+ msg.data, true);
