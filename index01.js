@@ -172,7 +172,7 @@ var gamerb = [];
 bot.on('callback_query', function(msg, ctx) {
   console.log(msg);
  // var answer = msg.data.split('_'); 
-  var button = answer[1]; 
+  var button = cb.data; 
   
   switch (button) {
     case 'ingameb': { 
@@ -198,9 +198,6 @@ bot.on('callback_query', function(msg, ctx) {
   gamevalue = 0;
     };
 }    
-
-     // в cb.data будет то, что лежит в callback_data
-    // а затем через if или что-то еще обрабатываешь свой ответ
 });
 
 
