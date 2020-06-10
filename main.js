@@ -28,12 +28,12 @@ bot.on('callback_query', function (msg) {
                 break;
    case 'COMMAND3': {
      votestart++;
-     bot.sendMessage(msg.chat.id,votestartb+' голоса(ов) за старт');
+     bot.sendMessage(votestartb+' голоса(ов) за старт');
    };
                 break;
    case 'COMMAND4': {
      otestart--;
-     bot.sendMessage(msg.chat.id,votestartb+' голоса(ов) за старт');
+     bot.sendMessage(votestartb+' голоса(ов) за старт');
    };
                 break;
               default: console.log('error'); break;
