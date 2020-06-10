@@ -129,6 +129,33 @@ ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a>, 
 })
 
 var gamevalue;
-
+ctx.hears(/играть было/gi, (ctx)=> {
+gamevalue++;
+  if (gamevalue < 2) {
+var gamersb = 0;
+var gamerb = new array();
+bot.hears('ingameb', (ctx) => {
+gamerb[gamersb] = ctx.from.username;
+gamersb++;
+})
+bot.hears('startgameb', (ctx) => {
+if (gamersb > 1) {
+  gameb(gamersb) 
+}
+Else { ctx.reply('Количество игроков для старта слишком мало. Позовите кого-нибудь для старта')
+     }
+}))
+bot.hears('leavegameb', (ctx) =>{
+gamerb[gamersb] = 'null';
+gamersb--;
+})
+bot.hears('stopgameb', (ctx) => {
+  ctx.reply('Игра была отменена');
+  gamevalue--;
+  } else {
+  ctx.reply('Игра уже начата')
+  gamevalue--;
+  }
+})
 
 bot.launch()
