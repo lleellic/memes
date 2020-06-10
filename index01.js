@@ -137,8 +137,8 @@ var gamerb = [];
   ctx.reply('Начат набор игроков', { 
         inline_keyboard: [[{
             text: 'Вступить!',
-            callback_data: 'ingameb'
-        }]]
+            callback_data: 'ingameb' }]]
+  }
 } else {
     ctx.reply('Игра уже начата')
   }
