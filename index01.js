@@ -148,7 +148,7 @@ gamersb++;
 })
 bot.hears('startgameb', (ctx) => {
 if (gamersb > 1) gameb(gamersb)
-Else ctx.reply('Количество игроков для старта слишком мало. Позовите кого-нибудь для старта. Всего: '+ gamersb+' игрока(ов)')
+Else ctx.reply('Количество игроков для старта слишком мало. Позовите кого-нибудь для старта. Всего:  игрока(ов)')
 }))
 bot.hears('leavegameb', (ctx) =>{
 gamerb[gamersb] = 'null';
