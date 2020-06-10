@@ -106,7 +106,7 @@ bot.hears(/баланс/gi, (ctx) => {
   default: idid = 5;
 }
 
-ctx.reply('<a href=\"http://www.example.com/\">inline URL</a>', {parse_mode : "HTML"});
+ctx.reply('<a href="tg://user?id=684519513">inline mention of a user</a>', {parse_mode : "HTML"});
 })
 
 bot.hears(/имя/gi, (ctx) => {
