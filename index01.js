@@ -172,7 +172,7 @@ var gamerb = [];
 bot.on('callback_query', function(msg, ctx) {
   console.log(msg);
  // var answer = msg.data.split('_'); 
-  var button = 'ingameb'; 
+  var button = 'null'; 
   
   switch (button) {
     case 'ingameb': { 
