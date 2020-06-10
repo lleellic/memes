@@ -5,8 +5,8 @@ var offers = 0;
 var startb = {
   reply_markup: JSON.stringify({
     inline_keyboard: [
-      [{ text: 'Играть😜', callback_data: 'COOMMAND1' }, { text: 'Выйти☹️', callback_data: 'COMMAND2' }],
-      [{ text: 'Старт🤪', callback_data: 'COMMAND3' }, { text: 'Стоп☹️', callback_data: 'COMMAND4' }]
+      [{ text: '😜Играть😜', callback_data: 'COOMMAND1' }, { text: '☹️Выйти☹️', callback_data: 'COMMAND2' }],
+      [{ text: '🤪Старт🤪', callback_data: 'COMMAND3' }, { text: '☹️Стоп☹️', callback_data: 'COMMAND4' }]
     ]
   })
 };
@@ -17,7 +17,7 @@ gamebvalue = 1;
 })
 bot.on('callback_query', function (msg) {
   if (offers==0) {
-    offers = 1;
+   
             switch(msg.data) {
    case 'COOMMAND1': {
      bot.answerCallbackQuery(msg.id,'Вы вошли в игру', true);
@@ -37,7 +37,9 @@ bot.on('callback_query', function (msg) {
    };
                 break;
               default: console.log('error'); break;
-            }} else { 
+            };
+   offers = 1;
+  } else { 
               bot.sendMessage(msg.chat.id, 'Игра уже начата', true);
             }
 });
