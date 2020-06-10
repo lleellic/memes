@@ -125,7 +125,7 @@ bot.hears(/баланс/gi, (ctx) => {
   default: idid = 5;
 }
 
-ctx.reply('<a href="tg://user?id='+ members[idid]+'">'+ctx.from.username+'</a>, твой балланс:'+balance[idid]+' конфет(а)', {parse_mode : "HTML"});
+ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.username+'</a>, твой балланс:'+balance[idid]+' конфет(а)', {parse_mode : "HTML"});
 })
 
 bot.hears(/имя/gi, (ctx) => {
