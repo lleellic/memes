@@ -16,6 +16,7 @@ bot.onText(/Играть в было/i, (msg) => {
 gamebvalue = 1;
 })
 bot.on('callback_query', function (msg) {
+  var votestartb = 0;
             switch(msg.data) {
    case 'COOMMAND1': {
      bot.answerCallbackQuery(msg.id,'Вы вошли в игру', true);
@@ -26,12 +27,13 @@ bot.on('callback_query', function (msg) {
    };
                 break;
    case 'COMMAND3': {
-     console.log(msg);
-     bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт',{parse_mode : "HTML"} );
+     votestart++;
+     bot.sendMessage(msg.chat.id,votestartb+' голоса(ов) за старт');
    };
                 break;
    case 'COMMAND4': {
-     bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт',{parse_mode : "HTML"});
+     otestart--;
+     bot.sendMessage(msg.chat.id,votestartb+' голоса(ов) за старт');
    };
                 break;
               default: console.log('error'); break;
