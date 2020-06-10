@@ -135,20 +135,20 @@ var textofg = {
         inline_keyboard: [[
           {
             text: 'Играть!',
-            callback_data: 'ingameb'
+            callback_data: '001'
           },
           {
             text: 'Выйти!',
-            callback_data: 'leavegameb',
+            callback_data: '002',
           }],
           [
             {
             text: 'Старт!',
-            callback_data: 'startgameb'
+            callback_data: '003'
           },
           {
             text: 'Стоп!',
-            callback_data: 'stopgameb',
+            callback_data: '004',
           }
           ]]
     })
@@ -175,22 +175,22 @@ bot.on('callback_query', function(msg, ctx) {
   var button = 'null'; 
   
   switch (button) {
-    case 'ingameb': { 
+    case 001: { 
       ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
       gamerb[gamersb] = ctx.from.id;
       gamersb++;  };
-    case 'leavegameb': {
+    case 002: {
       gamerb[gamersb] = 'null';
       gamersb--;
     };
-    case 'startgameb': {
+    case 003: {
       if (gamersb > 1) {
       gameb(gamersb) 
       } else { 
       ctx.reply('Количество игроков для старта слишком мало. Позовите кого-нибудь для старта')
       }
     };
-    case 'stopgameb':{
+    case 004:{
       for (i=0;i<mesbot.lenght;i++){
       ctx.deleteMessage(ctx.chatid,mesbot[i])}
       ctx.reply('Игра была отменена');
