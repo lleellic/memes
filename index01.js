@@ -105,24 +105,25 @@ bot.hears(/баланс/gi, (ctx) => {
   
            switch (ctx.from.id) {
   case 684519513: idid = 0;
-  case 'karenbrattt': idid = 1;
-  case 'gloomyXIII': idid = 2;
-  case 'Son_Of_Moon_69': idid = 3;
-  case 'bnnclvr': idid = 4;
-  case 'linaaaaaaaaaaaaaaaaaaaaaaaaaq': idid = 6;
-  case 'nicebanana': idid = 7;
-  case 'Akana_Unamori': idid = 8;  
-  case 'hochy_rollov': idid = 9 ;
-  case 'GeniusIlya':idid = 10 ;
-  case 'Get_away3': idid = 11;  
-  case 'gerpaS': idid = 12;
-  case 'iraasynytsiaa': idid = 13;
-  case 'StupidKaktus': idid = 14;
-  case 'FastK1ll': idid = 15;
-  case 'askk1899': idid = 16;
-  case 'lokteva_olesya': idid = 17;
-  case 'ekusok': idid = 18;
-  default: idid = 5;
+  case 687542018: idid = 1;
+  case 240481520: idid = 2;
+  case 1178427119: idid = 3;
+  case 1178427119: idid = 4; 
+  case 645483421: idid = 5;
+  case 721564120: idid = 6;
+  case 1045964979: idid = 7;
+  case 1074618502: idid = 8;  
+  case 851957031: idid = 9 ;
+  case 612495949:idid = 10 ;
+  case 932348113: idid = 11;  
+  case 687329153: idid = 12;
+  case 564553040: idid = 13;
+  case 691269383: idid = 14;
+  case 751498406: idid = 15;
+  case 957137055: idid = 16;
+  case 565160580: idid = 17;
+  case 584206250: idid = 18;
+
 }
 
 ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a>, твой балланс: '+balance[idid]+' конфет(а)', {parse_mode : "HTML"});
