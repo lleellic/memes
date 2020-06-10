@@ -103,25 +103,25 @@ bot.hears(/баланс/gi, (ctx) => {
    var idid;
   
            switch (ctx.from.id) {
-  case 684519513: idid = 0;
-  case 687542018: idid = 1;
-  case 240481520: idid = 2;
-  case 1178427119: idid = 3;
-  case 1178427119: idid = 4; 
-  case 645483421: idid = 5;
-  case 721564120: idid = 6;
-  case 1045964979: idid = 7;
-  case 1074618502: idid = 8;  
-  case 851957031: idid = 9 ;
-  case 612495949:idid = 10 ;
-  case 932348113: idid = 11;  
-  case 687329153: idid = 12;
-  case 564553040: idid = 13;
-  case 691269383: idid = 14;
-  case 751498406: idid = 15;
-  case 957137055: idid = 16;
-  case 565160580: idid = 17;
-  case 584206250: idid = 18;
+  case 684519513: idid = 0; break
+  case 687542018: idid = 1; break
+  case 240481520: idid = 2; break
+  case 1178427119: idid = 3; break
+  case 1178427119: idid = 4; break
+  case 645483421: idid = 5; break
+  case 721564120: idid = 6; break
+  case 1045964979: idid = 7; break
+  case 1074618502: idid = 8; break
+  case 851957031: idid = 9 ; break
+  case 612495949:idid = 10 ; break
+  case 932348113: idid = 11; break
+  case 687329153: idid = 12; break
+  case 564553040: idid = 13; break
+  case 691269383: idid = 14; break
+  case 751498406: idid = 15; break
+  case 957137055: idid = 16; break
+  case 565160580: idid = 17; break
+  case 584206250: idid = 18; break
 
 }
 
@@ -174,24 +174,24 @@ bot.on('callback_query',  (ctx, query)=>{
     case 1: { 
       ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
       gamerb[gamersb] = ctx.from.id;
-      gamersb++;  };
+      gamersb++;  }; break
     case 2: {
       gamerb[gamersb] = 'null';
       gamersb--;
-    };
+    }; break
     case 3: {
       if (gamersb > 1) {
       gameb(gamersb) 
       } else { 
       ctx.reply('Количество игроков для старта слишком мало. Позовите кого-нибудь для старта');
       }
-    };
+    }; break
     case 4:{
       for (i=0;i<mesbot.lenght;i++){
       ctx.deleteMessage(ctx.chatid,mesbot[i])}
       ctx.reply('Игра была отменена');
   gamevalue = 0;
-    };
+    }; break
 }    
 });
 
