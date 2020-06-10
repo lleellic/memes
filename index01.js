@@ -128,6 +128,10 @@ bot.hears(/баланс/gi, (ctx) => {
 
 ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a>, твой балланс: '+balance[idid]+' конфет(а)', {parse_mode : "HTML"});
 })
+var ingameb;
+var leavegameb;
+var startgameb;
+var stopgameb;
 var textofg = {
     parse_mode: "HTML",
     disable_web_page_preview: false,
@@ -135,20 +139,20 @@ var textofg = {
         inline_keyboard: [[
           {
             text: 'Играть!',
-            callback_data: '001'
+            callback_data: 'ingameb'
           },
           {
             text: 'Выйти!',
-            callback_data: '002',
+            callback_data: 'leavegameb',
           }],
           [
             {
             text: 'Старт!',
-            callback_data: '003'
+            callback_data: 'startgameb'
           },
           {
             text: 'Стоп!',
-            callback_data: '004',
+            callback_data: 'stopgameb',
           }
           ]]
     })
