@@ -81,7 +81,7 @@ bot.hears(/извин/gi, (ctx) => {
 })
 
 
-bot.hears(/баланс/gi, (ctx) => {
+bot.hears(/баланс/gi, (ctx, msg) => {
    var idid;
   
            switch (ctx.from.username) {
