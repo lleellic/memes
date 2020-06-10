@@ -81,7 +81,7 @@ bot.hears(/извин/gi, (ctx) => {
 })
 
 
-bot.hears(/баланс/gi, (ctx, msg) => {
+bot.hears(/баланс/gi, (ctx) => {
    var idid;
   
            switch (ctx.from.username) {
@@ -106,7 +106,7 @@ bot.hears(/баланс/gi, (ctx, msg) => {
   default: idid = 5;
 }
 
-ctx.reply(msg.chat.id ,'<a href=\"http://www.example.com/\">inline URL</a>', {parse_mode : "HTML"});
+ctx.reply(ctx.chat.id ,'<a href=\"http://www.example.com/\">inline URL</a>', {parse_mode : "HTML"});
 })
 
 bot.hears(/имя/gi, (ctx) => {
