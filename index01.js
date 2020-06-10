@@ -104,7 +104,8 @@ bot.hears(/баланс/gi, (ctx) => {
   case 'ekusok': idid = 18;
   default: idid = 5;
 }
-bot.reply_to_message_id(ctx.from.id, 'Тест');
+  
+bot.reply_to_message_id('<a href=""//infostart.ru/"">Ссылка на Infostart</a>');
 })
 
 bot.hears(/имя/gi, (ctx) => {
