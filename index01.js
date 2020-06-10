@@ -129,7 +129,7 @@ ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a>, 
 })
 
 var gamevalue;
-ctx.hears(/играть было/gi, (ctx) => {
+bot.hears(/играть было/gi, (ctx) => {
 gamevalue++;
 var gamersb = 0;
 var gamerb = new array();
