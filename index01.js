@@ -1,7 +1,6 @@
-const Telegraf = require('telegraf')
-const { Markup, Telegram } = Telegraf;
 var TelegramBot = require('node-telegram-bot-api');
-const Extra = require('telegraf/extra')
+const token = '1097903013:AAHqfjyVsppFchDSZj9S_gJ6-MrZlgvDHyQ';
+const bot = new TelegramBot(token, {polling: true});
 const fs = require('fs')
 var balance = require('./balance');
 offir = 0;
@@ -61,8 +60,8 @@ function countdown(){
   timex = setTimeout(coutdown, 1000)
  }}
 
-const bot = new Telegraf(process.env.1097903013:AAHqfjyVsppFchDSZj9S_gJ6-MrZlgvDHyQ)
-const telegram = new Telegraf("1097903013:AAHqfjyVsppFchDSZj9S_gJ6-MrZlgvDHyQ");
+
+
 
 bot.hears(/Выключить извинения/gi, (ctx) => {
           if (ctx.from.id == 684519513 || ctx.from.id == 687542018) {
@@ -155,22 +154,22 @@ var gamerb = [];
   }
 })
   
-telegram.action('1', ctx => {
+bot.action('1', ctx => {
 ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
 gamerb[gamersb] = ctx.from.id;
 gamersb++;
 });
 
-telegram.action('2', ctx => {
+bot.action('2', ctx => {
   gamerb[gamersb] = 'null';
 gamersb--;
 });
 
-telegram.action('3', ctx => {
+bot.action('3', ctx => {
 ctx.reply('Количество игроков для старта слишком мало. Позовите кого-нибудь для старта')
 });
   
-telegram.action('4', ctx => {
+bot.action('4', ctx => {
   for (i=0;i<mesbot.lenght;i++){
 ctx.deleteMessage(ctx.chatid,mesbot[i])}
 ctx.reply('Игра была отменена');
