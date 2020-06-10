@@ -19,28 +19,20 @@ bot.onText(/Играть в было/i, (msg) => {
 gamebvalue = 1;
 })
 bot.on('callback_query', function (msg) {
-if(offers==0) {
    
-            switch(msg.data) {
-   case 'COOMMAND1': commands1(msg.id, msg.chat.id, msg.from.id, msg.from.first_name);
-                break;
-   case 'COMMAND2': {
-     bot.answerCallbackQuery(msg.id,'Вы вышли из игры', true);
-   };
-                break;
-   case 'COMMAND3': {
-     bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', true);
-   };
-                break;
-   case 'COMMAND4': {
-     bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры', true);
-   };
-                break;
-              default: console.log('error'); break;
-            };
-  } else { 
-              bot.sendMessage(msg.chat.id, 'Игра уже начата', true);
-            }
+           If (msg.data=='COOMMAND1') {
+            commands1(msg.id, msg.chat.id, msg.from.id, msg.from.first_name);
+};
+           If (msg.data=='COMMAND2') { 
+             bot.answerCallbackQuery(msg.id,'Вы вышли из игры', true);
+};
+           If (msg.data=='COMMAND3') {
+            bot.answerCallbackQuery(msg.id,'Вы проголосовали за старт', true);
+};
+           If (msg.data=='COMMAND4') {
+            bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры', true);
+};
+             
 });
 
 function commands1(id, chatid, fromid, firstname){
