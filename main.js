@@ -10,10 +10,14 @@ var startb = {
     ]
   })
 };
-
+var gamebvalue = 0;
 bot.onText(/Играть в было/i, (msg) => {
  bot.sendMessage(msg.from.id,'Набор игроков для игры: Было не было', startb);
- switch(callback_query) {
+gamebvalue = 1;
+ }
+})
+bot.on('callback_query', function (msg){
+            switch(callback_query) {
    case 'COOMMAND1': {
      bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
    };
@@ -26,6 +30,4 @@ bot.onText(/Играть в было/i, (msg) => {
    case 'COOMMAND4': {
      bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> хочет отменить игру', {parse_mode : "HTML"})
    };
- 
- }
-})
+ })
