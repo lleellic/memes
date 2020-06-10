@@ -104,7 +104,7 @@ bot.hears(/баланс/gi, (ctx) => {
   case 'ekusok': idid = 18;
   default: idid = 5;
 }
-bot.sendMessage(ctx.from.id, 'Тест', reply_to_message_id);
+bot.reply_to_message_id(ctx.from.id, 'Тест');
 })
 
 bot.hears(/имя/gi, (ctx) => {
