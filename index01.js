@@ -1,4 +1,5 @@
 const Telegraf = require('telegraf')
+var TelegramBot = require('node-telegram-bot-api');
 const Extra = require('telegraf/extra')
 const fs = require('fs')
 var offir = 0;
