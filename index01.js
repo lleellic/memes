@@ -173,10 +173,10 @@ bot.on('callback_query', function(cb) {
   switch (cb.data) {
     case 'ingameb': { ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
 gamerb[gamersb] = ctx.from.id;
-gamersb++;  }
-    case 'leavegameb':
-    case 'startgameb':
-    case 'stopgameb':
+gamersb++;  };
+    case 'leavegameb': ;
+    case 'startgameb': ;
+    case 'stopgameb': ;
 }    
 
      // в cb.data будет то, что лежит в callback_data
