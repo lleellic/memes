@@ -139,8 +139,8 @@ var gamerb = [];
             text: 'Вступить!',
             callback_data: 'ingameb'
         }]]
-    }))
-                                  }
+    })
+}
 } else {
     ctx.reply('Игра уже начата')
   }
