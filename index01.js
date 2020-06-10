@@ -177,6 +177,6 @@ bot.hears('stopgameb', (ctx) => {
 
 bot.hears(/[0-9]/, (ctx) =>{
   messbot = ctx.input;
-  ctx.deleteMessage(ctx.chatid,messbot)
+  ctx.deleteMessage(ctx.chat_id,messbot)
 })
 bot.launch()
