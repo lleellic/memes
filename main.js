@@ -12,7 +12,7 @@ var startb = {
 };
 var gamebvalue = 0;
 bot.onText(/Играть в было/i, (msg) => {
- bot.sendMessage(msg.from.id,'Набор игроков для игры: Было не было', startb);
+ bot.sendMessage(msg.chat.id,'Набор игроков для игры: Было не было', startb);
 gamebvalue = 1;
 })
 bot.on('callback_query', function (msg) {
