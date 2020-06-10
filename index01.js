@@ -145,17 +145,17 @@ var gamerb = [];
         }]]
     })
 })
-            
+If (callback_data == 'ingameb') {
+  ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"})
+gamerb[gamersb] = ctx.from.id;
+gamersb++;
+}            
 } else {
     ctx.reply('Игра уже начата')
   }
 })
 
-If (callback_data == 'ingameb') {
-  ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"})
-gamerb[gamersb] = ctx.from.id;
-gamersb++;
-}
+
 bot.hears('startgameb', (ctx) => {
 if (gamersb > 1) {
   gameb(gamersb) 
