@@ -175,7 +175,9 @@ bot.on('callback_query',  (ctx, query)=>{
     case 1: { 
       ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
       gamerb[gamersb] = ctx.from.id;
-      gamersb++;  }; break
+      gamersb++;
+      console.log(gamersb);
+    }; break
     case 2: {
       gamerb[gamersb] = 'null';
       gamersb--;
