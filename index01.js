@@ -169,8 +169,11 @@ var gamerb = [];
   }
 })
   
-bot.on('callback_query', function(cb, ctx) {
-  switch (cb.data) {
+bot.on('callback_query', function(ctx) {
+  var answer = ctx.data.split('_'); 
+  var button = answer[1]; 
+  
+  switch (button) {
     case 'ingameb': { 
       console.log(cb);
       ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
