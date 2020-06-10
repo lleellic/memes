@@ -135,7 +135,7 @@ gamevalue = 1;
 var gamersb = 0;
 var gamerb = [];
   ctx.reply('Начат набор игроков', 
-        inline_keyboard: [[{
+            { inline_keyboard: [[{
             text: 'Вступить!',
             callback_data: 'ingameb' }]]
 } else {
