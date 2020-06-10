@@ -17,18 +17,21 @@ var startb = {
 var gamebvalue = 0;
 bot.onText(/Играть в было/i, (msg) => {
  bot.sendMessage(msg.chat.id,'Набор игроков для игры: Было не было', startb);
-gamebvalue = 1;
+  gamebvalue = 1;
 })
 bot.on('callback_query', function(msg) {
+console.log(msg.chat.id)
 if (msg.data === 'COOMMAND1'){
-  console.log('6')
   bot.answerCallbackQuery(msg.id, 'Вы вошли в игру', true)
-};
-if (msg.data === 'COMMAND2')  bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true)
-if (msg.data === 'COMMAND3')  bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false)
+}
+if (msg.data === 'COMMAND2') {
+  bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true)
+}
+if (msg.data === 'COMMAND3') {
+  bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false)
+}
 if (msg.data === 'COMMAND4') {
   bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры', false)
-  console.log('error5')
 }
        
 });
