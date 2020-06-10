@@ -10,7 +10,7 @@ var startb = {
   reply_markup:{
     inline_keyboard: [
       [{ text: 'Играть😜', callback_data: 'COOMMAND1' }, { text: 'Выйти☹️', callback_data: 'COMMAND2' }],
-      [{ text: 'Старт🤪', callback_data: 'COMMAND3' }, { text: '☹️топ☹️', callback_data: 'COMMAND4' }]
+      [{ text: 'Старт🤪', callback_data: 'COMMAND3' }, { text: 'Стоп☹️', callback_data: 'COMMAND4' }]
     ]
   }
 };
@@ -20,7 +20,6 @@ bot.onText(/Играть в было/i, (msg) => {
   gamebvalue = 1;
 })
 bot.on('callback_query', function(msg) {
-console.log(msg.chat.id)
 if (msg.data === 'COOMMAND1'){
   bot.answerCallbackQuery(msg.id, 'Вы вошли в игру', true)
 }
