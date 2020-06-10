@@ -42,7 +42,7 @@ bot.on('callback_query', function (msg) {
             }
 });
 
-function
+//function
 
 
 
