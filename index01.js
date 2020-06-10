@@ -87,8 +87,6 @@ bot.on(/Включить извинения/gi, (ctx) => {
 }
 })
 
-bot.start((ctx) => ctx.reply('Привет, <a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a>! Я бот для мышеловки! Рад познакомиться! Введи команду /help для ознакомления со списком моих команд!', {parse_mode : "HTML"}))
-bot.help((ctx) => ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a>, я пока ничего не умею', {parse_mode : "HTML"}))
 
 
 bot.on(/прости/gi, (ctx) => {
