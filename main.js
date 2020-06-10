@@ -1,7 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 const token = '1097903013:AAHjon47mwC7BWolEwQTFZn2lA91iud0ge8';
 const bot = new TelegramBot(token, {polling: true});
-
+var offers = 0;
 var startb = {
   reply_markup: JSON.stringify({
     inline_keyboard: [
@@ -16,9 +16,12 @@ bot.onText(/Играть в было/i, (msg) => {
 gamebvalue = 1;
 })
 bot.on('callback_query', function (msg) {
+  if (offers==0) {
+    offers = 1;
             switch(msg.data) {
    case 'COOMMAND1': {
      bot.answerCallbackQuery(msg.id,'Вы вошли в игру', true);
+     
    };
                 break;
    case 'COMMAND2': {
@@ -34,5 +37,12 @@ bot.on('callback_query', function (msg) {
    };
                 break;
               default: console.log('error'); break;
+            }} else { 
+              bot.sendMessage(msg.chat.id, 'Игра уже начата', true);
             }
-            });
+});
+
+function
+
+
+
