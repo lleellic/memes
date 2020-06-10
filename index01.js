@@ -169,8 +169,8 @@ var gamerb = [];
   }
 })
   
-bot.on('callback_query', function(ctx) {
-  var answer = ctx.data.split('_'); 
+bot.on('callback_query', function(msg, ctx) {
+  var answer = msg.data.split('_'); 
   var button = answer[1]; 
   
   switch (button) {
