@@ -1,4 +1,5 @@
 const Telegraf = require('telegraf')
+const { Markup, Telegram } = Telegraf;
 var TelegramBot = require('node-telegram-bot-api');
 const Extra = require('telegraf/extra')
 const fs = require('fs')
@@ -60,7 +61,7 @@ function countdown(){
   timex = setTimeout(coutdown, 1000)
  }}
 
-
+const telegram = new Telegraf(process.env.1097903013:AAHqfjyVsppFchDSZj9S_gJ6-MrZlgvDHyQ);
 const bot = new Telegraf("1097903013:AAHqfjyVsppFchDSZj9S_gJ6-MrZlgvDHyQ");
 
 
@@ -140,35 +141,37 @@ bot.hears(/играть было/gi, (ctx) => {
 gamevalue = 1;
 var gamersb = 0;
 var gamerb = [];
-  ctx.reply('Начат набор игроков', Markup.inlineKeyboard([
-          Markup.callbackButton('Играть!', '1'),
-          Markup.callbackButton('Выйти!', '2')
-          ],
-          [
-          Markup.callbackButton('Старт!', '3'),
-          Markup.callbackButton('Стоп!', '4')
-         ]))
+  ctx.reply('Начат набор игроков', { reply_markup: JSON.stringify({ inline_keyboard: [[
+    { text: 'Играть!', callback_data: '1' },
+    { text: 'Выйти', callback_data: '2' }
+]
+ [
+   {text: 'Старт!', callback_data: '3' }
+   {text: 'Стоп', callback_data: '4' }
+ ]
+                                                                                     ];
+}) }
 } else {
     ctx.reply('Игра уже начата')
   }
 })
   
-bot.action('1', ctx => {
+telegram.action('1', ctx => {
 ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
 gamerb[gamersb] = ctx.from.id;
 gamersb++;
 });
 
-bot.action('2', ctx => {
+telegram.action('2', ctx => {
   gamerb[gamersb] = 'null';
 gamersb--;
 });
 
-bot.action('3', ctx => {
+telegram.action('3', ctx => {
 ctx.reply('Количество игроков для старта слишком мало. Позовите кого-нибудь для старта')
 });
   
-bot.action('4', ctx => {
+telegram.action('4', ctx => {
   for (i=0;i<mesbot.lenght;i++){
 ctx.deleteMessage(ctx.chatid,mesbot[i])}
 ctx.reply('Игра была отменена');
