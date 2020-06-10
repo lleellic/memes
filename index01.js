@@ -5,7 +5,7 @@ const fs = require('fs')
 var offir = 0;
 const balance = new Array();
 for (i=0; i < 19; i++) balance[i]= 1; 
-
+var mesbot = new Array();
 
 
 var members = new Array();
@@ -169,6 +169,8 @@ gamerb[gamersb] = 'null';
 gamersb--;
 })
 bot.hears('stopgameb', (ctx) => {
+  for (i=0;i<mesbot.lenght;i++){
+  ctx.deleteMessage(ctx.chatid,mesbot[i])}
   ctx.reply('Игра была отменена');
   gamevalue = 0;
 })
