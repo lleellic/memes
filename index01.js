@@ -152,20 +152,9 @@ var textofg = {
           }
           ]]
     })
-bot.on('callback_query', function(cb) {
-  switch (cb_data) {
-    case 'ingameb': { ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
-gamerb[gamersb] = ctx.from.id;
-gamersb++;  }
-    case 'leavegameb':
-    case 'startgameb':
-    case 'stopgameb':
-}    
-
-     // в cb.data будет то, что лежит в callback_data
-    // а затем через if или что-то еще обрабатываешь свой ответ
-});
 }
+
+
 
 var gamevalue = 0;
 
@@ -180,7 +169,19 @@ var gamerb = [];
   }
 })
   
+bot.on('callback_query', function(cb) {
+  switch (cb.data) {
+    case 'ingameb': { ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
+gamerb[gamersb] = ctx.from.id;
+gamersb++;  }
+    case 'leavegameb':
+    case 'startgameb':
+    case 'stopgameb':
+}    
 
+     // в cb.data будет то, что лежит в callback_data
+    // а затем через if или что-то еще обрабатываешь свой ответ
+});
 
 
 bot.on('callback_query', function(cb) {
