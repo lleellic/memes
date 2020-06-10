@@ -170,7 +170,7 @@ var gamerb = [];
 })
   
 bot.on('callback_query', function(msg, ctx) {
-  console.log(msg);
+  console.log(msg.data);
  // var answer = msg.data.split('_'); 
   var button = 'null'; 
   
