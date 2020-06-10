@@ -1,6 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 const token = '1097903013:AAHjon47mwC7BWolEwQTFZn2lA91iud0ge8';
-const bot = new TelegramBot(token);
+var bot = new TelegramBot(token, {polling: true});
+
 var offers = 0;
 var i = 0;
 var gamersb = new Array();
@@ -20,13 +21,18 @@ gamebvalue = 1;
 })
 bot.on('callback_query', function(msg, match) {
    
-  if (msg.data=='COOMMAND1') {commands1(msg.id, msg.chat.id, msg.from.id, msg.from.first_name); console.log(error.code)}
+  if (msg.data=='COOMMAND1') commands1(msg.id, msg.chat.id, msg.from.id, msg.from.first_name)
   if (msg.data=='COMMAND2') bot.sendMessage(msg.chat.id, 'Вы вышли из игры')
   if (msg.data=='COMMAND3') bot.sendMessage(msg.chat.id, 'Вы проголосовали за старт')
   if (msg.data=='COMMAND4')  bot.sendMessage(msg.chat.id, 'Вы проголосовали за закрытие игры')
   
  bot.answerCallbackQuery(msg.id, 'Вы выбрали: '+ msg.data, true);
               
+});
+
+
+bot.on('polling_error', (error) => {
+  console.log(error.code); 
 });
 
 function commands1(id, chatid, fromid, firstname){
