@@ -105,7 +105,7 @@ bot.hears(/баланс/gi, (ctx) => {
   default: idid = 5;
 }
   
-bot.reply_to_message_id('<a href=""//infostart.ru/"">Ссылка на Infostart</a>');
+bot.reply ('<a href=""//infostart.ru/"">Ссылка на Infostart</a>');
 })
 
 bot.hears(/имя/gi, (ctx) => {
