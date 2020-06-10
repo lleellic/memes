@@ -152,6 +152,7 @@ var gamerb = [];
 })
 
 bot.hears('ingameb', (ctx) => {
+  ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"})
 gamerb[gamersb] = ctx.from.id;
 gamersb++;
 })
