@@ -63,7 +63,7 @@ function countdown(){
 
 
 
-bot.hears(/Выключить извинения/gi, (ctx) => {
+bot.on(/Выключить извинения/gi, (ctx) => {
           if (ctx.from.id == 684519513 || ctx.from.id == 687542018) {
  if (offir == 1) ctx.reply('Извинения уже отключены')
  else {
@@ -71,11 +71,11 @@ bot.hears(/Выключить извинения/gi, (ctx) => {
         ctx.reply('Извинения отключены')  
   }}
 else{
- ctx.reply('Недостаточно прав!')
+ ctx.on('Недостаточно прав!')
 }
 })
           
-bot.hears(/Включить извинения/gi, (ctx) => {
+bot.on(/Включить извинения/gi, (ctx) => {
           if (ctx.from.id == 684519513 || ctx.from.id == 687542018) {
  if (offir == 0) ctx.reply('Извинения уже включены')
  else {
@@ -91,15 +91,15 @@ bot.start((ctx) => ctx.reply('Привет, <a href="tg://user?id='+ ctx.from.id
 bot.help((ctx) => ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a>, я пока ничего не умею', {parse_mode : "HTML"}))
 
 
-bot.hears(/прости/gi, (ctx) => {
+bot.on(/прости/gi, (ctx) => {
           if (offir == 0) ctx.reply('Хорошо, и ты меня🥺')
 })
-bot.hears(/извин/gi, (ctx) => { 
+bot.on(/извин/gi, (ctx) => { 
   if (offir == 0) ctx.reply('Прости меня🥺')
 })
 
 
-bot.hears(/баланс/gi, (ctx) => {
+bot.on(/баланс/gi, (ctx) => {
    var idid;
   
            switch (ctx.from.id) {
@@ -154,22 +154,22 @@ var gamerb = [];
   }
 })
   
-bot.action('1', ctx => {
+bot.on('1', ctx => {
 ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
 gamerb[gamersb] = ctx.from.id;
 gamersb++;
 });
 
-bot.action('2', ctx => {
+bot.on('2', ctx => {
   gamerb[gamersb] = 'null';
 gamersb--;
 });
 
-bot.action('3', ctx => {
+bot.on('3', ctx => {
 ctx.reply('Количество игроков для старта слишком мало. Позовите кого-нибудь для старта')
 });
   
-bot.action('4', ctx => {
+bot.on('4', ctx => {
   for (i=0;i<mesbot.lenght;i++){
 ctx.deleteMessage(ctx.chatid,mesbot[i])}
 ctx.reply('Игра была отменена');
@@ -181,4 +181,4 @@ gamevalue = 0;
 
 
 
-telegram.startPolling()
+
