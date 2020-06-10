@@ -144,7 +144,7 @@ if (gamersb > 1) {
 } else { 
   ctx.reply('Количество игроков для старта слишком мало. Позовите кого-нибудь для старта')
 }
-}))
+})
 bot.hears('leavegameb', (ctx) =>{
 gamerb[gamersb] = 'null';
 gamersb--;
