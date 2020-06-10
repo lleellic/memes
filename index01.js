@@ -171,8 +171,10 @@ var gamerb = [];
 })
   
 bot.on('callback_query', function onCallbackQuery(callbackQuery) {
+  console.log('1')
 switch (callbackQuery.data) {
 case 1: {
+  console.log('2')
 ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
 gamerb[gamersb] = ctx.from.id;
 gamersb++;
