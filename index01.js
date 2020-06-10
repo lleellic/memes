@@ -9,7 +9,7 @@ var offir = 0;
 
 
 
-var mesbot = new Array();
+
 
 
 var members = new Array();
@@ -133,26 +133,39 @@ bot.hears(/баланс/gi, (ctx) => {
 
 ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a>, твой балланс: '+balance[idid]+' конфет(а)', {parse_mode : "HTML"});
 })
+var textofg = {
+    parse_mode: "HTML",
+    disable_web_page_preview: false,
+    reply_markup: JSON.stringify({
+        inline_keyboard: [
+          [{
+            text: 'Играть!',
+            callback_data: 'ingameb',
+            text: 'Выйти!',
+            callback_data: 'leavegameb',
+          }],
+          [{
+            text: 'Старт!',
+            callback_data: 'startgameb',
+            text: 'Стоп!',
+            callback_data: 'stopgameb',
+          }]
+        ]
+    })
+}
 
 var gamevalue = 0;
+
 bot.hears(/играть было/gi, (ctx) => {
   if (gamevalue == 0) {
 gamevalue = 1;
 var gamersb = 0;
 var gamerb = [];
-  ctx.reply('Начат набор игроков',  {
-    parse_mode: "HTML",
-    disable_web_page_preview: false,
-    reply_markup: JSON.stringify({
-        inline_keyboard: [[{
-            text: 'Играть!',
-            callback_data: 'ingameb'
-        }]]
-    })
-})
+  ctx.reply('Начат набор игроков', textofg )
 } else {
     ctx.reply('Игра уже начата')
   }
+  
   switch (callback_data) {
     case 'ingameb': { ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
 gamerb[gamersb] = ctx.from.id;
@@ -179,8 +192,5 @@ bot.hears('stopgameb', (ctx) => {
   gamevalue = 0;
 })
 
-bot.hears(/[0-9]/, (ctx) =>{
-  messbot = ctx.input;
-  ctx.deleteMessage(ctx.chat_id,messbot)
-})
+
 bot.launch()
