@@ -130,36 +130,5 @@ ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a>, 
 
 var gamevalue;
 
-ctx.hears(/играть было/gi, (ctx)=> {
-gamevalue++;
-  if (gamevalue < 2) {
-var buttons1 = [
-botUtils.buildDefaultButton('Я в игре!','ingameb'),
-botUtils.buildDefaultButton('Старт','startgameb'),
-botUtils.buildDefaultButton('Выйти','leavegameb'),
-botUtils.buildDefaultButton('Стоп','stopgameb')
-];
-botUtils.buildMessageOptins(buttons1);
-var gamersb = 0;
-var gamerb = new array();
-bot.hears('ingameb', (ctx) => {
-gamerb[gamersb] = ctx.from.username;
-gamersb++;
-})
-bot.hears('startgameb', (ctx) => {
-if (gamersb > 1) {
-  gameb(gamersb) 
-}
-Else { ctx.reply('Количество игроков для старта слишком мало. Позовите кого-нибудь для старта')
-     }
-}))
-bot.hears('leavegameb', (ctx) =>{
-gamerb[gamersb] = 'null';
-gamersb--;
-}))
-bot.hears('stopgameb', (ctx) =>))
-  } else {
-  
-  }
-})
+
 bot.launch()
