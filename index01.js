@@ -97,7 +97,7 @@ bot.hears(/прости/gi, (ctx) => {
           if (offir == 0) ctx.reply('Хорошо, и ты меня🥺')
 })
 bot.hears(/извин/gi, (msg) => {
-  console.log(msg);
+  console.log(msg)})
          
 
 
