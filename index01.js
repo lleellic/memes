@@ -134,7 +134,11 @@ bot.hears(/играть было/gi, (ctx) => {
 gamevalue = 1;
 var gamersb = 0;
 var gamerb = [];
-  ctx.reply('Начат набор игроков',{inline_keyboard: [вступить]})
+  ctx.reply('Начат набор игроков', Markup.inlineKeyboard([
+      Markup.callbackButton('Играть!', 'ingameb'),
+      Markup.callbackButton('Dr Pepper', 'Dr Pepper', Math.random() > 0.5),
+      Markup.callbackButton('Pepsi', 'Pepsi')
+    ]))
             
 } else {
     ctx.reply('Игра уже начата')
