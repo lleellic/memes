@@ -22,16 +22,13 @@ bot.on('callback_query', function (msg) {
    
            If (msg.data=='COOMMAND1') {
             commands1(msg.id, msg.chat.id, msg.from.id, msg.from.first_name);
-};
-           If (msg.data=='COMMAND2') { 
+} else if (msg.data=='COMMAND2') { 
              bot.answerCallbackQuery(msg.id,'Вы вышли из игры', true);
-};
-           If (msg.data=='COMMAND3') {
+} else if (msg.data=='COMMAND3') {
             bot.answerCallbackQuery(msg.id,'Вы проголосовали за старт', true);
-};
-           If (msg.data=='COMMAND4') {
+} else if (msg.data=='COMMAND4') {
             bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры', true);
-};
+} else console.log('error') ;
              
 });
 
