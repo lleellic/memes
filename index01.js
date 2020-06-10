@@ -165,27 +165,40 @@ var gamerb = [];
 } else {
     ctx.reply('Игра уже начата')
   }
+})
   
-  switch (callback_data) {
+
+bot.on('callback_query', function(cb) {
+  switch (cb_data) {
     case 'ingameb': { ctx.reply('<a href="tg://user?id='+ ctx.from.id+'">'+ctx.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
 gamerb[gamersb] = ctx.from.id;
 gamersb++;  }
+    case 'leavegameb':
+    case 'startgameb':
+    case 'stopgameb':
 }    
-})
 
+     // в cb.data будет то, что лежит в callback_data
+    // а затем через if или что-то еще обрабатываешь свой ответ
+});
 
-bot.hears('startgameb', (ctx) => {
+bot.on('callback_query', function(cb) {
+  
 if (gamersb > 1) {
   gameb(gamersb) 
 } else { 
   ctx.reply('Количество игроков для старта слишком мало. Позовите кого-нибудь для старта')
 }
 })
-bot.hears('leavegameb', (ctx) =>{
+
+bot.on('callback_query', function(cb) {
+  
 gamerb[gamersb] = 'null';
 gamersb--;
 })
-bot.hears('stopgameb', (ctx) => {
+
+bot.on('callback_query', function(cb) {
+  
   for (i=0;i<mesbot.lenght;i++){
   ctx.deleteMessage(ctx.chatid,mesbot[i])}
   ctx.reply('Игра была отменена');
