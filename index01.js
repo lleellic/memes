@@ -134,6 +134,12 @@ bot.hears(/играть было/gi, (ctx) => {
 gamevalue = 1;
 var gamersb = 0;
 var gamerb = [];
+  ctx.reply('Начат набор игроков',reply_markup: JSON.stringify({
+        inline_keyboard: [[{
+            text: 'Вступить!',
+            callback_data: 'ingameb'
+        }]]
+    }))
 } else {
     ctx.reply('Игра уже начата')
   }
