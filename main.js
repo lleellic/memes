@@ -43,7 +43,7 @@ if(offers==0) {
             }
 });
 
-function commands1()
+function commands1(){};
 
 
 
