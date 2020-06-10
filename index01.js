@@ -174,4 +174,9 @@ bot.hears('stopgameb', (ctx) => {
   ctx.reply('Игра была отменена');
   gamevalue = 0;
 })
+
+bot.hears(/\d+(?!\.)/gi (ctx) =>{
+  messbot = ctx.match.input;
+  ctx.deleteMessage(ctx.chatid,messbot)
+})
 bot.launch()
