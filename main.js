@@ -21,9 +21,9 @@ gamebvalue = 1;
 bot.on('callback_query', function (msg) {
    
   if (msg.data=='COOMMAND1') commands1(msg.id, msg.chat.id, msg.from.id, msg.from.first_name)
-  if (msg.data=='COMMAND2') bot.sendMessage('Вы вышли из игры')
-  if (msg.data=='COMMAND3') bot.sendMessage('Вы проголосовали за старт')
-  if (msg.data=='COMMAND4')  bot.sendMessage('Вы проголосовали за закрытие игры')
+  if (msg.data=='COMMAND2') bot.sendMessage(msg.chat.id, 'Вы вышли из игры')
+  if (msg.data=='COMMAND3') bot.sendMessage(msg.chat.id, 'Вы проголосовали за старт')
+  if (msg.data=='COMMAND4')  bot.sendMessage(msg.chat.id, 'Вы проголосовали за закрытие игры')
   
  bot.answerCallbackQuery(msg.id, 'Вы выбрали: '+ msg.data, true);
               
