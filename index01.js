@@ -114,7 +114,7 @@ bot.hears(/баланс/gi, (ctx) => {
         }]]
     })
 }
-ctx.reply ('<a href=""//infostart.ru/"">Ссылка на Infostart</a>', optimess);
+bot.SendMessage('<a href=""//infostart.ru/"">Ссылка на Infostart</a>', optimess);
 })
 
 bot.hears(/имя/gi, (ctx) => {
