@@ -21,15 +21,15 @@ bot.on('callback_query', function (msg) {
      bot.answerCallbackQuery(msg.id,'Вы вошли в игру', true);
    };
                 break;
-   case 'COOMMAND2': {
+   case 'COMMAND2': {
      bot.answerCallbackQuery(msg.id,'Вы вышли из игруы', true);
    };
                 break;
-   case 'COOMMAND3': {
+   case 'COMMAND3': {
      bot.answerCallbackQuery(msg.id,'Ты проголосовал за старт', true);
    };
                 break;
-   case 'COOMMAND4': {
+   case 'COMMAND4': {
      bot.answerCallbackQuery(msg.id,'Ты проголосовал за закрытие игры', true);
    };
                 break;
