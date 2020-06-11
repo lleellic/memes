@@ -3,6 +3,7 @@ const token = '1097903013:AAHjon47mwC7BWolEwQTFZn2lA91iud0ge8';
 var bot = new TelegramBot(token, {polling: true});
 var offers = 0;
 var i = 0;
+var gamebvalue = 0;
 var votestartb = 0;
 var gamersb = 0;
 var gameridb = [];
