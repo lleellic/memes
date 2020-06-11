@@ -264,7 +264,7 @@ bot.onText(/Старт было/i, (msg) => {
   gameridb.delete[t];
   }
 })
-  
+})
 bot.onText(/Вопрос далее/i, (msg) => {
  for (var y; y<11; y++) {
    if (drink[y] == 5) {
