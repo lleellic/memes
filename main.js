@@ -14,12 +14,11 @@ var startb = {
     ]
   }
 };
-var votestartb;
+var votestartb = 0;
 var gamebvalue = 0;
 bot.onText(/Играть в было/i, (msg) => {
  bot.sendMessage(msg.chat.id,'Набор игроков для игры: Было не было', startb);
   gamebvalue = 1;
-  votestartb = 0;
 })
 bot.on('callback_query', function(msg) {
 if (msg.data === 'COOMMAND1'){
