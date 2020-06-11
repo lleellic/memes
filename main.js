@@ -161,7 +161,7 @@ bot.onText(/вы/i, (msg) => {
   gameQ(msg.text);
   bot.answerCallbackQuery(msg.id, 'Ваш вопрос принят', true);
 })
-}
+
 
 function gameQ(textW){
   bot.sendMessage(msg.chat.id,textW+' - если да, то пейте алкоголь (большие шансы опьянеть), если нет, то пейте молокою Надеюсь на вашу честность', startb2);
