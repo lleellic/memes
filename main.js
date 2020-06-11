@@ -27,7 +27,6 @@ bot.onText(/играть в было/, (msg) => {
 if (offirs == 0) {
 bot.sendMessage(chatid,'Стартовал набор игроков для игры «Было/не было»', inline1); //тут присвоить значение мессаг айди
 offirs = 1;
-}
 } else {
 bot.answerCallbackQuery(msg.id,'Игра уже начата✋🏼🤚🏼. Ожидайте...', true)
 } 
