@@ -52,6 +52,7 @@ if (msg.data === 'COOMMAND1') {
    }; break;
  }
 }
+  
 if (msg.data === 'COMMAND2') {
   switch (msg.from.id) {
    case gameridb[0]:{
@@ -103,7 +104,8 @@ if (msg.data === 'COMMAND2') {
   bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
    }; break;
     default: bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a>, ты не состоишь в игре', {parse_mode : "HTML"}); break;
-}
+}}
+  
 if (msg.data === 'COMMAND3') {
   bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
   votestartb++;
