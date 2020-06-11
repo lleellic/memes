@@ -201,7 +201,7 @@ bot.onText(/Старт было/i, (msg) => {
  offers2 = 0;
  gamersb = 0;
   for (var t; t<11; t++){
- delete gameridb = [t];
+  gameridb.delete[t];
   }
 }
 
