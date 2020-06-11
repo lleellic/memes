@@ -3,7 +3,6 @@ const token = '1097903013:AAHjon47mwC7BWolEwQTFZn2lA91iud0ge8';
 var bot = new TelegramBot(token, {polling: true});
 var offers = 0;
 var i = 0;
-var gamebvalue = 0;
 var votestartb = 0;
 var gamersb = 0;
 var gameridb = [];
@@ -17,9 +16,9 @@ var startb = {
 };
 
 bot.onText(/Играть в было/i, (msg) => {
- if(gamebvalue===0){
+ if(offers===0){
  bot.sendMessage(msg.chat.id,'Набор игроков для игры: было не было', startb);
- gamebvalue = 1;
+ offers = 1;
  } else {
  bot.sendMessage(msg.chat.id,'Игра уже начата');
  }
