@@ -160,11 +160,7 @@ if (msg.data === 'COMMAND2') {
 }}
   
 if (msg.data === 'COMMAND3') {
-  if (gameridbvote[gameridb.map(function (el, index) {
-    if(el.id === msg.from.id) {
-        console.log(index)
-    }
-})] != 1) {
+  if (gameridbvote.indexOf(msg.from.id) != 1) {
   switch (msg.from.id) {
    case gameridb[0]:{
    bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
