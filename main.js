@@ -163,7 +163,7 @@ if (msg.data === 'COMMAND6') {
   bot.sendMessage(msg.message.chat.id, 'Голосов за старт: '+votestartb);
 }
   if (votestartb > 1 && votestartb == gamersb) gameWAS()
-  if (stopgameb > 1 && stopgameb == gamersb) bot.deleteMessage(msg.chat.id, idgameb)
+  if (stopgameb == 5) bot.deleteMessage(msg.chat.id, idgameb)
 });
 
 
