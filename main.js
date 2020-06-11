@@ -56,94 +56,94 @@ if (msg.data === 'COMMAND2') {
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
     gameridb[0] = gameridb[gameridb.lenght];
-    gamerid.pop();
+    gameridb.pop();
     leaversb++;
     gamersb--;
    }; break;
    case gameridb[1]:{
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
-    gameridb[0] = gameridb[gameridb.lenght];
-     gamerid.pop();
+    gameridb[1] = gameridb[gameridb.lenght];
+     gameridb.pop();
     leaversb++;
     gamersb--;
    }; break;
    case gameridb[2]:{
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
-    gameridb[0] = gameridb[gameridb.lenght];
-     gamerid.pop();
+    gameridb[2] = gameridb[gameridb.lenght];
+     gameridb.pop();
     leaversb++;
     gamersb--;
    }; break;
    case gameridb[3]:{
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
-    gameridb[0] = gameridb[gameridb.lenght];
-     gamerid.pop();
+    gameridb[3] = gameridb[gameridb.lenght];
+     gameridb.pop();
     leaversb++;
     gamersb--;
    }; break;
    case gameridb[4]:{
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
-    gameridb[0] = gameridb[gameridb.lenght];
-     gamerid.pop();
+    gameridb[4] = gameridb[gameridb.lenght];
+     gameridb.pop();
     leaversb++;
     gamersb--;
    }; break;
    case gameridb[5]:{
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
-    gameridb[0] = gameridb[gameridb.lenght];
-     gamerid.pop();
+    gameridb[5] = gameridb[gameridb.lenght];
+     gameridb.pop();
     leaversb++;
     gamersb--;
    }; break;
    case gameridb[6]:{
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
-    gameridb[0] = gameridb[gameridb.lenght];
-     gamerid.pop();
+    gameridb[6] = gameridb[gameridb.lenght];
+     gameridb.pop();
     leaversb++;
     gamersb--;
    }; break;
    case gameridb[7]:{
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
-    gameridb[0] = gameridb[gameridb.lenght];
-     gamerid.pop();
+    gameridb[7] = gameridb[gameridb.lenght];
+     gameridb.pop();
     leaversb++;
     gamersb--;
    }; break;
    case gameridb[8]:{
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
-    gameridb[0] = gameridb[gameridb.lenght];
-     gamerid.pop();
+    gameridb[8] = gameridb[gameridb.lenght];
+     gameridb.pop();
     leaversb++;
     gamersb--;
    }; break;
    case gameridb[9]:{
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
-    gameridb[0] = gameridb[gameridb.lenght];
-     gamerid.pop();
+    gameridb[9] = gameridb[gameridb.lenght];
+     gameridb.pop();
     leaversb++;
    }; break;
    case gameridb[10]:{
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
-    gameridb[0] = gameridb[gameridb.lenght];
-     gamerid.pop();
+    gameridb[10] = gameridb[gameridb.lenght];
+     gameridb.pop();
     leaversb++;
     gamersb--;
    }; break;
    case gameridb[11]:{
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
-    gameridb[0] = gameridb[gameridb.lenght];
-     gamerid.pop();
+    gameridb[11] = gameridb[gameridb.lenght];
+     gameridb.pop();
     leaversb++;
     gamersb--;
    }; break;
