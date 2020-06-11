@@ -6,7 +6,7 @@ var offers = 0;
 var i = 0;
 var votestartb = 0;
 var gamebvalue = 0;
-var gamersb = new Array();
+var gamersb = 0;
 var gameridb = new Array();
 var startb = {
   reply_markup:{
@@ -24,8 +24,11 @@ bot.onText(/Играть в было/i, (msg) => {
 })
 bot.on('callback_query', function(msg) {
 if (msg.data === 'COOMMAND1'){
+  gamersb++;
+  gsmeridb[i] = msg.id;
+  i++;
   bot.answerCallbackQuery(msg.id, 'Вы вошли в игру', true)
-  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"})
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вступил(а) в игру, всего: '+gamersb+' игрок(а/ов)', {parse_mode : "HTML"})
 }
 if (msg.data === 'COMMAND2') {
   bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true)
@@ -34,7 +37,7 @@ if (msg.data === 'COMMAND2') {
 if (msg.data === 'COMMAND3') {
   bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false)
   votestartb++;
-  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, итого: '+votestartb+' голос(а/ов)', {parse_mode : "HTML"})
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, всего: '+votestartb+' голос(а/ов)', {parse_mode : "HTML"})
 }
 if (msg.data === 'COMMAND4') {
   bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры', false)
