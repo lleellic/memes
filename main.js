@@ -171,7 +171,7 @@ bot.sendMessage(gameridb[wedWAS],'Сейчас твоё время задать 
 bot.onText(/вы/i, (msg) => {
   if (offers3 == 2) {
     console.log(msg)
-  bot.sendMessage(chatid,textW+' - если да, то пейте алкоголь (большие шансы опьянеть), если нет, то пейте молокою Надеюсь на вашу честность', startb2);
+  bot.sendMessage(chatid,msg.text+' - если да, то пейте алкоголь (большие шансы опьянеть), если нет, то пейте молокою Надеюсь на вашу честность', startb2);
   bot.answerCallbackQuery(msg.id, 'Ваш вопрос принят', true);
   offers3 = 0;
   }
