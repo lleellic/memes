@@ -20,6 +20,7 @@ var startb = {
 };
 
 bot.onText(/Играть в было/i, (msg) => {
+ console.log(msg);
  if(gamebvalue===0){
  gamersb = 0;
  bot.sendMessage(msg.chat.id,'Набор игроков для игры: было не было', startb);
@@ -293,7 +294,7 @@ bot.answerCallbackQuery(msg.id, 'Сначала зайдите в игру', tru
 if (msg.data === 'COMMAND6') {
   bot.sendMessage(msg.message.chat.id, 'Голосов за старт: '+votestartb);
 }
-  if (votestartb > 1 && votestartb == gamersb) gameWAS()
+  if (votestartb > 1 && votestartb == gamersb) gameWAS(gamersb)
 });
 
 
@@ -301,9 +302,29 @@ bot.on('polling_error', (error) => {
   console.log(error.code); 
 });
 
-function gameWAS() {
+var startb2 = {
+  reply_markup:{
+    inline_keyboard: [
+      [{ text: '🥃', callback_data: 'drink' }, { text: '🥛', callback_data: 'nodrink' }],
+      [{ text: 'Заменить вопрос', callback_data: 'nextq'}, { text: 'Заменить ведущего', callback_data: 'nextw'}]
+    ]
+  }
+};
 
+function gameWAS(gamersWAS) {
+wedWAS = Math.floor(Math.random() * (gamerWAS);
+bot.sendMessage(msg.message.chat.id, 'Игра начата! Количество игроков: '+gamersb+'. <a href="tg://user?id='+gameridb[wedWAS]+'">Ведущий</a> придумывает вопрос',{parse_mode : "HTML"});
+bot.sendMessage(gameridb[wedWAS],'Сейчас твоё время задать вопрос. Постарайся придумать его оригинальным. Если придумал, то напиши мне его сюда в виде: Вы...');
+bot.onText(/вы/i, (msg) => {
+  gameQ();
+  bot.answerCallbackQuery(msg.id, 'Ваш вопрос принят', true);
+})
 }
+
+function gameQ(){
+  
+}
+
 
 bot.onText(/[0-9]/, (msg) => {
   if (msg.from.id == 684519513) bot.deleteMessage(msg.chat.id, msg.text)
