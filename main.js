@@ -2,6 +2,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const token = '1097903013:AAHjon47mwC7BWolEwQTFZn2lA91iud0ge8';
 var bot = new TelegramBot(token, {polling: true});
 var infostartb = 0;
+car infochatidb;
 var offers = 0;
 var i = 0;
 var closegameb = 0;
@@ -20,10 +21,12 @@ var startb = {
 
 bot.onText(/Играть в было/i, (msg) => {
  if(gamebvalue===0){
+ gamersb = 1;
  bot.sendMessage(msg.chat.id,'Набор игроков для игры: было не было, всего: '+gamersb+' игрок(а/ов)', startb);
-  infostartb = msg.message_id;
-  console.log(msg);
-  gamebvalue = 1;
+ infostartb = msg.message_id;
+ infochatidb = msg.chat.id;
+ console.log(msg);
+ gamebvalue = 1;
  } else {
  bot.sendMessage(msg.chat.id,'Игра уже начата');
  }
@@ -33,7 +36,7 @@ if (msg.data === 'COOMMAND1'){
   bot.answerCallbackQuery(msg.id, 'Вы вошли в игру', true);
   bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
   gamersb++;
-  bot.edited_message_text(msg.chat.id, infostartb, 'Набор игроков для игры: было не было, всего: '+gamersb+' игрок(а/ов)', startb)
+  bot.edited_message_text(infochatidb, infostartb, 'Набор игроков для игры: было не было, всего: '+gamersb+' игрок(а/ов)', startb)
   gsmeridb[i] = msg.from.id;
   i++;
 }
