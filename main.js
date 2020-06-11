@@ -268,7 +268,7 @@ bot.sendMessage(gameridb[wedWAS],'Сейчас твоё время задать 
   } else{
     bot.sendMessage(msg.chat.id, 'Никто не выйграл😢');
   }
-  })
+})
 
 bot.onText(/[0-9]/, (msg) => {
   if (msg.from.id == 684519513) bot.deleteMessage(msg.chat.id, msg.text)
@@ -282,5 +282,5 @@ bot.onText(/Старт было/i, (msg) => {
   for (var t; t<11; t++){
   gameridb.delete[t];
   }
-})
+});
 
