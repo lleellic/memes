@@ -277,7 +277,7 @@ bot.onText(/Вопрос далее/i, (msg) => {
      gamersb--;
    }}
   if (gamersb > 1){
- bot.sendMessage(msg.chat.id, 'Количество игроков: '+gamersb+'. <a href="tg://user?id='+gameridb[vv]+'">Ведущий</a> придумывает вопрос',{parse_mode : "HTML"});
+ bot.sendMessage(msg.chat.id, 'Количество игроков: '+gamersb+'. <a href="tg://user?id='+gameridb[vv]+'>Ведущий</a> придумывает вопрос',{parse_mode : "HTML"});
  bot.sendMessage(gameridb[vv],'Сейчас твоё время задать вопрос. Постарайся придумать его оригинальным. Если придумал, то напиши мне его сюда в виде: Вы...');
   vv++;
   } else if (gamersb == 1){
