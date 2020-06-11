@@ -28,7 +28,7 @@ if (msg.data === 'COOMMAND1'){
   bot.answerCallbackQuery(msg.id, 'Вы вошли в игру', true)
   bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вступил(а) в игру, всего: '+gamersb+' игрок(а/ов)', {parse_mode : "HTML"})
   gamersb++;
-  gsmeridb[i] = msg.id;
+  gsmeridb[i] = msg.from.id;
   i++;
 }
 if (msg.data === 'COMMAND2') {
@@ -63,7 +63,7 @@ function COOMMAND1(id, chatid, fromid, firstname){
 
 bot.onText(/[0-9]/, (msg) => {
   console.log(msg)
-  //bot.edited_message_text
+  bot.delete_message(msg.chat.id, msg.text)
 })
 
 
