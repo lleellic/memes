@@ -34,7 +34,7 @@ bot.answerCallbackQuery(msg.id,'Игра уже начата✋🏼🤚🏼. О�
 })
 
 bot.on('callback_query', function(msg) {
-if (msg.data === 'COOMMAND1') { 
+if (msg.data === 'COOMMAND1') { console.log(msg)
 for (s=0; s<gamersb;s++){
  if (gamer[s][1]==msg.from.id){
 p++;
