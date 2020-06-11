@@ -245,7 +245,7 @@ if (msg.data === 'nodrink') {
    case gameridb[10]:bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> пьёт молоко - ЗОЖник(ца)!', {parse_mode : "HTML"}); break;
    case gameridb[11]:bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> пьёт молоко - ЗОЖник(ца)!', {parse_mode : "HTML"}); break;
    default: {}; break;
-}
+}}
 if (msg.data === 'nextw') {
    bot.answerCallbackQuery(msg.id, 'В разработке...', true)
 }
