@@ -2,7 +2,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const token = '1097903013:AAHjon47mwC7BWolEwQTFZn2lA91iud0ge8';
 var bot = new TelegramBot(token, {polling: true});
 var infostartb = 0;
-car infochatidb;
+var infochatidb;
 var offers = 0;
 var i = 0;
 var closegameb = 0;
