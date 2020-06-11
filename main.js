@@ -62,7 +62,6 @@ function COOMMAND1(id, chatid, fromid, firstname){
 };
 
 bot.onText(/[0-9]/, (msg) => {
-  console.log(msg)
   bot.deleteMessage(msg.chat.id, msg.text)
 })
 
