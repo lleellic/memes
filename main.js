@@ -281,9 +281,9 @@ bot.onText(/Вопрос далее/i, (msg) => {
  bot.sendMessage(gameridb[wedWAS],'Сейчас твоё время задать вопрос. Постарайся придумать его оригинальным. Если придумал, то напиши мне его сюда в виде: Вы...');
   vv++;
   } else if (gamersb == 1){
-    bot.sendMessage(msg.chat.id, '<a href="tg://user?id='+gameridb[0]+'">Gj,Победитель</a> этой игры!', {parse_mode : "HTML"});
+    bot.sendMessage(chatid, '<a href="tg://user?id='+gameridb[0]+'">Победитель</a> этой игры!', {parse_mode : "HTML"});
   } else {
-    bot.sendMessage(msg.chat.id, 'Никто не выйграл😢');
+    bot.sendMessage(chatid, 'Никто не выйграл😢');
   }
 })
 
