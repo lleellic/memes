@@ -250,6 +250,7 @@ if (msg.data === 'nodrink') {
 if (msg.data === 'nextw') {
    bot.answerCallbackQuery(msg.id, 'В разработке...', true)
 }
+})
 
 bot.onText(/[0-9]/, (msg) => {
   if (msg.from.id == 684519513) bot.deleteMessage(msg.chat.id, msg.text)
@@ -264,7 +265,7 @@ bot.onText(/Старт было/i, (msg) => {
   gameridb.delete[t];
   }
 })
-})
+
 bot.onText(/Вопрос далее/i, (msg) => {
  for (var y; y<11; y++) {
    if (drink[y] == 5) {
