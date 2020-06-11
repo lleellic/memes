@@ -35,10 +35,10 @@ bot.on('callback_query', function(msg) {
 if (msg.data === 'COOMMAND1'){
   bot.answerCallbackQuery(msg.id, 'Вы вошли в игру', true);
   bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
-  gamersb++;
+ // gamersb++;
   bot.edited_message_text(infochatidb, infostartb, 'Набор игроков для игры: было не было, всего: '+gamersb+' игрок(а/ов)', startb)
-  gsmeridb[i] = msg.from.id;
-  i++;
+//  gsmeridb[i] = msg.from.id;
+ // i++;
 }
 if (msg.data === 'COMMAND2') {
   bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
