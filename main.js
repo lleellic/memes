@@ -352,6 +352,8 @@ bot.onText(/вы/i, (msg) => {
 })
 }
 
+bot.on('startb', (msg) => gameQ(gamersb))
+
 function gameQ(textW){
   bot.sendMessage(msg.chat.id,textW+' - если да, то пейте алкоголь (большие шансы опьянеть), если нет, то пейте молокою Надеюсь на вашу честность', startb2);
 }
