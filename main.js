@@ -151,8 +151,8 @@ var startb2 = {
   }
 };
 
-function gameWAS(gamersWAS) {
-var wedWAS = Math.floor(Math.random() * (gamerWAS));
+function gameWAS(gamersb) {
+var wedWAS = Math.floor(Math.random() * (gamersb));
 bot.sendMessage(msg.message.chat.id, 'Игра начата! Количество игроков: '+gamersb+'. <a href="tg://user?id='+gameridb[wedWAS]+'">Ведущий</a> придумывает вопрос',{parse_mode : "HTML"});
 bot.sendMessage(gameridb[wedWAS],'Сейчас твоё время задать вопрос. Постарайся придумать его оригинальным. Если придумал, то напиши мне его сюда в виде: Вы...');
 bot.onText(/вы/i, (msg) => {
