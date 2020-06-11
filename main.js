@@ -1,8 +1,6 @@
 const TelegramBot = require('node-telegram-bot-api');
 const token = '1097903013:AAHjon47mwC7BWolEwQTFZn2lA91iud0ge8';
 var bot = new TelegramBot(token, {polling: true});
-var infostartb = 0;
-var infochatidb;
 var offers = 0;
 var i = 0;
 var closegameb = 0;
@@ -14,7 +12,8 @@ var startb = {
   reply_markup:{
     inline_keyboard: [
       [{ text: 'Играть😜', callback_data: 'COOMMAND1' }, { text: 'Выйти☹️', callback_data: 'COMMAND2' }],
-      [{ text: 'Старт🤪', callback_data: 'COMMAND3' }, { text: 'Стоп☹️', callback_data: 'COMMAND4' }]
+      [{ text: 'Старт🤪', callback_data: 'COMMAND3' }, { text: 'Стоп☹️', callback_data: 'COMMAND4' }],
+      [{ text: 'Участников🤔', callback_data: 'COMMAND5' }]
     ]
   }
 };
@@ -22,17 +21,16 @@ var startb = {
 bot.onText(/Играть в было/i, (msg) => {
  if(gamebvalue===0){
  gamersb = 1;
- bot.sendMessage(msg.chat.id,'Набор игроков для игры: было не было, всего: '+gamersb+' игрок(а/ов)', startb);
+ bot.sendMessage(msg.chat.id,'Набор игроков для игры: было не было', startb);
  gamebvalue = 1;
  } else {
  bot.sendMessage(msg.chat.id,'Игра уже начата');
  }
 })
 bot.on('callback_query', function(msg) {
-if (msg.data === 'COOMMAND1'){
-  console.log(msg);
-  bot.edited_message_text(chat_id=msg.message.chat.id, message_id=msg.message.message_id, text='Набор игроков для игры: было не было, всего: '+gamersb+' игрок(а/ов)', startb);
-  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
+if (msg.data === 'COOMMAND1'){  
+  consiole.log(msg);
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вступил(а) в игру, всего: '+gamersb+' игрок(а/ов)', {parse_mode : "HTML"});
   bot.answerCallbackQuery(msg.id, 'Вы вошли в игру', true);
   gamersb++;
   
@@ -49,10 +47,14 @@ if (msg.data === 'COMMAND3') {
   bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, всего: '+votestartb+' голос(а/ов)', {parse_mode : "HTML"});
 }
 if (msg.data === 'COMMAND4') {
+
   bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры (вы вышли из игры)', false);
   votestartb = 0;
   bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за закрытие', {parse_mode : "HTML"});
   closegameb++;
+}
+ if (msg.data === 'COMMAND5') {
+  bot.sendMessage(msg.message.chat.id, 'Участников: '+gamersb, {parse_mode : "HTML"});
 }
        
 });
