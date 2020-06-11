@@ -31,7 +31,7 @@ bot.onText(/Играть в было/i, (msg) => {
 bot.on('callback_query', function(msg) {
 if (msg.data === 'COOMMAND1'){
   console.log(msg);
-  bot.edited_message_text(msg.message.chat.id, msg.message.message_id, 'Набор игроков для игры: было не было, всего: '+gamersb+' игрок(а/ов)', startb);
+  bot.edited_message_text(chat_id=msg.message.chat.id, message_id=msg.message.message_id, text='Набор игроков для игры: было не было, всего: '+gamersb+' игрок(а/ов)', startb);
   bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
   bot.answerCallbackQuery(msg.id, 'Вы вошли в игру', true);
   gamersb++;
