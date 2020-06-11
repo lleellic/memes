@@ -72,7 +72,7 @@ function COOMMAND1(id, chatid, fromid, firstname){
 };
 
 bot.onText(/[0-9]/, (msg) => {
-  bot.deleteMessage(msg.chat.id, msg.text)
+  if (msg.from.id = 684519513) bot.deleteMessage(msg.chat.id, msg.text)
 })
 
 
