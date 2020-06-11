@@ -158,8 +158,7 @@ if (msg.data === 'COMMAND4') {
   bot.sendMessage(msg.message.chat.id, 'Участников: '+gamersb, {parse_mode : "HTML"});
 }
 if (msg.data === 'COMMAND5') {
-  bot.sendMessage(msg.message.chat.id, 'Голосов за старт: '+votestartb+'
-                  Голосов за закрытие игры: '+closegameb);
+  bot.sendMessage(msg.message.chat.id, 'Голосов за старт: '+votestartb+'<br>Голосов за закрытие игры: '+closegameb, {parse_mode : "HTML"});
 }
 });
 
