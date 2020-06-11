@@ -4,6 +4,7 @@ var bot = new TelegramBot(token, {polling: true});
 
 var offers = 0;
 var i = 0;
+var closegameb = 0;
 var votestartb = 0;
 var gamebvalue = 0;
 var gamersb = 1;
@@ -40,8 +41,10 @@ if (msg.data === 'COMMAND3') {
   bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, всего: '+votestartb+' голос(а/ов)', {parse_mode : "HTML"})
 }
 if (msg.data === 'COMMAND4') {
-  bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры', false)
+  bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры (вы вышли из игры)', false)
+  votestartb = 0;
   bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за закрытие', {parse_mode : "HTML"})
+  closegameb++;
 }
        
 });
@@ -57,6 +60,11 @@ function COOMMAND1(id, chatid, fromid, firstname){
  gameridb[i] = fromid;
  i++;
 };
+
+bot.onText(/[0-9]/, (msg) => {
+  console.log(msg)
+  //bot.edited_message_text
+}
 
 
 
