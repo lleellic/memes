@@ -195,5 +195,13 @@ bot.onText(/[0-9]/, (msg) => {
   if (msg.from.id == 684519513) bot.deleteMessage(msg.chat.id, msg.text)
 })
 
-
+bot.onText(/Старт было/i, (msg) => {
+ offers = 0;
+ offers1 = 0;
+ offers2 = 0;
+ gamersb = 0;
+  for (var t, t<11,t++){
+ delete gameridb = [t];
+  }
+}
 
