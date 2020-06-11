@@ -171,7 +171,7 @@ var vv;
 
 bot.onText(/Старт было/i, (msg) => {
   if (offers1 === 2) {
-bot.sendMessage(chatid, 'Игра начата! Количество игроков: '+gamersb+'.  <a href="tg://user?id=684519813>Ведущий</a> придумывает вопрос',{parse_mode : "HTML"});
+bot.sendMessage(chatid, 'Игра начата! Количество игроков: '+gamersb+'.  <a href="tg://user?id='+gameridb+'>Ведущий</a> придумывает вопрос',{parse_mode : "HTML"});
 vv++;
     bot.sendMessage(gameridb[vv],'Сейчас твоё время задать вопрос. Постарайся придумать его оригинальным. Если придумал, то напиши мне его сюда в виде: Вы...');
   offers1 = 0;
@@ -270,7 +270,7 @@ bot.onText(/[0-9]/, (msg) => {
 bot.onText(/Вопрос далее/i, (msg) => {
  for (var y; y<11; y++) {
    if (drink[y] == 5) {
-     bot.sendMessage(msg.chat.id, 'Количество игроков: '+gamersb+'. <a href="tg://user?id='+gameridb[y]+'">Ты</a> опьянел (вылетел из игры)',{parse_mode : "HTML"});
+     bot.sendMessage(msg.chat.id, 'Количество игроков: '+gamersb+'. <a href="tg://user?id='+gameridb[y]+'>Ты</a> опьянел (вылетел из игры)',{parse_mode : "HTML"});
      drink[y] = 0;
      gameridb[y] = gameridb[gameridb.lenght];
      gameridb.pop();
