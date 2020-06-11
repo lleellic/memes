@@ -9,7 +9,6 @@ var gamebvalue = 0;
 var gamersb = 1;
 var gameridb = new Array();
 var leaversb = 0;
-var idgameb;
 var startb = {
   reply_markup:{
     inline_keyboard: [
@@ -31,8 +30,6 @@ bot.onText(/Играть в было/i, (msg) => {
 })
 
 bot.on('callback_query', function(msg) {
-  console.log(msg);
-  idgameb = msg.message.message_id;
 if (msg.data === 'COOMMAND1') {
  switch (msg.from.id) {
    case gameridb[0]:bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a>, ты уже в игре', {parse_mode : "HTML"}); break;
@@ -164,7 +161,6 @@ if (msg.data === 'COMMAND6') {
   bot.sendMessage(msg.message.chat.id, 'Голосов за старт: '+votestartb);
 }
   if (votestartb > 1 && votestartb == gamersb) gameWAS()
-  if (stopgameb == 5) bot.deleteMessage(msg.chat.id, idgameb)
 });
 
 
