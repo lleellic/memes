@@ -6,7 +6,7 @@ var offers = 0;
 var i = 0;
 var votestartb = 0;
 var gamebvalue = 0;
-var gamersb = 0;
+var gamersb = 1;
 var gameridb = [];
 var startb = {
   reply_markup:{
