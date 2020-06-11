@@ -143,16 +143,149 @@ if (msg.data === 'COMMAND2') {
 }}
   
 if (msg.data === 'COMMAND3') {
-  bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
+  switch (msg.from.id) {
+   case gameridb[0]:{
+   bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
   votestartb++;
   bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, всего: '+votestartb+' голос(а/ов)', {parse_mode : "HTML"});
+   }; break;
+   case gameridb[1]:{
+   bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
+  votestartb++;
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, всего: '+votestartb+' голос(а/ов)', {parse_mode : "HTML"});
+   }; break;
+   case gameridb[2]:{
+   bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
+  votestartb++;
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, всего: '+votestartb+' голос(а/ов)', {parse_mode : "HTML"});
+   }; break;
+   case gameridb[3]:{
+   bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
+  votestartb++;
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, всего: '+votestartb+' голос(а/ов)', {parse_mode : "HTML"});
+   }; break;
+   case gameridb[4]:{
+   bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
+  votestartb++;
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, всего: '+votestartb+' голос(а/ов)', {parse_mode : "HTML"});
+   }; break;
+   case gameridb[5]:{
+   bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
+  votestartb++;
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, всего: '+votestartb+' голос(а/ов)', {parse_mode : "HTML"});
+   }; break;
+   case gameridb[6]:{
+   bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
+  votestartb++;
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, всего: '+votestartb+' голос(а/ов)', {parse_mode : "HTML"});
+   }; break;
+   case gameridb[7]:{
+   bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
+  votestartb++;
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, всего: '+votestartb+' голос(а/ов)', {parse_mode : "HTML"});
+   }; break;
+   case gameridb[8]:{
+   bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
+  votestartb++;
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, всего: '+votestartb+' голос(а/ов)', {parse_mode : "HTML"});
+   }; break;
+   case gameridb[9]:{
+   bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
+  votestartb++;
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, всего: '+votestartb+' голос(а/ов)', {parse_mode : "HTML"});
+   }; break;
+   case gameridb[10]:{
+   bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
+  votestartb++;
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, всего: '+votestartb+' голос(а/ов)', {parse_mode : "HTML"});
+   }; break;
+   case gameridb[11]:{
+   bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
+  votestartb++;
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, всего: '+votestartb+' голос(а/ов)', {parse_mode : "HTML"});
+   }; break;
+   default: {
+   bot.answerCallbackQuery(msg.id, 'Сначала зайдите в игру', true);
+   }; break;
+ }
+  
+  
 }
 if (msg.data === 'COMMAND4') {
-
-  bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры (вы вышли из игры)', false);
+switch (msg.from.id) {
+   case gameridb[0]:{
+      bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры (вы вышли из игры)', false);
   votestartb = 0;
   bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за закрытие', {parse_mode : "HTML"});
   closegameb++;
+   }; break;
+   case gameridb[1]:{
+      bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры (вы вышли из игры)', false);
+  votestartb = 0;
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за закрытие', {parse_mode : "HTML"});
+  closegameb++;
+   }; break;
+   case gameridb[2]:{
+      bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры (вы вышли из игры)', false);
+  votestartb = 0;
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за закрытие', {parse_mode : "HTML"});
+  closegameb++;
+   }; break;
+   case gameridb[3]:{
+      bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры (вы вышли из игры)', false);
+  votestartb = 0;
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за закрытие', {parse_mode : "HTML"});
+  closegameb++;
+   }; break;
+   case gameridb[4]:{
+      bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры (вы вышли из игры)', false);
+  votestartb = 0;
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за закрытие', {parse_mode : "HTML"});
+  closegameb++;
+   }; break;
+   case gameridb[5]:{
+      bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры (вы вышли из игры)', false);
+  votestartb = 0;
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за закрытие', {parse_mode : "HTML"});
+  closegameb++;
+   }; break;
+   case gameridb[6]:{
+      bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры (вы вышли из игры)', false);
+  votestartb = 0;
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за закрытие', {parse_mode : "HTML"});
+  closegameb++;
+   }; break;
+   case gameridb[7]:{
+      bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры (вы вышли из игры)', false);
+  votestartb = 0;
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за закрытие', {parse_mode : "HTML"});
+  closegameb++;
+   }; break;
+   case gameridb[8]:{
+      bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры (вы вышли из игры)', false);
+  votestartb = 0;
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за закрытие', {parse_mode : "HTML"});
+  closegameb++;
+   }; break;
+   case gameridb[9]:{
+      bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры (вы вышли из игры)', false);
+  votestartb = 0;
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за закрытие', {parse_mode : "HTML"});
+  closegameb++;
+   }; break;
+   case gameridb[10]:{
+      bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры (вы вышли из игры)', false);
+  votestartb = 0;
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за закрытие', {parse_mode : "HTML"});
+  closegameb++;
+   }; break;
+   case gameridb[11]:{
+     
+   }; break;
+   default: {
+bot.answerCallbackQuery(msg.id, 'Сначала зайдите в игру', true);
+   }; break;
+ }
 }
  if (msg.data === 'COMMAND5') {
   bot.sendMessage(msg.message.chat.id, 'Участников: '+gamersb, {parse_mode : "HTML"});
