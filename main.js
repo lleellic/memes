@@ -171,7 +171,7 @@ var vv;
 
 bot.onText(/Старт было/i, (msg) => {
   if (offers1 === 2) {
-bot.sendMessage(chatid, 'Игра начата! Количество игроков: '+gamersb+'.  <a href="tg://user?id='+gameridb[vv]+'">Ведущий</a> придумывает вопрос',{parse_mode : "HTML"});
+bot.sendMessage(chatid, 'Игра начата! Количество игроков: '+gamersb+'.  <a href="tg://user?id=684519813>Ведущий</a> придумывает вопрос',{parse_mode : "HTML"});
 vv++;
     bot.sendMessage(gameridb[vv],'Сейчас твоё время задать вопрос. Постарайся придумать его оригинальным. Если придумал, то напиши мне его сюда в виде: Вы...');
   offers1 = 0;
@@ -277,7 +277,7 @@ bot.onText(/Вопрос далее/i, (msg) => {
      gamersb--;
    }}
   if (gamersb > 1){
- bot.sendMessage(msg.chat.id, 'Количество игроков: '+gamersb+'. <a href="tg://user?id='+gameridb[vv]+'>Ведущий</a> придумывает вопрос',{parse_mode : "HTML"});
+ bot.sendMessage(msg.chat.id, 'Количество игроков: '+gamersb+'. <a href="tg://user?id=684519813>Ведущий</a> придумывает вопрос',{parse_mode : "HTML"});
  bot.sendMessage(gameridb[vv],'Сейчас твоё время задать вопрос. Постарайся придумать его оригинальным. Если придумал, то напиши мне его сюда в виде: Вы...');
   vv++;
   } else if (gamersb == 1){
