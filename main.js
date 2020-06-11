@@ -6,7 +6,7 @@ var offirs = 0;
 var s = 0;
 var gamersb = 0;
 var p = 0;
-var gamer = [];
+var gamer = [[]];
 var inline1 = {
   reply_markup:{
     inline_keyboard: [
@@ -42,7 +42,9 @@ for (s=0; s<gamersb;s++){
 p++;
 } 
 if (p==0){
-gamer[i] =  [msg.from.first_name], [msg.from.id], [0];
+gamer[i][0] =  msg.from.first_name;
+gamer[i][1] = msg.from.id;
+gamer[i][2] = 0;
 i++;
 p = 0;
 gamersb++;
