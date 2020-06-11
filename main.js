@@ -179,7 +179,6 @@ var drinkb = [];
 
 bot.on('callback_query', function(msg) {
 if (msg.data === 'drink') {
-  console.log(msg);
  switch (msg.from.id) {
    case gameridb[0]:{
      bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> выпил(а) рюмку', {parse_mode : "HTML"})
@@ -231,8 +230,7 @@ if (msg.data === 'drink') {
      }; break;  
      default: {
    }; break;
- }
-} 
+ }} 
 if (msg.data === 'nodrink') {
   switch (msg.from.id) {
    case gameridb[0]:bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> пьёт молоко - ЗОЖник(ца)!', {parse_mode : "HTML"}); break;
@@ -249,10 +247,9 @@ if (msg.data === 'nodrink') {
    case gameridb[11]:bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> пьёт молоко - ЗОЖник(ца)!', {parse_mode : "HTML"}); break;
    default: {
    }
-}
+}}
 if (msg.data === 'nextw') {
    bot.answerCallbackQuery(msg.id, 'В разработке...', true);
-}
 })
 
 bot.onText(/Вопрос далее/, (msg) => {
