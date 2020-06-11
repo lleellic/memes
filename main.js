@@ -10,7 +10,8 @@ var gamer = [];
 var inline1 = {
   reply_markup:{
     inline_keyboard: [
-      [{ text: 'Играть😋', callback_data: 'COOMMAND1' }, { text: 'Выйти😒', callback_data: 'COMMAND2' }]
+      [{ text: 'Играть😋', callback_data: 'COOMMAND1' }, { text: 'Выйти😒', callback_data: 'COMMAND2' }],
+      [{text:'Сколько участников?', callback_data:'members'}]
     ]
   }
 };
@@ -18,8 +19,7 @@ var inline1 = {
 var inline2 = {
   reply_markup:{
     inline_keyboard: [
-      [{ text: '🥃', callback_data: 'drink' }, { text: '🥛', callback_data: 'nodrink' }],
-[{text:'Сколько участников?', callback_data:'members'}]
+      [{ text: '🥃', callback_data: 'drink' }, { text: '🥛', callback_data: 'nodrink' }]
     ]
   }
 };
