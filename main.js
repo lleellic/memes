@@ -180,14 +180,14 @@ bot.onText(/вы/i, (msg) => {
 
 bot.on('callback_query', function(msg) {
 if (msg.data === 'drink') {
-  console.log(msg)
-  if (gameridb.includes())
-}
+  console.log(msg);
+  if (gameridb.includes());
+} 
 if (msg.data === 'nodrink') {
- if (gameridb.includes())
+ if (gameridb.includes());
 }
 if (msg.data === 'nextw') {
-  if (gameridb.includes())
+  if (gameridb.includes());
 }
 })
 
