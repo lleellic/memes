@@ -31,7 +31,7 @@ bot.onText(/Играть в было/i, (msg) => {
 bot.on('callback_query', function(msg) {
 if (msg.data === 'COOMMAND1'){  
   console.log(msg); 
-  gsmeridb[i] = msg.from.id;
+  gameridb[i] = msg.from.id;
   bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вступил(а) в игру, всего: '+gamersb+' игрок(а/ов)', {parse_mode : "HTML"});
   bot.answerCallbackQuery(msg.id, 'Вы вошли в игру', true);
   gamersb++;
