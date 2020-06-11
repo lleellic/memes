@@ -20,7 +20,6 @@ var startb = {
 };
 
 bot.onText(/Играть в было/i, (msg) => {
- console.log(msg);
  if(gamebvalue===0){
  gamersb = 0;
  bot.sendMessage(msg.chat.id,'Набор игроков для игры: было не было', startb);
@@ -316,14 +315,15 @@ wedWAS = Math.floor(Math.random() * (gamerWAS));
 bot.sendMessage(msg.message.chat.id, 'Игра начата! Количество игроков: '+gamersb+'. <a href="tg://user?id='+gameridb[wedWAS]+'">Ведущий</a> придумывает вопрос',{parse_mode : "HTML"});
 bot.sendMessage(gameridb[wedWAS],'Сейчас твоё время задать вопрос. Постарайся придумать его оригинальным. Если придумал, то напиши мне его сюда в виде: Вы...');
 bot.onText(/вы/i, (msg) => {
-  gameQ();
+  gameQ(msg.text);
   bot.answerCallbackQuery(msg.id, 'Ваш вопрос принят', true);
 })
 }
 
-function gameQ(){
-  
+function gameQ(textW){
+  bot.sendMessage(msg.chat.id,textW, startb2);
 }
+
 
 
 bot.onText(/[0-9]/, (msg) => {
