@@ -33,6 +33,7 @@ bot.onText(/Играть в было/i, (msg) => {
 })
 bot.on('callback_query', function(msg) {
 if (msg.data === 'COOMMAND1'){
+  console.log(msg);
   bot.answerCallbackQuery(msg.id, 'Вы вошли в игру', true);
   bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
   gamersb++;
