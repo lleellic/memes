@@ -7,7 +7,7 @@ var closegameb = 0;
 var votestartb = 0;
 var gamebvalue = 0;
 var gamersb = 1;
-var gameridb = [];
+var gameridb = new Array();
 var startb = {
   reply_markup:{
     inline_keyboard: [
