@@ -157,8 +157,7 @@ var startb2 = {
 
 
 
-bot.onText(/Старт было/i
-          , (msg) => {
+bot.onText(/Старт было/i, (msg) => {
   if (offers1 === 2) {
 var wedWAS = Math.floor(Math.random() * (gamersb));
 bot.sendMessage(msg.chat.id, 'Игра начата! Количество игроков: '+gamersb+'. <a href="tg://user?id='+gameridb[wedWAS]+'">Ведущий</a> придумывает вопрос',{parse_mode : "HTML"});
@@ -176,20 +175,105 @@ bot.onText(/вы/i, (msg) => {
   offers3 = 0;
   }
 })
-
+var drinkb = [];
 
 bot.on('callback_query', function(msg) {
 if (msg.data === 'drink') {
   console.log(msg);
-  if (gameridb.includes());
+ switch (msg.from.id) {
+   case gameridb[0]:{
+     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> выпил(а) рюмку', {parse_mode : "HTML"})
+     drinkb[0]++;
+   }; break;  
+     case gameridb[1]:{
+     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> выпил(а) рюмку', {parse_mode : "HTML"})
+     drinkb[1]++;
+     }; break;  
+     case gameridb[2]:{
+     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> выпил(а) рюмку', {parse_mode : "HTML"})
+     drinkb[2]++;
+     }; break;  
+     case gameridb[3]:{
+     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> выпил(а) рюмку', {parse_mode : "HTML"})
+     drinkb[3]++;
+     }; break;  
+     case gameridb[4]:{
+     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> выпил(а) рюмку', {parse_mode : "HTML"})
+     drinkb[4]++;
+     }; break;  
+     case gameridb[5]:{
+     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> выпил(а) рюмку', {parse_mode : "HTML"})
+     drinkb[5]++;
+     }; break;  
+     case gameridb[6]:{
+     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> выпил(а) рюмку', {parse_mode : "HTML"})
+     drinkb[6]++;
+     }; break;  
+     case gameridb[7]:{
+     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> выпил(а) рюмку', {parse_mode : "HTML"})
+     drinkb[7]++;
+     }; break;  
+     case gameridb[8]:{
+     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> выпил(а) рюмку', {parse_mode : "HTML"})
+     drinkb[8]++;
+     }; break;  
+     case gameridb[9]:{
+     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> выпил(а) рюмку', {parse_mode : "HTML"})
+     drinkb[9]++;
+     }; break;  
+     case gameridb[10]:{
+     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> выпил(а) рюмку', {parse_mode : "HTML"})
+     drinkb[10]++;
+     }; break;  
+     case gameridb[11]:{
+     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> выпил(а) рюмку', {parse_mode : "HTML"})
+     drinkb[11]++;
+     }; break;  
+     default: {
+   }; break;
+ }
 } 
 if (msg.data === 'nodrink') {
- if (gameridb.includes());
+  switch (msg.from.id) {
+   case gameridb[0]:bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> пьёт молоко - ЗОЖник(ца)!', {parse_mode : "HTML"}); break;
+   case gameridb[1]:bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> пьёт молоко - ЗОЖник(ца)!', {parse_mode : "HTML"}); break;
+   case gameridb[2]:bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> пьёт молоко - ЗОЖник(ца)!', {parse_mode : "HTML"}); break;
+   case gameridb[3]:bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> пьёт молоко - ЗОЖник(ца)!', {parse_mode : "HTML"}); break;
+   case gameridb[4]:bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> пьёт молоко - ЗОЖник(ца)!', {parse_mode : "HTML"}); break;
+   case gameridb[5]:bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> пьёт молоко - ЗОЖник(ца)!', {parse_mode : "HTML"}); break;
+   case gameridb[6]:bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> пьёт молоко - ЗОЖник(ца)!', {parse_mode : "HTML"}); break;
+   case gameridb[7]:bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> пьёт молоко - ЗОЖник(ца)!', {parse_mode : "HTML"}); break;
+   case gameridb[8]:bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> пьёт молоко - ЗОЖник(ца)!', {parse_mode : "HTML"}); break;
+   case gameridb[9]:bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> пьёт молоко - ЗОЖник(ца)!', {parse_mode : "HTML"}); break;
+   case gameridb[10]:bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> пьёт молоко - ЗОЖник(ца)!', {parse_mode : "HTML"}); break;
+   case gameridb[11]:bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> пьёт молоко - ЗОЖник(ца)!', {parse_mode : "HTML"}); break;
+   default: {
+   }
 }
 if (msg.data === 'nextw') {
-  if (gameridb.includes());
+   bot.answerCallbackQuery(msg.id, 'В разработке...', true);
 }
 })
+
+bot.onText(/Вопрос далее/, (msg) => {
+ for (var y; y<11; y++) {
+   if (drink[y] == 5) {
+     bot.sendMessage(msg.chat.id, 'Количество игроков: '+gamersb+'. <a href="tg://user?id='+gameridb[y]+'">Ты</a> опьянел (вылетел из игры)',{parse_mode : "HTML"});
+     drink[y] = 0;
+     gameridb[y] = gameridb[gameridb.lenght];
+     gameridb.pop();
+     gamersb--;
+   }}
+  if (gamersb > 1){
+ var wedWAS = Math.floor(Math.random() * (gamersb));
+bot.sendMessage(msg.chat.id, 'Количество игроков: '+gamersb+'. <a href="tg://user?id='+gameridb[wedWAS]+'">Ведущий</a> придумывает вопрос',{parse_mode : "HTML"});
+bot.sendMessage(gameridb[wedWAS],'Сейчас твоё время задать вопрос. Постарайся придумать его оригинальным. Если придумал, то напиши мне его сюда в виде: Вы...');
+  } else if (gamersb == 1){
+    bot.sendMessage(msg.chat.id, ' <a href="tg://user?id='+gameridb[0]+'">Gj,Победитель</a> этой игры!',{parse_mode : "HTML"});
+  } else{
+    bot.sendMessage(msg.chat.id, 'Никто не выйграл😢');
+  }
+  })
 
 bot.onText(/[0-9]/, (msg) => {
   if (msg.from.id == 684519513) bot.deleteMessage(msg.chat.id, msg.text)
