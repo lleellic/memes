@@ -153,7 +153,7 @@ var startb2 = {
 
 
 
-bot.onText('startb', (msg) => {
+bot.onText('Старт было', (msg) => {
   console.log(msg);
 var wedWAS = Math.floor(Math.random() * (gamersb));
 bot.sendMessage(msg.message.chat.id, 'Игра начата! Количество игроков: '+gamersb+'. <a href="tg://user?id='+gameridb[wedWAS]+'">Ведущий</a> придумывает вопрос',{parse_mode : "HTML"});
