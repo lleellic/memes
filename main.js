@@ -2,6 +2,9 @@ const TelegramBot = require('node-telegram-bot-api');
 const token = '1097903013:AAHjon47mwC7BWolEwQTFZn2lA91iud0ge8';
 var bot = new TelegramBot(token, {polling: true});
 var offers = 0;
+var offers1 = 0;
+const chatid = -1001241810361;
+var offers2 = 0;
 var i = 0;
 var votestartb = 0;
 var gamersb = 0;
@@ -21,6 +24,7 @@ bot.onText(/Играть в было/i, (msg) => {
  } else {
  bot.sendMessage(msg.chat.id,'Игра уже начата');
  }
+  offers1 = 2;
 })
 
 bot.on('callback_query', function(msg) {
@@ -155,16 +159,23 @@ var startb2 = {
 
 bot.onText(/Старт было/i
           , (msg) => {
-  console.log(msg);
+  if (offers1 === 2) {
 var wedWAS = Math.floor(Math.random() * (gamersb));
 bot.sendMessage(msg.chat.id, 'Игра начата! Количество игроков: '+gamersb+'. <a href="tg://user?id='+gameridb[wedWAS]+'">Ведущий</a> придумывает вопрос',{parse_mode : "HTML"});
 bot.sendMessage(gameridb[wedWAS],'Сейчас твоё время задать вопрос. Постарайся придумать его оригинальным. Если придумал, то напиши мне его сюда в виде: Вы...');
-bot.onText(/вы/i, (msg) => {
-  bot.sendMessage(msg.chat.id,textW+' - если да, то пейте алкоголь (большие шансы опьянеть), если нет, то пейте молокою Надеюсь на вашу честность', startb2);
-  bot.answerCallbackQuery(msg.id, 'Ваш вопрос принят', true);
-})
+  offers1 = 0;
+    offers3 = 2;
+  }
 })
 
+bot.onText(/вы/i, (msg) => {
+  if (offers3 == 2) {
+    console.log(msg)
+  bot.sendMessage(chatid,textW+' - если да, то пейте алкоголь (большие шансы опьянеть), если нет, то пейте молокою Надеюсь на вашу честность', startb2);
+  bot.answerCallbackQuery(msg.id, 'Ваш вопрос принят', true);
+  offers3 = 0;
+  }
+})
 
 
 bot.on('callback_query', function(msg) {
