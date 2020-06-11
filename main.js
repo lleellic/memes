@@ -28,6 +28,17 @@ var startb2 = {
 };
 
 
+
+
+
+
+
+
+
+
+
+
+
 bot.onText(/Играть в было/i, (msg) => {
  if(offers===0){
  bot.sendMessage(msg.chat.id,'Набор игроков для игры: было не было', startb);
