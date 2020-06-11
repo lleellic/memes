@@ -203,5 +203,5 @@ bot.onText(/Старт было/i, (msg) => {
   for (var t; t<11; t++){
   gameridb.delete[t];
   }
-}
+})
 
