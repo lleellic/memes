@@ -61,54 +61,63 @@ if (msg.data === 'COMMAND2') {
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
     gameridb[0] = gameridb[gameridb.lenght];
     leaversb++;
+    gamersb--;
    }; break;
    case gameridb[1]:{
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
     gameridb[0] = gameridb[gameridb.lenght];
     leaversb++;
+    gamersb--;
    }; break;
    case gameridb[2]:{
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
     gameridb[0] = gameridb[gameridb.lenght];
     leaversb++;
+    gamersb--;
    }; break;
    case gameridb[3]:{
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
     gameridb[0] = gameridb[gameridb.lenght];
     leaversb++;
+    gamersb--;
    }; break;
    case gameridb[4]:{
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
     gameridb[0] = gameridb[gameridb.lenght];
     leaversb++;
+    gamersb--;
    }; break;
    case gameridb[5]:{
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
     gameridb[0] = gameridb[gameridb.lenght];
     leaversb++;
+    gamersb--;
    }; break;
    case gameridb[6]:{
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
     gameridb[0] = gameridb[gameridb.lenght];
     leaversb++;
+    gamersb--;
    }; break;
    case gameridb[7]:{
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
     gameridb[0] = gameridb[gameridb.lenght];
     leaversb++;
+    gamersb--;
    }; break;
    case gameridb[8]:{
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
     gameridb[0] = gameridb[gameridb.lenght];
     leaversb++;
+    gamersb--;
    }; break;
    case gameridb[9]:{
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
@@ -121,12 +130,14 @@ if (msg.data === 'COMMAND2') {
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
     gameridb[0] = gameridb[gameridb.lenght];
     leaversb++;
+    gamersb--;
    }; break;
    case gameridb[11]:{
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
     gameridb[0] = gameridb[gameridb.lenght];
     leaversb++;
+    gamersb--;
    }; break;
     default: bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a>, ты не состоишь в игре', {parse_mode : "HTML"}); break;
 }}
