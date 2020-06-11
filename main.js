@@ -18,6 +18,16 @@ var startb = {
   }
 };
 
+var startb2 = {
+  reply_markup:{
+    inline_keyboard: [
+      [{ text: '🥃', callback_data: 'drink' }, { text: '🥛', callback_data: 'nodrink' }],
+      [{ text: 'Заменить ведущего', callback_data: 'nextw'}]
+    ]
+  }
+};
+
+
 bot.onText(/Играть в было/i, (msg) => {
  if(offers===0){
  bot.sendMessage(msg.chat.id,'Набор игроков для игры: было не было', startb);
@@ -50,8 +60,7 @@ if (msg.data === 'COOMMAND1') {
   bot.answerCallbackQuery(msg.id, 'Вы вошли в игру', true);
   i++;
    }; break;
- }
-}
+}}
   
 if (msg.data === 'COMMAND2') {
   switch (msg.from.id) {
@@ -146,15 +155,6 @@ if (msg.data === 'COMMAND2') {
 bot.on('polling_error', (error) => {
   console.log(error.code); 
 });
-
-var startb2 = {
-  reply_markup:{
-    inline_keyboard: [
-      [{ text: '🥃', callback_data: 'drink' }, { text: '🥛', callback_data: 'nodrink' }],
-      [{ text: 'Заменить ведущего', callback_data: 'nextw'}]
-    ]
-  }
-};
 
 
 
@@ -251,26 +251,6 @@ if (msg.data === 'nextw') {
    bot.answerCallbackQuery(msg.id, 'В разработке...', true)
 }
 
-bot.onText(/Вопрос далее/, (msg) => {
- for (var y; y<11; y++) {
-   if (drink[y] == 5) {
-     bot.sendMessage(msg.chat.id, 'Количество игроков: '+gamersb+'. <a href="tg://user?id='+gameridb[y]+'">Ты</a> опьянел (вылетел из игры)',{parse_mode : "HTML"});
-     drink[y] = 0;
-     gameridb[y] = gameridb[gameridb.lenght];
-     gameridb.pop();
-     gamersb--;
-   }}
-  if (gamersb > 1){
- var wedWAS = Math.floor(Math.random() * (gamersb));
-bot.sendMessage(msg.chat.id, 'Количество игроков: '+gamersb+'. <a href="tg://user?id='+gameridb[wedWAS]+'">Ведущий</a> придумывает вопрос',{parse_mode : "HTML"});
-bot.sendMessage(gameridb[wedWAS],'Сейчас твоё время задать вопрос. Постарайся придумать его оригинальным. Если придумал, то напиши мне его сюда в виде: Вы...');
-  } else if (gamersb == 1){
-    bot.sendMessage(msg.chat.id, ' <a href="tg://user?id='+gameridb[0]+'">Gj,Победитель</a> этой игры!',{parse_mode : "HTML"});
-  } else{
-    bot.sendMessage(msg.chat.id, 'Никто не выйграл😢');
-  }
-})
-
 bot.onText(/[0-9]/, (msg) => {
   if (msg.from.id == 684519513) bot.deleteMessage(msg.chat.id, msg.text)
 })
@@ -284,5 +264,27 @@ bot.onText(/Старт было/i, (msg) => {
   gameridb.delete[t];
   }
 })
+  
+bot.onText(/Вопрос далее/i, (msg) => {
+ for (var y; y<11; y++) {
+   if (drink[y] == 5) {
+     bot.sendMessage(msg.chat.id, 'Количество игроков: '+gamersb+'. <a href="tg://user?id='+gameridb[y]+'">Ты</a> опьянел (вылетел из игры)',{parse_mode : "HTML"});
+     drink[y] = 0;
+     gameridb[y] = gameridb[gameridb.lenght];
+     gameridb.pop();
+     gamersb--;
+   }}
+  if (gamersb > 1){
+ var wedWAS = Math.floor(Math.random() * (gamersb));
+ bot.sendMessage(msg.chat.id, 'Количество игроков: '+gamersb+'. <a href="tg://user?id='+gameridb[wedWAS]+'">Ведущий</a> придумывает вопрос',{parse_mode : "HTML"});
+ bot.sendMessage(gameridb[wedWAS],'Сейчас твоё время задать вопрос. Постарайся придумать его оригинальным. Если придумал, то напиши мне его сюда в виде: Вы...');
+  } else if (gamersb == 1){
+    bot.sendMessage(msg.chat.id, '<a href="tg://user?id='+gameridb[0]+'">Gj,Победитель</a> этой игры!', {parse_mode : "HTML"});
+  } else {
+    bot.sendMessage(msg.chat.id, 'Никто не выйграл😢');
+  }
+})
+
+
 
 
