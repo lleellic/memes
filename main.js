@@ -277,9 +277,9 @@ bot.onText(/Вопрос далее/i, (msg) => {
      gamersb--;
    }}
   if (gamersb > 1){
- var wedWAS = Math.floor(Math.random() * (gamersb));
- bot.sendMessage(msg.chat.id, 'Количество игроков: '+gamersb+'. <a href="tg://user?id='+gameridb[wedWAS]+'">Ведущий</a> придумывает вопрос',{parse_mode : "HTML"});
+ bot.sendMessage(msg.chat.id, 'Количество игроков: '+gamersb+'. <a href="tg://user?id='+gameridb[vv]+'">Ведущий</a> придумывает вопрос',{parse_mode : "HTML"});
  bot.sendMessage(gameridb[wedWAS],'Сейчас твоё время задать вопрос. Постарайся придумать его оригинальным. Если придумал, то напиши мне его сюда в виде: Вы...');
+  vv++;
   } else if (gamersb == 1){
     bot.sendMessage(msg.chat.id, '<a href="tg://user?id='+gameridb[0]+'">Gj,Победитель</a> этой игры!', {parse_mode : "HTML"});
   } else {
