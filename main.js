@@ -21,8 +21,8 @@ var startb = {
 bot.onText(/Играть в было/i, (msg) => {
  if(gamebvalue===0){
  bot.sendMessage(msg.chat.id,'Набор игроков для игры: было не было, всего: '+gamersb+' игрок(а/ов)', startb);
-   console.log(msg)
-   gamebvalue = 1
+   console.log(msg);
+   gamebvalue = 1;
  } else {
  bot.sendMessage(msg.chat.id,'Игра уже начата');
  }
