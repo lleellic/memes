@@ -160,7 +160,6 @@ var vv;
 
 bot.onText(/Старт было/i, (msg) => {
   if (offers1 === 2) {
-
 bot.sendMessage(msg.chat.id, 'Игра начата! Количество игроков: '+gamersb+'.  <a href="tg://user?id='+gameridb[vv]+'">Ведущий</a> придумывает вопрос',{parse_mode : "HTML"});
 vv++;
     bot.sendMessage(gameridb[vv],'Сейчас твоё время задать вопрос. Постарайся придумать его оригинальным. Если придумал, то напиши мне его сюда в виде: Вы...');
@@ -171,7 +170,7 @@ vv++;
 
 bot.onText(/вы/i, (msg) => {
   if (offers3 == 2) {
-  bot.sendMessage(chatid,msg.text+' - если да, то пейте алкоголь (большие шансы опьянеть), если нет, то пейте молокою Надеюсь на вашу честность', startb2);
+  bot.sendMessage(chatid, msg.text+' - если да, то пейте алкоголь (большие шансы опьянеть), если нет, то пейте молокою Надеюсь на вашу честность', startb2);
   bot.answerCallbackQuery(msg.id, 'Ваш вопрос принят', true);
   offers3 = 0;
   }
@@ -257,16 +256,6 @@ bot.onText(/[0-9]/, (msg) => {
   if (msg.from.id == 684519513) bot.deleteMessage(msg.chat.id, msg.text)
 })
 
-bot.onText(/Стоп было/i, (msg) => {
- offers = 0;
- offers1 = 0;
- offers2 = 0;
- gamersb = 0;
-  for (var t; t<11; t++){
-  gameridb.delete[t];
-  }
-})
-
 bot.onText(/Вопрос далее/i, (msg) => {
  for (var y; y<11; y++) {
    if (drink[y] == 5) {
@@ -278,7 +267,7 @@ bot.onText(/Вопрос далее/i, (msg) => {
    }}
   if (gamersb > 1){
  bot.sendMessage(msg.chat.id, 'Количество игроков: '+gamersb+'. <a href="tg://user?id='+gameridb[vv]+'">Ведущий</a> придумывает вопрос',{parse_mode : "HTML"});
- bot.sendMessage(gameridb[wedWAS],'Сейчас твоё время задать вопрос. Постарайся придумать его оригинальным. Если придумал, то напиши мне его сюда в виде: Вы...');
+ bot.sendMessage(gameridb[vv],'Сейчас твоё время задать вопрос. Постарайся придумать его оригинальным. Если придумал, то напиши мне его сюда в виде: Вы...');
   vv++;
   } else if (gamersb == 1){
     bot.sendMessage(chatid, '<a href="tg://user?id='+gameridb[0]+'">Победитель</a> этой игры!', {parse_mode : "HTML"});
