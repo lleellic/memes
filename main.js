@@ -3,7 +3,8 @@ const token = '1097903013:AAHjon47mwC7BWolEwQTFZn2lA91iud0ge8';
 var bot = new TelegramBot(token, {polling: true});
 var chatid = -1001241810361;
 var offirs = 0;
-var s=0;
+var s = 0;
+var gamersb = 0;
 var p = 0;
 var gamer = [];
 var inline1 = {
@@ -34,13 +35,14 @@ bot.answerCallbackQuery(msg.id,'Игра уже начата✋🏼🤚🏼. О�
 
 bot.on('callback_query', function(msg) {
 if (msg.data === 'COOMMAND1') { 
-for (s=0; s<gamer.lenght;s++){
- if (gamer.id[s]==msg.from.id){
+for (s=0; s<gamersb;s++){
+ if (gamer[s][1]==msg.from.id){
 p++;
 } 
 if (p==0){
-gamer[i] =  {firstname=msg.from.first_name, id=msg.from.id, volume=0};
+gamer[i] =  [msg.from.first_name], [msg.from.id], [0];
 i++;
+gamersb++;
 } else {
 bot.answerCallbackQuery(msg.id,'Вы уже в игре', true)
 }
@@ -48,9 +50,10 @@ bot.answerCallbackQuery(msg.id,'Вы уже в игре', true)
 }
 if (msg.data === 'COOMMAND2'){
 p=-1;
-for (i=0;i<gamer.lenght;i++){
-if (gamer.id[i]==msg.from.id){ 
+for (i=0;i<gamersb;i++){
+if (gamer[i][1]==msg.from.id){ 
 p==i;
+gamersb--;
 }
 if (p>-1) {
 shift.gamer[i]
@@ -60,6 +63,6 @@ bot.answerCallbackQuery(msg.id,'Вы итак не в игре😳',true)
 }
 }
 if (msg.data === 'members'){
-bot.answerCallbackQuery(msg.id,gamer.lenght+' участник(ов)',true)
+bot.answerCallbackQuery(msg.id,gamersb+' участник(ов)',true)
 }
 })
