@@ -7,7 +7,12 @@ var closegameb = 0;
 var votestartb = 0;
 var gamebvalue = 0;
 var gamersb = 1;
-var gameridb = new Array();
+var gameridb = [];
+var gameridbvote = [];
+
+for (var k=0; k < 11; k++){
+  gameridbvote[k] = 0;
+}
 var leaversb = 0;
 var startb = {
   reply_markup:{
@@ -60,6 +65,7 @@ if (msg.data === 'COMMAND2') {
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
     gameridb[0] = gameridb[gameridb.lenght];
+    gamerid.pop();
     leaversb++;
     gamersb--;
    }; break;
@@ -67,6 +73,7 @@ if (msg.data === 'COMMAND2') {
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
     gameridb[0] = gameridb[gameridb.lenght];
+     gamerid.pop();
     leaversb++;
     gamersb--;
    }; break;
@@ -74,6 +81,7 @@ if (msg.data === 'COMMAND2') {
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
     gameridb[0] = gameridb[gameridb.lenght];
+     gamerid.pop();
     leaversb++;
     gamersb--;
    }; break;
@@ -81,6 +89,7 @@ if (msg.data === 'COMMAND2') {
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
     gameridb[0] = gameridb[gameridb.lenght];
+     gamerid.pop();
     leaversb++;
     gamersb--;
    }; break;
@@ -88,6 +97,7 @@ if (msg.data === 'COMMAND2') {
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
     gameridb[0] = gameridb[gameridb.lenght];
+     gamerid.pop();
     leaversb++;
     gamersb--;
    }; break;
@@ -95,6 +105,7 @@ if (msg.data === 'COMMAND2') {
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
     gameridb[0] = gameridb[gameridb.lenght];
+     gamerid.pop();
     leaversb++;
     gamersb--;
    }; break;
@@ -102,6 +113,7 @@ if (msg.data === 'COMMAND2') {
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
     gameridb[0] = gameridb[gameridb.lenght];
+     gamerid.pop();
     leaversb++;
     gamersb--;
    }; break;
@@ -109,6 +121,7 @@ if (msg.data === 'COMMAND2') {
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
     gameridb[0] = gameridb[gameridb.lenght];
+     gamerid.pop();
     leaversb++;
     gamersb--;
    }; break;
@@ -116,6 +129,7 @@ if (msg.data === 'COMMAND2') {
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
     gameridb[0] = gameridb[gameridb.lenght];
+     gamerid.pop();
     leaversb++;
     gamersb--;
    }; break;
@@ -123,12 +137,14 @@ if (msg.data === 'COMMAND2') {
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
     gameridb[0] = gameridb[gameridb.lenght];
+     gamerid.pop();
     leaversb++;
    }; break;
    case gameridb[10]:{
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
     gameridb[0] = gameridb[gameridb.lenght];
+     gamerid.pop();
     leaversb++;
     gamersb--;
    }; break;
@@ -136,6 +152,7 @@ if (msg.data === 'COMMAND2') {
     bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
     bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
     gameridb[0] = gameridb[gameridb.lenght];
+     gamerid.pop();
     leaversb++;
     gamersb--;
    }; break;
@@ -143,72 +160,91 @@ if (msg.data === 'COMMAND2') {
 }}
   
 if (msg.data === 'COMMAND3') {
+  if (gameridbvote[gameridb.map(function (el, index) {
+    if(el.id === msg.from.id) {
+        console.log(index)
+    }
+});] != 1) {
   switch (msg.from.id) {
    case gameridb[0]:{
    bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
   votestartb++;
+     gameridbvote[0] = 1;
   bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, всего: '+votestartb+' голос(а/ов)', {parse_mode : "HTML"});
    }; break;
    case gameridb[1]:{
    bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
   votestartb++;
+     gameridbvote[1] = 1;
   bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, всего: '+votestartb+' голос(а/ов)', {parse_mode : "HTML"});
    }; break;
    case gameridb[2]:{
    bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
   votestartb++;
+     gameridbvote[2] = 1;
   bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, всего: '+votestartb+' голос(а/ов)', {parse_mode : "HTML"});
    }; break;
    case gameridb[3]:{
    bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
   votestartb++;
+     gameridbvote[3] = 1;
   bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, всего: '+votestartb+' голос(а/ов)', {parse_mode : "HTML"});
    }; break;
    case gameridb[4]:{
    bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
   votestartb++;
+     gameridbvote[4] = 1;
   bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, всего: '+votestartb+' голос(а/ов)', {parse_mode : "HTML"});
    }; break;
    case gameridb[5]:{
    bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
   votestartb++;
+     gameridbvote[5] = 1;
   bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, всего: '+votestartb+' голос(а/ов)', {parse_mode : "HTML"});
    }; break;
    case gameridb[6]:{
    bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
   votestartb++;
+     gameridbvote[6] = 1;
   bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, всего: '+votestartb+' голос(а/ов)', {parse_mode : "HTML"});
    }; break;
    case gameridb[7]:{
    bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
   votestartb++;
+     gameridbvote[7] = 1;
   bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, всего: '+votestartb+' голос(а/ов)', {parse_mode : "HTML"});
    }; break;
    case gameridb[8]:{
    bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
   votestartb++;
+     gameridbvote[8] = 1;
   bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, всего: '+votestartb+' голос(а/ов)', {parse_mode : "HTML"});
    }; break;
    case gameridb[9]:{
    bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
   votestartb++;
+     gameridbvote[9] = 1;
   bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, всего: '+votestartb+' голос(а/ов)', {parse_mode : "HTML"});
    }; break;
    case gameridb[10]:{
    bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
   votestartb++;
+     gameridbvote[10] = 1;
   bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, всего: '+votestartb+' голос(а/ов)', {parse_mode : "HTML"});
    }; break;
    case gameridb[11]:{
    bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
   votestartb++;
+     gameridbvote[11] = 1;
   bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, всего: '+votestartb+' голос(а/ов)', {parse_mode : "HTML"});
    }; break;
    default: {
    bot.answerCallbackQuery(msg.id, 'Сначала зайдите в игру', true);
    }; break;
  }
-  
+}  else {
+bot.answerCallbackQuery(msg.id, 'Вы уже проголосовали', true);
+}
   
 }
 if (msg.data === 'COMMAND4') {
@@ -292,8 +328,8 @@ bot.answerCallbackQuery(msg.id, 'Сначала зайдите в игру', tru
 }
 if (msg.data === 'COMMAND6') {
   bot.sendMessage(msg.message.chat.id, 'Голосов за старт: '+votestartb);
-}
-  if (votestartb > 1 && votestartb == gamersb) gameWAS(gamersb)
+};
+  if (votestartb > 1 && votestartb == gamersb) { gameWAS(gamersb) };
 });
 
 
@@ -305,7 +341,7 @@ var startb2 = {
   reply_markup:{
     inline_keyboard: [
       [{ text: '🥃', callback_data: 'drink' }, { text: '🥛', callback_data: 'nodrink' }],
-      [{ text: 'Заменить вопрос', callback_data: 'nextq'}, { text: 'Заменить ведущего', callback_data: 'nextw'}]
+      [{ text: 'Заменить ведущего', callback_data: 'nextw'}]
     ]
   }
 };
@@ -321,10 +357,20 @@ bot.onText(/вы/i, (msg) => {
 }
 
 function gameQ(textW){
-  bot.sendMessage(msg.chat.id,textW, startb2);
+  bot.sendMessage(msg.chat.id,textW+' - если да, то пейте алкоголь (большие шансы опьянеть), если нет, то пейте молокою Надеюсь на вашу честность', startb2);
 }
 
-
+bot.on('callback_query', function(msg) {
+if (msg.data === 'drink') {
+  
+}
+if (msg.data === 'nodrink') {
+  
+}
+if (msg.data === 'nextw') {
+  
+}
+})
 
 bot.onText(/[0-9]/, (msg) => {
   if (msg.from.id == 684519513) bot.deleteMessage(msg.chat.id, msg.text)
