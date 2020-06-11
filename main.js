@@ -14,9 +14,10 @@ var startb = {
     ]
   }
 };
-var votestartb = 0;
-var gamebvalue = 0;
+
 bot.onText(/Играть в было/i, (msg) => {
+ var votestartb = 0;
+ var gamebvalue = 0;
  bot.sendMessage(msg.chat.id,'Набор игроков для игры: Было не было', startb);
   gamebvalue = 1;
 })
