@@ -21,7 +21,7 @@ var startb = {
 bot.onText(/Играть в было/i, (msg) => {
  if(gamebvalue===0){
  bot.sendMessage(msg.chat.id,'Набор игроков для игры: было не было, всего: '+gamersb+' игрок(а/ов)', startb);
-   console.log(masg)
+   console.log(msg)
    gamebvalue = 1
  } else {
  bot.sendMessage(msg.chat.id,'Игра уже начата');
@@ -29,26 +29,26 @@ bot.onText(/Играть в было/i, (msg) => {
 })
 bot.on('callback_query', function(msg) {
 if (msg.data === 'COOMMAND1'){
-  bot.answerCallbackQuery(msg.id, 'Вы вошли в игру', true)
-  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"})
+  bot.answerCallbackQuery(msg.id, 'Вы вошли в игру', true);
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"});
   gamersb++;
 //  bot.edited_message_text()
   gsmeridb[i] = msg.from.id;
   i++;
 }
 if (msg.data === 'COMMAND2') {
-  bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true)
-  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"})
+  bot.answerCallbackQuery(msg.id, 'Вы вышли из игры', true);
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вышел(ла) из игры', {parse_mode : "HTML"});
 }
 if (msg.data === 'COMMAND3') {
-  bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false)
+  bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false);
   votestartb++;
-  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, всего: '+votestartb+' голос(а/ов)', {parse_mode : "HTML"})
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, всего: '+votestartb+' голос(а/ов)', {parse_mode : "HTML"});
 }
 if (msg.data === 'COMMAND4') {
-  bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры (вы вышли из игры)', false)
+  bot.answerCallbackQuery(msg.id, 'Вы проголосовали за закрытие игры (вы вышли из игры)', false);
   votestartb = 0;
-  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за закрытие', {parse_mode : "HTML"})
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за закрытие', {parse_mode : "HTML"});
   closegameb++;
 }
        
