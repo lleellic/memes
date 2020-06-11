@@ -157,7 +157,7 @@ if (msg.data === 'COMMAND4') {
  if (msg.data === 'COMMAND5') {
   bot.sendMessage(msg.message.chat.id, 'Участников: '+gamersb, {parse_mode : "HTML"});
 }
-if (msg.data === 'COMMAND5') {
+if (msg.data === 'COMMAND6') {
   bot.sendMessage(msg.message.chat.id, 'Голосов за старт: '+votestartb);
 }
 });
@@ -167,12 +167,6 @@ bot.on('polling_error', (error) => {
   console.log(error.code); 
 });
 
-function COOMMAND1(id, chatid, fromid, firstname){
- bot.answerCallbackQuery(id,'Вы вошли в игру', true);
- bot.sendMessage(chatid,'<a href="tg://user?id='+ fromid+'">'+firstname+'</a> вступил(а) в игру', {parse_mode : "HTML"});
- gameridb[i] = fromid;
- i++;
-};
 
 bot.onText(/[0-9]/, (msg) => {
   if (msg.from.id == 684519513) bot.deleteMessage(msg.chat.id, msg.text)
