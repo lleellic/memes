@@ -23,7 +23,7 @@ bot.onText(/Играть в было/i, (msg) => {
  if(gamebvalue===0){
  gamersb = 1;
  bot.sendMessage(msg.chat.id,'Набор игроков для игры: было не было, всего: '+gamersb+' игрок(а/ов)', startb);
- infostartb = msg.message_id;
+ infostartb = msg.message.message_id;
  infochatidb = msg.chat.id;
  console.log(msg);
  gamebvalue = 1;
@@ -72,7 +72,6 @@ function COOMMAND1(id, chatid, fromid, firstname){
 };
 
 bot.onText(/[0-9]/, (msg) => {
-  console.log(msg);
   if (msg.from.id == 684519513) bot.deleteMessage(msg.chat.id, msg.text)
 })
 
