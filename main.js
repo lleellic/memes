@@ -32,6 +32,7 @@ bot.onText(/Играть в было/i, (msg) => {
 
 bot.on('callback_query', function(msg) {
   console.log(msg);
+  idgameb = msg.message.message_id;
 if (msg.data === 'COOMMAND1') {
  switch (msg.from.id) {
    case gameridb[0]:bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a>, ты уже в игре', {parse_mode : "HTML"}); break;
