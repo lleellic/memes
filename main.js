@@ -9,6 +9,7 @@ var i = 0;
 var votestartb = 0;
 var gamersb = 0;
 var gameridb = [];
+var drinkb = [];
 var startb = {
   reply_markup:{
     inline_keyboard: [
@@ -163,7 +164,7 @@ var wedWAS = Math.floor(Math.random() * (gamersb));
 bot.sendMessage(msg.chat.id, 'Игра начата! Количество игроков: '+gamersb+'. <a href="tg://user?id='+gameridb[wedWAS]+'">Ведущий</a> придумывает вопрос',{parse_mode : "HTML"});
 bot.sendMessage(gameridb[wedWAS],'Сейчас твоё время задать вопрос. Постарайся придумать его оригинальным. Если придумал, то напиши мне его сюда в виде: Вы...');
   offers1 = 0;
-    offers3 = 2;
+  offers3 = 2;
   }
 })
 
@@ -175,7 +176,7 @@ bot.onText(/вы/i, (msg) => {
   }
 })
 
-var drinkb = [];
+
 
 bot.on('callback_query', function(msg) {
 if (msg.data === 'drink') {
@@ -284,4 +285,4 @@ bot.onText(/Старт было/i, (msg) => {
   }
 })
 
-bot.launch()
+
