@@ -6,10 +6,6 @@ var i = 0;
 var votestartb = 0;
 var gamersb = 0;
 var gameridb = [];
-
-for (var k=0; k < 11; k++){
-  gameridbvote[k] = 0;
-}
 var leaversb = 0;
 var startb = {
   reply_markup:{
