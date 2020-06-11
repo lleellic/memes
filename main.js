@@ -32,7 +32,7 @@ if (msg.data === 'COMMAND2') {
 }
 if (msg.data === 'COMMAND3') {
   bot.answerCallbackQuery(msg.id, 'Вы проголосовали за старт', false)
-  votestartb++
+  votestartb++;
   bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> голосует за старт, итого: '+votestartb+' голоса(ов)', {parse_mode : "HTML"})
 }
 if (msg.data === 'COMMAND4') {
