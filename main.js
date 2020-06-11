@@ -171,7 +171,9 @@ bot.on('polling_error', (error) => {
   console.log(error.code); 
 });
 
-function()
+function gameWAS() {
+
+}
 
 bot.onText(/[0-9]/, (msg) => {
   if (msg.from.id == 684519513) bot.deleteMessage(msg.chat.id, msg.text)
