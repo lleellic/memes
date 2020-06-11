@@ -19,15 +19,20 @@ var startb = {
 };
 
 bot.onText(/Играть в было/i, (msg) => {
-
- bot.sendMessage(msg.chat.id,'Набор игроков для игры: Было не было', startb);
-  gamebvalue = 1;
+ if(gamebvalue===0){
+ bot.sendMessage(msg.chat.id,'Набор игроков для игры: было не было, всего: '+gamersb+' игрок(а/ов)', startb);
+   console.log(masg)
+   gamebvalue = 1
+ } else {
+ bot.sendMessage(msg.chat.id,'Игра уже начата');
+ }
 })
 bot.on('callback_query', function(msg) {
 if (msg.data === 'COOMMAND1'){
   bot.answerCallbackQuery(msg.id, 'Вы вошли в игру', true)
-  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вступил(а) в игру, всего: '+gamersb+' игрок(а/ов)', {parse_mode : "HTML"})
+  bot.sendMessage(msg.message.chat.id, '<a href="tg://user?id='+ msg.from.id+'">'+msg.from.first_name+'</a> вступил(а) в игру', {parse_mode : "HTML"})
   gamersb++;
+//  bot.edited_message_text()
   gsmeridb[i] = msg.from.id;
   i++;
 }
