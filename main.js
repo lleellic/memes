@@ -160,7 +160,7 @@ bot.sendMessage(gameridb[wedWAS],'Сейчас твоё время задать 
 bot.onText(/вы/i, (msg) => {
   gameQ(msg.text);
   bot.answerCallbackQuery(msg.id, 'Ваш вопрос принят', true);
-})
+}})
 
 
 function gameQ(textW){
