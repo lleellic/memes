@@ -6,7 +6,9 @@ var offirs = 0;
 var s = 0;
 var gamersb = 0;
 var p = 0;
-var gamer = [[]];
+var gamer = [];
+var user = [];
+var voluma = [];
 var inline1 = {
   reply_markup:{
     inline_keyboard: [
@@ -26,7 +28,7 @@ var inline2 = {
 
 bot.onText(/играть в было/i, (msg) => {
 if (offirs == 0) {
-bot.sendMessage(chatid,'Стартовал набор игроков для игры «Было/не было»', inline1); //тут присвоить значение мессаг айди
+bot.sendMessage(chatid,'Стартовал набор игроков для игры «Было/не было»', inline1); 
 offirs = 1;
 } else {
 bot.answerCallbackQuery(msg.id,'Игра уже начата✋🏼🤚🏼. Ожидайте...', true)
@@ -36,15 +38,14 @@ bot.answerCallbackQuery(msg.id,'Игра уже начата✋🏼🤚🏼. О�
 bot.on('callback_query', function(msg) {
 if (msg.data === 'COOMMAND1') {
   firstms = msg.message.message_id;
-  console.log(msg)
 for (s=0; s<gamersb;s++){
- if (gamer[s][1]==msg.from.id){
+ if (user[s]==msg.from.id){
 p++;
 } 
 if (p==0){
-gamer[i][0] =  msg.from.first_name;
-gamer[i][1] = msg.from.id;
-gamer[i][2] = 0;
+gamer[i] =  msg.from.first_name;
+user[i] = msg.from.id;
+volume[i] = 0;
 i++;
 p = 0;
 gamersb++;
@@ -56,12 +57,14 @@ bot.answerCallbackQuery(msg.id,'Вы уже в игре', true)
 if (msg.data === 'COOMMAND2'){
 p=-1;
 for (i=0;i<gamersb;i++){
-if (gamer[i][1]==msg.from.id){ 
+if (user[i]==msg.from.id){ 
 p==i;
 gamersb--;
 }
 if (p>-1) {
-shift.gamer[i]
+shift.gamer[i];
+shift.user[i];
+shift.volume[i]
 } else {
 bot.answerCallbackQuery(msg.id,'Вы итак не в игре😳',true)
 }
