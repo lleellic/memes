@@ -26,6 +26,7 @@ var inline2 = {
   }
 };
 
+
 bot.onText(/играть в было/i, (msg) => {
 if (offirs == 0) {
 bot.sendMessage(chatid,'Стартовал набор игроков для игры «Было/не было»', inline1); 
@@ -41,7 +42,8 @@ if (msg.data === 'COOMMAND1') {
 for (s=0; s<gamersb;s++){
  if (user[s]==msg.from.id){
 p++;
-} 
+}
+}
 if (p==0){
 gamer[i] =  msg.from.first_name;
 user[i] = msg.from.id;
@@ -53,7 +55,6 @@ gamersb++;
 bot.answerCallbackQuery(msg.id,'Вы уже в игре', true)
 }
 }
-}
 if (msg.data === 'COOMMAND2'){
 p=-1;
 for (i=0;i<gamersb;i++){
@@ -61,13 +62,13 @@ if (user[i]==msg.from.id){
 p==i;
 gamersb--;
 }
+}
 if (p>-1) {
 shift.gamer[i];
 shift.user[i];
 shift.volume[i]
 } else {
 bot.answerCallbackQuery(msg.id,'Вы итак не в игре😳',true)
-}
 }
 }
 if (msg.data === 'members'){
