@@ -1,14 +1,15 @@
 const TelegramBot = require('node-telegram-bot-api');
 const token = '1097903013:AAHjon47mwC7BWolEwQTFZn2lA91iud0ge8';
 var bot = new TelegramBot(token, {polling: true});
-var chatid = -1001241810361;
+var chatid;
 var offirs = 0;
 var s = 0;
 var gamersb = 0;
 var p = 0;
 var gamer = [];
 var user = [];
-var voluma = [];
+var volume = [];
+var q;
 var inline1 = {
   reply_markup:{
     inline_keyboard: [
@@ -26,10 +27,11 @@ var inline2 = {
   }
 };
 
-
 bot.onText(/играть в было/i, (msg) => {
+chatid = msg.from.chat_id;
 if (offirs == 0) {
 bot.sendMessage(chatid,'Стартовал набор игроков для игры «Было/не было»', inline1); 
+console.log(msg);
 offirs = 1;
 } else {
 bot.answerCallbackQuery(msg.id,'Игра уже начата✋🏼🤚🏼. Ожидайте...', true)
@@ -75,3 +77,29 @@ if (msg.data === 'members'){
 bot.answerCallbackQuery(msg.id,gamersb+' участник(ов)',true)
 }
 })
+
+bot.onText(/старт было/i, (msg) => {
+if (offirs==1 || gamersb >= 2){
+offirs=2;
+q=0;
+gameWAS(gamersb, chatid, firstmsg, q);
+} else if (gamersb >= 2) {
+bot.answerCallbackQuery(msg.id, 'Сначала запустите игру написав «играть в было»', true)
+} else {
+bot.answerCallbackQuery(msg.id, 'Слишком мало игроков для участия, наберите как минимум 2✋🏼🤚🏼', true)
+}
+})
+
+function gameWAS(gamerb, chatid, deletedm, q){
+var wId;
+var wFN;
+bot.deleteMessage(chatid, deletedm);
+if (q>gamersb){
+q=0
+} else {
+wId = user[q];
+wFN = gamer[q];
+bot.sendMessage(chatid,'Ожидайте пока ведущий задаст вопрос');
+console.log(msg);
+}
+}
