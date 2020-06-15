@@ -19,6 +19,7 @@ var notuser = [];
 var chose = [];
 var wFN;
 var wId;
+var tu = 0;
 var inline1 = {
   reply_markup:{
     inline_keyboard: [
@@ -50,34 +51,34 @@ bot.on('callback_query', function(msg) {
 if (msg.data === 'togame') {
 console.log(msg);
 for (s=0; s < gamer.lenght; s++){
- if (user[s] == msg.from.id){
+ if (msg.from.id == user[s]){
 p++;
 }
 };
 if (p === 0) {
-gamer[i] =  msg.from.first_name;
-user[i] = msg.from.id;
-volume[i] = 0;
-i++;
-p = 0;
+gamer[tu] =  msg.from.first_name;
+user[tu] = msg.from.id;
+volume[tu] = 0;
+tu++;
 gamersb++;
 bot.answerCallbackQuery(msg.id,'Вы вошли в игру', true);
 } else {
+p = 0;
 bot.answerCallbackQuery(msg.id,'Вы уже в игре', true)
 }
 };
 if (msg.data === 'nogame'){
 p=-1;
-for (i=0;i<gamer.lenght;i++){
+for (i=0; i < gamer.lenght; i++){
 if (user[i] == msg.from.id){ 
 p==i;
-gamersb--;
 }
 }
 if (p>-1) {
 shift.gamer[p];
 shift.user[p];
 shift.volume[p];
+gamersb--;
 } else {
 bot.answerCallbackQuery(msg.id,'Вы итак не в игре😳',true)
 }
