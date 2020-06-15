@@ -1,29 +1,28 @@
 const TelegramBot = require('node-telegram-bot-api');
 const token = '1097903013:AAHjon47mwC7BWolEwQTFZn2lA91iud0ge8'; 
 var bot = new TelegramBot(token, {polling: true});
-var drinked;
+const drinked;
 var chatid;
 var le;
-var offirs = 0;
-var s = 0;
-var gamersb = 0;
-var p = 0;
-var gamer = [];
-var user = [];
-var volume = [];
+const offirs = 0;
+const s = 0;
+const gamersb = 0;
+const p = 0;
+const gamer = [];
+const user = [];
+const volume = [];
 var q;
-var lea = [];
+const lea = [];
 var w;
-var notgamer = [];
-var notuser = [];
-var chose = [];
+const notgamer = [];
+const notuser = [];
+const chose = [];
 var wFN;
 var wId;
-var tu = 0;
 var inline1 = {
   reply_markup:{
     inline_keyboard: [
-      [{ text: 'Играть😋', callback_data: 'togame' }, { text: 'Выйти😒', callback_data: 'nogame' }],
+      [{text:'Играть😋', callback_data:'togame'}, {text:'Выйти😒', callback_data:'nogame'}],
       [{text:'Сколько участников?', callback_data:'members'}]
     ]
   }
@@ -43,6 +42,7 @@ if (offirs === 0) {
  bot.sendMessage(chatid,'Стартовал набор игроков для игры «Было/не было»', inline1); 
 offirs = 1;
 } else {
+console.log(msg);
 bot.answerCallbackQuery(msg.id,'Игра уже начата✋🏼🤚🏼. Ожидайте...', true)
 } 
 })
@@ -51,22 +51,22 @@ bot.on('callback_query', function(msg) {
 if (msg.data === 'togame') {
 console.log(msg);
 for (s=0; s < gamer.lenght; s++){
- if (msg.from.id == user[s]){
+if (msg.from.id == user[s]){
 p++;
 }
-};
+}
 if (p === 0) {
-gamer[tu] =  msg.from.first_name;
-user[tu] = msg.from.id;
-volume[tu] = 0;
-tu++;
+gamer[gamersb] =  msg.from.first_name;
+user[gamersb] = msg.from.id;
+volume[gamersb] = 0;
 gamersb++;
 bot.answerCallbackQuery(msg.id,'Вы вошли в игру', true);
 } else {
 p = 0;
 bot.answerCallbackQuery(msg.id,'Вы уже в игре', true)
 }
-};
+}
+
 if (msg.data === 'nogame'){
 p=-1;
 for (i=0; i < gamer.lenght; i++){
@@ -83,6 +83,7 @@ gamersb--;
 bot.answerCallbackQuery(msg.id,'Вы итак не в игре😳',true)
 }
 }
+
 if (msg.data === 'members'){
 bot.answerCallbackQuery(msg.id,gamersb+' участник(ов)',true)
 }
