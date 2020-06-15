@@ -158,7 +158,7 @@ le = lea[i] - i;
      le = '-1';
     }
 }
-     if (drinked == 0) {
+     if (drinked === 0) {
 if (q>gamer.lenght) {
       q=0;
       } else {
@@ -176,7 +176,7 @@ if (q>gamer.lenght) {
      p = i;
     }
    }
-    If (chose[p] === 1) {
+    if (chose[p] === 1) {
     drinked--;
     chose[p] = 0;
     bot.sendMessage(chatId,'<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) молоко', {parse_mode:"HTML"})
@@ -211,7 +211,7 @@ if (q>gamer.lenght) {
 }
     }
    };
-  If (msg.data === 'whonot') {
+  if (msg.data === 'whonot') {
    for (i=0;i<gamer.lenght;i++) {
     if (chose[i] === 1) {
     notgamer[i] = gamer[i];
