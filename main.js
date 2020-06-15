@@ -162,9 +162,7 @@ if (q>gamer.lenght) {
      }
      wId = user[q];
      wFN = gamer[q];
-     gamerWAS(gamer.lenght, chatId, q, user[0], ga
-
-mer[0], wId, wFN)
+     gamerWAS(gamer.lenght, chatId, q, user[0], gamer[0], wId, wFN)
 }
    }
   };
