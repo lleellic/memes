@@ -22,7 +22,7 @@ var wId;
 var inline1 = {
   reply_markup:{
     inline_keyboard: [
-      [{ text: 'Играть😋', callback_data: 'COOMMAND1' }, { text: 'Выйти😒', callback_data: 'COMMAND2' }],
+      [{ text: 'Играть😋', callback_data: 'togame' }, { text: 'Выйти😒', callback_data: 'nogame' }],
       [{text:'Сколько участников?', callback_data:'members'}]
     ]
   }
@@ -39,7 +39,6 @@ var inline2 = {
 bot.onText(/играть в было/i, (msg) => {
 chatid = msg.chat.id;
 if (offirs === 0) {
-console.log(msg);
  bot.sendMessage(chatid,'Стартовал набор игроков для игры «Было/не было»', inline1); 
 offirs = 1;
 } else {
@@ -48,14 +47,14 @@ bot.answerCallbackQuery(msg.id,'Игра уже начата✋🏼🤚🏼. О�
 })
 
 bot.on('callback_query', function(msg) {
-if (msg.data === 'COOMMAND1') {
+if (msg.data === 'togame') {
 console.log(msg);
 for (s=0; s<gamer.lenght;s++){
  if (user[s]==msg.from.id){
 p++;
 }
 }
-if (p===0){
+if (p===0) {
 gamer[i] =  msg.from.first_name;
 user[i] = msg.from.id;
 volume[i] = 0;
@@ -67,7 +66,7 @@ bot.answerCallbackQuery(msg.id,'Вы вошли в игру', true);
 bot.answerCallbackQuery(msg.id,'Вы уже в игре', true)
 }
 }
-if (msg.data === 'COOMMAND2'){
+if (msg.data === 'nogame'){
 p=-1;
 for (i=0;i<gamer.lenght;i++){
 if (user[i]==msg.from.id){ 
@@ -76,9 +75,9 @@ gamersb--;
 }
 }
 if (p>-1) {
-shift.gamer[i];
-shift.user[i];
-shift.volume[i]
+shift.gamer[p];
+shift.user[p];
+shift.volume[p];
 } else {
 bot.answerCallbackQuery(msg.id,'Вы итак не в игре😳',true)
 }
@@ -163,7 +162,9 @@ if (q>gamer.lenght) {
      }
      wId = user[q];
      wFN = gamer[q];
-     gamerWAS(gamer.lenght, chatId, q, user[0], gamer[0], wId, wFN)
+     gamerWAS(gamer.lenght, chatId, q, user[0], ga
+
+mer[0], wId, wFN)
 }
    }
   };
