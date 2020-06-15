@@ -17,7 +17,6 @@ var w;
 var notgamer = [];
 var notuser = [];
 var chose = [];
-var firstmsg;
 var wFN;
 var wId;
 var inline1 = {
@@ -28,7 +27,7 @@ var inline1 = {
     ]
   }
 };
-
+Ок
 var inline2 = {
   reply_markup:{
     inline_keyboard: [
@@ -42,7 +41,6 @@ bot.onText(/играть в было/i, (msg) => {
 chatid = msg.from.chat_id;
 if (offirs === 0) {
  bot.sendMessage(chatid,'Стартовал набор игроков для игры «Было/не было»', inline1); 
-firstms = msg.message.message_id + 1;
 offirs = 1;
 } else {
 bot.answerCallbackQuery(msg.id,'Игра уже начата✋🏼🤚🏼. Ожидайте...', true)
@@ -92,7 +90,7 @@ bot.onText(/старт было/i, (msg) => {
 if (offirs===1 || gamersb >= 2){
 offirs=2;
 q=0;
-gameWAS(gamersb, chatid, firstmsg, q, user[0], gamer[0], wld, wFN);
+gameWAS(gamersb, chatid, q, user[0], gamer[0], wld, wFN);
 } else if (offirs === 0) {
 bot.answerCallbackQuery(msg.id, 'Сначала запустите игру написав «играть в было»', true)
 } else {
@@ -100,11 +98,9 @@ bot.answerCallbackQuery(msg.id, 'Слишком мало игроков для �
 }
 })
 
-function gameWAS(gamerb, chatid, deletedm, q, winner, winnerId){
+function gameWAS(gamerb, chatid, q, winner, winnerId){
 if (gamersb > 1) {
-bot.deleteMessage(chatid, deletedm);
 bot.sendMessage(chatid,'Сейчас <a href="tg://user?id='+wId+'">'+wFN+'</a> - ведущий!', {parse_mode: "HTML"});
-firstmsg = msg.message.message_id +1;
 bot.sendMessage(wId,'Ты ведущий! Напиши сюда свой вопрос в виде: Вы... (Если предложение не будет начинаться с «вы», то я просто не опубликую вопрос)');
 } else if (gamersb === 0) {
 bot.sendMessage(chatId,'К сожалению никто не выйграл🥺');
@@ -120,7 +116,6 @@ for(i=0; i < gamer.lenght; i++) {
 chose[i] = 1;
 }
 bot.sendMessage(chatId, msg.text+'  - если ДА, берите 🥃, если НЕТ, берите 🥛', inline2);
-firstmsg = msg.message.message_id +1;
 wId=0;
 wFN=0;
 } else {
@@ -166,7 +161,7 @@ if (q>gamer.lenght) {
      }
      wId = user[q];
      wFN = gamer[q];
-     gamerWAS(gamer.lenght, chatId, firstmsg, q, user[0], gamer[0], wId, wFN)
+     gamerWAS(gamer.lenght, chatId, q, user[0], gamer[0], wId, wFN)
 }
    }
   };
@@ -176,7 +171,7 @@ if (q>gamer.lenght) {
      p = i;
     }
    }
-    if (chose[p] === 1) {
+    If (chose[p] === 1) {
     drinked--;
     chose[p] = 0;
     bot.sendMessage(chatId,'<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) молоко', {parse_mode:"HTML"})
@@ -199,7 +194,7 @@ le = lea[i] - i;
      }
 }
 
-      if (drinked == 0) {
+      if (drinked === 0) {
 if (q>gamer.lenght) {
       q=0;
       } else {
@@ -207,11 +202,11 @@ if (q>gamer.lenght) {
      }
      wId = user[q];
      wFN = gamer[q];
-     gamerWAS(gamer.lenght, chatId, firstmsg, q, user[0], gamer[0], wId, wFN)
+     gamerWAS(gamer.lenght, chatId, q, user[0], gamer[0], wId, wFN)
 }
     }
    };
-  if (msg.data === 'whonot') {
+  If (msg.data === 'whonot') {
    for (i=0;i<gamer.lenght;i++) {
     if (chose[i] === 1) {
     notgamer[i] = gamer[i];
