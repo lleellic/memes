@@ -49,12 +49,12 @@ bot.answerCallbackQuery(msg.id,'Игра уже начата✋🏼🤚🏼. О�
 bot.on('callback_query', function(msg) {
 if (msg.data === 'togame') {
 console.log(msg);
-for (s=0; s<gamer.lenght;s++){
- if (user[s]==msg.from.id){
+for (s=0; s < gamer.lenght; s++){
+ if (user[s] == msg.from.id){
 p++;
 }
-}
-if (p===0) {
+};
+if (p === 0) {
 gamer[i] =  msg.from.first_name;
 user[i] = msg.from.id;
 volume[i] = 0;
@@ -65,11 +65,11 @@ bot.answerCallbackQuery(msg.id,'Вы вошли в игру', true);
 } else {
 bot.answerCallbackQuery(msg.id,'Вы уже в игре', true)
 }
-}
+};
 if (msg.data === 'nogame'){
 p=-1;
 for (i=0;i<gamer.lenght;i++){
-if (user[i]==msg.from.id){ 
+if (user[i] == msg.from.id){ 
 p==i;
 gamersb--;
 }
