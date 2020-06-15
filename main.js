@@ -27,7 +27,6 @@ var inline1 = {
     ]
   }
 };
-Ок
 var inline2 = {
   reply_markup:{
     inline_keyboard: [
