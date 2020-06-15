@@ -128,28 +128,27 @@ bot.answerCallbackQuery(msg.id,'Ведущий не вы✋🏼🤚🏼');
 }
 })
 
-bot.on('callback_query', function (msg){
- If (msg.data ==='drink') {
+bot.on('callback_query', function (msg) {
+ if (msg.data === 'drink') {
   for (i=0;i<gamer.lengh;i++) {
    if (msg.from.id == user[i]) {
    p = i;
   }
  }
-  If (chose[p] == 1) {
+  if (chose[p] === 1) {
   drinked--;
   chose[p] = 0;
   volume[p] ++;
   bot.sendMessage(chatId,'<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) рюмку', {parse_mode:"HTML"})
-}
   w = 0;
    if (drinked == gamer.lenght) {
-    for (i=0; i < gamer.lenght; i++){
+    for (i=0; i < gamer.lenght; i++) {
      if (volume[i] == 5) {
      lea[w] = i;
      w++;
 }
     }
-     for (i=0; i<lea.lenght; i++){
+     for (i=0; i<lea.lenght; i++) {
 le = lea[i] - i;
      bot.sendMessage(chatId,'Игрок <a href="tg://user?id='+user[le]+'">'+gamer[le]+'</a> опъянел(а) (выбыл(а) из игры)', {parse_mode: "HTML"})
      shift.gamer[le];
@@ -158,30 +157,32 @@ le = lea[i] - i;
      shift.chose[le];
      le = '-1';
     }
-     if (q>gamer.lenght){
-     q=0
-     } else {
-     q=0
-    }
-    wId = user[q];
-    wFN = gamer[q];
-    gamerWAS(gamer.lenght, chatId, firstmsg, q, user[0], gamer[0], wId, wFN)
+}
+     if (drinked == 0) {
+if (q>gamer.lenght) {
+      q=0;
+      } else {
+      q++;
+     }
+     wId = user[q];
+     wFN = gamer[q];
+     gamerWAS(gamer.lenght, chatId, firstmsg, q, user[0], gamer[0], wId, wFN)
+}
    }
-  }
-   If (msg.data === 'nodrink') {
+  };
+   if (msg.data === 'nodrink') {
     for (i=0;i<gamer.lengh;i++) {
      if (msg.from.id == user[i]) {
      p = i;
     }
    }
-    If (chose[p] === 1){
+    If (chose[p] === 1) {
     drinked--;
     chose[p] = 0;
     bot.sendMessage(chatId,'<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) молоко', {parse_mode:"HTML"})
-}
     w = 0;
      if (drinked  == gamer.lenght) {
-      for (i=0; i < gamer.lenght; i++){
+      for (i=0; i < gamer.lenght; i++) {
        if (volume[i] == 5) {
        lea[w] = i;
        w++;
@@ -196,16 +197,20 @@ le = lea[i] - i;
       shift.chose[le];
       le = '-1';
      }
-      if (q>gamer.lenght){
-      q=0
+}
+
+      if (drinked == 0) {
+if (q>gamer.lenght) {
+      q=0;
       } else {
-      q=0
+      q++;
      }
      wId = user[q];
      wFN = gamer[q];
      gamerWAS(gamer.lenght, chatId, firstmsg, q, user[0], gamer[0], wId, wFN)
+}
     }
-   }
+   };
   If (msg.data === 'whonot') {
    for (i=0;i<gamer.lenght;i++) {
     if (chose[i] === 1) {
