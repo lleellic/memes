@@ -39,6 +39,7 @@ var inline2 = {
 bot.onText(/играть в было/i, (msg) => {
 chatid = msg.from.chat_id;
 if (offirs === 0) {
+console.log(msg);
  bot.sendMessage(chatid,'Стартовал набор игроков для игры «Было/не было»', inline1); 
 offirs = 1;
 } else {
