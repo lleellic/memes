@@ -49,7 +49,8 @@ bot.answerCallbackQuery(msg.id,'Игра уже начата✋🏼🤚🏼. О�
 
 bot.on('callback_query', function(msg) {
 if (msg.data === 'COOMMAND1') {
-for (s=0; s<gamersb;s++){
+console.log(msg);
+for (s=0; s<gamer.lenght;s++){
  if (user[s]==msg.from.id){
 p++;
 }
@@ -61,13 +62,14 @@ volume[i] = 0;
 i++;
 p = 0;
 gamersb++;
+bot.answerCallbackQuery(msg.id,'Вы вошли в игру', true);
 } else {
 bot.answerCallbackQuery(msg.id,'Вы уже в игре', true)
 }
 }
 if (msg.data === 'COOMMAND2'){
 p=-1;
-for (i=0;i<gamersb;i++){
+for (i=0;i<gamer.lenght;i++){
 if (user[i]==msg.from.id){ 
 p==i;
 gamersb--;
