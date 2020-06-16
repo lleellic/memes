@@ -80,7 +80,7 @@ bot.answerCallbackQuery(msg.id,gamersb+' участник(ов)',true)
 })
 
 bot.onText(/старт было/i, (msg) => {
-if (offirs === 1 && gamersb > 1) {
+if ((offirs === 1) && (gamersb > 1)) {
 offirs = 2;
 q = 0;
 wId = user[q];
@@ -88,7 +88,7 @@ wFN = gamer[q];
 if (gamersb < 2) {
 offirs = 0;
 }
-gameWAS(gamersb, chatid, q, user[0], gamer[0], wld, wFN);
+gameWAS(gamersb, chatid,й user[0], gamer[0], wld, wFN);
 } else if (offirs === 0) {
 bot.answerCallbackQuery(msg.id, 'Сначала запустите игру написав «играть в было»', true)
 } else {
@@ -96,7 +96,7 @@ bot.answerCallbackQuery(msg.id, 'Слишком мало игроков для �
 }
 })
 
-function gameWAS(gamerb, chatid, q, winner, winnerid, wId, wFN){
+function gameWAS(gamersb, chatid, winner, winnerid, wId, wFN){
 if (gamersb > 1) {
 bot.sendMessage(chatid,'Сейчас <a href="tg://user?id='+wId+'">'+wFN+'</a> - ведущий!', {parse_mode: "HTML"});
 bot.sendMessage(wId,'Ты ведущий! Напиши сюда свой вопрос в виде: Вы... (Если предложение не будет начинаться с «вы», то я просто не опубликую вопрос)');
@@ -159,7 +159,7 @@ if (q > user.lenght) {
 if (gamersb < 2) {
 offirs = 0;
 }
-     gamerWAS(gamer.lenght, chatId, q, user[0], gamer[0], wId, wFN)
+     gamerWAS(gamer.lenght, chatid, user[0], gamer[0], wId, wFN)
 }
 }
 }
@@ -201,7 +201,7 @@ if (q > gamer.lenght) {
 if (gamersb < 2) {
 offirs = 0;
 }
-     gamerWAS(gamer.lenght, chatId, q, user[0], gamer[0], wId, wFN)
+     gamerWAS(gamer.lenght, chatid, user[0], gamer[0], wId, wFN)
 }
     }
    };
