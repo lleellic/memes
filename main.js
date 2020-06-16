@@ -12,6 +12,7 @@ const gamer = [];
 const user = [];
 const volume = [];
 var q;
+var i;
 const lea = [];
 var w;
 const notgamer = [];
@@ -50,31 +51,21 @@ bot.answerCallbackQuery(msg.id,'Игра уже начата✋🏼🤚🏼. О�
 bot.on('callback_query', function(msg) {
 if (msg.data === 'togame') {
 console.log(msg);
-for (s=0; s < gamer.lenght; s++){
-if (msg.from.id == user[s]){
-p++;
-}
-}
-if (p === 0) {
+if (user.includes(msg.from.id) {
 gamer[gamersb] =  msg.from.first_name;
 user[gamersb] = msg.from.id;
 volume[gamersb] = 0;
 gamersb++;
 bot.answerCallbackQuery(msg.id,'Вы вошли в игру', true);
 } else {
-p = 0;
 bot.answerCallbackQuery(msg.id,'Вы уже в игре', true)
 }
 }
 
 if (msg.data === 'nogame'){
-p=-1;
-for (i=0; i < gamer.lenght; i++){
-if (user[i] == msg.from.id){ 
-p==i;
-}
-}
-if (p>-1) {
+
+if (user.includes(msg.from.id)) {
+p = user.indexOf(msg.from.id);
 shift.gamer[p];
 shift.user[p];
 shift.volume[p];
@@ -90,9 +81,9 @@ bot.answerCallbackQuery(msg.id,gamersb+' участник(ов)',true)
 })
 
 bot.onText(/старт было/i, (msg) => {
-if (offirs===1 || gamersb >= 2){
-offirs=2;
-q=0;
+if (offirs === 1 && gamersb > 1){
+offirs = 2;
+q = 0;
 gameWAS(gamersb, chatid, q, user[0], gamer[0], wld, wFN);
 } else if (offirs === 0) {
 bot.answerCallbackQuery(msg.id, 'Сначала запустите игру написав «играть в было»', true)
@@ -115,12 +106,12 @@ bot.sendMessage(chatId,'Победитель игры - <a href="tg://user?id='+
 
 bot.onText(/вы/gi, (msg) => {
 if (msg.from.id == wId) {
-for(i=0; i < gamer.lenght; i++) {
+for(i = 0; i < gamer.lenght; i++) {
 chose[i] = 1;
 }
 bot.sendMessage(chatId, msg.text+'  - если ДА, берите 🥃, если НЕТ, берите 🥛', inline2);
-wId=0;
-wFN=0;
+wId = 0;
+wFN = 0;
 } else {
 bot.answerCallbackQuery(msg.id,'Ведущий не вы✋🏼🤚🏼');
 }
@@ -128,11 +119,9 @@ bot.answerCallbackQuery(msg.id,'Ведущий не вы✋🏼🤚🏼');
 
 bot.on('callback_query', function (msg) {
  if (msg.data === 'drink') {
-  for (i=0;i<gamer.lengh;i++) {
-   if (msg.from.id == user[i]) {
-   p = i;
-  }
- }
+ if (user.includes(msg.from.id)) {
+ p = user.indexOf(msg.from.id);
+}
   if (chose[p] === 1) {
   drinked--;
   chose[p] = 0;
@@ -145,19 +134,19 @@ bot.on('callback_query', function (msg) {
      lea[w] = i;
      w++;
 }
-    }
-     for (i=0; i<lea.lenght; i++) {
-le = lea[i] - i;
-     bot.sendMessage(chatId,'Игрок <a href="tg://user?id='+user[le]+'">'+gamer[le]+'</a> опъянел(а) (выбыл(а) из игры)', {parse_mode: "HTML"})
-     shift.gamer[le];
-     shift.user[le];
-     shift.volume[le];
-     shift.chose[le];
-     le = '-1';
-    }
 }
-     if (drinked === 0) {
-if (q>gamer.lenght) {
+for (i = 0; i < lea.lenght; i++) {
+le = lea[i] - i;
+bot.sendMessage(chatId,'Игрок <a href="tg://user?id='+user[le]+'">'+gamer[le]+'</a> опъянел(а) (выбыл(а) из игры)', {parse_mode: "HTML"})
+shift.gamer[le];
+shift.user[le];
+shift.volume[le];
+shift.chose[le];
+le = '-1';
+}
+}
+if (drinked === 0) {
+if (q > user.lenght) {
       q=0;
       } else {
       q++;
@@ -166,14 +155,12 @@ if (q>gamer.lenght) {
      wFN = gamer[q];
      gamerWAS(gamer.lenght, chatId, q, user[0], gamer[0], wId, wFN)
 }
-   }
-  };
-   if (msg.data === 'nodrink') {
-    for (i=0;i<gamer.lengh;i++) {
-     if (msg.from.id == user[i]) {
-     p = i;
-    }
-   }
+}
+}
+if (msg.data === 'nodrink') {
+if (user.includes(msg.from.id)) {
+p = user.indexOf(msg.from.id);
+}
     if (chose[p] === 1) {
     drinked--;
     chose[p] = 0;
@@ -197,9 +184,9 @@ le = lea[i] - i;
      }
 }
 
-      if (drinked === 0) {
-if (q>gamer.lenght) {
-      q=0;
+if (drinked === 0) {
+if (q > gamer.lenght) {
+      q = 0;
       } else {
       q++;
      }
@@ -210,7 +197,7 @@ if (q>gamer.lenght) {
     }
    };
   if (msg.data === 'whonot') {
-   for (i=0;i<gamer.lenght;i++) {
+   for (i = 0;i < gamer.lenght;i++) {
     if (chose[i] === 1) {
     notgamer[i] = gamer[i];
     notuser[i] = user[i];
