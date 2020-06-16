@@ -85,6 +85,9 @@ offirs = 2;
 q = 0;
 wId = user[q];
 wFN = gamer[q];
+if (gamersb < 2) {
+offirs = 0;
+}
 gameWAS(gamersb, chatid, q, user[0], gamer[0], wld, wFN);
 } else if (offirs === 0) {
 bot.answerCallbackQuery(msg.id, 'Сначала запустите игру написав «играть в было»', true)
@@ -153,6 +156,9 @@ if (q > user.lenght) {
      }
      wId = user[q];
      wFN = gamer[q];
+if (gamersb < 2) {
+offirs = 0;
+}
      gamerWAS(gamer.lenght, chatId, q, user[0], gamer[0], wId, wFN)
 }
 }
@@ -192,6 +198,9 @@ if (q > gamer.lenght) {
      }
      wId = user[q];
      wFN = gamer[q];
+if (gamersb < 2) {
+offirs = 0;
+}
      gamerWAS(gamer.lenght, chatId, q, user[0], gamer[0], wId, wFN)
 }
     }
