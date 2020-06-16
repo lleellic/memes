@@ -40,7 +40,7 @@ var inline2 = {
 bot.onText(/играть в было/i, (msg) => {
 chatid = msg.chat.id;
 if (offirs === 0) {
- bot.sendMessage(chatid,'Стартовал набор игроков для игры «Было/не было»', inline1); 
+bot.sendMessage(chatid,'Стартовал набор игроков для игры «Было/не было»', inline1); 
 offirs = 1;
 } else {
 console.log(msg);
@@ -50,29 +50,28 @@ bot.answerCallbackQuery(msg.id,'Игра уже начата✋🏼🤚🏼. О�
 
 bot.on('callback_query', function (msg) {
 if (msg.data === 'togame') {
+bot.answerCallbackQuery(msg.id,'Вы уже в игре', true)
+} else {
 if (user.includes(msg.from.id) != -1) {
 gamer[gamersb] =  msg.from.first_name;
 user[gamersb] = msg.from.id;
 volume[gamersb] = 0;
 gamersb++;
 bot.answerCallbackQuery(msg.id,'Вы вошли в игру', true);
-} else {
-bot.answerCallbackQuery(msg.id,'Вы уже в игре', true)
-}
+} 
 }
 
 if (msg.data === 'nogame'){
-
-if (user.includes(msg.from.id) != -1) {
+if (user.includes(msg.from.id)) {
+bot.answerCallbackQuery(msg.id,'Вы итак не в игре😳',true)
+} else {
 p = user.indexOf(msg.from.id);
 shift.gamer[p];
 shift.user[p];
 shift.volume[p];
 gamersb--;
-} else {
-bot.answerCallbackQuery(msg.id,'Вы итак не в игре😳',true)
-}
-}
+} 
+
 
 if (msg.data === 'members'){
 bot.answerCallbackQuery(msg.id,gamersb+' участник(ов)',true)
@@ -83,6 +82,8 @@ bot.onText(/старт было/i, (msg) => {
 if (offirs === 1 && gamersb > 1){
 offirs = 2;
 q = 0;
+wId = user[q];
+wFN = gamer[q];
 gameWAS(gamersb, chatid, q, user[0], gamer[0], wld, wFN);
 } else if (offirs === 0) {
 bot.answerCallbackQuery(msg.id, 'Сначала запустите игру написав «играть в было»', true)
