@@ -50,9 +50,9 @@ bot.answerCallbackQuery(msg.id,'Игра уже начата✋🏼🤚🏼. О�
 
 bot.on('callback_query', function (msg) {
 if (msg.data === 'togame') {
+if (user.includes(msg.from.id)) {
 bot.answerCallbackQuery(msg.id,'Вы уже в игре', true)
 } else {
-if (user.includes(msg.from.id) != -1) {
 gamer[gamersb] =  msg.from.first_name;
 user[gamersb] = msg.from.id;
 volume[gamersb] = 0;
