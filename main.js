@@ -93,18 +93,15 @@ bot.answerCallbackQuery(msg.id, 'Слишком мало игроков для �
 }
 })
 
-function gameWAS(gamerb, chatid, q, winner, winnerid, wId, wFN, offirs){
+function gameWAS(gamerb, chatid, q, winner, winnerid, wId, wFN){
 if (gamersb > 1) {
 bot.sendMessage(chatid,'Сейчас <a href="tg://user?id='+wId+'">'+wFN+'</a> - ведущий!', {parse_mode: "HTML"});
 bot.sendMessage(wId,'Ты ведущий! Напиши сюда свой вопрос в виде: Вы... (Если предложение не будет начинаться с «вы», то я просто не опубликую вопрос)');
 } else if (gamersb === 0) {
-offirs = 0;
 bot.sendMessage(chatid,'К сожалению никто не выйграл🥺');
 } else {
-offirs = 0;
 bot.sendMessage(chatid,'Победитель игры - <a href="tg://user?id='+winnerId+'">'+winner+'</a>, поздравляем тебя!', { parse_mode: "HTML"})
 }
-return offirs;
 }
 
 bot.onText(/вы/gi, (msg) => {
