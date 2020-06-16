@@ -63,13 +63,14 @@ bot.answerCallbackQuery(msg.id,'Вы вошли в игру', true);
 
 if (msg.data === 'nogame'){
 if (user.includes(msg.from.id)) {
-bot.answerCallbackQuery(msg.id,'Вы итак не в игре😳',true)
-} else {
 p = user.indexOf(msg.from.id);
 shift.gamer[p];
 shift.user[p];
 shift.volume[p];
 gamersb--;
+} else {  
+bot.answerCallbackQuery(msg.id,'Вы итак не в игре😳',true)
+}
 } 
 
 
