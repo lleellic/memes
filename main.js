@@ -1,4 +1,4 @@
-const TelegramBot = require('node-telegram-bot-api');
+TelegramBot = require('node-telegram-bot-api');
 const token = '1097903013:AAHjon47mwC7BWolEwQTFZn2lA91iud0ge8'; 
 var bot = new TelegramBot(token, {polling: true});
 var drinked;
@@ -93,16 +93,18 @@ bot.answerCallbackQuery(msg.id, 'Слишком мало игроков для �
 }
 })
 
-function gameWAS(gamerb, chatid, q, winner, winnerId){
+function gameWAS(gamerb, chatid, q, winner, winnerid, wId, wFN, offirs){
 if (gamersb > 1) {
 bot.sendMessage(chatid,'Сейчас <a href="tg://user?id='+wId+'">'+wFN+'</a> - ведущий!', {parse_mode: "HTML"});
 bot.sendMessage(wId,'Ты ведущий! Напиши сюда свой вопрос в виде: Вы... (Если предложение не будет начинаться с «вы», то я просто не опубликую вопрос)');
 } else if (gamersb === 0) {
-bot.sendMessage(chatId,'К сожалению никто не выйграл🥺');
 offirs = 0;
+bot.sendMessage(chatid,'К сожалению никто не выйграл🥺');
 } else {
-bot.sendMessage(chatId,'Победитель игры - <a href="tg://user?id='+winnerId+'">'+winner+'</a>, поздравляем тебя!', { parse_mode: "HTML"})
+offirs = 0;
+bot.sendMessage(chatid,'Победитель игры - <a href="tg://user?id='+winnerId+'">'+winner+'</a>, поздравляем тебя!', { parse_mode: "HTML"})
 }
+return offirs;
 }
 
 bot.onText(/вы/gi, (msg) => {
