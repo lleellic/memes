@@ -63,7 +63,7 @@ bot.answerCallbackQuery(msg.id,'Вы вошли в игру', true);
 
 if (msg.data === 'nogame'){
 if (user.includes(msg.from.id)) {
-p = user.indexOf(msg.from.id);
+p = gamer.indexOf(msg.from.first_name);
 shift.gamer[p];
 shift.user[p];
 shift.volume[p];
@@ -123,7 +123,7 @@ bot.answerCallbackQuery(msg.id,'Ведущий не вы✋🏼🤚🏼');
 bot.on('callback_query', function (msg) {
  if (msg.data === 'drink') {
  if (user.includes(msg.from.id)) {
- p = user.indexOf(msg.from.id);
+ p = gamer.indexOf(msg.from.first_name);
 }
   if (chose[p] === 1) {
   drinked--;
@@ -165,7 +165,7 @@ offirs = 0;
 }
 if (msg.data === 'nodrink') {
 if (user.includes(msg.from.id)) {
-p = user.indexOf(msg.from.id);
+p = gamer.indexOf(msg.from.first_name);
 }
     if (chose[p] === 1) {
     drinked--;
