@@ -6,11 +6,11 @@ var chatid;
 var le;
 const offirs = 0;
 const s = 0;
-const gamersb = 0;
+var gamersb = 0;
 const p = 0;
-var gamer = [];
-var user = [];
-var volume = [];
+var gamer = new Array();
+var user = new Array();
+var volume = new Array();
 var q;
 var i;
 var lea = [];
@@ -48,7 +48,7 @@ bot.answerCallbackQuery(msg.id,'Игра уже начата✋🏼🤚🏼. О�
 } 
 })
 
-bot.on('callback_query', function(msg) {
+bot.on('callback_query', function (msg) {
 if (msg.data === 'togame') {
 if (user.includes(msg.from.id) != -1) {
 gamer[gamersb] =  msg.from.first_name;
