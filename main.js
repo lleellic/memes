@@ -4,10 +4,10 @@ var bot = new TelegramBot(token, {polling: true});
 var drinked;
 var chatid;
 var le;
-const offirs = 0;
-const s = 0;
+var offirs = 0;
+var s = 0;
 var gamersb = 0;
-const p = 0;
+var p = 0;
 var gamer = new Array();
 var user = new Array();
 var volume = new Array();
@@ -80,7 +80,7 @@ bot.answerCallbackQuery(msg.id,gamersb+' участник(ов)',true)
 })
 
 bot.onText(/старт было/i, (msg) => {
-if (offirs === 1 && gamersb > 1){
+if (offirs === 1 && gamersb > 1) {
 offirs = 2;
 q = 0;
 wId = user[q];
