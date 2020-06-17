@@ -7,7 +7,7 @@ var le;
 var offirs = 0;
 var s = 0;
 var gamersb = 0;
-var p = 0;
+var p;
 var gamer = new Array();
 var user = new Array();
 var volume = new Array();
@@ -63,6 +63,7 @@ bot.answerCallbackQuery(msg.id,'Вы вошли в игру', true);
 if (msg.data === 'nogame'){
 if (user.includes(msg.from.id)) {
 p = gamer.indexOf(msg.from.first_name);
+console.log(p);
 gamer.shift[p];
 user.shift[p];
 volume.shift[p];
@@ -229,7 +230,7 @@ chatid = 0;
 le = 0;
 s = 0;
 gamersb = 0;
-p = 0;
+p = -1;
 gamer.lenght = 0;
 user.lenght = 0;
 volu.lenghtme = 0;
