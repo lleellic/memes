@@ -119,7 +119,7 @@ wFN = 0;
 bot.on('callback_query', function (msg) {
  if (msg.data === 'drink') {
  if (user.includes(msg.from.id)) {
- p = user.indexOf(msg.from.id);
+ p = gamer.indexOf(msg.from.first_name);
 }
   if (chose[p] === 1) {
   drinked--;
@@ -161,14 +161,14 @@ gamerWAS(gamer.lenght, chatid, user[0], gamer[0], wId, wFN)
 }
 if (msg.data === 'nodrink') {
 if (user.includes(msg.from.id)) {
-p = user.indexOf(msg.from.id);
+p = gamer.indexOf(msg.from.first_name);
 }
-    if (chose[p] === 1) {
-    drinked--;
-    chose[p] = 0;
-    bot.sendMessage(chatid,'<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) молоко', {parse_mode:"HTML"})
-    w = 0;
-     if (drinked  == gamer.lenght) {
+if (chose[p] === 1) {
+drinked--;
+chose[p] = 0;
+bot.sendMessage(chatid,'<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) молоко', {parse_mode:"HTML"})
+w = 0;
+if (drinked  == gamer.lenght) {
       for (i=0; i < gamer.lenght; i++) {
        if (volume[i] == 5) {
        lea[w] = i;
