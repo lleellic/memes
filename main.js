@@ -49,7 +49,7 @@ bot.sendMessage(msg.chat.id,'Игра уже начата✋🏼🤚🏼. Ожи
 
 bot.on('callback_query', function (msg) {
 if (msg.data === 'togame') {
-if (user.includes(msg.from.id)) {
+if (gamer.includes(msg.from.first_name)) {
 bot.answerCallbackQuery(msg.id,'Вы уже в игре', true)
 } else {
 gamer[gamersb] =  msg.from.first_name;
@@ -63,7 +63,6 @@ bot.answerCallbackQuery(msg.id,'Вы вошли в игру', true);
 if (msg.data === 'nogame'){
 if (user.includes(msg.from.id)) {
 p = gamer.indexOf(msg.from.first_name);
-console.log(p);
 gamer.shift(p);
 user.shift(p);
 volume.shift(p);
@@ -81,16 +80,18 @@ bot.answerCallbackQuery(msg.id,gamersb+' участник(ов)',true)
 })
 
 bot.onText(/старт было/i, (msg) => {
-if ((offirs === 1) && (gamer.lenght >= 2)) {
+if (offirs === 1) {
+if (gamer.lenght >= 2){
 offirs = 2;
 q = 0;
 wId = user[q];
 wFN = gamer[q];
 gameWAS(gamersb, chatid, user[0], gamer[0], wld, wFN);
-} else if (offirs === 0) {
-bot.sendMessage(chatid, 'Сначала запустите игру написав «играть в было»')
 } else {
 bot.sendMessage(chatid, 'Слишком мало игроков для участия, наберите как минимум «2»')
+}
+} else {
+bot.sendMessage(chatid, 'Сначала запустите игру написав «играть в было»')
 }
 })
 
@@ -222,7 +223,6 @@ bot.deleteMessage(msg.chat.id, msg.text)
 
 bot.onText(/отмена было/i, (msg) => {
 if (msg.from.id === 684519513) {
-bot.sendMessage(chatid, 'Игра отменена😬')
 offirs = 0;
 drinked = 0
 chatid = 0;
@@ -237,5 +237,6 @@ chose.lenght = 0;
 lea.lenght = 0;
 notgamer.lenght = 0;
 notuser.lenght = 0;
+bot.sendMessage(chatid, 'Игра отменена😬')
 }
 })
