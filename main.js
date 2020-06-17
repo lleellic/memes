@@ -84,7 +84,7 @@ offirs = 2;
 q = 0;
 wId = user[q];
 wFN = gamer[q];
-gameWAS(gamersb, chatid, q, user[0], gamer[0], wld, wFN);
+gameWAS(gamersb, chatid, user[0], gamer[0], wld, wFN);
 } else if (offirs === 0) {
 bot.sendMessage(chatid, 'Сначала запустите игру написав «играть в было»')
 } else {
@@ -92,7 +92,7 @@ bot.sendMessage(chatid, 'Слишком мало игроков для учас�
 }
 })
 
-function gameWAS(gamerb, chatid, q, winner, winnerid, wId, wFN){
+function gameWAS(gamerb, chatid, winner, winnerid, wId, wFN){
 if (gamersb > 1) {
 bot.sendMessage(chatid,'Сейчас <a href="tg://user?id='+wId+'">'+wFN+'</a> - ведущий!', {parse_mode: "HTML"});
 bot.sendMessage(wId,'Ты ведущий! Напиши сюда свой вопрос в виде: Вы... (Если предложение не будет начинаться с «вы», то я просто не опубликую вопрос)');
