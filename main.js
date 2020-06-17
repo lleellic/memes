@@ -230,13 +230,13 @@ le = 0;
 s = 0;
 gamersb = 0;
 p = 0;
-gamer.lenght[] = 0;
-user[] = 0;
-volu.lenghtme[] = 0;
-chose.lenght[] = 0;
-lea.lenght[] = 0;
-notgamer.lenght[] = 0;
-notuser.lenght[] = 0;
+gamer.lenght = 0;
+user.lenght = 0;
+volu.lenghtme = 0;
+chose.lenght = 0;
+lea.lenght = 0;
+notgamer.lenght = 0;
+notuser.lenght = 0;
 }
 }
 })
