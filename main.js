@@ -13,11 +13,11 @@ var user = new Array();
 var volume = new Array();
 var q;
 var i;
-var lea = [];
+var lea = new Array();
 var w;
-var notgamer = [];
-var notuser = [];
-var chose = [];
+var notgamer = new Array();
+var notuser = new Array();
+var chose = new Array();
 var wFN;
 var wId;
 var inline1 = {
@@ -215,7 +215,25 @@ offirs = 0;
 
 
 bot.onText(/[0-9]/, (msg) => {
-if (msg.from.id ===){
+if (msg.from.id === 684519513){
 bot.deleteMessage(msg.chat.id, msg.text)
+}
+})
+
+bot.onText(/отмена было/i, (msg) => {
+if (msg.from.id === 684519513) {
+bot.sendMessage(chatid, 'Игра отменена😬')
+offirs = 0;
+drinked = 0
+chatid = 0;
+le = 0;
+s = 0;
+gamersb = 0;
+p = 0;
+for (i = 0; i < gamer.lenght; i++) {
+delete.gamer[i];
+delete.user[i];
+delete.volume[i];
+}
 }
 })
