@@ -238,5 +238,4 @@ lea.lenght = 0;
 notgamer.lenght = 0;
 notuser.lenght = 0;
 }
-}
 })
