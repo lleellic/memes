@@ -64,9 +64,9 @@ if (msg.data === 'nogame'){
 if (user.includes(msg.from.id)) {
 p = gamer.indexOf(msg.from.first_name);
 console.log(p);
-gamer.shift[p];
-user.shift[p];
-volume.shift[p];
+gamer.shift(p);
+user.shift(p);
+volume.shift(p);
 gamersb--;
 bot.answerCallbackQuery(msg.id,'Вы вышли из игры',true);
 } else {  
@@ -113,8 +113,6 @@ chose[i] = 1;
 bot.sendMessage(chatid, msg.text+'  - если ДА, берите 🥃, если НЕТ, берите 🥛', inline2);
 wId = 0;
 wFN = 0;
-} else {
-bot.sendMessage(msg.chat.id,'Ведущий не вы✋🏼🤚🏼');
 }
 })
 
@@ -126,7 +124,7 @@ bot.on('callback_query', function (msg) {
   if (chose[p] === 1) {
   drinked--;
   chose[p] = 0;
-  volume[p] ++;
+  volume[p]++;
   bot.sendMessage(chatid,'<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) рюмку', {parse_mode:"HTML"})
   w = 0;
    if (drinked == gamer.lenght) {
@@ -139,10 +137,10 @@ bot.on('callback_query', function (msg) {
 for (i = 0; i < lea.lenght; i++) {
 le = lea[i] - i;
 bot.sendMessage(chatid,'Игрок <a href="tg://user?id='+user[le]+'">'+gamer[le]+'</a> опъянел(а) (выбыл(а) из игры)', {parse_mode: "HTML"})
-gamer.shift[le];
-user.shift[le];
-volume.shift[le];
-chose.shift[le];
+gamer.shift(le);
+user.shift(le);
+volume.shift(le);
+chose.shift(le);
 le = -1;
 }
 }
@@ -180,10 +178,10 @@ p = user.indexOf(msg.from.id);
       for (i=0; i<lea.lenght; i++) {
 le = lea[i] - i;
       bot.sendMessage(chatid,'Игрок <a href="tg://user?id='+user[le]+'">'+gamer[le]+'</a> опъянел(а) (выбыл(а) из игры)', {parse_mode: "HTML"})
-      gamer.shift[le];
-      user.shift[le];
-      volume.shift[le];
-      chose.shift[le];
+      gamer.shift(le);
+      user.shift(le);
+      volume.shift(le);
+      chose.shift(le);
       le = -1;
      }
 }
@@ -234,7 +232,7 @@ gamersb = 0;
 p = -1;
 gamer.lenght = 0;
 user.lenght = 0;
-volu.lenghtme = 0;
+volume.lenght = 0;
 chose.lenght = 0;
 lea.lenght = 0;
 notgamer.lenght = 0;
