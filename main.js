@@ -230,10 +230,13 @@ le = 0;
 s = 0;
 gamersb = 0;
 p = 0;
-for (i = 0; i < gamer.lenght; i++) {
-delete gamer[i];
-delete user[i];
-delete volume[i];
+lenght.gamer[] = 0;
+lenght.user[] = 0;
+lenght.volume[] = 0;
+length.chose[] = 0;
+lenght.lea[] = 0;
+lenght.notgamer[] = 0;
+lenght.notuser[] = 0;
 }
 }
 })
