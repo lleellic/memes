@@ -62,10 +62,10 @@ bot.answerCallbackQuery(msg.id,'Вы вошли в игру', true);
 
 if (msg.data === 'nogame'){
 if (user.includes(msg.from.id)) {
-p = user.indexOf(msg.from.first_name);
-shift.gamer[p];
-shift.user[p];
-shift.volume[p];
+p = gamer.indexOf(msg.from.first_name);
+gamer.shift[p];
+user.shift[p];
+volume.shift[p];
 gamersb--;
 } else {  
 bot.answerCallbackQuery(msg.id,'Вы итак не в игре😳',true)
@@ -137,11 +137,11 @@ bot.on('callback_query', function (msg) {
 for (i = 0; i < lea.lenght; i++) {
 le = lea[i] - i;
 bot.sendMessage(chatid,'Игрок <a href="tg://user?id='+user[le]+'">'+gamer[le]+'</a> опъянел(а) (выбыл(а) из игры)', {parse_mode: "HTML"})
-shift.gamer[le];
-shift.user[le];
-shift.volume[le];
-shift.chose[le];
-le = '-1';
+gamer.shift[le];
+user.shift[le];
+volume.shift[le];
+chose.shift[le];
+le = -1;
 }
 }
 if (drinked === 0) {
@@ -178,11 +178,11 @@ p = user.indexOf(msg.from.id);
       for (i=0; i<lea.lenght; i++) {
 le = lea[i] - i;
       bot.sendMessage(chatid,'Игрок <a href="tg://user?id='+user[le]+'">'+gamer[le]+'</a> опъянел(а) (выбыл(а) из игры)', {parse_mode: "HTML"})
-      shift.gamer[le];
-      shift.user[le];
-      shift.volume[le];
-      shift.chose[le];
-      le = '-1';
+      gamer.shift[le];
+      user.shift[le];
+      volume.shift[le];
+      chose.shift[le];
+      le = -1;
      }
 }
 
@@ -230,13 +230,13 @@ le = 0;
 s = 0;
 gamersb = 0;
 p = 0;
-lenght.gamer[] = 0;
-lenght.user[] = 0;
-lenght.volume[] = 0;
-length.chose[] = 0;
-lenght.lea[] = 0;
-lenght.notgamer[] = 0;
-lenght.notuser[] = 0;
+gamer.lenght[] = 0;
+user[] = 0;
+volu.lenghtme[] = 0;
+chose.lenght[] = 0;
+lea.lenght[] = 0;
+notgamer.lenght[] = 0;
+notuser.lenght[] = 0;
 }
 }
 })
