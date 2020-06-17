@@ -62,7 +62,7 @@ bot.answerCallbackQuery(msg.id,'Вы вошли в игру', true);
 
 if (msg.data === 'nogame'){
 if (user.includes(msg.from.id)) {
-p = user.indexOf(msg.from.id);
+p = user.indexOf(msg.from.first_name);
 shift.gamer[p];
 shift.user[p];
 shift.volume[p];
@@ -79,19 +79,16 @@ bot.answerCallbackQuery(msg.id,gamersb+' участник(ов)',true)
 })
 
 bot.onText(/старт было/i, (msg) => {
-if (offirs === 1 && gamersb > 1) {
+if ((offirs === 1) && (gamersb >= 2)) {
 offirs = 2;
 q = 0;
 wId = user[q];
 wFN = gamer[q];
-if (gamersb < 2) {
-offirs = 0;
-}
 gameWAS(gamersb, chatid, q, user[0], gamer[0], wld, wFN);
 } else if (offirs === 0) {
-bot.sendMessage(msg.chat.id, 'Сначала запустите игру написав «играть в было»')
+bot.sendMessage(chatid, 'Сначала запустите игру написав «играть в было»')
 } else {
-bot.sendMessage(msg.chat.id, 'Слишком мало игроков для участия, наберите как минимум 2✋🏼🤚🏼')
+bot.sendMessage(chatid, 'Слишком мало игроков для участия, наберите как минимум «2»')
 }
 })
 
@@ -111,7 +108,7 @@ if (msg.from.id == wId) {
 for(i = 0; i < gamer.lenght; i++) {
 chose[i] = 1;
 }
-bot.sendMessage(chatId, msg.text+'  - если ДА, берите 🥃, если НЕТ, берите 🥛', inline2);
+bot.sendMessage(chatid, msg.text+'  - если ДА, берите 🥃, если НЕТ, берите 🥛', inline2);
 wId = 0;
 wFN = 0;
 } else {
@@ -128,7 +125,7 @@ bot.on('callback_query', function (msg) {
   drinked--;
   chose[p] = 0;
   volume[p] ++;
-  bot.sendMessage(chatId,'<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) рюмку', {parse_mode:"HTML"})
+  bot.sendMessage(chatid,'<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) рюмку', {parse_mode:"HTML"})
   w = 0;
    if (drinked == gamer.lenght) {
     for (i=0; i < gamer.lenght; i++) {
@@ -139,7 +136,7 @@ bot.on('callback_query', function (msg) {
 }
 for (i = 0; i < lea.lenght; i++) {
 le = lea[i] - i;
-bot.sendMessage(chatId,'Игрок <a href="tg://user?id='+user[le]+'">'+gamer[le]+'</a> опъянел(а) (выбыл(а) из игры)', {parse_mode: "HTML"})
+bot.sendMessage(chatid,'Игрок <a href="tg://user?id='+user[le]+'">'+gamer[le]+'</a> опъянел(а) (выбыл(а) из игры)', {parse_mode: "HTML"})
 shift.gamer[le];
 shift.user[le];
 shift.volume[le];
@@ -158,7 +155,7 @@ if (q > user.lenght) {
 if (gamersb < 2) {
 offirs = 0;
 }
-     gamerWAS(gamer.lenght, chatId, q, user[0], gamer[0], wId, wFN)
+gamerWAS(gamer.lenght, chatid, user[0], gamer[0], wId, wFN)
 }
 }
 }
@@ -169,7 +166,7 @@ p = user.indexOf(msg.from.id);
     if (chose[p] === 1) {
     drinked--;
     chose[p] = 0;
-    bot.sendMessage(chatId,'<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) молоко', {parse_mode:"HTML"})
+    bot.sendMessage(chatid,'<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) молоко', {parse_mode:"HTML"})
     w = 0;
      if (drinked  == gamer.lenght) {
       for (i=0; i < gamer.lenght; i++) {
@@ -180,7 +177,7 @@ p = user.indexOf(msg.from.id);
      }
       for (i=0; i<lea.lenght; i++) {
 le = lea[i] - i;
-      bot.sendMessage(chatId,'Игрок <a href="tg://user?id='+user[le]+'">'+gamer[le]+'</a> опъянел(а) (выбыл(а) из игры)', {parse_mode: "HTML"})
+      bot.sendMessage(chatid,'Игрок <a href="tg://user?id='+user[le]+'">'+gamer[le]+'</a> опъянел(а) (выбыл(а) из игры)', {parse_mode: "HTML"})
       shift.gamer[le];
       shift.user[le];
       shift.volume[le];
@@ -200,7 +197,7 @@ if (q > gamer.lenght) {
 if (gamersb < 2) {
 offirs = 0;
 }
-     gamerWAS(gamer.lenght, chatId, q, user[0], gamer[0], wId, wFN)
+     gamerWAS(gamer.lenght, chatid, user[0], gamer[0], wId, wFN)
 }
     }
    };
@@ -212,6 +209,13 @@ offirs = 0;
     notgame += '<a href="tg://user?id='+notuser[i]+'">'+notgamer[i]+'</a> ';
    }
   }
-  bot.sendMessage(chatId,notgame+'не выбрали вариант ответа', {parse_mode: "HTML"})
+  bot.sendMessage(chatid,notgame+'не выбрали вариант ответа', {parse_mode: "HTML"})
  }
+})
+
+
+bot.onText(/[0-9]/, (msg) => {
+if (msg.from.id ===){
+bot.deleteMessage(msg.chat.id, msg.text)
+}
 })
