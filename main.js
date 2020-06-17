@@ -79,7 +79,7 @@ bot.answerCallbackQuery(msg.id,gamersb+' участник(ов)',true)
 })
 
 bot.onText(/старт было/i, (msg) => {
-if ((offirs === 1) && (gamersb >= 2)) {
+if ((offirs === 1) && (gamer.lenght >= 2)) {
 offirs = 2;
 q = 0;
 wId = user[q];
