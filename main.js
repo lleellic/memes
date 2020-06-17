@@ -231,9 +231,9 @@ s = 0;
 gamersb = 0;
 p = 0;
 for (i = 0; i < gamer.lenght; i++) {
-delete.gamer[i];
-delete.user[i];
-delete.volume[i];
+delete gamer[i];
+delete user[i];
+delete volume[i];
 }
 }
 })
