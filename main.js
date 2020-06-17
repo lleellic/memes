@@ -68,6 +68,7 @@ gamer.shift[p];
 user.shift[p];
 volume.shift[p];
 gamersb--;
+bot.answerCallbackQuery(msg.id,'Вы вышли из игры',true);
 } else {  
 bot.answerCallbackQuery(msg.id,'Вы итак не в игре😳',true)
 }
