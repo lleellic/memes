@@ -19,6 +19,7 @@ var notuser = new Array();
 var chose = new Array();
 var wFN;
 var wId;
+var notgame = '';
 var inline1 = {
   reply_markup:{
     inline_keyboard: [
@@ -64,6 +65,7 @@ p = gamer.indexOf(msg.from.first_name);
 gamer.shift(p);
 user.shift(p);
 volume.shift(p);
+p = -1;
 gamersb--;
 bot.answerCallbackQuery(msg.id,'Вы вышли из игры',true);
 } else {  
@@ -80,6 +82,8 @@ bot.answerCallbackQuery(msg.id,gamersb+' участник(ов)',true)
 bot.onText(/старт было/i, (msg) => {
 if (offirs === 1) {
 if (gamersb >= 2){
+wId = user[0];
+wFN = gamer[0];
 offirs = 2;
 if (gamersb > 1) {
 bot.sendMessage(msg.chat.id,'Сейчас <a href="tg://user?id='+user[0]+'">'+gamer[0]+'</a> - ведущий!', {parse_mode: "HTML"});
@@ -93,40 +97,38 @@ bot.sendMessage(msg.chat.id, 'Сначала запустите игру нап�
 }
 })
 
-function gameWAS(gamersb, chatid, winner, winnerid, wId, wFN){
-
-}
-
 bot.onText(/вы/gi, (msg) => {
 if (msg.from.id == wId) {
-for(i = 0; i < gamer.lenght; i++) {
+for(i = 0; i < (gamer.lenght -1); i++) {
 chose[i] = 1;
 }
-bot.sendMessage(msg.chat.id, msg.text+'  - если ДА, берите 🥃, если НЕТ, берите 🥛', inline2);
+drinked = user.lenght;
+bot.sendMessage(msg.chat.id, msg.text+'  - если ДА, значит берите 🥃, если НЕТ, значит берите 🥛', inline2);
 wId = 0;
 wFN = 0;
 }
 })
 
 bot.on('callback_query', function (msg) {
- if (msg.data === 'drink') {
- if (user.includes(msg.from.id)) {
- p = gamer.indexOf(msg.from.first_name);
+if (msg.data === 'drink') {
+if (user.includes(msg.from.id)) {
+p = gamer.indexOf(msg.from.first_name);
 }
-  if (chose[p] === 1) {
-  drinked--;
-  chose[p] = 0;
-  volume[p]++;
-  bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) рюмку', { parse_mode: "HTML" })
-  w = 0;
-   if (drinked == gamer.lenght) {
-    for (i=0; i < gamer.lenght; i++) {
-     if (volume[i] == 5) {
-     lea[w] = i;
-     w++;
+if (chose[p] === 1) {
+drinked--;
+chose[p] = 0;
+volume[p]++;
+bot.answerCallbackQuery(msg.id,'Вы выбрали 🥃',true);
+bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) рюмку', { parse_mode: "HTML" })
+w = 0;
+if (drinked === 0) {
+for (i = 0; i < (gamer.lenght - 1); i++) {
+if (volume[i] == 5) {
+lea[w] = i;
+w++;
 }
 }
-for (i = 0; i < lea.lenght; i++) {
+for (i = 0; i < (lea.lenght - 1); i++) {
 le = lea[i] - i;
 bot.sendMessage(msg.chat.id,'Игрок <a href="tg://user?id='+user[le]+'">'+gamer[le]+'</a> опъянел(а) (выбыл(а) из игры)', {parse_mode: "HTML"})
 gamer.shift(le);
@@ -137,17 +139,39 @@ le = -1;
 }
 }
 if (drinked === 0) {
-if (q > user.lenght) {
-      q=0;
-      } else {
-      q++;
-     }
-     wId = user[q];
-     wFN = gamer[q];
-if (gamersb < 2) {
-offirs = 0;
+if (q > (user.lenght - 1)) {
+q=0;
+} else {
+q++;
 }
-gamerWAS(gamer.lenght, msg.chat.id, user[0], gamer[0], wId, wFN)
+wId = user[q];
+wFN = gamer[q];
+if (gamer.lenght > 1) {
+bot.sendMessage(msg.chat.id,'Сейчас <a href="tg://user?id='+wId+'">'+wFN+'</a> - ведущий!', {parse_mode: "HTML"});
+bot.sendMessage(wId,'Ты ведущий! Напиши сюда свой вопрос в виде: Вы... (Если предложение не будет начинаться с «вы», то я просто не опубликую вопрос)');
+} else if (gamer.lenght === 0) {
+bot.sendMessage(msg.chat.id,'К сожалению никто не выйграл🥺');
+offirs = 0;
+drinked = 0
+le = 0;
+s = 0;
+p = -1;
+gamer.lenght = 0;
+user.lenght = 0;
+volume.lenght = 0;
+gamersb = 0;
+} else {
+bot.sendMessage(msg.chat.id,'Победитель игры - <a href="tg://user?id='+user[0]+'">'+gamer[0]+'</a>, поздравляем тебя!', { parse_mode: "HTML"})
+offirs = 0;
+drinked = 0
+le = 0;
+s = 0;
+p = -1;
+gamer.lenght = 0;
+user.lenght = 0;
+volume.lenght = 0;
+gamersb = 0;
+}
 }
 }
 }
@@ -158,51 +182,74 @@ p = gamer.indexOf(msg.from.first_name);
 if (chose[p] === 1) {
 drinked--;
 chose[p] = 0;
+bot.answerCallbackQuery(msg.id,'Вы выбрали 🥛',true);
 bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) молоко', {parse_mode:"HTML"})
 w = 0;
-if (drinked  == gamer.lenght) {
-      for (i=0; i < gamer.lenght; i++) {
-       if (volume[i] == 5) {
-       lea[w] = i;
-       w++;
-      }
-     }
-      for (i=0; i<lea.lenght; i++) {
+if (drinked === 0) {
+for (i = 0; i < (gamer.lenght - 1); i++) {
+if (volume[i] === 5) {
+lea[w] = i;
+w++;
+}
+}
+for (i = 0; i < (lea.lenght - 1); i++) {
 le = lea[i] - i;
-      bot.sendMessage(msg.chat.id,'Игрок <a href="tg://user?id='+user[le]+'">'+gamer[le]+'</a> опъянел(а) (выбыл(а) из игры)', {parse_mode: "HTML"})
-      gamer.shift(le);
-      user.shift(le);
-      volume.shift(le);
-      chose.shift(le);
-      le = -1;
-     }
+bot.sendMessage(msg.chat.id,'Игрок <a href="tg://user?id='+user[le]+'">'+gamer[le]+'</a> опъянел(а) (выбыл(а) из игры)', {parse_mode: "HTML"})
+gamer.shift(le);
+user.shift(le);
+volume.shift(le);
+chose.shift(le);
+le = -1;
+}
+}
+if (drinked === 0) {
+if (q > (gamer.lenght - 1)) {
+q = 0;
+} else {
+q++;
+}
+wId = user[q];
+wFN = gamer[q];
+if (gamersb > 1) {
+bot.sendMessage(msg.chat.id,'Сейчас <a href="tg://user?id='+wId+'">'+wFN+'</a> - ведущий!', {parse_mode: "HTML"});
+bot.sendMessage(wId,'Ты ведущий! Напиши сюда свой вопрос в виде: Вы... (Если предложение не будет начинаться с «вы», то я просто не опубликую вопрос)');
+} else if (gamersb === 0) {
+bot.sendMessage(msg.chat.id,'К сожалению никто не выйграл🥺');
+offirs = 0;
+drinked = 0
+le = 0;
+s = 0;
+p = -1;
+gamer.lenght = 0;
+user.lenght = 0;
+volume.lenght = 0;
+gamersb = 0;
+} else {
+bot.sendMessage(msg.chat.id,'Победитель игры - <a href="tg://user?id='+user[0]+'">'+gamer[0]+'</a>, поздравляем тебя!', { parse_mode: "HTML"})
+offirs = 0;
+drinked = 0
+le = 0;
+s = 0;
+p = -1;
+gamer.lenght = 0;
+user.lenght = 0;
+volume.lenght = 0;
+gamersb = 0;
+}
+}
+}
 }
 
-if (drinked === 0) {
-if (q > gamer.lenght) {
-      q = 0;
-      } else {
-      q++;
-     }
-     wId = user[q];
-     wFN = gamer[q];
-if (gamersb < 2) {
-offirs = 0;
+if (msg.data === 'whonot') {
+for (i = 0; i < (gamer.lenght - 1); i++) {
+if (chose[i] === 1) {
+notgamer[i] = gamer[i];
+notuser[i] = user[i];
+notgame += '<a href="tg://user?id='+notuser[i]+'">'+notgamer[i]+'</a>\n';
 }
-     gamerWAS(gamer.lenght, msg.chat.id, user[0], gamer[0], wId, wFN)
 }
-    }
-   };
-  if (msg.data === 'whonot') {
-   for (i = 0;i < gamer.lenght;i++) {
-    if (chose[i] === 1) {
-    notgamer[i] = gamer[i];
-    notuser[i] = user[i];
-    notgame += '<a href="tg://user?id='+notuser[i]+'">'+notgamer[i]+'</a> ';
-   }
-  }
-  bot.sendMessage(chatid,notgame+'не выбрали вариант ответа', {parse_mode: "HTML"})
- }
+bot.sendMessage(msg.chat.id,notgame+'Не выбрали вариант ответа', {parse_mode: "HTML"})
+}
 })
 
 
