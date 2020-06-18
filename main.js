@@ -81,10 +81,10 @@ bot.onText(/старт было/i, (msg) => {
 if (offirs === 1) {
 if (gamersb >= 2){
 offirs = 2;
-q = 0;
-wId = user[q];
-wFN = gamer[q];
-gameWAS(gamersb, msg.chat.id, user[0], gamer[0], wld, wFN);
+if (gamersb > 1) {
+bot.sendMessage(msg.chat.id,'Сейчас <a href="tg://user?id='+user[0]+'">'+gamer[0]+'</a> - ведущий!', {parse_mode: "HTML"});
+bot.sendMessage(user[0],'Ты ведущий! Напиши сюда свой вопрос в виде: Вы... (Если предложение не будет начинаться с «вы», то я просто не опубликую вопрос)');
+} 
 } else {
 bot.sendMessage(mag.chat.id, 'Слишком мало игроков для участия, наберите как минимум «2»')
 }
@@ -94,14 +94,7 @@ bot.sendMessage(msg.chat.id, 'Сначала запустите игру нап�
 })
 
 function gameWAS(gamersb, chatid, winner, winnerid, wId, wFN){
-if (gamersb > 1) {
-bot.sendMessage(chatid,'Сейчас <a href="tg://user?id='+wId+'">'+wFN+'</a> - ведущий!', {parse_mode: "HTML"});
-bot.sendMessage(wId,'Ты ведущий! Напиши сюда свой вопрос в виде: Вы... (Если предложение не будет начинаться с «вы», то я просто не опубликую вопрос)');
-} else if (gamersb === 0) {
-bot.sendMessage(chatid,'К сожалению никто не выйграл🥺');
-} else {
-bot.sendMessage(chatid,'Победитель игры - <a href="tg://user?id='+winnerId+'">'+winner+'</a>, поздравляем тебя!', { parse_mode: "HTML"})
-}
+
 }
 
 bot.onText(/вы/gi, (msg) => {
@@ -124,7 +117,7 @@ bot.on('callback_query', function (msg) {
   drinked--;
   chose[p] = 0;
   volume[p]++;
-  bot.sendMessage(mag.chat.id,'<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) рюмку', {parse_mode:"HTML"})
+  bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) рюмку', { parse_mode: "HTML" })
   w = 0;
    if (drinked == gamer.lenght) {
     for (i=0; i < gamer.lenght; i++) {
