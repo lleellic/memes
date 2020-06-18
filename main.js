@@ -79,6 +79,7 @@ bot.answerCallbackQuery(msg.id,gamersb+' участник(ов)',true)
 
 
 if (msg.data === 'whonot') {
+f = ' ';
 for (i = 0; i < gamer.length; i++) {
 if (chose[i] === 1) {
 f += ' ' + gamer[i];
