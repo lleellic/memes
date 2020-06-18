@@ -132,10 +132,13 @@ if (drinked === 0) {
 if (q === user.lenght) {
 q = 0
 } else {
+q++;
+wId = user[q];
+wFN = gamer[q];
+}
 if (gamersb > 1) {
-bot.sendMessage(msg.chat.id,'Сейчас <a href="tg://user?id='+user[q]+'">'+gamer[q]+'</a> - ведущий!', {parse_mode: "HTML"});
+bot.sendMessage(msg.chat.id,'Сейчас <a href="tg://user?id='+wId+'">'+wFN+'</a> - ведущий!', {parse_mode: "HTML"});
 bot.sendMessage(user[q],'Ты ведущий! Напиши сюда свой вопрос в виде: Вы... (Если предложение не будет начинаться с «вы», то я просто не опубликую вопрос)');
-} 
 } else {
 bot.sendMessage(mag.chat.id, 'Слишком мало игроков для участия, наберите как минимум «2»')
 }
@@ -145,64 +148,27 @@ bot.sendMessage(mag.chat.id, 'Слишком мало игроков для уч
 
 if (msg.data === 'nodrink') {
 if (user.includes(msg.from.id)) {
-p = gamer.indexOf(msg.from.first_name);
+p = gamer.indexOf(msg.from.first_name)
 }
 if (chose[p] === 1) {
 drinked--;
 chose[p] = 0;
-bot.answerCallbackQuery(msg.id,'Вы выбрали 🥛',true);
-bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) молоко', {parse_mode:"HTML"})
-w = 0;
-if (drinked === 0) {
-for (i = 0; i < (gamer.lenght - 1); i++) {
-if (volume[i] === 5) {
-lea[w] = i;
-w++;
-}
-}
-for (i = 0; i < (lea.lenght - 1); i++) {
-le = lea[i] - i;
-bot.sendMessage(msg.chat.id,'Игрок <a href="tg://user?id='+user[le]+'">'+gamer[le]+'</a> опъянел(а) (выбыл(а) из игры)', {parse_mode: "HTML"})
-gamer.shift(le);
-user.shift(le);
-volume.shift(le);
-chose.shift(le);
-le = -1;
-}
+volume[p]++;
+bot.sendMessage(chatt, '<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) рюмку', {parse_mode:"HTML"})
 }
 if (drinked === 0) {
-if (q > (gamer.lenght - 1)) {
-q = 0;
+if (q === user.lenght) {
+q = 0
 } else {
 q++;
-}
 wId = user[q];
 wFN = gamer[q];
+}
 if (gamersb > 1) {
 bot.sendMessage(msg.chat.id,'Сейчас <a href="tg://user?id='+wId+'">'+wFN+'</a> - ведущий!', {parse_mode: "HTML"});
-bot.sendMessage(wId,'Ты ведущий! Напиши сюда свой вопрос в виде: Вы... (Если предложение не будет начинаться с «вы», то я просто не опубликую вопрос)');
-} else if (gamersb === 0) {
-bot.sendMessage(msg.chat.id,'К сожалению никто не выйграл🥺');
-offirs = 0;
-drinked = 0
-le = 0;
-s = 0;
-p = -1;
-gamer.lenght = 0;
-user.lenght = 0;
-volume.lenght = 0;
-gamersb = 0;
+bot.sendMessage(user[q],'Ты ведущий! Напиши сюда свой вопрос в виде: Вы... (Если предложение не будет начинаться с «вы», то я просто не опубликую вопрос)');
 } else {
-bot.sendMessage(msg.chat.id,'Победитель игры - <a href="tg://user?id='+user[0]+'">'+gamer[0]+'</a>, поздравляем тебя!', { parse_mode: "HTML"})
-offirs = 0;
-drinked = 0
-le = 0;
-s = 0;
-p = -1;
-gamer.lenght = 0;
-user.lenght = 0;
-volume.lenght = 0;
-gamersb = 0;
+bot.sendMessage(mag.chat.id, 'Слишком мало игроков для участия, наберите как минимум «2»')
 }
 }
 }
