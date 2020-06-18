@@ -127,10 +127,9 @@ bot.answerCallbackQuery(msg.id,'Вы уже пили!',true)
 
 if (msg.data === 'end') {
 if (drinked === 0) {
+q++;
 if (q === user.length) {
 q = 0
-} else {
-q++;
 }
 wId = user[q];
 wFN = gamer[q];
@@ -140,7 +139,6 @@ bot.sendMessage(wId,'Ты ведущий! Напиши сюда свой воп�
 } else if (gamersb === 0) {
 bot.sendMessage(chatt, '<a href="tg://user?id='+user[0]+'">'+gamer[0]+'</a> - победитель(ница), поздравляю! ✋🏼🤚🏼', {parse_mode:"HTML"})
 offirs = 0;
-drinked = 0
 le = 0;
 s = 0;
 p = -1;
@@ -151,7 +149,6 @@ gamersb = 0;
 } else {
 bot.sendMessage(chatt, 'Никто не выйграл🥺')
 offirs = 0;
-drinked = 0
 le = 0;
 s = 0;
 p = -1;
