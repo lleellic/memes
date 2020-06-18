@@ -22,7 +22,7 @@ var notgame = '';
 var inline1 = {
   reply_markup:{
     inline_keyboard: [
-      [{text:'Играть😋', callback_data:'togame'}, {text:'Выйти😒', callback_data:'nogame'}],
+      [{text:'Играть 😋', callback_data:'togame'}, {text:'Выйти 😒', callback_data:'nogame'}],
       [{text:'Сколько участников?', callback_data:'members'}]
     ]
   }
@@ -31,7 +31,7 @@ var inline2 = {
   reply_markup:{
     inline_keyboard: [
       [{text:'🥃', callback_data:'drink'}, { text:'🥛', callback_data:'nodrink'}],
-      [{text:'Кто не нажал?🤫', callback_data:'whonot'}]
+      [{text:'Кто не нажал? 🤫', callback_data:'whonot'}]
     ]
   }
 };
@@ -41,7 +41,7 @@ if (offirs === 0) {
 bot.sendMessage(msg.chat.id,'Стартовал набор игроков для игры «Было/не было»', inline1); 
 offirs = 1;
 } else {
-bot.sendMessage(msg.chat.id,'Игра уже начата✋🏼🤚🏼. Ожидайте...')
+bot.sendMessage(msg.chat.id,'Игра уже начата ✋🏼🤚🏼. Ожидайте...')
 } 
 })
 
@@ -58,7 +58,7 @@ bot.answerCallbackQuery(msg.id,'Вы вошли в игру', true);
 } 
 }
 
-if (msg.data === 'nogame'){
+if (msg.data === 'nogame') {
 if (user.includes(msg.from.id)) {
 p = gamer.indexOf(msg.from.first_name);
 gamer.shift(p);
@@ -68,7 +68,7 @@ p = -1;
 gamersb--;
 bot.answerCallbackQuery(msg.id,'Вы вышли из игры',true);
 } else {  
-bot.answerCallbackQuery(msg.id,'Вы итак не в игре😳',true)
+bot.answerCallbackQuery(msg.id,'Вы итак не в игре 😳',true)
 }
 } 
 
@@ -179,7 +179,8 @@ bot.sendMessage(chatt, 'Никто не выйграл🥺')
 if (msg.data === 'whonot') {
 for (i = 0; i < (gamer.length - 1); i++) {
 if (chose[i] === 1) {
-bot.sendMessage(chatt,'<a href="tg://user?id='+user[i]+'">'+gamer[i]+' не выбрал(а) вариант ответа', {parse_mode: "HTML"})
+bot.sendMessage(chatt,'<a href="tg://user?id='+user[i]+'">'+gamer[i]+' не выбрал(а) вариант ответа', {parse_mode: "HTML"});
+}
 }
 }
 })
