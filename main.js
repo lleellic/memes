@@ -189,7 +189,7 @@ chose[i] = 1;
 drinked = user.length;
 bot.sendMessage(chatt, msg.text+'  - если ДА, значит берите 🥃, если НЕТ, значит берите 🥛', inline2);
 wId = 0;
-wFN = 'null';¢
+wFN = 'null';
 }
 })
 
