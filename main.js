@@ -99,7 +99,7 @@ bot.sendMessage(msg.chat.id, 'Сначала запустите игру нап�
 
 bot.onText(/вы/gi, (msg) => {
 if (msg.from.id == wId) {
-for(i = 0; i < (gamer.length -1); i++) {
+for(i = 0; i < gamer.length; i++) {
 chose[i] = 1;
 }
 drinked = user.length;
@@ -118,7 +118,10 @@ if (chose[p] === 1) {
 drinked--;
 chose[p] = 0;
 volume[p]++;
+bot.answerCallbackQuery(msg.id,'Вы выпили 🥃',true)
 bot.sendMessage(chatt, '<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) рюмку', {parse_mode:"HTML"})
+} else {
+bot.answerCallbackQuery(msg.id,'Вы уже пили!',true)
 }
 if (volume[p] === 5) {
 bot.sendMessage(msg.chat.id,'Игрок <a href="tg://user?id='+user[le]+'">'+gamer[le]+'</a> опъянел(а) (выбыл(а) из игры)', {parse_mode: "HTML"})
@@ -141,8 +144,26 @@ bot.sendMessage(msg.chat.id,'Сейчас <a href="tg://user?id='+wId+'">'+wFN+'
 bot.sendMessage(user[0],'Ты ведущий! Напиши сюда свой вопрос в виде: Вы... (Если предложение не будет начинаться с «вы», то я просто не опубликую вопрос)');
 } else if (gamersb === 0) {
 bot.sendMessage(chatt, '<a href="tg://user?id='+user[0]+'">'+gamer[0]+'</a> - победитель(ница), поздравляю! ✋🏼🤚🏼', {parse_mode:"HTML"})
+offirs = 0;
+drinked = 0
+le = 0;
+s = 0;
+p = -1;
+gamer.length = 0;
+user.length = 0;
+volume.length = 0;
+gamersb = 0;
 } else {
 bot.sendMessage(chatt, 'Никто не выйграл🥺')
+offirs = 0;
+drinked = 0
+le = 0;
+s = 0;
+p = -1;
+gamer.length = 0;
+user.length = 0;
+volume.length = 0;
+gamersb = 0;
 }
 }
 }
@@ -155,7 +176,10 @@ if (chose[p] === 1) {
 drinked--;
 chose[p] = 0;
 volume[p]++;
+bot.answerCallbackQuery(msg.id,'Вы выпили 🥛',true)
 bot.sendMessage(chatt, '<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) рюмку', {parse_mode:"HTML"})
+} else {
+bot.answerCallbackQuery(msg.id,'Вы уже пили!',true)
 }
 if (drinked === 0) {
 if (q === user.length) {
@@ -170,14 +194,32 @@ bot.sendMessage(msg.chat.id,'Сейчас <a href="tg://user?id='+wId+'">'+wFN+'
 bot.sendMessage(user[0],'Ты ведущий! Напиши сюда свой вопрос в виде: Вы... (Если предложение не будет начинаться с «вы», то я просто не опубликую вопрос)');
 } else if (gamersb === 0) {
 bot.sendMessage(chatt, '<a href="tg://user?id='+user[0]+'">'+gamer[0]+'</a> - победитель(ница), поздравляю! ✋🏼🤚🏼', {parse_mode:"HTML"})
+offirs = 0;
+drinked = 0
+le = 0;
+s = 0;
+p = -1;
+gamer.length = 0;
+user.length = 0;
+volume.length = 0;
+gamersb = 0;
 } else {
 bot.sendMessage(chatt, 'Никто не выйграл🥺')
+offirs = 0;
+drinked = 0
+le = 0;
+s = 0;
+p = -1;
+gamer.length = 0;
+user.length = 0;
+volume.length = 0;
+gamersb = 0;
 }
 }
 }
 
 if (msg.data === 'whonot') {
-for (i = 0; i < (gamer.length - 1); i++) {
+for (i = 0; i < gamer.length; i++) {
 if (chose[i] === 1) {
 bot.sendMessage(chatt,'<a href="tg://user?id='+user[i]+'">'+gamer[i]+' не выбрал(а) вариант ответа', {parse_mode: "HTML"});
 }
