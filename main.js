@@ -2,7 +2,6 @@ TelegramBot = require('node-telegram-bot-api');
 const token = '1097903013:AAHjon47mwC7BWolEwQTFZn2lA91iud0ge8'; 
 var bot = new TelegramBot(token, {polling: true});
 var drinked;
-var chatid;
 var le;
 var offirs = 0;
 var s = 0;
@@ -38,9 +37,8 @@ var inline2 = {
 };
 
 bot.onText(/играть в было/i, (msg) => {
-chatid = msg.chat.id;
 if (offirs === 0) {
-bot.sendMessage(chatid,'Стартовал набор игроков для игры «Было/не было»', inline1); 
+bot.sendMessage(msg.chat.id,'Стартовал набор игроков для игры «Было/не было»', inline1); 
 offirs = 1;
 } else {
 bot.sendMessage(msg.chat.id,'Игра уже начата✋🏼🤚🏼. Ожидайте...')
@@ -86,12 +84,12 @@ offirs = 2;
 q = 0;
 wId = user[q];
 wFN = gamer[q];
-gameWAS(gamersb, chatid, user[0], gamer[0], wld, wFN);
+gameWAS(gamersb, msg.chat.id, user[0], gamer[0], wld, wFN);
 } else {
-bot.sendMessage(chatid, 'Слишком мало игроков для участия, наберите как минимум «2»')
+bot.sendMessage(mag.chat.id, 'Слишком мало игроков для участия, наберите как минимум «2»')
 }
 } else {
-bot.sendMessage(chatid, 'Сначала запустите игру написав «играть в было»')
+bot.sendMessage(msg.chat.id, 'Сначала запустите игру написав «играть в было»')
 }
 })
 
@@ -111,7 +109,7 @@ if (msg.from.id == wId) {
 for(i = 0; i < gamer.lenght; i++) {
 chose[i] = 1;
 }
-bot.sendMessage(chatid, msg.text+'  - если ДА, берите 🥃, если НЕТ, берите 🥛', inline2);
+bot.sendMessage(msg.chat.id, msg.text+'  - если ДА, берите 🥃, если НЕТ, берите 🥛', inline2);
 wId = 0;
 wFN = 0;
 }
@@ -126,7 +124,7 @@ bot.on('callback_query', function (msg) {
   drinked--;
   chose[p] = 0;
   volume[p]++;
-  bot.sendMessage(chatid,'<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) рюмку', {parse_mode:"HTML"})
+  bot.sendMessage(mag.chat.id,'<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) рюмку', {parse_mode:"HTML"})
   w = 0;
    if (drinked == gamer.lenght) {
     for (i=0; i < gamer.lenght; i++) {
@@ -137,7 +135,7 @@ bot.on('callback_query', function (msg) {
 }
 for (i = 0; i < lea.lenght; i++) {
 le = lea[i] - i;
-bot.sendMessage(chatid,'Игрок <a href="tg://user?id='+user[le]+'">'+gamer[le]+'</a> опъянел(а) (выбыл(а) из игры)', {parse_mode: "HTML"})
+bot.sendMessage(msg.chat.id,'Игрок <a href="tg://user?id='+user[le]+'">'+gamer[le]+'</a> опъянел(а) (выбыл(а) из игры)', {parse_mode: "HTML"})
 gamer.shift(le);
 user.shift(le);
 volume.shift(le);
@@ -156,7 +154,7 @@ if (q > user.lenght) {
 if (gamersb < 2) {
 offirs = 0;
 }
-gamerWAS(gamer.lenght, chatid, user[0], gamer[0], wId, wFN)
+gamerWAS(gamer.lenght, msg.chat.id, user[0], gamer[0], wId, wFN)
 }
 }
 }
@@ -167,7 +165,7 @@ p = gamer.indexOf(msg.from.first_name);
 if (chose[p] === 1) {
 drinked--;
 chose[p] = 0;
-bot.sendMessage(chatid,'<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) молоко', {parse_mode:"HTML"})
+bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) молоко', {parse_mode:"HTML"})
 w = 0;
 if (drinked  == gamer.lenght) {
       for (i=0; i < gamer.lenght; i++) {
@@ -178,7 +176,7 @@ if (drinked  == gamer.lenght) {
      }
       for (i=0; i<lea.lenght; i++) {
 le = lea[i] - i;
-      bot.sendMessage(chatid,'Игрок <a href="tg://user?id='+user[le]+'">'+gamer[le]+'</a> опъянел(а) (выбыл(а) из игры)', {parse_mode: "HTML"})
+      bot.sendMessage(msg.chat.id,'Игрок <a href="tg://user?id='+user[le]+'">'+gamer[le]+'</a> опъянел(а) (выбыл(а) из игры)', {parse_mode: "HTML"})
       gamer.shift(le);
       user.shift(le);
       volume.shift(le);
@@ -198,7 +196,7 @@ if (q > gamer.lenght) {
 if (gamersb < 2) {
 offirs = 0;
 }
-     gamerWAS(gamer.lenght, chatid, user[0], gamer[0], wId, wFN)
+     gamerWAS(gamer.lenght, msg.chat.id, user[0], gamer[0], wId, wFN)
 }
     }
    };
@@ -225,16 +223,13 @@ bot.onText(/отмена было/i, (msg) => {
 if (msg.from.id === 684519513) {
 offirs = 0;
 drinked = 0
-chatid = 0;
 le = 0;
 s = 0;
 p = -1;
-for (i = 0; i < gamersb; i++) {
-delete gamer[i];
-delete user[i];
-delete volume[i];
-}
+gamer.lenght = 0;
+user.lenght = 0;
+volume.lenght = 0;
 gamersb = 0;
-bot.sendMessage(chatid, 'Игра отменена😬')
+bot.sendMessage(msg.chat.id, 'Игра отменена😬')
 }
 })
