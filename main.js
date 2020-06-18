@@ -96,7 +96,7 @@ drinked--;
 chose[p] = 0;
 volume[p]++;
 bot.answerCallbackQuery(msg.id,'Вы выпили 🥃',true)
-bot.sendMessage(chatt, '<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) рюмку', {parse_mode:"HTML"})
+bot.sendMessage(chatt, '<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) рюмку 🥴', {parse_mode:"HTML"})
 } else {
 bot.answerCallbackQuery(msg.id,'Вы уже пили!',true)
 }
@@ -119,7 +119,7 @@ drinked--;
 chose[p] = 0;
 volume[p]++;
 bot.answerCallbackQuery(msg.id,'Вы выпили 🥛',true)
-bot.sendMessage(chatt, '<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) рюмку', {parse_mode:"HTML"})
+bot.sendMessage(chatt, '<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) молочка, мур 😸', {parse_mode:"HTML"})
 } else {
 bot.answerCallbackQuery(msg.id,'Вы уже пили!',true)
 }
