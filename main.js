@@ -11,6 +11,7 @@ var gamer = new Array();
 var user = new Array();
 var volume = new Array();
 var q;
+var chatt;
 var i;
 var lea = new Array();
 var w;
@@ -87,6 +88,7 @@ wFN = gamer[0];
 offirs = 2;
 if (gamersb > 1) {
 bot.sendMessage(msg.chat.id,'Сейчас <a href="tg://user?id='+user[0]+'">'+gamer[0]+'</a> - ведущий!', {parse_mode: "HTML"});
+chatt = msg.chat.id;
 bot.sendMessage(user[0],'Ты ведущий! Напиши сюда свой вопрос в виде: Вы... (Если предложение не будет начинаться с «вы», то я просто не опубликую вопрос)');
 } 
 } else {
@@ -103,7 +105,7 @@ for(i = 0; i < (gamer.lenght -1); i++) {
 chose[i] = 1;
 }
 drinked = user.lenght;
-bot.sendMessage(msg.chat.id, msg.text+'  - если ДА, значит берите 🥃, если НЕТ, значит берите 🥛', inline2);
+bot.sendMessage(chatt, msg.text+'  - если ДА, значит берите 🥃, если НЕТ, значит берите 🥛', inline2);
 wId = 0;
 wFN = 0;
 }
