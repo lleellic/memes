@@ -179,7 +179,7 @@ bot.sendMessage(chatt, 'Никто не выйграл🥺')
 if (msg.data === 'whonot') {
 for (i = 0; i < (gamer.length - 1); i++) {
 if (chose[i] === 1) {
-bot.sendMessage(chatt,<a href="tg://user?id='+user[i]+'">'+gamer[i]+'+' не выбрал(а) вариант ответа', {parse_mode: "HTML"})
+bot.sendMessage(chatt,'<a href="tg://user?id='+user[i]+'">'+gamer[i]+' не выбрал(а) вариант ответа', {parse_mode: "HTML"})
 }
 }
 })
