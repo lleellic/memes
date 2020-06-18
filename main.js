@@ -225,7 +225,7 @@ if (chose[i] === 1) {
 f += ' ' + gamer[i];
 }
 }
-bot.(msg.id, f, true);
+bot.answerCallbackQuery(msg.id, f, true);
 }
 
 })
