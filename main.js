@@ -211,6 +211,6 @@ gamer.length = 0;
 user.length = 0;
 volume.length = 0;
 gamersb = 0;
-bot.sendMessage(msg.chat.id, 'Игра отменена😬')
+bot.sendMessage(msg.chat.id, 'Игра отменена 😬')
 }
 })
