@@ -102,7 +102,7 @@ bot.sendMessage(chatt, '<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> вы
 bot.answerCallbackQuery(msg.id,'Вы уже пили!',true)
 }
 if (volume[p] === 5) {
-bot.sendMessage(msg.chat.id,'Игрок <a href="tg://user?id='+user[le]+'">'+gamer[le]+'</a> опъянел(а) (выбыл(а) из игры)', {parse_mode: "HTML"})
+bot.sendMessage(msg.chat.id,'Игрок <a href="tg://user?id='+user[q]+'">'+gamer[q]+'</a> опъянел(а) (выбыл(а) из игры)', {parse_mode: "HTML"})
 gamer.shift(p);
 user.shift(p);
 volume.shift(p);
@@ -133,7 +133,7 @@ if (q === user.length) {
 q = 0
 }
 if (gamersb > 1) {
-bot.sendMessage(chatt,'Сейчас <иa href="tg://user?id='+user[q]+'">'+gamer[q]+'</a> - ведущий!', {parse_mode: "HTML"});
+bot.sendMessage(chatt,'Сейчас <a href="tg://user?id='+user[q]+'">'+gamer[q]+'</a> - ведущий!', {parse_mode: "HTML"});
 bot.sendMessage(user[q],'Ты ведущий! Напиши сюда свой вопрос в виде: Вы... (Если предложение не будет начинаться с «вы», то я просто не опубликую вопрос)');
 } else if (gamersb === 0) {
 bot.sendMessage(chatt, '<a href="tg://user?id='+user[0]+'">'+gamer[0]+'</a> - победитель(ница), поздравляю! ✋🏼🤚🏼', {parse_mode:"HTML"})
