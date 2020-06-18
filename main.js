@@ -73,29 +73,10 @@ bot.answerCallbackQuery(msg.id,'Вы итак не в игре 😳',true)
 }
 } 
 
-
 if (msg.data === 'members'){
 bot.answerCallbackQuery(msg.id,gamersb+' участник(ов)',true)
 }
-})
 
-bot.onText(/старт было/i, (msg) => {
-if (offirs === 1) {
-if (gamersb >= 2){
-wId = user[0];
-wFN = gamer[0];
-offirs = 2;
-if (gamersb > 1) {
-bot.sendMessage(msg.chat.id,'Сейчас <a href="tg://user?id='+user[0]+'">'+gamer[0]+'</a> - ведущий!', {parse_mode: "HTML"});
-chatt = msg.chat.id;
-bot.sendMessage(user[0],'Ты ведущий! Напиши сюда свой вопрос в виде: Вы... (Если предложение не будет начинаться с «вы», то я просто не опубликую вопрос)');
-}
-} else {
-bot.sendMessage(mag.chat.id, 'Слишком мало игроков для участия, наберите как минимум «2»')
-}
-} else {
-bot.sendMessage(msg.chat.id, 'Сначала запустите игру написав «играть в было»')
-}
 
 if (msg.data === 'whonot') {
 for (i = 0; i < gamer.length; i++) {
@@ -180,9 +161,27 @@ volume.length = 0;
 gamersb = 0;
 }
 }
+bot.answerCallbackQuery(msg.id,'Вы подвели итог',true)
 }
+})
 
-
+bot.onText(/старт было/i, (msg) => {
+if (offirs === 1) {
+if (gamersb >= 2){
+wId = user[0];
+wFN = gamer[0];
+offirs = 2;
+if (gamersb > 1) {
+bot.sendMessage(msg.chat.id,'Сейчас <a href="tg://user?id='+user[0]+'">'+gamer[0]+'</a> - ведущий!', {parse_mode: "HTML"});
+chatt = msg.chat.id;
+bot.sendMessage(user[0],'Ты ведущий! Напиши сюда свой вопрос в виде: Вы... (Если предложение не будет начинаться с «вы», то я просто не опубликую вопрос)');
+}
+} else {
+bot.sendMessage(mag.chat.id, 'Слишком мало игроков для участия, наберите как минимум «2»')
+}
+} else {
+bot.sendMessage(msg.chat.id, 'Сначала запустите игру написав «играть в было»')
+}
 })
 
 bot.onText(/вы/gi, (msg) => {
