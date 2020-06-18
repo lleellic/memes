@@ -175,7 +175,6 @@ bot.sendMessage(chatt, 'Никто не выйграл🥺')
 }
 }
 }
-}
 
 if (msg.data === 'whonot') {
 for (i = 0; i < (gamer.length - 1); i++) {
