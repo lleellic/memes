@@ -99,10 +99,10 @@ bot.sendMessage(msg.chat.id, 'Сначала запустите игру нап�
 
 bot.onText(/вы/gi, (msg) => {
 if (msg.from.id == wId) {
-for(i = 0; i < (gamer.lenght -1); i++) {
+for(i = 0; i < (gamer.length -1); i++) {
 chose[i] = 1;
 }
-drinked = user.lenght;
+drinked = user.length;
 bot.sendMessage(chatt, msg.text+'  - если ДА, значит берите 🥃, если НЕТ, значит берите 🥛', inline2);
 wId = 0;
 wFN = 'null';
@@ -129,7 +129,7 @@ chose.shift(p);
 gamersb--;
 }
 if (drinked === 0) {
-if (q === user.lenght) {
+if (q === user.length) {
 q = 0
 } else {
 q++;
@@ -158,7 +158,7 @@ volume[p]++;
 bot.sendMessage(chatt, '<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) рюмку', {parse_mode:"HTML"})
 }
 if (drinked === 0) {
-if (q === user.lenght) {
+if (q === user.length) {
 q = 0
 } else {
 q++;
@@ -178,7 +178,7 @@ bot.sendMessage(chatt, 'Никто не выйграл🥺')
 }
 
 if (msg.data === 'whonot') {
-for (i = 0; i < (gamer.lenght - 1); i++) {
+for (i = 0; i < (gamer.length - 1); i++) {
 if (chose[i] === 1) {
 bot.sendMessage(chatt,<a href="tg://user?id='+user[i]+'">'+gamer[i]+'+' не выбрал(а) вариант ответа', {parse_mode: "HTML"})
 }
@@ -199,9 +199,9 @@ drinked = 0
 le = 0;
 s = 0;
 p = -1;
-gamer.lenght = 0;
-user.lenght = 0;
-volume.lenght = 0;
+gamer.length = 0;
+user.length = 0;
+volume.length = 0;
 gamersb = 0;
 bot.sendMessage(msg.chat.id, 'Игра отменена😬')
 }
