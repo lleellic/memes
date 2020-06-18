@@ -32,7 +32,7 @@ var inline2 = {
   reply_markup:{
     inline_keyboard: [
       [{text:'🥃', callback_data:'drink'}, { text:'🥛', callback_data:'nodrink'}],
-      [{text:'Кто не нажал? 🤫', callback_data:'whonot'}, {text:'Итог 🤭, callback_data:'end'}]
+      [{text:'Кто не нажал? 🤫', callback_data:'whonot'}, {text:'Итог 🤭', callback_data:'end'}]
     ]
   }
 };
