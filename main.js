@@ -131,11 +131,9 @@ q++;
 if (q === user.length) {
 q = 0
 }
-wId = user[q];
-wFN = gamer[q];
 if (gamersb > 1) {
-bot.sendMessage(chatt,'Сейчас <a href="tg://user?id='+wId+'">'+wFN+'</a> - ведущий!', {parse_mode: "HTML"});
-bot.sendMessage(wId,'Ты ведущий! Напиши сюда свой вопрос в виде: Вы... (Если предложение не будет начинаться с «вы», то я просто не опубликую вопрос)');
+bot.sendMessage(chatt,'Сейчас <a href="tg://user?id='+user[q]+'">'+gamer[q]+'</a> - ведущий!', {parse_mode: "HTML"});
+bot.sendMessage(user[q],'Ты ведущий! Напиши сюда свой вопрос в виде: Вы... (Если предложение не будет начинаться с «вы», то я просто не опубликую вопрос)');
 } else if (gamersb === 0) {
 bot.sendMessage(chatt, '<a href="tg://user?id='+user[0]+'">'+gamer[0]+'</a> - победитель(ница), поздравляю! ✋🏼🤚🏼', {parse_mode:"HTML"})
 offirs = 0;
@@ -165,8 +163,7 @@ bot.answerCallbackQuery(msg.id,'Вы подвели итог',true)
 bot.onText(/старт было/i, (msg) => {
 if (offirs === 1) {
 if (gamersb >= 2){
-wId = user[0];
-wFN = gamer[0];
+q = 0;
 offirs = 2;
 if (gamersb > 1) {
 bot.sendMessage(msg.chat.id,'Сейчас <a href="tg://user?id='+user[0]+'">'+gamer[0]+'</a> - ведущий!', {parse_mode: "HTML"});
@@ -182,14 +179,14 @@ bot.sendMessage(msg.chat.id, 'Сначала запустите игру нап�
 })
 
 bot.onText(/вы/gi, (msg) => {
-if (msg.from.id == wId) {
+if (msg.from.id == user[q]) {
 for(i = 0; i < gamer.length; i++) {
 chose[i] = 1;
 }
 drinked = user.length;
 bot.sendMessage(chatt, msg.text+'  - если ДА, значит берите 🥃, если НЕТ, значит берите 🥛', inline2);
 wId = 0;
-wFN = 'null';
+wFN = 'null';¢
 }
 })
 
