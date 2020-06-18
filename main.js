@@ -81,7 +81,7 @@ bot.answerCallbackQuery(msg.id,gamersb+' участник(ов)',true)
 
 bot.onText(/старт было/i, (msg) => {
 if (offirs === 1) {
-if (gamer.lenght >= 2){
+if (gamersb >= 2){
 offirs = 2;
 q = 0;
 wId = user[q];
@@ -230,13 +230,11 @@ le = 0;
 s = 0;
 gamersb = 0;
 p = -1;
-gamer.lenght = 0;
-user.lenght = 0;
-volume.lenght = 0;
-chose.lenght = 0;
-lea.lenght = 0;
-notgamer.lenght = 0;
-notuser.lenght = 0;
+for (i = 0; i < 11; i++) {
+delete gamer[i];
+delete user[i];
+delete volume[i];
+}
 bot.sendMessage(chatid, 'Игра отменена😬')
 }
 })
