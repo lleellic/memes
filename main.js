@@ -3,6 +3,7 @@ const token = '1097903013:AAHjon47mwC7BWolEwQTFZn2lA91iud0ge8';
 var bot = new TelegramBot(token, {polling: true});
 var drinked;
 var le;
+var f = ' ';
 var offirs = 0;
 var s = 0;
 var gamersb = 0;
@@ -138,7 +139,6 @@ q = 0
 q++;
 wId = user[q];
 wFN = gamer[q];
-}
 if (gamersb > 1) {
 bot.sendMessage(msg.chat.id,'Сейчас <a href="tg://user?id='+wId+'">'+wFN+'</a> - ведущий!', {parse_mode: "HTML"});
 bot.sendMessage(user[0],'Ты ведущий! Напиши сюда свой вопрос в виде: Вы... (Если предложение не будет начинаться с «вы», то я просто не опубликую вопрос)');
@@ -164,6 +164,7 @@ gamer.length = 0;
 user.length = 0;
 volume.length = 0;
 gamersb = 0;
+}
 }
 }
 }
@@ -188,7 +189,6 @@ q = 0
 q++;
 wId = user[q];
 wFN = gamer[q];
-}
 if (gamersb > 1) {
 bot.sendMessage(msg.chat.id,'Сейчас <a href="tg://user?id='+wId+'">'+wFN+'</a> - ведущий!', {parse_mode: "HTML"});
 bot.sendMessage(user[0],'Ты ведущий! Напиши сюда свой вопрос в виде: Вы... (Если предложение не будет начинаться с «вы», то я просто не опубликую вопрос)');
@@ -217,14 +217,17 @@ gamersb = 0;
 }
 }
 }
+}
 
 if (msg.data === 'whonot') {
 for (i = 0; i < gamer.length; i++) {
 if (chose[i] === 1) {
-bot.sendMessage(chatt,'<a href="tg://user?id='+user[i]+'">'+gamer[i]+' не выбрал(а) вариант ответа', {parse_mode: "HTML"});
+f += ' ' + gamer[i];
 }
 }
+bot.(msg.id, f, true);
 }
+
 })
 
 
