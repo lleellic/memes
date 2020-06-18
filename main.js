@@ -92,8 +92,8 @@ bot.sendMessage(mag.chat.id, 'Слишком мало игроков для уч
 bot.sendMessage(msg.chat.id, 'Сначала запустите игру написав «играть в было»')
 }
 })
-
-function gameWAS(gamerb, chatid, winner, winnerid, wId, wFN){
+Здравствуйте
+function gameWAS(gamersb, chatid, winner, winnerid, wId, wFN){
 if (gamersb > 1) {
 bot.sendMessage(chatid,'Сейчас <a href="tg://user?id='+wId+'">'+wFN+'</a> - ведущий!', {parse_mode: "HTML"});
 bot.sendMessage(wId,'Ты ведущий! Напиши сюда свой вопрос в виде: Вы... (Если предложение не будет начинаться с «вы», то я просто не опубликую вопрос)');
