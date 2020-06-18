@@ -228,13 +228,13 @@ drinked = 0
 chatid = 0;
 le = 0;
 s = 0;
-gamersb = 0;
 p = -1;
-for (i = 0; i < 11; i++) {
+for (i = 0; i < gamersb; i++) {
 delete gamer[i];
 delete user[i];
 delete volume[i];
 }
+gamersb = 0;
 bot.sendMessage(chatid, 'Игра отменена😬')
 }
 })
