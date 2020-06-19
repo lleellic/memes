@@ -97,12 +97,12 @@ drinked--;
 chose[p] = 0;
 volume[p]++;
 bot.answerCallbackQuery(msg.id,'Вы выпили 🥃',true)
-bot.sendMessage(chatt, '<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) рюмку 🥴', {parse_mode:"HTML"})
+bot.sendMessage(chatt, '<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) рюмку 🥴 ('+volume[p]+')', {parse_mode:"HTML"})
 } else {
 bot.answerCallbackQuery(msg.id,'Вы уже пили!',true)
 }
 if (volume[p] === 5) {
-bot.sendMessage(msg.chat.id,'Игрок <a href="tg://user?id='+user[q]+'">'+gamer[q]+'</a> опъянел(а) (выбыл(а) из игры)', {parse_mode: "HTML"})
+bot.sendMessage(chatt,'Игрок <a href="tg://user?id='+user[q]+'">'+gamer[q]+'</a> опъянел(а) (выбыл(а) из игры)', {parse_mode: "HTML"})
 gamer.shift(p);
 user.shift(p);
 volume.shift(p);
@@ -120,7 +120,7 @@ drinked--;
 chose[p] = 0;
 volume[p]++;
 bot.answerCallbackQuery(msg.id,'Вы выпили 🥛',true)
-bot.sendMessage(chatt, '<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) молочка, мур 😸', {parse_mode:"HTML"})
+bot.sendMessage(chatt, '<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) молочка, мур 😸 (+volume[p]+)', {parse_mode:"HTML"})
 } else {
 bot.answerCallbackQuery(msg.id,'Вы уже пили!',true)
 }
