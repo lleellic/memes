@@ -118,7 +118,7 @@ if (chose[p] === 1) {
 drinked--;
 chose[p] = 0;
 bot.answerCallbackQuery(msg.id,'Вы выпили 🥛',true)
-bot.sendMessage(chatt, '<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) молочка, мур 😸 (+volume[p]+)', {parse_mode:"HTML"})
+bot.sendMessage(chatt, '<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выпил(а) молочка, мур 😸 ('+volume[p]+')', {parse_mode:"HTML"})
 } else {
 bot.answerCallbackQuery(msg.id,'Вы уже пили!',true)
 }
@@ -202,7 +202,6 @@ bot.deleteMessage(msg.chat.id, msg.text)
 })
 
 bot.onText(/отмена было/i, (msg) => {
-if (msg.from.id === 684519513) {
 offirs = 0;
 drinked = 0
 le = 0;
@@ -214,5 +213,4 @@ volume.length = 0;
 chatt = 0;
 gamersb = 0;
 bot.sendMessage(msg.chat.id, 'Игра отменена 😬')
-}
 })
