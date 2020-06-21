@@ -3,6 +3,8 @@ const token = '1097903013:AAHjon47mwC7BWolEwQTFZn2lA91iud0ge8';
 var bot = new TelegramBot(token, {polling: true});
 var drinked;
 var le;
+var chatis;
+var msgis;
 var f = ' ';
 var offirs = 0;
 var s = 0;
@@ -198,7 +200,9 @@ wId = 0;
 bot.onText(/[0-9]/, (msg) => {
 if (msg.from.id === 684519513){
 bot.deleteMessage(msg.chat.id, msg.text)
-bot.editMessageText('Удалено', {msg.chat.id, msg.message.id})
+  chatis = msg.chat.id;
+  msgis = msg.message.id;
+bot.editMessageText('Удалено', {chatis, msgis})
 }
 })
 
