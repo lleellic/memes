@@ -198,6 +198,7 @@ wId = 0;
 bot.onText(/[0-9]/, (msg) => {
 if (msg.from.id === 684519513){
 bot.deleteMessage(msg.chat.id, msg.text)
+bot.editMessageText(msg.chat.id, msg.message.id, 'Удалено')
 }
 })
 
