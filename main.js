@@ -1,5 +1,6 @@
 TelegramBot = require('node-telegram-bot-api');
 const token = '1097903013:AAHjon47mwC7BWolEwQTFZn2lA91iud0ge8'; 
+const sqlite3 = require('sqlite3').verbose();
 var bot = new TelegramBot(token, {polling: true});
 var drinked;
 var le;
