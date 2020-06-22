@@ -41,6 +41,7 @@ var inline2 = {
 bot.onText(/баланс/i, (msg) => {
   db.serialize(function() {
   db.run("CREATE TABLE bal (id INTEGER, balance INTEGER)");
+  }
 })
 
 
