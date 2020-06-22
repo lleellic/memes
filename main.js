@@ -183,13 +183,13 @@ bot.sendMessage(msg.chat.id, 'Сначала запустите игру нап�
 }
 })
 
-bot.onText(/вы/gi, (msg) => {
+bot.onText(/вы|вас|вам/gi, (msg) => {
 if (msg.from.id == wId) {
 for(i = 0; i < gamer.length; i++) {
 chose[i] = 1;
 }
 drinked = user.length;
-bot.sendMessage(chatt, msg.text+'  - если ДА, значит берите 🥃, если НЕТ, значит берите 🥛', inline2);
+bot.sendMessage(chatt, msg.text+'? - если ДА, значит берите 🥃, если НЕТ, значит берите 🥛', inline2);
 wId = 0;
 }
 })
