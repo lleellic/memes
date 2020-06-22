@@ -101,7 +101,7 @@ bot.sendMessage(chatt, '<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> вы
 bot.answerCallbackQuery(msg.id,'Вы уже пили!',true)
 }
 if (volume[p] === 5) {
-bot.sendMessage(chatt,'Игрок <a href="tg://user?id='+user[q]+'">'+gamer[q]+'</a> опъянел(а) (выбыл(а) из игры)', {parse_mode: "HTML"})
+bot.sendMessage(chatt,'Игрок <a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> опъянел(а) (выбыл(а) из игры)', {parse_mode: "HTML"})
 gamer.shift(p);
 user.shift(p);
 volume.shift(p);
