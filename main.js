@@ -2,9 +2,7 @@ TelegramBot = require('node-telegram-bot-api');
 const token = '1097903013:AAHjon47mwC7BWolEwQTFZn2lA91iud0ge8'; 
 var bot = new TelegramBot(token, {polling: true});
 var drinked;
-var le;
-var chatis;
-var msgis;
+var le'
 var f = ' ';
 var offirs = 0;
 var s = 0;
@@ -129,7 +127,7 @@ bot.answerCallbackQuery(msg.id,'Вы уже пили!',true)
 if (msg.data === 'end') {
 if (drinked === 0) {
 q++;
-if (q === user.length) {
+if (q >= user.length) {
 q = 0
 }
 if (gamersb > 1) {
@@ -200,9 +198,6 @@ wId = 0;
 bot.onText(/[0-9]/, (msg) => {
 if (msg.from.id === 684519513){
 bot.deleteMessage(msg.chat.id, msg.text)
-  chatis = msg.chat.id;
-  msgis = msg.message.id;
-bot.editMessageText('Удалено', {chatis, msgis})
 }
 })
 
