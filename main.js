@@ -61,9 +61,9 @@ bot.answerCallbackQuery(msg.id,'Вы вошли в игру', true);
 if (msg.data === 'nogame') {
 if (user.includes(msg.from.id)) {
 p = gamer.indexOf(msg.from.first_name);
-gamer.shift(p);
-user.shift(p);
-volume.shift(p);
+gamer.splice(p, 1);
+user.splice(p, 1);
+volume.splice(p, 1);
 p = -1;
 gamersb--;
 bot.answerCallbackQuery(msg.id,'Вы вышли из игры',true);
@@ -102,10 +102,10 @@ bot.answerCallbackQuery(msg.id,'Вы уже пили!',true)
 }
 if (volume[p] === 5) {
 bot.sendMessage(chatt,'Игрок <a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> опъянел(а) (выбыл(а) из игры)', {parse_mode: "HTML"})
-gamer.shift(p);
-user.shift(p);
-volume.shift(p);
-chose.shift(p);
+gamer.splice(p, 1);
+user.splice(p, 1);
+volume.splice(p, 1);
+chose.splice(p, 1);
 gamersb--;
 }
 }
