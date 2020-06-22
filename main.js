@@ -5,6 +5,7 @@ var db = new sqlite3.Database(':memory:');
 var bot = new TelegramBot(token, {polling: true});
 var drinked;
 var le;
+var balance;
 var f = ' ';
 var offirs = 0;
 var s = 0;
@@ -37,13 +38,6 @@ var inline2 = {
     ]
   }
 };
-
-bot.onText(/баланс/i, (msg) => {
-  db.serialize(function() {
-  db.run("CREATE TABLE bal (id INTEGER, balance INTEGER)");
-  })
-})
-
 
 
 
