@@ -1,6 +1,7 @@
 TelegramBot = require('node-telegram-bot-api');
 const token = '1097903013:AAHjon47mwC7BWolEwQTFZn2lA91iud0ge8'; 
 const sqlite3 = require('sqlite3').verbose();
+var db = new sqlite3.Database('./bot/memes/balances.db');
 var bot = new TelegramBot(token, {polling: true});
 var drinked;
 var le;
@@ -37,7 +38,10 @@ var inline2 = {
   }
 };
 
-
+bot.onText(/баланс/i, (msg) => {
+  db.serialize(function() {
+  db.run("CREATE TABLE bal (id INTEGER, balance INTEGER)");
+})
 
 
 
