@@ -36,6 +36,18 @@ var inline2 = {
   }
 };
 
+bot.onText('сОздай', (msg) => {
+CREATE TABLE your (
+id INTEGER NOT NULL UNIQUE, 
+bal INTEGER DEFAULT 0);
+})
+
+
+
+
+
+
+
 bot.onText(/играть в было/i, (msg) => {
 if (offirs === 0) {
 bot.sendMessage(msg.chat.id,'Стартовал набор игроков для игры «Было/не было»', inline1); 
