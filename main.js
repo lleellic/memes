@@ -37,12 +37,6 @@ var inline2 = {
   }
 };
 
-bot.onText('сОздай', (msg) => {
-CREATE TABLE your (
-id INTEGER NOT NULL UNIQUE, 
-bal INTEGER DEFAULT 0);
-})
-
 
 
 
