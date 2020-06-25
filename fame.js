@@ -551,7 +551,7 @@ bot.onText(/кик (.+)/i, (msg, match) => {
 if (msg.from.id === 684519513) {
 p = gamer.indexOf(msg.from.first_name);
 bot.deleteMessage(chatt, msg.message_id)
-bot.sendMessage(chatt, '<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выбыл(а) из игры')
+bot.sendMessage(chatt, '<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выбыл(а) из игры', {parse_mode: "HTML"})
 gamer.splice(p, 1);
 user.splice(p, 1);
 p = -1;
@@ -576,6 +576,17 @@ bot.onText(/что выбрали/i, (msg) => {
     f = ' ';
     for (i = 0; i < user.length; i++) {
       f += gamer[i] + ' ' + chose[i] +'\n'
+    }
+    bot.sendMessage(chatt, f)
+  }
+})
+
+bot.onText(/несгораемая сумма/i, (msg) => {
+  if (msg.from.id === 684519513) {
+    bot.deleteMessage(chatt, msg.message_id)
+    f = ' ';
+    for (i = 0; i < user.length; i++) {
+      f += gamer[i] + ' ' + summ[i] +'\n'
     }
     bot.sendMessage(chatt, f)
   }
