@@ -11,6 +11,7 @@ var f;
 var gamer = new Array();
 var user = new Array();
 var summ = new Array();
+var chose = new Array();
 var del;
 var answ = new Array();
 var a = new Array();
@@ -183,7 +184,7 @@ f += ' ▫️' + gamer[i];
 bot.answerCallbackQuery(msg.id, f, true);
 }
 
-if (msg.data === 'A') {
+if (msg.data === 'AA') {
 if (user.includes(msg.from.id))
 p = gamer.indexOf(msg.from.first_name);
 if (chose[p] === 0) {
@@ -194,7 +195,7 @@ bot.answerCallbackQuery(msg.id,'❌ вы уже выбрали вариант о
   p = -1;
 }
 
-if (msg.data === 'B') {
+if (msg.data === 'BB') {
 if (user.includes(msg.from.id))
 p = gamer.indexOf(msg.from.first_name);
 if (chose[p] === 0) {
@@ -204,7 +205,7 @@ bot.answerCallbackQuery(msg.id,'❌ вы уже выбрали вариант о
 }
 }
 
-if (msg.data === 'C') {
+if (msg.data === 'CC') {
 if (user.includes(msg.from.id))
 p = gamer.indexOf(msg.from.first_name);
 if (chose[p] === 0) {
@@ -215,7 +216,7 @@ bot.answerCallbackQuery(msg.id,'❌ вы уже выбрали вариант о
   p = -1;
 }
 
-if (msg.data === 'D') {
+if (msg.data === 'DD') {
 if (user.includes(msg.from.id))
 p = gamer.indexOf(msg.from.first_name);
 if (chose[p] === 0) {
@@ -530,8 +531,8 @@ n--;
 bot.sendMessage(chatt, answ[n], {
   reply_markup:{
     inline_keyboard: [
-      [{text: a[n] , callback_data:'a'}, {text: b[n], callback_data:'b'}],
-      [{text: c[n], callback_data:'c'}, {text: d[n], callback_data:'d'}]
+      [{text: a[n] , callback_data:'AA'}, {text: b[n], callback_data:'BB'}],
+      [{text: c[n], callback_data:'CC'}, {text: d[n], callback_data:'DD'}]
     ]
   }
 })
