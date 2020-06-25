@@ -186,8 +186,7 @@ if (user.includes(msg.from.id)) {
 p = gamer.indexOf(msg.from.first_name);
 summ[p] = 2;
 bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
-}
-  p = -1;
+p = -1;
 }
 }
 }
@@ -206,7 +205,6 @@ if (user.includes(msg.from.id)) {
 p = gamer.indexOf(msg.from.first_name);
 summ[p] = 3;
 bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
-}
   p = -1;
 }
 }
@@ -226,7 +224,6 @@ if (user.includes(msg.from.id)) {
 p = gamer.indexOf(msg.from.first_name);
 summ[p] = 4;
 bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
-}
   p = -1;
 }
 }
@@ -246,7 +243,6 @@ if (user.includes(msg.from.id)) {
 p = gamer.indexOf(msg.from.first_name);
 summ[p] = 5;
 bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
-}
   p = -1;
 }
 }
@@ -266,7 +262,7 @@ if (user.includes(msg.from.id)) {
 p = gamer.indexOf(msg.from.first_name);
 summ[p] = 6;
 bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
-}
+
   p = -1;
 }
 }
@@ -286,7 +282,6 @@ if (user.includes(msg.from.id)) {
 p = gamer.indexOf(msg.from.first_name);
 summ[p] = 7;
 bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
-}
   p = -1;
 }
 }
@@ -306,7 +301,6 @@ if (user.includes(msg.from.id)) {
 p = gamer.indexOf(msg.from.first_name);
 summ[p] = 8;
 bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
-}
   p = -1;
 }
 }
@@ -326,7 +320,6 @@ if (user.includes(msg.from.id)) {
 p = gamer.indexOf(msg.from.first_name);
 summ[p] = 9;
 bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
-}
   p = -1;
 }
 }
@@ -346,7 +339,6 @@ if (user.includes(msg.from.id)) {
 p = gamer.indexOf(msg.from.first_name);
 summ[p] = 10;
 bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
-}
   p = -1;
 }
 }
@@ -366,7 +358,6 @@ if (user.includes(msg.from.id)) {
 p = gamer.indexOf(msg.from.first_name);
 summ[p] = 11;
 bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
-}
   p = -1;
 }
 }
@@ -386,7 +377,6 @@ if (user.includes(msg.from.id)) {
 p = gamer.indexOf(msg.from.first_name);
 summ[p] = 12;
 bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
-}
   p = -1;
 }
 }
@@ -406,7 +396,6 @@ if (user.includes(msg.from.id)) {
 p = gamer.indexOf(msg.from.first_name);
 summ[p] = 13;
 bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
-}
   p = -1;
 }
 }
@@ -426,7 +415,6 @@ if (user.includes(msg.from.id)) {
 p = gamer.indexOf(msg.from.first_name);
 summ[p] = 14;
 bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
-}
   p = -1;
 }
 }
