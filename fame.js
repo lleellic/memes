@@ -75,7 +75,7 @@ if (msg.data === 'A') {
 if (user.includes(msg.from.id))
 p = gamer.indexOf(msg.from.first_name);
 if (chose[p] === 0) {
-bot.answerCallbackQuery(msg.id,'💯 вы выбрали 1⃣ вариант ответа , true);
+bot.answerCallbackQuery(msg.id,'💯 вы выбрали 1⃣ вариант ответа', true);
 } else {
 bot.answerCallbackQuery(msg.id,'❌ вы уже выбрали вариант ответа ('+chose[p]+')', true);
 }
@@ -85,7 +85,7 @@ if (msg.data === 'B') {
 if (user.includes(msg.from.id))
 p = gamer.indexOf(msg.from.first_name);
 if (chose[p] === 0) {
-bot.answerCallbackQuery(msg.id,'💯 вы выбрали 2⃣ вариант ответа , true);
+bot.answerCallbackQuery(msg.id,'💯 вы выбрали 2⃣ вариант ответа', true);
 } else {
 bot.answerCallbackQuery(msg.id,'❌ вы уже выбрали вариант ответа ('+chose[p]+')', true);
 }
@@ -95,7 +95,7 @@ if (msg.data === 'C') {
 if (user.includes(msg.from.id))
 p = gamer.indexOf(msg.from.first_name);
 if (chose[p] === 0) {
-bot.answerCallbackQuery(msg.id,'💯 вы выбрали 3⃣ вариант ответа , true);
+bot.answerCallbackQuery(msg.id,'💯 вы выбрали 3⃣ вариант ответа', true);
 } else {
 bot.answerCallbackQuery(msg.id,'❌ вы уже выбрали вариант ответа ('+chose[p]+')', true);
 }
@@ -105,7 +105,7 @@ if (msg.data === 'D') {
 if (user.includes(msg.from.id))
 p = gamer.indexOf(msg.from.first_name);
 if (chose[p] === 0) {
-bot.answerCallbackQuery(msg.id,'💯 вы выбрали 4⃣ вариант ответа , true);
+bot.answerCallbackQuery(msg.id,'💯 вы выбрали 4⃣ вариант ответа', true);
 } else {
 bot.answerCallbackQuery(msg.id,'❌ вы уже выбрали вариант ответа ('+chose[p]+')', true);
 }
