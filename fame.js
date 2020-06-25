@@ -3,6 +3,14 @@ const token = '1097903013:AAHjon47mwC7BWolEwQTFZn2lA91iud0ge8';
 const sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database(':memory:');
 var bot = new TelegramBot(token, {polling: true});
+var chatt; 
+var offirs = 0;
+var gamersb = 0;
+var p;
+var f;
+var gamer = new Array();
+var user = new Array();
+
 var inline1 = {
   reply_markup:{
     inline_keyboard: [
@@ -16,13 +24,14 @@ var inline1 = {
 bot.onText(/сохранить чат/i, (msg) => {
 if (msg.from.id === 684519513) {
 chatt = msg.chat.id;
+bot.sendMessage(chatt,'Чат сохранен'); 
 }
 })
 
 bot.onText(/играть в кто хочет стать квинтиллионером/i, (msg) => {
 if (msg.from.id === 684519513) {
 if (offirs === 0) {
-bot.sendMessage(msg.chat.id,'Стартовал набор игроков для игры «Кто хочет стать триллионером»', inline1); 
+bot.sendMessage(chatt,'Стартовал набор игроков для игры «Кто хочет стать триллионером»', inline1); 
 offirs = 1;
 } else {
 bot.sendMessage(msg.chat.id,'Игра уже начата ✋🏼🤚🏼. Ожидайте...')
