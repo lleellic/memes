@@ -566,7 +566,7 @@ bot.onText(/кто в игре/i, (msg) => {
     for (i = 0; i < user.length; i++) {
     f += gamer[i] + '\n'
     }
-    bot.sendMessage(chatt, f))
+    bot.sendMessage(chatt, f)
   }
 })
 
