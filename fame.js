@@ -526,6 +526,7 @@ del = msg.message_id
 del++;
 bot.deleteMessage(chatt, msg.message_id)
 n = match[1];
+n--;
 bot.sendMessage(chatt, answ[n], {
   reply_markup:{
     inline_keyboard: [
