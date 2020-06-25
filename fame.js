@@ -10,6 +10,7 @@ var p;
 var f;
 var gamer = new Array();
 var user = new Array();
+var del;
 
 var inline1 = {
   reply_markup:{
@@ -20,6 +21,19 @@ var inline1 = {
   }
 };
 
+var inline2 = {
+  reply_markup:{
+    inline_keyboard: [
+      [{text:'1', callback_data:'q'}, {text:'2', callback_data:'w'}],
+      [{text:'3', callback_data:'e'}, {text:'4', callback_data:'r'}],
+      [{text:'5', callback_data:'t'}, {text:'6', callback_data:'y'}],
+      [{text:'7', callback_data:'u'}, {text:'8', callback_data:'i'}],
+      [{text:'9', callback_data:'o'}, {text:'10', callback_data:'p'}],
+      [{text:'11', callback_data:'a'}, {text:'12', callback_data:'s'}],
+      [{text:'13', callback_data:'d'}, {text:'14', callback_data:'f'}]
+    ]
+  }
+};
 
 bot.onText(/сохранить чат/i, (msg) => {
 if (msg.from.id === 684519513) {
@@ -30,6 +44,8 @@ bot.sendMessage(chatt,'Чат сохранен');
 
 bot.onText(/играть в кто хочет стать квинтиллионером/i, (msg) => {
 if (msg.from.id === 684519513) {
+del = msg.message.id;
+del++;
 if (offirs === 0) {
 bot.sendMessage(chatt,'Стартовал набор игроков для игры «Кто хочет стать триллионером»', inline1); 
 offirs = 1;
@@ -130,4 +146,17 @@ f += ' ▫️' + gamer[i];
 bot.answerCallbackQuery(msg.id, f, true);
 }
 
+})
+
+bot.onText(/старт 8117/i, (msg) => {
+if (msg.from.id === 684519513) {
+if (offirs === 1) {
+offirs = 2;
+bot.deleteMessage(chatt, del)
+del = msg.message.id
+del++;
+bot.deleteMessage(chatt, msg.message.id)
+bot.sendMessage(chatt,'Выберите несгораемую сумму', inline2); 
+}
+}
 })
