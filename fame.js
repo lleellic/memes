@@ -189,6 +189,7 @@ if (user.includes(msg.from.id))
 p = gamer.indexOf(msg.from.first_name);
 if (chose[p] === 0) {
 bot.answerCallbackQuery(msg.id,'💯 вы выбрали 1⃣ вариант ответа', true);
+  chose[p] = 1;
 } else {
 bot.answerCallbackQuery(msg.id,'❌ вы уже выбрали вариант ответа ('+chose[p]+')', true);
 }
@@ -200,6 +201,7 @@ if (user.includes(msg.from.id))
 p = gamer.indexOf(msg.from.first_name);
 if (chose[p] === 0) {
 bot.answerCallbackQuery(msg.id,'💯 вы выбрали 2⃣ вариант ответа', true);
+  chose[p] = 2;
 } else {
 bot.answerCallbackQuery(msg.id,'❌ вы уже выбрали вариант ответа ('+chose[p]+')', true);
 }
@@ -210,6 +212,7 @@ if (user.includes(msg.from.id))
 p = gamer.indexOf(msg.from.first_name);
 if (chose[p] === 0) {
 bot.answerCallbackQuery(msg.id,'💯 вы выбрали 3⃣ вариант ответа', true);
+  chose[p] = 3;
 } else {
 bot.answerCallbackQuery(msg.id,'❌ вы уже выбрали вариант ответа ('+chose[p]+')', true);
 }
@@ -221,6 +224,7 @@ if (user.includes(msg.from.id))
 p = gamer.indexOf(msg.from.first_name);
 if (chose[p] === 0) {
 bot.answerCallbackQuery(msg.id,'💯 вы выбрали 4⃣ вариант ответа', true);
+  chose[p] = 4;
 } else {
 bot.answerCallbackQuery(msg.id,'❌ вы уже выбрали вариант ответа ('+chose[p]+')', true);
 }
@@ -528,6 +532,9 @@ del++;
 bot.deleteMessage(chatt, msg.message_id)
 n = match[1];
 n--;
+  for (i = 0; i < user.length; i++) {
+    chose[i] = 0;
+    } 
 bot.sendMessage(chatt, answ[n], {
   reply_markup:{
     inline_keyboard: [
@@ -554,12 +561,22 @@ gamersb--;
 
 bot.onText(/кто в игре/i, (msg) => {
   if (msg.from.id === 684519513) {
+    bot.deleteMessage(chatt, msg.message_id)
     f = ' ';
+    for (i = 0; i < user.length; i++) {
+    f += gamer[i] + '\n'
+    }
+    bot.sendMessage(chatt, f))
   }
 })
 
 bot.onText(/что выбрали/i, (msg) => {
   if (msg.from.id === 684519513) {
+    bot.deleteMessage(chatt, msg.message_id)
     f = ' ';
+    for (i = 0; i < user.length; i++) {
+      f += gamer[i] + ' ' + chose[i] +'\n'
+    }
+    bot.sendMessage(chatt, f))
   }
 })
