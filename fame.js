@@ -533,10 +533,6 @@ bot.sendMessage(chatt, answ[n], {
       [{text: c[n], callback_data:'c'}, {text: d[n], callback_data:'d'}]
     ]
   }
-}
-   
-   
-   
-   
+})
 }
 })
