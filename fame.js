@@ -577,6 +577,6 @@ bot.onText(/что выбрали/i, (msg) => {
     for (i = 0; i < user.length; i++) {
       f += gamer[i] + ' ' + chose[i] +'\n'
     }
-    bot.sendMessage(chatt, f))
+    bot.sendMessage(chatt, f)
   }
 })
