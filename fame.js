@@ -162,14 +162,14 @@ f += ' ▫️' + gamer[i];
 }
 bot.answerCallbackQuery(msg.id, f, true);
 } else {
-if (user.includes(msg.from.id))
+if (user.includes(msg.from.id)) {
 p = gamer.indexOf(msg.from.first_name);
 summ[p] = 1;
 bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
 }
   p = -1;
 }
-}
+
 
 if (msg.data === 'w') {
 if (msg.from.id === 684519513) {
@@ -188,7 +188,7 @@ bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую 
 }
   p = -1;
 }
-}
+
        
 if (msg.data === 'e') {
 if (msg.from.id === 684519513) {
@@ -207,7 +207,7 @@ bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую 
 }
   p = -1;
 }
-}
+
 
 if (msg.data === 'r') {
 if (msg.from.id === 684519513) {
@@ -226,7 +226,7 @@ bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую 
 }
   p = -1;
 }
-}
+
 
 if (msg.data === 't') {
 if (msg.from.id === 684519513) {
@@ -245,7 +245,7 @@ bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую 
 }
   p = -1;
 }
-}
+
 
 if (msg.data === 'y') {
 if (msg.from.id === 684519513) {
@@ -264,7 +264,7 @@ bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую 
 }
   p = -1;
 }
-}
+
 
 if (msg.data === 'u') {
 if (msg.from.id === 684519513) {
@@ -283,7 +283,7 @@ bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую 
 }
   p = -1;
 }
-}
+
 
 if (msg.data === 'i') {
 if (msg.from.id === 684519513) {
@@ -302,7 +302,7 @@ bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую 
 }
   p = -1;
 }
-}
+
 
 if (msg.data === 'o') {
 if (msg.from.id === 684519513) {
@@ -321,7 +321,7 @@ bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую 
 }
   p = -1;
 }
-}
+
 
 if (msg.data === 'p') {
 if (msg.from.id === 684519513) {
@@ -340,7 +340,7 @@ bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую 
 }
   p = -1;
 }
-}
+
 
 if (msg.data === 'a') {
 if (msg.from.id === 684519513) {
@@ -359,7 +359,7 @@ bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую 
 }
   p = -1;
 }
-}
+
 
 if (msg.data === 's') {
 if (msg.from.id === 684519513) {
@@ -378,7 +378,7 @@ bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую 
 }
   p = -1;
 }
-}
+
 
 if (msg.data === 'd') {
 if (msg.from.id === 684519513) {
@@ -397,7 +397,7 @@ bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую 
 }
   p = -1;
 }
-}
+
 
 if (msg.data === 'f') {
 if (msg.from.id === 684519513) {
@@ -416,7 +416,7 @@ bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую 
 }
   p = -1;
 }
-}
+
 
 })
 
