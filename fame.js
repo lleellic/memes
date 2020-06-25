@@ -44,7 +44,6 @@ bot.sendMessage(chatt,'Чат сохранен');
 
 bot.onText(/играть в кто хочет стать квинтиллионером/i, (msg) => {
 if (msg.from.id === 684519513) {
-console.log(msg);
 del = msg.message_id;
 del++;
 if (offirs === 0) {
