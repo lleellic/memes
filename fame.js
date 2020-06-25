@@ -17,8 +17,11 @@ var a = new Array();
 var b = new Array();
 var c = new Array();
 var d = new Array();
+var n;
 
- answ[0] = '1. Закончите поговорку: «Тише едешь, дальше...»';
+
+
+answ[0] = '1. Закончите поговорку: «Тише едешь, дальше...»';
 a[0] = '1⃣ Выйдешь';
 b[0] = '2️⃣ Будешь';
 c[0] = '3️⃣ Дальше';
@@ -513,5 +516,27 @@ del++;
 bot.deleteMessage(chatt, msg.message_id)
 bot.sendMessage(chatt,'Выберите несгораемую сумму \n15 вопросов\n15 - 100 000 000 000 000 000\n14 -   50 000 000 000 000 000\n13 -   20 500 000 000 000 000\n12 -   10 000 000 000 000 000\n11 -      5 000 000 000 000 000\n10 -      2 500 000 000 000 000\n9 -         1 000 000 000 000 000\n8 -            500 000 000 000 000\n7 -            250 000 000 000 000\n6 -            100 000 000 000 000\n5 -              50 000 000 000 000\n4 -              25 000 000 000 000\n3 -              10 000 000 000 000\n2 -                5 000 000 000 000\n1 -                 1 000 000 000 000', inline2); 
 }
+}
+})
+
+bot.onText(/вопрос (.+)/ш, (msg, match) => {
+if (msg.from.id === 684519513) {
+bot.deleteMessage(chatt, del)
+del = msg.message_id
+del++;
+bot.deleteMessage(chatt, msg.message_id)
+n = match[1];
+bot.sendMessage(chatt, answ[n], {
+  reply_markup:{
+    inline_keyboard: [
+      [{text: a[n] , callback_data:'a'}, {text: b[n], callback_data:'b'}],
+      [{text: c[n], callback_data:'c'}, {text: d[n], callback_data:'d'}]
+    ]
+  }
+}
+   
+   
+   
+   
 }
 })
