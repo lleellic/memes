@@ -45,7 +45,7 @@ bot.sendMessage(chatt,'Чат сохранен');
 bot.onText(/играть в кто хочет стать квинтиллионером/i, (msg) => {
 if (msg.from.id === 684519513) {
 console.log(msg);
-del = msg.message.id;
+del = msg.message_id;
 del++;
 if (offirs === 0) {
 bot.sendMessage(chatt,'Стартовал набор игроков для игры «Кто хочет стать триллионером»', inline1); 
@@ -154,9 +154,9 @@ if (msg.from.id === 684519513) {
 if (offirs === 1) {
 offirs = 2;
 bot.deleteMessage(chatt, del)
-del = msg.message.id
+del = msg.message_id
 del++;
-bot.deleteMessage(chatt, msg.message.id)
+bot.deleteMessage(chatt, msg.message_id)
 bot.sendMessage(chatt,'Выберите несгораемую сумму', inline2); 
 }
 }
