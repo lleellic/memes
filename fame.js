@@ -10,6 +10,7 @@ var p;
 var f;
 var gamer = new Array();
 var user = new Array();
+var summ = new Array();
 var del;
 
 var inline1 = {
@@ -65,6 +66,7 @@ bot.answerCallbackQuery(msg.id,'Вы уже в игре', true)
 } else {
 gamer[gamersb] =  msg.from.first_name;
 user[gamersb] = msg.from.id;
+summ[gamersb] = 0;
 gamersb++;
 bot.answerCallbackQuery(msg.id,'Вы вошли в игру', true);
 } 
@@ -81,6 +83,7 @@ bot.answerCallbackQuery(msg.id,'Вы вышли из игры',true);
 } else {  
 bot.answerCallbackQuery(msg.id,'Вы итак не в игре 😳',true)
 }
+  p = -1;
 } 
 
 if (msg.data === 'members'){
@@ -104,6 +107,7 @@ bot.answerCallbackQuery(msg.id,'💯 вы выбрали 1⃣ вариант о�
 } else {
 bot.answerCallbackQuery(msg.id,'❌ вы уже выбрали вариант ответа ('+chose[p]+')', true);
 }
+  p = -1;
 }
 
 if (msg.data === 'B') {
@@ -124,6 +128,7 @@ bot.answerCallbackQuery(msg.id,'💯 вы выбрали 3⃣ вариант о�
 } else {
 bot.answerCallbackQuery(msg.id,'❌ вы уже выбрали вариант ответа ('+chose[p]+')', true);
 }
+  p = -1;
 }
 
 if (msg.data === 'D') {
@@ -134,6 +139,7 @@ bot.answerCallbackQuery(msg.id,'💯 вы выбрали 4⃣ вариант о�
 } else {
 bot.answerCallbackQuery(msg.id,'❌ вы уже выбрали вариант ответа ('+chose[p]+')', true);
 }
+p = -1;
 }
 
 if (msg.data === 'whonot') {
@@ -144,6 +150,272 @@ f += ' ▫️' + gamer[i];
 }
 }
 bot.answerCallbackQuery(msg.id, f, true);
+}
+
+if (msg.data === 'q') {
+if (msg.from.id === 684519513) {
+f = ' ';
+for (i = 0; i < user.length; i++) {
+if (summ[i] === 0) {
+f += ' ▫️' + gamer[i];
+}
+}
+bot.answerCallbackQuery(msg.id, f, true);
+} else {
+if (user.includes(msg.from.id))
+p = gamer.indexOf(msg.from.first_name);
+summ[p] = 1;
+bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
+}
+  p = -1;
+}
+}
+
+if (msg.data === 'w') {
+if (msg.from.id === 684519513) {
+f = ' ';
+for (i = 0; i < user.length; i++) {
+if (summ[i] === 0) {
+f += ' ▫️' + gamer[i];
+}
+}
+bot.answerCallbackQuery(msg.id, f, true);
+} else {
+if (user.includes(msg.from.id))
+p = gamer.indexOf(msg.from.first_name);
+summ[p] = 2;
+bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
+}
+  p = -1;
+}
+}
+       
+if (msg.data === 'e') {
+if (msg.from.id === 684519513) {
+f = ' ';
+for (i = 0; i < user.length; i++) {
+if (summ[i] === 0) {
+f += ' ▫️' + gamer[i];
+}
+}
+bot.answerCallbackQuery(msg.id, f, true);
+} else {
+if (user.includes(msg.from.id))
+p = gamer.indexOf(msg.from.first_name);
+summ[p] = 3;
+bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
+}
+  p = -1;
+}
+}
+
+if (msg.data === 'r') {
+if (msg.from.id === 684519513) {
+f = ' ';
+for (i = 0; i < user.length; i++) {
+if (summ[i] === 0) {
+f += ' ▫️' + gamer[i];
+}
+}
+bot.answerCallbackQuery(msg.id, f, true);
+} else {
+if (user.includes(msg.from.id))
+p = gamer.indexOf(msg.from.first_name);
+summ[p] = 4;
+bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
+}
+  p = -1;
+}
+}
+
+if (msg.data === 't') {
+if (msg.from.id === 684519513) {
+f = ' ';
+for (i = 0; i < user.length; i++) {
+if (summ[i] === 0) {
+f += ' ▫️' + gamer[i];
+}
+}
+bot.answerCallbackQuery(msg.id, f, true);
+} else {
+if (user.includes(msg.from.id))
+p = gamer.indexOf(msg.from.first_name);
+summ[p] = 5;
+bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
+}
+  p = -1;
+}
+}
+
+if (msg.data === 'y') {
+if (msg.from.id === 684519513) {
+f = ' ';
+for (i = 0; i < user.length; i++) {
+if (summ[i] === 0) {
+f += ' ▫️' + gamer[i];
+}
+}
+bot.answerCallbackQuery(msg.id, f, true);
+} else {
+if (user.includes(msg.from.id))
+p = gamer.indexOf(msg.from.first_name);
+summ[p] = 6;
+bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
+}
+  p = -1;
+}
+}
+
+if (msg.data === 'u') {
+if (msg.from.id === 684519513) {
+f = ' ';
+for (i = 0; i < user.length; i++) {
+if (summ[i] === 0) {
+f += ' ▫️' + gamer[i];
+}
+}
+bot.answerCallbackQuery(msg.id, f, true);
+} else {
+if (user.includes(msg.from.id))
+p = gamer.indexOf(msg.from.first_name);
+summ[p] = 7;
+bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
+}
+  p = -1;
+}
+}
+
+if (msg.data === 'i') {
+if (msg.from.id === 684519513) {
+f = ' ';
+for (i = 0; i < user.length; i++) {
+if (summ[i] === 0) {
+f += ' ▫️' + gamer[i];
+}
+}
+bot.answerCallbackQuery(msg.id, f, true);
+} else {
+if (user.includes(msg.from.id))
+p = gamer.indexOf(msg.from.first_name);
+summ[p] = 8;
+bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
+}
+  p = -1;
+}
+}
+
+if (msg.data === 'o') {
+if (msg.from.id === 684519513) {
+f = ' ';
+for (i = 0; i < user.length; i++) {
+if (summ[i] === 0) {
+f += ' ▫️' + gamer[i];
+}
+}
+bot.answerCallbackQuery(msg.id, f, true);
+} else {
+if (user.includes(msg.from.id))
+p = gamer.indexOf(msg.from.first_name);
+summ[p] = 9;
+bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
+}
+  p = -1;
+}
+}
+
+if (msg.data === 'p') {
+if (msg.from.id === 684519513) {
+f = ' ';
+for (i = 0; i < user.length; i++) {
+if (summ[i] === 0) {
+f += ' ▫️' + gamer[i];
+}
+}
+bot.answerCallbackQuery(msg.id, f, true);
+} else {
+if (user.includes(msg.from.id))
+p = gamer.indexOf(msg.from.first_name);
+summ[p] = 10;
+bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
+}
+  p = -1;
+}
+}
+
+if (msg.data === 'a') {
+if (msg.from.id === 684519513) {
+f = ' ';
+for (i = 0; i < user.length; i++) {
+if (summ[i] === 0) {
+f += ' ▫️' + gamer[i];
+}
+}
+bot.answerCallbackQuery(msg.id, f, true);
+} else {
+if (user.includes(msg.from.id))
+p = gamer.indexOf(msg.from.first_name);
+summ[p] = 11;
+bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
+}
+  p = -1;
+}
+}
+
+if (msg.data === 's') {
+if (msg.from.id === 684519513) {
+f = ' ';
+for (i = 0; i < user.length; i++) {
+if (summ[i] === 0) {
+f += ' ▫️' + gamer[i];
+}
+}
+bot.answerCallbackQuery(msg.id, f, true);
+} else {
+if (user.includes(msg.from.id))
+p = gamer.indexOf(msg.from.first_name);
+summ[p] = 12;
+bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
+}
+  p = -1;
+}
+}
+
+if (msg.data === 'd') {
+if (msg.from.id === 684519513) {
+f = ' ';
+for (i = 0; i < user.length; i++) {
+if (summ[i] === 0) {
+f += ' ▫️' + gamer[i];
+}
+}
+bot.answerCallbackQuery(msg.id, f, true);
+} else {
+if (user.includes(msg.from.id))
+p = gamer.indexOf(msg.from.first_name);
+summ[p] = 13;
+bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
+}
+  p = -1;
+}
+}
+
+if (msg.data === 'f') {
+if (msg.from.id === 684519513) {
+f = ' ';
+for (i = 0; i < user.length; i++) {
+if (summ[i] === 0) {
+f += ' ▫️' + gamer[i];
+}
+}
+bot.answerCallbackQuery(msg.id, f, true);
+} else {
+if (user.includes(msg.from.id))
+p = gamer.indexOf(msg.from.first_name);
+summ[p] = 14;
+bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
+}
+  p = -1;
+}
 }
 
 })
