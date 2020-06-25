@@ -519,7 +519,7 @@ bot.sendMessage(chatt,'Выберите несгораемую сумму \n15 �
 }
 })
 
-bot.onText(/вопрос (.+)/ш, (msg, match) => {
+bot.onText(/вопрос (.+)/i, (msg, match) => {
 if (msg.from.id === 684519513) {
 bot.deleteMessage(chatt, del)
 del = msg.message_id
