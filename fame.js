@@ -122,12 +122,14 @@ var inline2 = {
 bot.onText(/сохранить чат/i, (msg) => {
 if (msg.from.id === 684519513) {
 chatt = msg.chat.id;
+bot.deleteMessage(chatt, msg.message_id)
 bot.sendMessage(chatt,'Чат сохранен'); 
 }
 })
 
 bot.onText(/отменить 8117/i, (msg) => {
 if (msg.from.id === 684519513) {
+bot.deleteMessage(chatt, msg.message_id)
 offirs = 0;
 gamer.length = 0;
 user.length = 0;
@@ -141,6 +143,7 @@ bot.onText(/играть в кто хочет стать квинтиллион�
 if (msg.from.id === 684519513) {
 del = msg.message_id;
 del++;
+bot.deleteMessage(chatt, msg.message_id)
 if (offirs === 0) {
 bot.sendMessage(chatt,'Стартовал набор игроков для игры «Кто хочет стать триллионером»', inline1); 
 offirs = 1;
