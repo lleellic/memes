@@ -589,6 +589,19 @@ bot.onText(/что выбрали/i, (msg) => {
   }
 })
 
+bot.onText(/кто не выбрал/i, (msg) => {
+  if (msg.from.id === 684519513) {
+    bot.deleteMessage(chatt, msg.message_id)
+    f = 'Не выбрали: \n';
+    for (i = 0; i < user.length; i++) {
+      if (chose[i] === 0) {
+      f += (i + 1) + '. ' + '<a href="tg://user?id='+user[i]+'">'+gamer[i]+'</a>\n';
+      }
+    }
+    bot.sendMessage(chatt, f, {parse_mode:"HTML"})
+  }
+})
+
 bot.onText(/несгораемая сумма/i, (msg) => {
   if (msg.from.id === 684519513) {
     bot.deleteMessage(chatt, msg.message_id)
