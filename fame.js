@@ -567,6 +567,19 @@ gamersb--;
 }
 })
 
+bot.onText(/добавить (.+)/i, (msg, match) => {
+if (msg.from.id === 684519513) {
+n = match[1];
+p = match[2];
+n--;
+   (p)[n] += (n + 1) + '. ';
+ for (i = 3; i < match.length) {
+   (p)[n] += match[i] + ' ';
+}      
+}
+}
+})
+
 bot.onText(/кто в игре/i, (msg) => {
   if (msg.from.id === 684519513) {
     bot.deleteMessage(chatt, msg.message_id)
