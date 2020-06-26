@@ -573,7 +573,7 @@ n = match[1];
 p = match[2];
 n--;
    (p)[n] += (n + 1) + '. ';
- for (i = 3; i < match.length) {
+ for (i = 3; i < match.length; i++) {
    (p)[n] += match[i] + ' ';
 }      
 }
