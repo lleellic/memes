@@ -572,7 +572,7 @@ bot.onText(/кто в игре/i, (msg) => {
     bot.deleteMessage(chatt, msg.message_id)
     f = 'В игре:\n';
     for (i = 0; i < user.length; i++) {
-    f += (i + 1) + '. ' + '<a href="tg://user?id='+user[i]+'">'+gamer[i]+'</a> + '\n'
+    f += (i + 1) + '. ' + '<a href="tg://user?id='+user[i]+'">'+gamer[i]+'</a>\n';
     }
     bot.sendMessage(chatt, f, {parse_mode:"HTML"})
   }
