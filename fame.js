@@ -557,25 +557,14 @@ bot.sendMessage(chatt, answ[n], {
 
 bot.onText(/кик (.+)/i, (msg, match) => {
 if (msg.from.id === 684519513) {
-p = gamer.indexOf(match[1]);
+p = match[1];
+p--;
 bot.deleteMessage(chatt, msg.message_id)
 bot.sendMessage(chatt, '<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выбыл(а) из игры', {parse_mode: "HTML"})
 gamer.splice(p, 1);
 user.splice(p, 1);
 p = -1;
 gamersb--;
-}
-})
-
-bot.onText(/добавить (.+)/i, (msg, match) => {
-if (msg.from.id === 684519513) {
-n = match[1];
-p = match[2];
-n--;
-   (p)[n] += (n + 1) + '. ';
- for (i = 3; i < match.length; i++) {
-   (p)[n] += match[i] + ' ';
-}      
 }
 })
 
