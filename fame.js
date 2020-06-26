@@ -1,7 +1,5 @@
 TelegramBot = require('node-telegram-bot-api');
 const token = '1097903013:AAHjon47mwC7BWolEwQTFZn2lA91iud0ge8'; 
-const sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database(':memory:');
 var bot = new TelegramBot(token, {polling: true});
 var chatt; 
 var offirs = 0;
@@ -530,8 +528,7 @@ bot.deleteMessage(chatt, del)
 del = msg.message_id
 del++;
 bot.deleteMessage(chatt, msg.message_id)
-bot.sendMessage(chatt,'Выберите несгораемую сумму \n15 вопросов\n15 - 100 000 000 000 000 000\n14 -   50 000 000 000 000 000\n13 -   20 500 000 000 000 000\n12 -   10 000 000 000 000 000\n11 -      5 000 000 000 000 000\n10 -      2 500 000 000 000 000\n9 -         1 000 000 000 000 000\n8 -            500 000 000 000 000\n7 -            250 000 000 000 000\n6 -            100 000 000 000 000\n5 -              50 000 000 000 000\n4 -              25 000 000 000 000\n3 -              10 000 000 000 000\n2 -                5 000 000 000 000\n1 -                 1 000 000 000 000', inline2); 
-}
+bot.sendMessage(chatt,'Выберите несгораемую сумму \n15 - 100 000 000 000 000 000\n14 -   75 000 000 000 000 000\n13 -   50 000 000 000 000 000\n12 -   25 000 000 000 000 000\n11 -   10 000 000 000 000 000\n10 -      7 500 000 000 000 000\n9 -         5 000 000 000 000 000\n8 -         2 500 000 000 000 000\n7 -         1 000 000 000 000 000\n6 -            750 000 000 000 000\n5 -            500 000 000 000 000\n4 -            250 000 000 000 000\n3 -            100 000 000 000 000\n2 -              75 000 000 000 000\n1 -              50 000 000 000 000')}
 }
 })
 
@@ -584,7 +581,7 @@ bot.onText(/кто в игре/i, (msg) => {
 bot.onText(/что выбрали/i, (msg) => {
   if (msg.from.id === 684519513) {
     bot.deleteMessage(chatt, msg.message_id)
-    f = ' ';
+    f = 'Выбранные ответы: \n';
     for (i = 0; i < user.length; i++) {
       f += (i + 1) + '. ' + '<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> - ' + chose[i] +'\n'
     }
