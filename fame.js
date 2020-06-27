@@ -145,7 +145,7 @@ del = msg.message_id;
 del++;
 bot.deleteMessage(chatt, msg.message_id)
 if (offirs === 0) {
-bot.sendMessage(chatt,'Стартовал набор игроков для игры «Кто хочет стать триллионером»', inline1); 
+bot.sendMessage(chatt,'Стартовал набор игроков для игры «Кто хочет стать квинтиллионером»', inline1); 
 offirs = 1;
 } else {
 bot.sendMessage(msg.chat.id,'Игра уже начата ✋🏼🤚🏼. Ожидайте...')
@@ -535,7 +535,7 @@ bot.sendMessage(chatt,'Выберите несгораемую сумму \n15 -
 }
 })
 
-bot.onText(/вопрос (.+)/i, (msg, match) => {
+bot.onText(/впрс (.+)/i, (msg, match) => {
 if (msg.from.id === 684519513) {
 bot.deleteMessage(chatt, del)
 del = msg.message_id
@@ -558,12 +558,12 @@ bot.sendMessage(chatt, answ[n], {
 })
 
 
-bot.onText(/кик (.+)/i, (msg, match) => {
+bot.onText(/кк (.+)/i, (msg, match) => {
 if (msg.from.id === 684519513) {
 p = match[1];
 p--;
 bot.deleteMessage(chatt, msg.message_id)
-bot.sendMessage(chatt, '<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выбыл(а) из игры', {parse_mode: "HTML"})
+bot.sendMessage(chatt, '<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выбыл(а) из игры',{parse_mode:"HTML"})
 gamer.splice(p, 1);
 user.splice(p, 1);
 p = -1;
@@ -576,9 +576,9 @@ bot.onText(/кто в игре/i, (msg) => {
     bot.deleteMessage(chatt, msg.message_id)
     f = 'В игре:\n';
     for (i = 0; i < user.length; i++) {
-    f += (i + 1) + '. ' + '<a href="tg://user?id='+user[i]+'">'+gamer[i]+'</a>\n';
+    f += (i + 1) + '. ' +gamer[i]+'\n';
     }
-    bot.sendMessage(chatt, f, {parse_mode:"HTML"})
+    bot.sendMessage(chatt, f)
   }
 })
 
@@ -587,9 +587,9 @@ bot.onText(/что выбрали/i, (msg) => {
     bot.deleteMessage(chatt, msg.message_id)
     f = 'Выбранные ответы: \n';
     for (i = 0; i < user.length; i++) {
-      f += (i + 1) + '. ' + '<a href="tg://user?id='+user[i]+'">'+gamer[i]+'</a> - ' + chose[i] +'\n'
+      f += (i + 1) + '. ' + gamer[i] + ' - ' + chose[i] +'\n'
     }
-    bot.sendMessage(chatt, f, {parse_mode:"HTML"})
+    bot.sendMessage(chatt, f)
   }
 })
 
@@ -599,20 +599,20 @@ bot.onText(/кто не выбрал/i, (msg) => {
     f = 'Не выбрали: \n';
     for (i = 0; i < user.length; i++) {
       if (chose[i] === 0) {
-      f += (i + 1) + '. ' + '<a href="tg://user?id='+user[i]+'">'+gamer[i]+'</a>\n';
+      f += (i + 1) + '. ' + gamer[i] + '\n';
       }
     }
-    bot.sendMessage(chatt, f, {parse_mode:"HTML"})
+    bot.sendMessage(chatt, f)
   }
 })
 
 bot.onText(/несгораемая сумма/i, (msg) => {
   if (msg.from.id === 684519513) {
     bot.deleteMessage(chatt, msg.message_id)
-    f = ' ';
+    f = 'Несгораемая сумма:';
     for (i = 0; i < user.length; i++) {
-      f += (i + 1) + '. ' + '<a href="tg://user?id='+user[i]+'">'+gamer[i]+'</a> - ' + summ[i] +'\n'
+      f += (i + 1) + '. ' + gamer[i]+' - ' + summ[i] +'\n'
     }
-    bot.sendMessage(chatt, f, {parse_mode:"HTML"})
+    bot.sendMessage(chatt, f)
   }
 })
