@@ -125,6 +125,8 @@ bot.sendMessage(chatt,'Чат сохранен');
 bot.onText(/отменить/i, (msg) => {
 if (msg.from.id === 684519513) {
 bot.deleteMessage(chatt, msg.message_id)
+bot.deleteMessage(chatt, msg.message_id)
+bot.sendMessage(chatt,'Игра отменена 🥴'); 
 offirs = 0;
 gamer.length = 0;
 user.length = 0;
