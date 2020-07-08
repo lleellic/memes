@@ -123,7 +123,7 @@ var inline2 = {
 };
 
 bot.onText(/сохранить чат/i, (msg) => {
-if (msg.from.id === 684519513) {
+if (admin.includes(msg.from.id)) {
 chatt = msg.chat.id;
 bot.deleteMessage(chatt, msg.message_id)
 bot.sendMessage(chatt,'Чат сохранен'); 
@@ -133,7 +133,7 @@ bot.sendMessage(chatt,'Чат сохранен');
 bot.onText(/отменить/i, (msg) => {
 if (msg.from.id === 684519513) {
 bot.deleteMessage(chatt, msg.message_id)
-bot.deleteMessage(chatt, msg.message_id)
+bot.deleteMessage(chatt, del)
 bot.sendMessage(chatt,'Игра отменена 🥴'); 
 offirs = 0;
 gamer.length = 0;
