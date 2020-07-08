@@ -47,7 +47,7 @@ var inline1 = {
 bot.onText(/\/help/i, (msg) => {
 if (admin.includes(msg.from.id)) {
 console.log(msg);
-bot.sendMessage(msg.chat.id,'Команды:\n\nСохранить чат - после чего бот все сообщения будет писать туда, кде была написана эта команда  последний раз\n\nИграть в кто хочет стать квинтиллионером - вызывает меню регистрации\n\nСтарт - начинает игру\n\nКто в игре - показывает всех участников и их id\n\nВпрс 1 - вызывает кнопки, 1️⃣2️⃣3️⃣4️⃣\n\nКто не выбрал - показывает, кто не выбрал\n\nЧто выбрали - показывает что выбрали\n\nКк (id игрока) - кикает игрока по его id, показанное в команде Кто в игре\n\nДд (любое число) - добавляет пароль, с помощью которого можно добавить участника во время игры, действует 1 раз. чтобы участник вошёл, ему просто надо написать этот пароль\n\nОтменить - отменяет игру')
+bot.sendMessage(msg.chat.id,'Команды:\n\nСохранить чат - после чего бот все сообщения будет писать туда, кде была написана эта команда  последний раз\n\nИграть в кто хочет стать квинтиллионером - вызывает меню регистрации\n\nСтарт - начинает игру\n\nКто в игре - показывает всех участников и их id\n\nВпрс 1 - вызывает кнопки, 1️⃣2️⃣3️⃣4️⃣\n\nКто не выбрал - показывает, кто не выбрал\n\nЧто выбрали - показывает что выбрали\n\nKk (id игрока) - кикает игрока по его id, показанное в команде Кто в игре\n\nDd (любое число) - добавляет пароль, с помощью которого можно добавить участника во время игры, действует 1 раз. чтобы участник вошёл, ему просто надо написать этот пароль после команды add\n\nОтменить - отменяет игру')
 } else {
 bot.sendMessage(msg.chat.id,'Для тебя у меня нет команд, попробуй попросить их через /link')
 }
@@ -108,6 +108,7 @@ bot.answerCallbackQuery(msg.id,'Вы уже в игре', true)
 gamer[gamersb] =  msg.from.first_name;
 user[gamersb] = msg.from.id;
 summ[gamersb] = 0;
+cg[gamerb] = 2;
 gamersb++;
 bot.answerCallbackQuery(msg.id,'Вы вошли в игру', true);
 } 
@@ -118,6 +119,8 @@ if (user.includes(msg.from.id)) {
 p = gamer.indexOf(msg.from.first_name);
 gamer.splice(p, 1);
 user.splice(p, 1);
+summ(p, 1);
+cg.splice(p, 1);
 p = -1;
 gamersb--;
 bot.answerCallbackQuery(msg.id,'Вы вышли из игры',true);
@@ -257,7 +260,7 @@ p = -1;
 }
 })
 
-bot.onText(/дд (.+)/i, (msg, match) => {
+bot.onText(/dd (.+)/i, (msg, match) => {
 if(admin.includes(msg.from.id)) {
 pas = match[1]
 bot.deleteMessage(chatt, msg.message_id)
@@ -265,13 +268,14 @@ bot.sendMessage(msg.chat.id,'Пароль: '+pas);
 }
 })
 
-bot.onText(/адд (.+)/i, (msg, match) => {
+bot.onText(/add (.+)/i, (msg, match) => {
 if(pas === match[1]) {
 pas = 1201674;
 bot.deleteMessage(msg.chat.id, msg.message_id)
 gamer[gamersb] =  msg.from.first_name;
 user[gamersb] = msg.from.id;
 summ[gamersb] = 0;
+cg[gamersb] = 2;
 gamersb++;
 bot.sendMessage(chatt,msg.from.first_name+' добавлен(а) в игру');
 } else {
@@ -282,9 +286,10 @@ bot.sendMessage(msg.chat.id,'Этот пароль уже использовал
 
 
 
-bot.onText(/кк (.+)/i, (msg, match) => {
+bot.onText(/kk (.+)/i, (msg, match) => {
 if (admin.includes(msg.from.id)) {
 p = match[1];
+p--;
 bot.deleteMessage(chatt, msg.message_id)
 bot.sendMessage(chatt, '<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выбыл(а) из игры',{parse_mode:"HTML"})
 gamer.splice(p, 1);
@@ -292,6 +297,7 @@ user.splice(p, 1);
 summ.splice(p, 1);
 chose.splice(p, 1);
 number.splice(p, 1);
+cg.splice(p, 1);
 p = -1;
 gamersb--;
 }
@@ -302,7 +308,7 @@ bot.onText(/кто в игре/i, (msg) => {
     bot.deleteMessage(chatt, msg.message_id)
     f = 'В игре:\n';
     for (i = 0; i < user.length; i++) {
-    f += number[i] + '. ' +gamer[i]+'\n';
+    f +=  'id.'+(i + 1)+' ' +gamer[i]+'\n';
     }
     bot.sendMessage(chatt, f)
   }
