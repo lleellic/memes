@@ -6,6 +6,7 @@ var offirs = 0;
 var gamersb = 0;
 var p;
 var f;
+var admin = new Array();
 var gamer = new Array();
 var user = new Array();
 var summ = new Array();
@@ -17,8 +18,10 @@ var b = new Array();
 var c = new Array();
 var d = new Array();
 var n;
-
-
+var pas = 1201674;
+admin[0] = 684519513;
+admin[1] = 0;
+var number = new Array();
 
 answ[0] = 'Выберите правильный вариант ответа.';
 a[0] = '1⃣ ';
@@ -138,11 +141,15 @@ user.length = 0;
 summ.length = 0;
 chose.length = 0;
 gamersb = 0;
+number.length = 0;
 }
 })
 
 bot.onText(/играть в кто хочет стать квинтиллионером/i, (msg) => {
-if (msg.from.id === 684519513) {
+if (admin.includes(msg.from.id)) {
+for (i=0; i < 40, i++) {
+number[i] = i + 1;
+}
 del = msg.message_id;
 del++;
 bot.deleteMessage(chatt, msg.message_id)
@@ -526,7 +533,7 @@ bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую 
 })
 
 bot.onText(/старт/i, (msg) => {
-if (msg.from.id === 684519513) {
+if (admin.includes(msg.from.id)) {
 if (offirs === 1) {
 offirs = 2;
 bot.deleteMessage(chatt, del)
@@ -538,7 +545,7 @@ bot.sendMessage(chatt,'Выберите несгораемую сумму\n15 в
 })
 
 bot.onText(/впрс (.+)/i, (msg, match) => {
-if (msg.from.id === 684519513) {
+if (admin.includes(msg.from.id)) {
 bot.deleteMessage(chatt, del)
 del = msg.message_id
 del++;
@@ -559,9 +566,40 @@ bot.sendMessage(chatt, answ[n], {
 }
 })
 
+bot.onText(/шнс (.+)/i, (msg, match) => {
+if (admin.includes(msg.from.id)) {
+let bb = match[1];
+bb++;
+chose[bb] = 0;
+bot.deleteMessage(chatt, msg.message_id)
+bot.sendMessage(chatt,'Выбор '+gamer[bb]+' сброшен');
+}
+}
+
+bot.onText(/дд (.+)/i, (msg, match) => {
+if(admin.includes(msg.from.id)) {
+pas = match[1]
+bot.deleteMessage(chatt, msg.message_id)
+bot.sendMessage(msg.chat.id,'Пароль: '+pas);
+}
+}
+
+bot.onText(/[0-9]/i, (msg, match) => {
+if(pas === match[0]) {
+pas = 1201674;
+bot.deleteMessage(chatt, msg.message_id)
+gamer[gamersb] =  msg.from.first_name;
+user[gamersb] = msg.from.id;
+summ[gamersb] = 0;
+gamersb++;
+bot.sendMessage(chatt,msg.from.first_name+' добавлен(а) в игру');
+}
+}
+
+
 
 bot.onText(/кк (.+)/i, (msg, match) => {
-if (msg.from.id === 684519513) {
+if (admin.includes(msg.from.id)) {
 p = match[1];
 p--;
 bot.deleteMessage(chatt, msg.message_id)
@@ -570,53 +608,45 @@ gamer.splice(p, 1);
 user.splice(p, 1);
 summ.splice(p, 1);
 chose.splice(p, 1);
+number.splice(p, 1);
 p = -1;
 gamersb--;
 }
 })
 
 bot.onText(/кто в игре/i, (msg) => {
-  if (msg.from.id === 684519513) {
+  if (admin.includes(msg.from.id)) {
     bot.deleteMessage(chatt, msg.message_id)
     f = 'В игре:\n';
     for (i = 0; i < user.length; i++) {
-    f += (i + 1) + '. ' +gamer[i]+'\n';
+    f += number[i] + '. ' +gamer[i]+'\n';
     }
     bot.sendMessage(chatt, f)
   }
 })
 
 bot.onText(/что выбрали/i, (msg) => {
-  if (msg.from.id === 684519513) {
+  if (admin.includes(msg.from.id)) {
     bot.deleteMessage(chatt, msg.message_id)
     f = 'Выбранные ответы:\n';
     for (i = 0; i < user.length; i++) {
-      f += (i + 1) + '. ' + gamer[i] + ' - ' + chose[i] +'\n'
+      f += number[i] + '. ' + gamer[i] + ' - ' + chose[i] +'\n'
     }
     bot.sendMessage(chatt, f)
   }
 })
 
 bot.onText(/кто не выбрал/i, (msg) => {
-  if (msg.from.id === 684519513) {
+  if (admin.includes(msg.from.id)) {
     bot.deleteMessage(chatt, msg.message_id)
     f = 'Не выбрали:\n';
     for (i = 0; i < user.length; i++) {
       if (chose[i] === 0) {
-      f += (i + 1) + '. ' + gamer[i] + '\n';
+      f += number[i] + '. ' + gamer[i] + '\n';
       }
     }
     bot.sendMessage(chatt, f)
   }
 })
 
-bot.onText(/несгораемая сумма/i, (msg) => {
-  if (msg.from.id === 684519513) {
-    bot.deleteMessage(chatt, msg.message_id)
-    f = 'Несгораемая сумма:\n';
-    for (i = 0; i < user.length; i++) {
-      f += (i + 1) + '. ' + gamer[i]+' - ' + summ[i] +'\n'
-    }
-    bot.sendMessage(chatt, f)
-  }
-})
+
