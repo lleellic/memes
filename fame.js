@@ -20,7 +20,7 @@ var d = new Array();
 var n;
 var pas = 1201674;
 admin[0] = 684519513;
-admin[1] = 0;
+admin[1] = 858371219;
 var number = new Array();
 
 answ[0] = 'Выберите правильный вариант ответа.';
