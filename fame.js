@@ -5,6 +5,7 @@ var chatt;
 var offirs = 0;
 var gamersb = 0;
 var p;
+var ag;
 var f;
 var admin = new Array();
 var gamer = new Array();
@@ -587,7 +588,7 @@ bot.sendMessage(msg.chat.id,'Пароль: '+pas);
 bot.onText(/[0-9]/i, (msg, match) => {
 if(pas === match[0]) {
 pas = 1201674;
-bot.deleteMessage(chatt, msg.message_id)
+bot.deleteMessage(msg.chat.id, msg.message_id)
 gamer[gamersb] =  msg.from.first_name;
 user[gamersb] = msg.from.id;
 summ[gamersb] = 0;
@@ -600,8 +601,13 @@ bot.sendMessage(chatt,msg.from.first_name+' добавлен(а) в игру');
 
 bot.onText(/кк (.+)/i, (msg, match) => {
 if (admin.includes(msg.from.id)) {
-p = match[1];
-p--;
+ag = match[1];
+for (i = 0; i < gamer.length; i++) {
+if (ag === number[i]) {
+p = i;
+}
+}
+if (p != (-1)) {
 bot.deleteMessage(chatt, msg.message_id)
 bot.sendMessage(chatt, '<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выбыл(а) из игры',{parse_mode:"HTML"})
 gamer.splice(p, 1);
@@ -611,6 +617,8 @@ chose.splice(p, 1);
 number.splice(p, 1);
 p = -1;
 gamersb--;
+}
+ag = -1;
 }
 })
 
