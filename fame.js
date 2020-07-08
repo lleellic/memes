@@ -613,12 +613,7 @@ bot.sendMessage(chatt,msg.from.first_name+' добавлен(а) в игру');
 
 bot.onText(/кк (.+)/i, (msg, match) => {
 if (admin.includes(msg.from.id)) {
-ag = match[1];
-for (i = 0; i < gamer.length; i++) {
-if (ag === number[i]) {
-p = i;
-}
-}
+p = match[1];
 if (p != (-1)) {
 bot.deleteMessage(chatt, msg.message_id)
 bot.sendMessage(chatt, '<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выбыл(а) из игры',{parse_mode:"HTML"})
@@ -630,7 +625,6 @@ number.splice(p, 1);
 p = -1;
 gamersb--;
 }
-ag = -1;
 }
 })
 
