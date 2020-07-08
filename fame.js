@@ -160,7 +160,7 @@ number.length = 0;
 
 bot.onText(/играть в кто хочет стать квинтиллионером/i, (msg) => {
 if (admin.includes(msg.from.id)) {
-for (i=0; i < 40, i++) {
+for (i=0; i < 40; i++) {
 number[i] = i + 1;
 }
 del = msg.message_id;
