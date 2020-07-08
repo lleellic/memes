@@ -325,6 +325,25 @@ bot.onText(/что выбрали/i, (msg) => {
   }
 })
 
+bot.onText(/шнсы/i, (msg) => {
+  if (admin.includes(msg.from.id)) {
+    bot.deleteMessage(chatt, msg.message_id)
+    f = 'Шансы:\n';
+    for (i = 0; i < user.length; i++) {
+      f += number[i] + '. ' + gamer[i] + ' - ';
+      if (cg[i] === 3) {
+f += '3️⃣\n';
+} else if (cg[i] === 2) {
+f += '2️⃣\n';
+} else if (cg[i] === 1) {
+f += '1️⃣\n';
+} else {
+f += '0️⃣\n';
+}
+    bot.sendMessage(chatt, f)
+  }
+})
+
 bot.onText(/кто не выбрал/i, (msg) => {
   if (admin.includes(msg.from.id)) {
     bot.deleteMessage(chatt, msg.message_id)
