@@ -24,87 +24,14 @@ var pas = 1201674;
 admin[0] = 684519513;
 admin[1] = 858371219;
 var number = new Array();
+var cg = new Array();
 
 answ[0] = 'Выберите правильный вариант ответа.';
 a[0] = '1⃣ ';
 b[0] = '2️⃣ ';
 c[0] = '3️⃣ ';
 d[0] = '4️⃣ ';
-answ[1] = '2. Где Ичиго получил свою маск';
-a[1] = '1⃣ Сообщество душ';
-b[1] = '2️⃣ Магазин Урахары';
-c[1] = '3️⃣ Хоэкомундо';
-d[1] = '4️⃣ В сражении с Рендзи';
-answ[2] = '3. Как выглядит Банкай Регдзри Абораи';
-a[2] = '1⃣ Длинный меч Лев';
-b[2] = '2️⃣ Огромный самурай';
-c[2] = '3️⃣ Тысяча лезвий';
-d[2] = '4️⃣ Кукла с ядом';
-answ[3] = '4. На сколько увеличивается Шикай Нина Ичимару';
-a[3] = '1⃣ 130 м.';
-b[3] = '2️⃣ 50 м.';
-c[3] = '3️⃣ 66 м.';
-d[3] = '4️⃣ 10 м.';
-answ[4] = '5. Как умер Арранкар Залиаппоро';
-a[4] = '1⃣ От меча Зараки';
-b[4] = '2️⃣ От яда Маюри';
-c[4] = '3️⃣ От банки Бьякуи';
-d[4] = '4️⃣ От Гецуги Ичиго';
-answ[5] = '6. Как называется завершенная форма Ичиго';
-a[5] = '1⃣ Гэкай';
-b[5] = '2️⃣ Сэнкай';
-c[5] = '3️⃣ Щухэй';
-d[5] = '4️⃣ Дангай';
-answ[6] = '7. Кого зарубили на пляже?';
-a[6] = '1⃣ Арбуз';
-b[6] = '2️⃣ Клубнивик';
-c[6] = '3️⃣ Мэнос';
-d[6] = '4️⃣ 8 Пустых';
-answ[7] = '8. Как выглядит Банкай Зараки по фанфикам?';
-a[7] = '1⃣ Огромный вид';
-b[7] = '2️⃣ Дьявол';
-c[7] = '3️⃣ Лавовый голем';
-d[7] = '4️⃣ Черно-фиолетовый демон';
-answ[8] = '9. Кем является Ёчиру для Зараки?';
-a[8] = '1⃣ Дочь';
-b[8] = '2️⃣ Сестрёнка';
-c[8] = '3️⃣ Лейтенант';
-d[8] = '4️⃣ Шикай';
-answ[9] = '10. Как зовут Предателя-шинигами, который встал на сторону Зависимых?';
-a[9] = '1⃣ Гинджо';
-b[9] = '2️⃣ Соерен';
-c[9] = '3️⃣ Маки';
-d[9] = '4️⃣ Кусандзиси';
-answ[10] = '11. Как называется камень, из которого построена стена и башни в Готэй 13?';
-a[10] = '1⃣ Конки';
-b[10] = '2️⃣ Усазуки';
-c[10] = '3️⃣ Гэн-Гэн';
-d[10] = '4️⃣ Сэки-Сэки';
-answ[11] = '12. Как Маки-Ичиносэ (шининами-предатель) назвал свой шикай?';
-a[11] = '1⃣ Ницугасуми';
-b[11] = '2️⃣ Камуцеки';
-c[11] = '3️⃣ Фэнзушини';
-d[11] = '4️⃣ Цукишини';
-answ[12] = '13. Кого уничтожил Айдзен в Разделителе Миров?';
-a[12] = '1⃣ Гокецу';
-b[12] = '2️⃣ Котоцу';
-c[12] = '3️⃣ Мугецу';
-d[12] = '4️⃣ Джукэцу';
-answ[13] = '14. Кто любит кушать Гин?';
-a[13] = '1⃣ Бамбук в сахаре';
-b[13] = '2️⃣ Суши (основа рис)';
-c[13] = '3️⃣ Вафли в глазури';
-d[13] = '4️⃣ Хурма';
-answ[14] = '15. Кто дал Ичиго орден временного шинигами и следил за ним?';
-a[14] = '1⃣ Укитакэ Дзюсиру';
-b[14] = '2️⃣ Янамото Гэнрусай';
-c[14] = '3️⃣ Лейтенант Нэмо';
-d[14] = '4️⃣ Курацучи Маюри';
-answ[15] = 'Выберите правильный вариант ответа.';
-a[0] = '1⃣ ';
-b[0] = '2️⃣ ';
-c[0] = '3️⃣ ';
-d[0] = '4️⃣ ';
+
 
 var inline1 = {
   reply_markup:{
@@ -115,17 +42,11 @@ var inline1 = {
   }
 };
 
-var inline2 = {
-  reply_markup:{
-    inline_keyboard: [
-      [{text:'1', callback_data:'q'},{text:'2', callback_data:'w'},{text:'3', callback_data:'e'},{text:'4', callback_data:'r'},{text:'5', callback_data:'t'},{text:'6', callback_data:'y'},{text:'7', callback_data:'u'}], 
-      [{text:'8', callback_data:'i'},{text:'9', callback_data:'o'}, {text:'10', callback_data:'p'},{text:'11', callback_data:'a'},{text:'12', callback_data:'s'},{text:'13', callback_data:'d'},{text:'14', callback_data:'f'}]
-    ]
-  }
-};
+
 
 bot.onText(/\/help/i, (msg) => {
 if (admin.includes(msg.from.id)) {
+console.log(msg);
 bot.sendMessage(msg.chat.id,'Команды:\n\nсохранить чат - после чего бот все сообщения будет писать туда, кде была написана эта команда  последний раз\n\nиграть в кто хочет стать квинтиллионером - вызывает меню регистрации\n\nстарт - начинает игру\n\nвпрс 1 - вызывает кнопки, 1️⃣2️⃣3️⃣4️⃣\n\nкто не выбрал - показывает, кто не выбрал\n\nчто выбрали - показывает что выбрали\n\nкк (номер участника) - кикает участника по его номеру\n\nдд (любое число) - добавляет пароль, с помощью которого можно добавить участника во время игры, действует 1 раз. чтобы участник вошёл, ему просто надо написать этот пароль\n\nотменить - отменяет игру')
 } else {
 bot.sendMessage(msg.chat.id,'Для тебя у меня нет команд, попробуй попросить их через /link')
@@ -145,7 +66,7 @@ bot.sendMessage(chatt,'Чат сохранен');
 })
 
 bot.onText(/отменить/i, (msg) => {
-if (msg.from.id === 684519513) {
+if (admin includes(msg.from.id)) {
 bot.deleteMessage(chatt, msg.message_id)
 bot.deleteMessage(chatt, del)
 bot.sendMessage(chatt,'Игра отменена 🥴'); 
@@ -220,42 +141,52 @@ bot.answerCallbackQuery(msg.id, f, true);
 }
 
 if (msg.data === 'AA') {
-if (user.includes(msg.from.id))
+if (user.includes(msg.from.id)) {
 p = gamer.indexOf(msg.from.first_name);
 if (chose[p] === 0) {
-bot.answerCallbackQuery(msg.id,'💯 вы выбрали 1⃣ вариант ответа', true);
+bot.answerCallbackQuery(msg.id,'Вы выбрали 1⃣ вариант ответа', true);
   chose[p] = 1;
 } else {
-bot.answerCallbackQuery(msg.id,'❌ вы уже выбрали вариант ответа ('+chose[p]+')', true);
+bot.answerCallbackQuery(msg.id,'❌ Вы уже выбрали вариант ответа ('+chose[p]+')', true);
 }
   p = -1;
+} else {
+bot.answerCallbackQuery(msg.id,'Вы не в игре', false);
+}
 }
 
 if (msg.data === 'BB') {
-if (user.includes(msg.from.id))
+if (user.includes(msg.from.id)) {
 p = gamer.indexOf(msg.from.first_name);
 if (chose[p] === 0) {
-bot.answerCallbackQuery(msg.id,'💯 вы выбрали 2⃣ вариант ответа', true);
+bot.answerCallbackQuery(msg.id,'Вы выбрали 2⃣ вариант ответа', true);
   chose[p] = 2;
 } else {
-bot.answerCallbackQuery(msg.id,'❌ вы уже выбрали вариант ответа ('+chose[p]+')', true);
+bot.answerCallbackQuery(msg.id,'❌ Вы уже выбрали вариант ответа ('+chose[p]+')', true);
+}
+p = -1;
+} else {
+bot.answerCallbackQuery(msg.id,'Вы не в игре', false);
 }
 }
 
 if (msg.data === 'CC') {
-if (user.includes(msg.from.id))
+if (user.includes(msg.from.id)) {
 p = gamer.indexOf(msg.from.first_name);
 if (chose[p] === 0) {
-bot.answerCallbackQuery(msg.id,'💯 вы выбрали 3⃣ вариант ответа', true);
+bot.answerCallbackQuery(msg.id,'Вы выбрали 3⃣ вариант ответа', true);
   chose[p] = 3;
 } else {
-bot.answerCallbackQuery(msg.id,'❌ вы уже выбрали вариант ответа ('+chose[p]+')', true);
+bot.answerCallbackQuery(msg.id,'❌ Вы уже выбрали вариант ответа ('+chose[p]+')', true);
 }
   p = -1;
+} else {
+bot.answerCallbackQuery(msg.id,'Вы не в игре', false);
+}
 }
 
 if (msg.data === 'DD') {
-if (user.includes(msg.from.id))
+if (user.includes(msg.from.id)) {
 p = gamer.indexOf(msg.from.first_name);
 if (chose[p] === 0) {
 bot.answerCallbackQuery(msg.id,'💯 вы выбрали 4⃣ вариант ответа', true);
@@ -264,6 +195,9 @@ bot.answerCallbackQuery(msg.id,'💯 вы выбрали 4⃣ вариант о�
 bot.answerCallbackQuery(msg.id,'❌ вы уже выбрали вариант ответа ('+chose[p]+')', true);
 }
 p = -1;
+} else {
+bot.answerCallbackQuery(msg.id,'Вы не в игре', false);
+}
 }
 
 if (msg.data === 'whonot') {
@@ -276,274 +210,6 @@ f += ' ▫️' + gamer[i];
 bot.answerCallbackQuery(msg.id, f, true);
 }
 
-if (msg.data === 'q') {
-if (msg.from.id === 684519513) {
-f = ' ';
-for (i = 0; i < user.length; i++) {
-if (summ[i] === 0) {
-f += ' ▫️' + gamer[i];
-}
-}
-bot.answerCallbackQuery(msg.id, f, true);
-} else {
-if (user.includes(msg.from.id)) {
-p = gamer.indexOf(msg.from.first_name);
-summ[p] = 1;
-bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
-p = -1;
-}
-}
-}
-
-
-if (msg.data === 'w') {
-if (msg.from.id === 684519513) {
-f = ' ';
-for (i = 0; i < user.length; i++) {
-if (summ[i] === 0) {
-f += ' ▫️' + gamer[i];
-}
-}
-bot.answerCallbackQuery(msg.id, f, true);
-} else {
-if (user.includes(msg.from.id)) {
-p = gamer.indexOf(msg.from.first_name);
-summ[p] = 2;
-bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
-p = -1;
-}
-}
-}
-       
-if (msg.data === 'e') {
-if (msg.from.id === 684519513) {
-f = ' ';
-for (i = 0; i < user.length; i++) {
-if (summ[i] === 0) {
-f += ' ▫️' + gamer[i];
-}
-}
-bot.answerCallbackQuery(msg.id, f, true);
-} else {
-if (user.includes(msg.from.id)) {
-p = gamer.indexOf(msg.from.first_name);
-summ[p] = 3;
-bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
-  p = -1;
-}
-}
-}
-
-if (msg.data === 'r') {
-if (msg.from.id === 684519513) {
-f = ' ';
-for (i = 0; i < user.length; i++) {
-if (summ[i] === 0) {
-f += ' ▫️' + gamer[i];
-}
-}
-bot.answerCallbackQuery(msg.id, f, true);
-} else {
-if (user.includes(msg.from.id)) {
-p = gamer.indexOf(msg.from.first_name);
-summ[p] = 4;
-bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
-  p = -1;
-}
-}
-}
-
-if (msg.data === 't') {
-if (msg.from.id === 684519513) {
-f = ' ';
-for (i = 0; i < user.length; i++) {
-if (summ[i] === 0) {
-f += ' ▫️' + gamer[i];
-}
-}
-bot.answerCallbackQuery(msg.id, f, true);
-} else {
-if (user.includes(msg.from.id)) {
-p = gamer.indexOf(msg.from.first_name);
-summ[p] = 5;
-bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
-  p = -1;
-}
-}
-}
-
-if (msg.data === 'y') {
-if (msg.from.id === 684519513) {
-f = ' ';
-for (i = 0; i < user.length; i++) {
-if (summ[i] === 0) {
-f += ' ▫️' + gamer[i];
-}
-}
-bot.answerCallbackQuery(msg.id, f, true);
-} else {
-if (user.includes(msg.from.id)) {
-p = gamer.indexOf(msg.from.first_name);
-summ[p] = 6;
-bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
-
-  p = -1;
-}
-}
-}
-
-if (msg.data === 'u') {
-if (msg.from.id === 684519513) {
-f = ' ';
-for (i = 0; i < user.length; i++) {
-if (summ[i] === 0) {
-f += ' ▫️' + gamer[i];
-}
-}
-bot.answerCallbackQuery(msg.id, f, true);
-} else {
-if (user.includes(msg.from.id)) {
-p = gamer.indexOf(msg.from.first_name);
-summ[p] = 7;
-bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
-  p = -1;
-}
-}
-}
-
-if (msg.data === 'i') {
-if (msg.from.id === 684519513) {
-f = ' ';
-for (i = 0; i < user.length; i++) {
-if (summ[i] === 0) {
-f += ' ▫️' + gamer[i];
-}
-}
-bot.answerCallbackQuery(msg.id, f, true);
-} else {
-if (user.includes(msg.from.id)) {
-p = gamer.indexOf(msg.from.first_name);
-summ[p] = 8;
-bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
-  p = -1;
-}
-}
-}
-
-if (msg.data === 'o') {
-if (msg.from.id === 684519513) {
-f = ' ';
-for (i = 0; i < user.length; i++) {
-if (summ[i] === 0) {
-f += ' ▫️' + gamer[i];
-}
-}
-bot.answerCallbackQuery(msg.id, f, true);
-} else {
-if (user.includes(msg.from.id)) {
-p = gamer.indexOf(msg.from.first_name);
-summ[p] = 9;
-bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
-  p = -1;
-}
-}
-}
-
-if (msg.data === 'p') {
-if (msg.from.id === 684519513) {
-f = ' ';
-for (i = 0; i < user.length; i++) {
-if (summ[i] === 0) {
-f += ' ▫️' + gamer[i];
-}
-}
-bot.answerCallbackQuery(msg.id, f, true);
-} else {
-if (user.includes(msg.from.id)) {
-p = gamer.indexOf(msg.from.first_name);
-summ[p] = 10;
-bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
-  p = -1;
-}
-}
-}
-
-if (msg.data === 'a') {
-if (msg.from.id === 684519513) {
-f = ' ';
-for (i = 0; i < user.length; i++) {
-if (summ[i] === 0) {
-f += ' ▫️' + gamer[i];
-}
-}
-bot.answerCallbackQuery(msg.id, f, true);
-} else {
-if (user.includes(msg.from.id)) {
-p = gamer.indexOf(msg.from.first_name);
-summ[p] = 11;
-bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
-  p = -1;
-}
-}
-}
-
-if (msg.data === 's') {
-if (msg.from.id === 684519513) {
-f = ' ';
-for (i = 0; i < user.length; i++) {
-if (summ[i] === 0) {
-f += ' ▫️' + gamer[i];
-}
-}
-bot.answerCallbackQuery(msg.id, f, true);
-} else {
-if (user.includes(msg.from.id)) {
-p = gamer.indexOf(msg.from.first_name);
-summ[p] = 12;
-bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
-  p = -1;
-}
-}
-}
-
-if (msg.data === 'd') {
-if (msg.from.id === 684519513) {
-f = ' ';
-for (i = 0; i < user.length; i++) {
-if (summ[i] === 0) {
-f += ' ▫️' + gamer[i];
-}
-}
-bot.answerCallbackQuery(msg.id, f, true);
-} else {
-if (user.includes(msg.from.id)) {
-p = gamer.indexOf(msg.from.first_name);
-summ[p] = 13;
-bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
-  p = -1;
-}
-}
-}
-
-if (msg.data === 'f') {
-if (msg.from.id === 684519513) {
-f = ' ';
-for (i = 0; i < user.length; i++) {
-if (summ[i] === 0) {
-f += ' ▫️' + gamer[i];
-}
-}
-bot.answerCallbackQuery(msg.id, f, true);
-} else {
-if (user.includes(msg.from.id)) {
-p = gamer.indexOf(msg.from.first_name);
-summ[p] = 14;
-bot.answerCallbackQuery(msg.id,'💯 вы выбрали несгораемую сумму', true);
-  p = -1;
-}
-}
-}
-
 })
 
 bot.onText(/старт/i, (msg) => {
@@ -554,7 +220,7 @@ bot.deleteMessage(chatt, del)
 del = msg.message_id
 del++;
 bot.deleteMessage(chatt, msg.message_id)
-bot.sendMessage(chatt,'Выберите несгораемую сумму\n15 вопросов\n15 -   300 000 000 000 000 000\n14 -   150 000 000 000 000 000\n13 -     80 000 000 000 000 000\n12 -     40 000 000 000 000 000\n11 -     20 000 000 000 000 000\n10 -     10 000 000 000 000 000\n9 -         5 000 000 000 000 000\n8 -         2 500 000 000 000 000\n7 -         1 500 000 000 000 000\n6 -         1 000 000 000 000 000\n5 -            500 000 000 000 000\n4 -            300 000 000 000 000\n3 -            200 000 000 000 000\n2 -            100 000 000 000 000\n1 -              50 000 000 000 000', inline2)}
+bot.sendMessage(chatt,'Игра стартовала, ожидайте ведущего') 
 }
 })
 
@@ -582,12 +248,12 @@ bot.sendMessage(chatt, answ[n], {
 
 bot.onText(/шнс (.+)/i, (msg, match) => {
 if (admin.includes(msg.from.id)) {
-bb = match[1];
-bb++;
-chose[bb] = 0;
+p = match[1];
+p++;
+chose[p] = 0;
 bot.deleteMessage(chatt, msg.message_id)
-bot.sendMessage(chatt,'Выбор '+gamer[bb]+' сброшен');
-bb = -1;
+bot.sendMessage(chatt,'Выбор '+gamer[p]+' сброшен');
+p = -1;
 }
 })
 
@@ -608,6 +274,9 @@ user[gamersb] = msg.from.id;
 summ[gamersb] = 0;
 gamersb++;
 bot.sendMessage(chatt,msg.from.first_name+' добавлен(а) в игру');
+} else {
+bot.deleteMessage(msg.chat.id, msg.message_id)
+bot.sendMessage(msg.chat.id,'Этот пароль уже использовали');
 }
 })
 
