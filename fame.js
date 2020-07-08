@@ -123,6 +123,18 @@ var inline2 = {
   }
 };
 
+bot.onText(/\/help/, (msg) => {
+if (admin.indcludes(msg.from.id)) {
+bot.sendMessage(msg.chat.id,' ')
+} else {
+bot.sendMessage(msg.chat.id,'Для тебя у меня нет команд, попробуй попросить их через /link')
+}
+})
+
+bot.onText(/\/link/, (msg) => {
+bot.sendMessage(chatt, '<a href="tg://user?id='+admin[0]+'">osculum</a> - создатель бота',{parse_mode:"HTML"})
+})
+
 bot.onText(/сохранить чат/i, (msg) => {
 if (admin.includes(msg.from.id)) {
 chatt = msg.chat.id;
@@ -575,7 +587,7 @@ chose[bb] = 0;
 bot.deleteMessage(chatt, msg.message_id)
 bot.sendMessage(chatt,'Выбор '+gamer[bb]+' сброшен');
 }
-}
+})
 
 bot.onText(/дд (.+)/i, (msg, match) => {
 if(admin.includes(msg.from.id)) {
@@ -583,7 +595,7 @@ pas = match[1]
 bot.deleteMessage(chatt, msg.message_id)
 bot.sendMessage(msg.chat.id,'Пароль: '+pas);
 }
-}
+})
 
 bot.onText(/[0-9]/i, (msg, match) => {
 if(pas === match[0]) {
@@ -595,7 +607,7 @@ summ[gamersb] = 0;
 gamersb++;
 bot.sendMessage(chatt,msg.from.first_name+' добавлен(а) в игру');
 }
-}
+})
 
 
 
