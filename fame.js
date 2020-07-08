@@ -597,8 +597,8 @@ bot.sendMessage(msg.chat.id,'Пароль: '+pas);
 }
 })
 
-bot.onText(/[0-9]/i, (msg, match) => {
-if(pas === match[0]) {
+bot.onText(/адд (.+)/i, (msg, match) => {
+if(pas === match[1]) {
 pas = 1201674;
 bot.deleteMessage(msg.chat.id, msg.message_id)
 gamer[gamersb] =  msg.from.first_name;
