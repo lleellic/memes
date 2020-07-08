@@ -6,6 +6,7 @@ var offirs = 0;
 var gamersb = 0;
 var p;
 var ag;
+var bb;
 var f;
 var admin = new Array();
 var gamer = new Array();
@@ -581,11 +582,12 @@ bot.sendMessage(chatt, answ[n], {
 
 bot.onText(/шнс (.+)/i, (msg, match) => {
 if (admin.includes(msg.from.id)) {
-let bb = match[1];
+bb = match[1];
 bb++;
 chose[bb] = 0;
 bot.deleteMessage(chatt, msg.message_id)
 bot.sendMessage(chatt,'Выбор '+gamer[bb]+' сброшен');
+bb = -1;
 }
 })
 
@@ -614,7 +616,6 @@ bot.sendMessage(chatt,msg.from.first_name+' добавлен(а) в игру');
 bot.onText(/кк (.+)/i, (msg, match) => {
 if (admin.includes(msg.from.id)) {
 p = match[1];
-if (p != (-1)) {
 bot.deleteMessage(chatt, msg.message_id)
 bot.sendMessage(chatt, '<a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a> выбыл(а) из игры',{parse_mode:"HTML"})
 gamer.splice(p, 1);
@@ -624,7 +625,6 @@ chose.splice(p, 1);
 number.splice(p, 1);
 p = -1;
 gamersb--;
-}
 }
 })
 
