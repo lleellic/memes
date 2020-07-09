@@ -27,17 +27,17 @@ var number = new Array();
 var cg = new Array();
 
 answ[0] = 'Выберите правильный вариант ответа.';
-a[0] = '1⃣ ';
-b[0] = '2️⃣ ';
-c[0] = '3️⃣ ';
-d[0] = '4️⃣ ';
+a[0] = ' 1⃣ ';
+b[0] = ' 2️⃣ ';
+c[0] = ' 3️⃣ ';
+d[0] = ' 4️⃣ ';
 
 
 var inline1 = {
   reply_markup:{
     inline_keyboard: [
-      [{text:'Играть 😋', callback_data:'togame'}, {text:'Выйти 😒', callback_data:'nogame'}],
-      [{text:'Сколько участников?', callback_data:'members'}, {text:'Кто участвует?', callback_data:'whois'}]
+      [{text:'Играть 😏', callback_data:'togame'}, {text:'Выйти 😒', callback_data:'nogame'}],
+      [{text:'Сколько уч.?', callback_data:'members'}, {text:'Кто уч.?', callback_data:'whois'}]
     ]
   }
 };
@@ -225,6 +225,7 @@ del = msg.message_id;
 del++;
 bot.deleteMessage(chatt, msg.message_id);
 bot.sendMessage(chatt,'Игра стартовала, ожидайте ведущего');
+}
 }
 })
 
