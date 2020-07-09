@@ -329,7 +329,7 @@ bot.onText(/что выбрали/i, (msg) => {
 
 bot.onText(/шнсы/i, (msg) => {
   if (admin.includes(msg.from.id)) {
-    bot.deleteMessage(chatt, msg.message_id)
+    bot.deleteMessage(chatt, msg.message_id);
     f = 'Шансы:\n';
     for (i = 0; i < user.length; i++) {
       f += number[i] + '. ' + gamer[i] + ' - ';
@@ -341,6 +341,7 @@ f += '2️⃣\n';
 f += '1️⃣\n';
 } else {
 f += '0️⃣\n';
+}
 }
     bot.sendMessage(chatt, f)
   }
