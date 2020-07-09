@@ -302,7 +302,7 @@ user[gamersb] = msg.from.id;
 cg[gamersb] = 2;
 number [gamersb] = gamersb + 1;
 gamersb++;
-bot.sendMessage(chatt,'Игрок <a href="tg://user?id='+user[gamersb]+'">'+gamer[gamersb]+'</a> добавлен(а) в игру',{parse_mode:"HTML"});
+bot.sendMessage(chatt,'Игрок <a href="tg://user?id='+msg.from.id+'">'+msg.from.first_name+'</a> добавлен(а) в игру',{parse_mode:"HTML"});
 } else {
 bot.deleteMessage(msg.chat.id, msg.message_id)
 bot.sendMessage(msg.chat.id,'Этот пароль уже использовали');
