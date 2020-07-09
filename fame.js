@@ -66,7 +66,7 @@ bot.sendMessage(chatt,'Чат сохранен');
 })
 
 bot.onText(/отменить/i, (msg) => {
-if (admin includes(msg.from.id)) {
+if (admin.includes(msg.from.id)) {
 bot.deleteMessage(chatt, msg.message_id)
 bot.deleteMessage(chatt, del)
 bot.sendMessage(chatt,'Игра отменена 🥴'); 
