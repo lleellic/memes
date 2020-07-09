@@ -45,6 +45,7 @@ var inline1 = {
 
 bot.onText(/\/mute/, (msg) => {
 if (admin.includes(msg.from.id)) {
+bot.deleteMessage(msg.chat.id, msg.message_id);
 muted[muted.length] = msg.reply_to_message.from.id;
 muten[muten.length] = msg.reply_to_message.from.first_name;
 bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+msg.reply_to_message.from.id+'">'+msg.reply_to_message.from.first_name+'</a> получил мут',{parse_mode:"HTML"})
@@ -53,6 +54,7 @@ bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+msg.reply_to_message.from.i
 
 bot.onText(/\/mt/, (msg) => {
 if (admin.includes(msg.from.id)) {
+bot.deleteMessage(msg.chat.id, msg.message_id);
 f = 'Нарушители закона😏\n';
 for (i=0;i<muted.length;i++){
 f+= (i + 1) + ' '+ muten[i] + '\n';
@@ -63,6 +65,7 @@ bot.sendMessage(msg.chat.id,f);
 
 bot.onText(/\/unm/, (msg) => {
 if (admin.includes(msg.from.id)) {
+bot.deleteMessage(msg.chat.id, msg.message_id);
 p = muten.indexOf(msg.reply_to_message.from.first_name);
 muted.splice(p, 1);
 muten.splice(p, 1);
@@ -72,6 +75,7 @@ bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+msg.reply_to_message.from.i
 
 bot.onText(/\/unall/, (msg) => {
 if (admin.includes(msg.from.id)) {
+bot.deleteMessage(msg.chat.id, msg.message_id);
 muten.length = 0;
 muted.length = 0;
 bot.sendMessage(msg.chat.id,'Все нарушители закона получили амнистию и избавились от мута');
@@ -202,7 +206,7 @@ if (chose[p] === 0) {
 bot.answerCallbackQuery(msg.id,'Вы выбрали 1⃣ вариант ответа', true);
   chose[p] = 1;
 } else {
-bot.answerCallbackQuery(msg.id,'❌ Вы уже выбрали вариант ответа ('+chose[p]+')', true);
+bot.answerCallbackQuery(msg.id,'Вы уже выбрали вариант ответа ('+chose[p]+')', true);
 }
   p = -1;
 } else {
@@ -217,7 +221,7 @@ if (chose[p] === 0) {
 bot.answerCallbackQuery(msg.id,'Вы выбрали 2⃣ вариант ответа', true);
   chose[p] = 2;
 } else {
-bot.answerCallbackQuery(msg.id,'❌ Вы уже выбрали вариант ответа ('+chose[p]+')', true);
+bot.answerCallbackQuery(msg.id,'Вы уже выбрали вариант ответа ('+chose[p]+')', true);
 }
 p = -1;
 } else {
@@ -232,7 +236,7 @@ if (chose[p] === 0) {
 bot.answerCallbackQuery(msg.id,'Вы выбрали 3⃣ вариант ответа', true);
   chose[p] = 3;
 } else {
-bot.answerCallbackQuery(msg.id,'❌ Вы уже выбрали вариант ответа ('+chose[p]+')', true);
+bot.answerCallbackQuery(msg.id,'Вы уже выбрали вариант ответа ('+chose[p]+')', true);
 }
   p = -1;
 } else {
@@ -247,7 +251,7 @@ if (chose[p] === 0) {
 bot.answerCallbackQuery(msg.id,'Вы выбрали 4⃣ вариант ответа', true);
   chose[p] = 4;
 } else {
-bot.answerCallbackQuery(msg.id,'❌ Вы уже выбрали вариант ответа ('+chose[p]+')', true);
+bot.answerCallbackQuery(msg.id,'Вы уже выбрали вариант ответа ('+chose[p]+')', true);
 }
 p = -1;
 } else {
@@ -307,6 +311,7 @@ if (admin.includes(msg.from.id)) {
 p = gamer.indexOf(msg.reply_to_message.from.first_name);
 bot.deleteMessage(chatt, msg.message_id)
 bot.sendMessage(chatt,'Выбор '+gamer[p]+' сброшен');
+chose[p] = 0;
 p = -1;
 }
 })
@@ -345,7 +350,7 @@ bot.onText(/кто в игре/i, (msg) => {
     bot.deleteMessage(chatt, msg.message_id)
     f = 'В игре:\n';
     for (i = 0; i < user.length; i++) {
-    f +=  number[i]+' ' +gamer[i]+'\n';
+    f +=  number[i]+'. ' +gamer[i]+'\n';
     }
     bot.sendMessage(chatt, f)
   }
