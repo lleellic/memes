@@ -43,16 +43,16 @@ var inline1 = {
   }
 };
 
-bot.onText(/\/mute/, (mag) => {
-if (admin.includes(msg.from.id) {
+bot.onText(/\/mute/, (msg) => {
+if (admin.includes(msg.from.id)) {
 muted[muted.length] = msg.reply_to_message.from.id;
 muten[muten.length] = msg.reply_to_message.from.first_name;
 bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+msg.reply_to_message.from.id+'">'+msg.reply_to_message.from.first_name+'</a> получил мут',{parse_mode:"HTML"})
 }
 })
 
-bot.onText(/\/mt/, (mag) => {
-if (admin.includes(msg.from.id) {
+bot.onText(/\/mt/, (msg) => {
+if (admin.includes(msg.from.id)) {
 f = 'Нарушители закона😏\n';
 for (i=0;i<muted.length;i++){
 f+= (i + 1) + ' '+ muten[i] + '\n';
@@ -61,8 +61,8 @@ bot.sendMessage(msg.chat.id,f);
 }
 })
 
-bot.onText(/\/unm/, (mag) => {
-if (admin.includes(msg.from.id) {
+bot.onText(/\/unm/, (msg) => {
+if (admin.includes(msg.from.id)) {
 p = muten.indexOf(msg.reply_to_message.from.first_name);
 muted.splice(p, 1);
 muten.splice(p, 1);
@@ -70,8 +70,8 @@ bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+msg.reply_to_message.from.i
 }
 })
 
-bot.onText(/\/unall/, (mag) => {
-if (admin.includes(msg.from.id) {
+bot.onText(/\/unall/, (msg) => {
+if (admin.includes(msg.from.id)) {
 muten.length = 0;
 muted.length = 0;
 bot.sendMessage(msg.chat.id,'Все нарушители закона получили амнистию и избавились от мута');
