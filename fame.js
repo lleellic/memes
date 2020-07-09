@@ -51,7 +51,6 @@ bot.sendMessage(msg.chat.id,’Ты зарегистрирован! Твой б�
 
 bot.onText(/\/help/i, (msg) => {
 if (admin.includes(msg.from.id)) {
-console.log(msg);
 bot.sendMessage(msg.chat.id,'Команды:\n\n?сохранить - после чего бот все сообщения будет писать туда, кде была написана эта команда  последний раз\n\n?играть - вызывает меню регистрации\n\n?старт - начинает игру\n\n?кто в игре - показывает всех участников и их id\n\n?вопрос 1 - вызывает кнопки, 1️⃣2️⃣3️⃣4️⃣\n\n?кто не выбрал - показывает, кто не выбрал\n\n?что выбрали - показывает что выбрали\n\n?kk (id игрока) - кикает игрока по его id, показанное в команде Кто в игре\n\n/add - добавляет участника во время игры\n\n?шансы - показывает шансы игроков\n\n?шанс +/- - привабавляет, либо убавляет шанс игрока, на чьё сообщение было это написано\n\n?отменить - отменяет игру')
 } else {
 bot.sendMessage(msg.chat.id,'Для тебя у меня нет команд, попробуй попросить их через /link')
@@ -98,7 +97,6 @@ user.length = 0;
 summ.length = 0;
 chose.length = 0;
 gamersb = 0;
-number.length = 0;
 }
 })
 
@@ -131,7 +129,6 @@ bot.answerCallbackQuery(msg.id,'Вы уже в игре', true)
 gamer[gamersb] =  msg.from.first_name;
 user[gamersb] = msg.from.id;
 cg[gamersb] = 2;
-number[gamersb] = gamersb + 1;
 gamersb++;
 bot.answerCallbackQuery(msg.id,'Вы вошли в игру', true);
 } 
@@ -143,7 +140,6 @@ p = gamer.indexOf(msg.from.first_name);
 gamer.splice(p, 1);
 user.splice(p, 1);
 cg.splice(p, 1);
-number.splice(p, 1);
 p = -1;
 gamersb--;
 bot.answerCallbackQuery(msg.id,'Вы вышли из игры',true);
@@ -291,7 +287,6 @@ if(admin.includes(msg.from.id)) {
 gamer[gamersb] =  msg.reply_to_message.from.first_name;
 user[gamersb] = msg.reply_to_message.from.id;
 cg[gamersb] = 2;
-number [gamersb] = gamersb + 1;
 gamersb++;
 bot.sendMessage(chatt,'Игрок <a href="tg://user?id='+msg.reply_to_message.from.id+'">'+msg.reply_to_message.from.first_name+'</a> добавлен(а) в игру',{parse_mode:"HTML"});
 }
@@ -353,8 +348,8 @@ f += '1️⃣\n';
 f += '0️⃣\n';
 }
 }
-    bot.sendMessage(chatt, f)
-  }
+bot.sendMessage(chatt, f)
+}
 })
 
 bot.onText(/?кто не выбрал/i, (msg) => {
