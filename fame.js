@@ -126,7 +126,7 @@ bot.answerCallbackQuery(msg.id,'Вы уже в игре', true)
 gamer[gamersb] =  msg.from.first_name;
 user[gamersb] = msg.from.id;
 cg[gamersb] = 2;
-number[gamersb] = gamersb;
+number[gamersb] = gamersb + 1;
 gamersb++;
 bot.answerCallbackQuery(msg.id,'Вы вошли в игру', true);
 } 
@@ -294,7 +294,7 @@ bot.deleteMessage(msg.chat.id, msg.message_id)
 gamer[gamersb] =  msg.from.first_name;
 user[gamersb] = msg.from.id;
 cg[gamersb] = 2;
-number [gamersb] = gamersb;
+number [gamersb] = gamersb + 1;
 gamersb++;
 bot.sendMessage(chatt,'Игрок <a href="tg://user?id='+user[gamersb]+'">'+gamer[gamersb]+'</a> добавлен(а) в игру',{parse_mode:"HTML"});
 } else {
