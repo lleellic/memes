@@ -20,7 +20,6 @@ var b = new Array();
 var c = new Array();
 var d = new Array();
 var n;
-var pas = 1201674;
 admin[0] = 684519513;
 admin[1] = 858371219;
 var number = new Array();
@@ -42,7 +41,7 @@ var inline1 = {
   }
 };
 
-bot.onText(/бс/i, (msg) => {
+bot.onText(/?бс/i, (msg) => {
  db.run(’CREATE TABLE balance(id int, bal int)’);
  db.run(’INSERT INTO balance(id, bal) VALUES ${msg.from.id}, 5’, function (err) => {
 bot.sendMessage(msg.chat.id,’Ты зарегистрирован! Твой баланс 5’);
@@ -53,7 +52,7 @@ bot.sendMessage(msg.chat.id,’Ты зарегистрирован! Твой б�
 bot.onText(/\/help/i, (msg) => {
 if (admin.includes(msg.from.id)) {
 console.log(msg);
-bot.sendMessage(msg.chat.id,'Команды:\n\nСохранить чат - после чего бот все сообщения будет писать туда, кде была написана эта команда  последний раз\n\nИграть в кто хочет стать квинтиллионером - вызывает меню регистрации\n\nСтарт - начинает игру\n\nКто в игре - показывает всех участников и их id\n\nВпрс 1 - вызывает кнопки, 1️⃣2️⃣3️⃣4️⃣\n\nКто не выбрал - показывает, кто не выбрал\n\nЧто выбрали - показывает что выбрали\n\nKk (id игрока) - кикает игрока по его id, показанное в команде Кто в игре\n\nDd и любое число - добавляет пароль, с помощью которого можно добавить участника во время игры, действует 1 раз. чтобы участник вошёл, ему просто надо написать этот пароль после команды ad\n\nШнсы - показывает шансы игроков\n\nъ +/- - привабавляет, либо убавляет шанс игрока, на чьё сообщение было это написано\n\nОтменить - отменяет игру')
+bot.sendMessage(msg.chat.id,'Команды:\n\n?сохранить - после чего бот все сообщения будет писать туда, кде была написана эта команда  последний раз\n\n?играть - вызывает меню регистрации\n\n?старт - начинает игру\n\n?кто в игре - показывает всех участников и их id\n\n?вопрос 1 - вызывает кнопки, 1️⃣2️⃣3️⃣4️⃣\n\n?кто не выбрал - показывает, кто не выбрал\n\n?что выбрали - показывает что выбрали\n\n?kk (id игрока) - кикает игрока по его id, показанное в команде Кто в игре\n\n/add - добавляет участника во время игры\n\n?шансы - показывает шансы игроков\n\n?шанс +/- - привабавляет, либо убавляет шанс игрока, на чьё сообщение было это написано\n\n?отменить - отменяет игру')
 } else {
 bot.sendMessage(msg.chat.id,'Для тебя у меня нет команд, попробуй попросить их через /link')
 }
@@ -63,7 +62,7 @@ bot.onText(/\/link/i, (msg) => {
 bot.sendMessage(msg.chat.id, '<a href="tg://user?id='+admin[0]+'">osculum</a> - создатель бота\n\nВы можете написать ему и увидеть, как действует бот',{parse_mode:"HTML"})
 })
 
-bot.onText(/ъ (.+)/i, (msg, match) => {
+bot.onText(/?шанс (.+)/i, (msg, match) => {
 if (admin.includes(msg.from.id)) {
 p = match[1];
 f = ' ';
@@ -80,7 +79,7 @@ i = -1;
 }
 })
 
-bot.onText(/сохранить чат/i, (msg) => {
+bot.onText(/?сохранить/i, (msg) => {
 if (admin.includes(msg.from.id)) {
 chatt = msg.chat.id;
 bot.deleteMessage(chatt, msg.message_id);
@@ -88,7 +87,7 @@ bot.sendMessage(chatt,'Чат сохранен');
 }
 })
 
-bot.onText(/отменить/i, (msg) => {
+bot.onText(/?отменить/i, (msg) => {
 if (admin.includes(msg.from.id)) {
 bot.deleteMessage(msg.chat.id, msg.message_id);
 bot.deleteMessage(chatt, del);
@@ -103,7 +102,7 @@ number.length = 0;
 }
 })
 
-bot.onText(/играть в кто хочет стать квинтиллионером/i, (msg) => {
+bot.onText(/?играть/i, (msg) => {
 if (admin.includes(msg.from.id)) {
 for (i=0; i < 40; i++) {
 number[i] = i + 1;
@@ -239,7 +238,7 @@ bot.answerCallbackQuery(msg.id, f, true);
 
 })
 
-bot.onText(/старт/i, (msg) => {
+bot.onText(/?старт/i, (msg) => {
 if (admin.includes(msg.from.id)) {
 if (offirs === 1) {
 offirs = 2;
@@ -252,7 +251,7 @@ bot.sendMessage(chatt,'Игра стартовала, ожидайте веду�
 }
 })
 
-bot.onText(/впрс (.+)/i, (msg, match) => {
+bot.onText(/?вопрос (.+)/i, (msg, match) => {
 if (admin.includes(msg.from.id)) {
 bot.deleteMessage(chatt, del)
 del = msg.message_id
@@ -274,7 +273,7 @@ bot.sendMessage(chatt, answ[n], {
 }
 })
 
-bot.onText(/шнс (.+)/i, (msg, match) => {
+bot.onText(/?шанс (.+)/i, (msg, match) => {
 if (admin.includes(msg.from.id)) {
 p = match[1];
 p--;
@@ -285,33 +284,22 @@ p = -1;
 }
 })
 
-bot.onText(/dd (.+)/i, (msg, match) => {
-if(admin.includes(msg.from.id)) {
-pas = match[1]
-bot.deleteMessage(chatt, msg.message_id)
-bot.sendMessage(msg.chat.id,'Пароль: '+pas);
-}
-})
 
-bot.onText(/ad (.+)/i, (msg, match) => {
-if(pas === match[1]) {
-pas = 1201674;
-bot.deleteMessage(msg.chat.id, msg.message_id)
-gamer[gamersb] =  msg.from.first_name;
-user[gamersb] = msg.from.id;
+
+bot.onText(/\/add/i, (msg) => {
+if(admin.includes(msg.from.id)) {
+gamer[gamersb] =  msg.reply_to_message.from.first_name;
+user[gamersb] = msg.reply_to_message.from.id;
 cg[gamersb] = 2;
 number [gamersb] = gamersb + 1;
 gamersb++;
-bot.sendMessage(chatt,'Игрок <a href="tg://user?id='+msg.from.id+'">'+msg.from.first_name+'</a> добавлен(а) в игру',{parse_mode:"HTML"});
-} else {
-bot.deleteMessage(msg.chat.id, msg.message_id)
-bot.sendMessage(msg.chat.id,'Этот пароль уже использовали');
+bot.sendMessage(chatt,'Игрок <a href="tg://user?id='+msg.reply_to_message.from.id+'">'+msg.reply_to_message.from.first_name+'</a> добавлен(а) в игру',{parse_mode:"HTML"});
 }
 })
 
 
 
-bot.onText(/kk (.+)/i, (msg, match) => {
+bot.onText(/?kk (.+)/i, (msg, match) => {
 if (admin.includes(msg.from.id)) {
 p = match[1];
 p--;
@@ -327,7 +315,7 @@ gamersb--;
 }
 })
 
-bot.onText(/кто в игре/i, (msg) => {
+bot.onText(/?кто в игре/i, (msg) => {
   if (admin.includes(msg.from.id)) {
     bot.deleteMessage(chatt, msg.message_id)
     f = 'В игре:\n';
@@ -338,7 +326,7 @@ bot.onText(/кто в игре/i, (msg) => {
   }
 })
 
-bot.onText(/что выбрали/i, (msg) => {
+bot.onText(/?что выбрали/i, (msg) => {
   if (admin.includes(msg.from.id)) {
     bot.deleteMessage(chatt, msg.message_id)
     f = 'Выбранные ответы:\n';
@@ -349,7 +337,7 @@ bot.onText(/что выбрали/i, (msg) => {
   }
 })
 
-bot.onText(/шнсы/i, (msg) => {
+bot.onText(/?шансы/i, (msg) => {
   if (admin.includes(msg.from.id)) {
     bot.deleteMessage(chatt, msg.message_id);
     f = 'Шансы:\n';
@@ -369,7 +357,7 @@ f += '0️⃣\n';
   }
 })
 
-bot.onText(/кто не выбрал/i, (msg) => {
+bot.onText(/?кто не выбрал/i, (msg) => {
   if (admin.includes(msg.from.id)) {
     bot.deleteMessage(chatt, msg.message_id)
     f = 'Не выбрали:\n';
