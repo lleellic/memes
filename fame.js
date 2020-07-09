@@ -41,13 +41,7 @@ var inline1 = {
   }
 };
 
-bot.onText(/?бс/i, (msg) => {
- db.run(’CREATE TABLE balance(id int, bal int)’);
- db.run(’INSERT INTO balance(id, bal) VALUES ${msg.from.id}, 5’, function (err) => {
-bot.sendMessage(msg.chat.id,’Ты зарегистрирован! Твой баланс 5’);
-});
- db.close();
-})
+
 
 bot.onText(/\/help/i, (msg) => {
 if (admin.includes(msg.from.id)) {
