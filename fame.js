@@ -219,11 +219,11 @@ bot.onText(/старт/i, (msg) => {
 if (admin.includes(msg.from.id)) {
 if (offirs === 1) {
 offirs = 2;
-bot.deleteMessage(chatt, del)
-del = msg.message_id
+bot.deleteMessage(chatt, del);
+del = msg.message_id;
 del++;
-bot.deleteMessage(chatt, msg.message_id)
-bot.sendMessage(chatt,'Игра стартовала, ожидайте ведущего') 
+bot.deleteMessage(chatt, msg.message_id);
+bot.sendMessage(chatt,'Игра стартовала, ожидайте ведущего');
 }
 })
 
@@ -252,7 +252,7 @@ bot.sendMessage(chatt, answ[n], {
 bot.onText(/шнс (.+)/i, (msg, match) => {
 if (admin.includes(msg.from.id)) {
 p = match[1];
-p++;
+p--;
 chose[p] = 0;
 bot.deleteMessage(chatt, msg.message_id)
 bot.sendMessage(chatt,'Выбор '+gamer[p]+' сброшен');
