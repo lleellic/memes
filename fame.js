@@ -147,7 +147,7 @@ bot.sendMessage(msg.chat.id,'Игра уже начата. Ожидайте...')
 })
 
 
-bot.on('message', function (mag) {
+bot.on('message',  (msg) => {
 if (muted.includes(msg.from.id)) {
 bot.deleteMessage(msg.chat.id, msg.message_id);
 }
