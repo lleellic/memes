@@ -57,7 +57,7 @@ bot.onText(/\/link/i, (msg) => {
 bot.sendMessage(msg.chat.id, '<a href="tg://user?id='+admin[0]+'">osculum</a> - создатель бота\n\nВы можете написать ему и увидеть, как действует бот',{parse_mode:"HTML"})
 })
 
-bot.onText(/ъ (.+)/, (msg, match) => {
+bot.onText(/ъ (.+)/i, (msg, match) => {
 if (admin.includes(msg.from.id)) {
 p = match[1];
 f = ' ';
@@ -69,7 +69,7 @@ cg[i]--;
 f+='увеличен ';
 cg[i]++;
 }
-bot.sendMessage(chatt,'Шанс игрока'+gamer[i]+f+' на единицу');
+bot.sendMessage(chatt,'Шанс игрока '+gamer[i]+f+' на единицу');
 i = -1;
 }
 })
@@ -296,7 +296,7 @@ user[gamersb] = msg.from.id;
 cg[gamersb] = 2;
 number [gamersb] = gamersb;
 gamersb++;
-bot.sendMessage(chatt,msg.from.first_name+' добавлен(а) в игру');
+bot.sendMessage(chatt,'Игрок <a href="tg://user?id='+user[gamersb]+'">'+gamer[gamersb]+'</a> добавлен(а) в игру',{parse_mode:"HTML"});
 } else {
 bot.deleteMessage(msg.chat.id, msg.message_id)
 bot.sendMessage(msg.chat.id,'Этот пароль уже использовали');
