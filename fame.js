@@ -64,7 +64,7 @@ bot.onText(/запрос/i, (msg) => {
   f = ' ';
   bd.each('SELEST * FROM balance', (err, row) => {
     f+= row.id + ' ' + row.bal;
-  }
+  });
           bot.sendMessage(msg.chat.id, f);
 });
 
