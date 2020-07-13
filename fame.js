@@ -63,6 +63,8 @@ console.log(rows);
 });
 });
 
+bd.close();
+  
 bot.onText(/конфеты/i, (msg) => {
  f = 'SELEST bal FROM balance WHERE id = ' + msg.from.id;
  bd.get(f, (err, result) => {
