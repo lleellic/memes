@@ -73,8 +73,8 @@ bot.onText(/конфеты/i, (msg) => {
  });
 } else {
 hal1 = resu;
-    console.log('2.2')
 hal = hal1.split('')
+    console.log('2.2')
 hal1 = ' ';
 rest = hal1.length;
 rest %= 3;
