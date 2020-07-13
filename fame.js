@@ -69,10 +69,11 @@ bot.onText(/конфеты/i, (msg) => {
    if (err) {
      console.error(error);
    }
+   console.log(result);
    resu = result;
  });
   bd.close();
-  if (typeof resu === "undefined") {
+  if (resu === "undefined") {
     console.log('2.1')
  f = 'INSERT INTO balance(id, bal) VALUES (' + msg.from.id + ', 0)';
  bd.run(f, (err, row) => {
