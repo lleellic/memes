@@ -4,11 +4,11 @@ var bot = new TelegramBot(token, {polling: true});
 const sqlite3 = require('sqlite3').verbose();
 var bd = new sqlite3.Database('./bot/memes/balance.db', sqlite3.OPEN_READWRITE, (err) => {
   if (err) {
-    console.error(err.message);
     f = 'CREATE TABLE balance(id int, bal int DEFAULT 0)';
     bd.run(f);
+    console.error(err.message);
   } else {
-  console.log('Соединение прошло успешно');
+    console.log('Соединение прошло успешно');
   }
 });
 var chatt; 
