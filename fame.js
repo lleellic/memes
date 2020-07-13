@@ -52,8 +52,7 @@ var inline1 = {
   }
 };
 
-bd.serialize(function() {  
-    bd.run('CREATE TABLE balance(id INTEGER, bal INTEGER)');
+bd.serialize(function() { 
     bd.run('INSERT INTO balance(id, bal) VALUES(684519513, 50)');
 });  
 
