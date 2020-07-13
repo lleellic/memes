@@ -68,7 +68,7 @@ bot.onText(/конфеты/i, (msg) => {
  });
 });
 
-bot.onText(/+(.+)/, (msg) => {
+bot.onText(/\+(.+)/, (msg) => {
   tex = msg.text;
   let text = tex.split('');
   text.splice(1, 1);
