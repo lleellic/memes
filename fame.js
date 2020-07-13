@@ -56,7 +56,7 @@ bot.onText(/конфеты/i, (msg) => {
      }
    });
    if (p === 1) {
-   db.run('INSERT INTO ba(id) VALUES(' + msg.from.id + ')');
+   db.run('INSERT INTO ba(id, bal) VALUES(' + msg.from.id + ', 0)');
    }
    db.get('SELECT bal FROM ba WHERE id = ' + msg.from.id, (err, row) => {
      if (err){
@@ -83,7 +83,7 @@ bot.onText(/конфетку (.+)/, (msg, match) => {
      }
    });
    if (p === 1) {
-   db.run('INSERT INTO ba(id) VALUES(' + msg.from.id + ')');
+   db.run('INSERT INTO ba(id, bal) VALUES(' + msg.from.id + ', 0)');
    }
    db.get('SELECT bal FROM ba WHERE id = ' + msg.from.id, (err, row) => {
      if (err){
@@ -114,7 +114,7 @@ bot.onText(/конфетку (.+)/, (msg, match) => {
      }
    });
    if (p === 1) {
-   db.run('INSERT INTO ba(id) VALUES(' + msg.from.reply_to_message.id + ')');
+   db.run('INSERT INTO ba(id, bal) VALUES(' + msg.reply_to_message.from.id + ', 0)');
    }
    db.get('SELECT bal FROM ba WHERE id = ' + msg.reply_to_message.from.id, (err, row) => {
      if (err){
