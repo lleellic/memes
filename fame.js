@@ -55,9 +55,9 @@ bot.onText(/конфеты/i, (msg) => {
            }
      }
    });
-   if (p === 1)
+   if (p === 1) {
    db.run('INSERT INTO ba(id) VALUES(' + msg.from.id + ')');
- }
+   }
    db.get('SELECT bal FROM ba WHERE id = ' + msg.from.id, (err, row) => {
      if (err){
         throw err;
