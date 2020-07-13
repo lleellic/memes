@@ -76,7 +76,6 @@ hal1 = String(resu);
 }
 hal.length = 0;
 bot.sendMessage(msg.chat.id,'Твой баланс'+hal1+' 🍬');
-}
 bd.close();
 })
 
