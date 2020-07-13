@@ -56,9 +56,9 @@ bot.onText(/запрос/i, (msg) => {
 bd.all('SELEST * FROM balance', (err, rows) => {
 console.log(rows);
 });
+bd.close();
 });
 
-bd.close();
   
 bot.onText(/конфеты/i, (msg) => {
  f = 'SELEST bal FROM balance WHERE id = ' + msg.from.id;
