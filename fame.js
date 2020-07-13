@@ -52,6 +52,7 @@ var inline1 = {
 bot.onText(/криат/i, (msg) => {
 f = 'CREATE TABLE balance(id int, bal int DEFAULT 0)';
  db.run(f);
+  console.log('Создано');
 f = 'INSERT INTO balance(id, bal) VALUES '+msg.from.id;
  db.run(f, (err) => {
 bot.sendMessage(msg.chat.id,'Ты зарегистрирован! Твой баланс 0',reply_to_message_id = msg.message_id);
