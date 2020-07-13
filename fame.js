@@ -61,8 +61,8 @@ var inline1 = {
 };
 
 bot.onText(/конфеты/i, (msg) => {
+ f = 'SELEST bal FROM balance WHERE id = ' + msg.from.id;
   console.log('0');
-f = 'SELEST bal FROM balance WHERE id = ' + msg.from.id;
  bd.each(f, (err, row) => {
    return row
    console.log('1');
