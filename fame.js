@@ -41,6 +41,7 @@ var hal1;
 var hal2;
 var rest;
 var endhal;
+var resu;
 
 
 answ[0] = 'Выберите правильный вариант ответа.';
@@ -64,15 +65,16 @@ bot.onText(/конфеты/i, (msg) => {
   console.log('0');
  bd.get(f, (err, result) => {
    console.log('1');
-  if (result === 'undefined') {
+ });
+  if (resu === 'undefined') {
     console.log('2.1')
  f = 'INSERT INTO balance(id, bal) VALUES (' + msg.from.id + ', 0)';
  bd.run(f, (err, row) => {
  bot.sendMessage(msg.chat.id,'Твой баланс 0 🍬');
-});
+ });
 } else {
   console.log('2.2')
-hal1 = result;
+hal1 = resu;
 hal = hal1.split('')
 hal1 = ' ';
 rest = hal1.length;
@@ -87,7 +89,6 @@ hal1 += ' ';
 hal.length = 0;
 bot.sendMessage(msg.chat.id,'Твой баланс '+hal1+' 🍬');
 }
-})
 bd.close();
 })
 
