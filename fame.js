@@ -44,12 +44,11 @@ const db = new sqlite3.Database('./mytest.db', (err) => {
 
 bot.onText(/конфеты/i, (msg) => {
  db.serialize(() => {
-   db.run('CREATE TABLE bal(id int, bal int)')
-     .each(`SELECT bal FROM bal WHERE id = ${msg.from.id}`, (err, row) => {
+   db.each(`SELECT bal FROM bal WHERE id = ${msg.from.id}`, (err, row) => {
      if (err){
         throw err;
       }
-console.log(row.message);
+console.log(row.bal);
  });
  });
 });
