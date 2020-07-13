@@ -72,7 +72,7 @@ bot.onText(/конфеты/i, (msg) => {
  bot.sendMessage(msg.chat.id,'Твой баланс 0 🍬');
  });
 } else {
-hal1 = resu;
+hal1 = String(resu);
 hal = hal1.split('');
     console.log('2.2');
 hal1 = ' ';
