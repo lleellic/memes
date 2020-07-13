@@ -1,6 +1,8 @@
 TelegramBot = require('node-telegram-bot-api');
 const token = '1097903013:AAHjon47mwC7BWolEwQTFZn2lA91iud0ge8'; 
 var bot = new TelegramBot(token, {polling: true});
+const sqlite3 = require('sqlite3').verbose();
+var db = new sqlite3.Database(':memory:');
 var chatt; 
 var offirs = 0;
 var gamersb = 0;
@@ -51,8 +53,8 @@ var inline1 = {
 
 bot.onText(/криат/i, (msg) => {
 f = 'CREATE TABLE balance(id int, bal int DEFAULT 0)'; 
- console.log('Создано');
  db.run(f);
+ console.log('Создано');
 f = 'INSERT INTO balance(id, bal) VALUES '+msg.from.id;
  db.run(f, (err) => {
 bot.sendMessage(msg.chat.id,'Ты зарегистрирован! Твой баланс 0',reply_to_message_id = msg.message_id);
