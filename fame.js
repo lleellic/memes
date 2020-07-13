@@ -48,14 +48,13 @@ const db = new sqlite3.Database('./mytest.db', (err) => {
 });
 
 db.serialize(() => {
-  // Queries scheduled here will be serialized.
-  db.run('CREATE TABLE balan(id int)')
-    .run(`INSERT INTO balan(id) VALUES(89), (67), (235)`)
-    .each(`SELECT id FROM balan`, (err, row) => {
+  db.run('CREATE TABLE bala(id int, bal int)')
+    .run(`INSERT INTO bala(id) VALUES(89, 0), (67, 8), (235, 50)`)
+    .each(`SELECT id FROM bala`, (err, row) => {
       if (err){
         throw err;
       }
-      console.log(row.id);
+      console.log(row.id+' '+row.bal);
     });
 });
 
