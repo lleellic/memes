@@ -44,14 +44,13 @@ const db = new sqlite3.Database('./mytest.db', (err) => {
 
 bot.onText(/конфеты/i, (msg) => {
  db.serialize(() => {
-   db.run('INSERT INTO bal(id, bal) VALUES(' +msg.from.id+ ', 50)')
+   db.run('INSERT INTO bal(id, bal) VALUES(' +msg.from.id+ ', 0)')
      .get('SELECT bal FROM bal WHERE id = ' + msg.from.id, (err, row) => {
-     console.log('2');
      if (err){
         throw err;
        console.log('error');
       } 
-     console.log(row.bal);
+     bot.sendMessage(msg.chat.id,'Твой баланс ' + row.bal +' 🍬');
  });
  });
 });
