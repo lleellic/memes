@@ -56,12 +56,10 @@ bot.onText(/конфеты/i, (msg) => {
      }
    });
  });
-     db.close();
    if (p === 1) {
       db.serialize(() => {
    db.run('INSERT INTO ba(id, bal) VALUES(' + msg.from.id + ', 0)');
    })  
-     db.close();
    }
     db.serialize(() => {
    db.get('SELECT bal FROM ba WHERE id = ' + msg.from.id, (err, row) => {
@@ -72,7 +70,6 @@ bot.onText(/конфеты/i, (msg) => {
      bot.sendMessage(msg.chat.id,'Твой баланс ' + row.bal +' 🍬');
  });
  });
-     db.close();
 });
 
 bot.onText(/\+ (.+)/, (msg, match) => {
@@ -100,15 +97,12 @@ bot.onText(/\+ (.+)/, (msg, match) => {
      resul = row.bal;
  });
  });
-     db.close();
     if (resul >= tex) {
       db.serialize(() => {
          if (msg.from.id !== admins[0]) {
       db.run('UPDATE ba SET bal = '+(resul - tex)+' WHERE id = '+msg.from.id);
          }
        });
-       db.close();
- 
   db.serialize(() => {
       db.all('SELECT id FROM ba',(err, results) => {
      if (err) {
@@ -133,8 +127,6 @@ bot.onText(/\+ (.+)/, (msg, match) => {
  });
       db.run('UPDATE ba SET bal = '+(resul + tex)+' WHERE id = '+msg.reply_to_message.from.id);
 });
-         db.close();
-    
   bot.sendMessage(msg.chat.id,'Вы передали '+msg.reply_to_message.from.firdt_name+' '+tex+' 🍬')
     } else {
       if (msg.from.id !== admins[0]) {
