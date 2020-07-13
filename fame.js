@@ -63,7 +63,7 @@ bot.onText(/конфеты/i, (msg) => {
         throw err;
        console.log('error');
       } 
-     bot.sendMessage(msg.chat.id,'Твой баланс ' + row.bal +' 🍬', reply_to_message = msg.message.id);
+     bot.sendMessage(msg.chat.id,'Твой баланс ' + row.bal +' 🍬', reply_to_message = msg.message_id);
  });
  });
 });
