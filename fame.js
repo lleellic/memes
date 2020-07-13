@@ -72,10 +72,10 @@ bot.onText(/конфеты/i, (msg) => {
  bot.sendMessage(msg.chat.id,'Твой баланс 0 🍬');
  });
 } else {
-hal1 = String(resu);
+hal1 = resu;
 }
 hal.length = 0;
-bot.sendMessage(msg.chat.id,'Твой баланс'+hal1+' 🍬');
+bot.sendMessage(msg.chat.id,'Твой баланс '+hal1+' 🍬');
 bd.close();
 })
 
