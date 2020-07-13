@@ -129,7 +129,7 @@ bot.onText(/+(.+)/, (msg) => {
       } 
      resul = row.bal
  });
-      db.run('UPDATE ba SET bal = '+(resul + tex)+' WHERE id = '+msg.reply_to_message.from.id+';);
+      db.run('UPDATE ba SET bal = '+(resul + tex)+' WHERE id = '+msg.reply_to_message.from.id);
 }) 
     
   bot.sendMessage(msg.chat.id,'Вы передали '+msg.reply_to_message.from.firdt_name+' '+tex+' 🍬')
