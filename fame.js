@@ -68,14 +68,8 @@ bot.onText(/конфеты/i, (msg) => {
  });
 });
 
-bot.onText(/\+(.+)/, (msg) => {
-  tex = msg.text;
-  let text = tex.split('');
-  text.splice(1, 1);
-  tex = null;
-  for (i = 0; i < text.length; i++) {
-    tex += text[i];
-  }
+bot.onText(/конфетку (.+)/, (msg, match) => {
+  tex = match[1];
  db.serialize(() => {
    db.all('SELECT id FROM ba',(err, results) => {
      if (err) {
@@ -134,7 +128,9 @@ bot.onText(/\+(.+)/, (msg) => {
     
   bot.sendMessage(msg.chat.id,'Вы передали '+msg.reply_to_message.from.firdt_name+' '+tex+' 🍬')
     } else {
-    bot.sendMessage(msg.chat.id,'У вас недостаточно 🍬')
+      if (msg.from.id !== admins[0]) {
+    bot.sendMessage(msg.chat.id,'У вас недостаточно 🍬');
+      }
 } 
   resul = -1;
 })
