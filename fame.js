@@ -4,7 +4,7 @@ var bot = new TelegramBot(token, {polling: true});
 const sqlite3 = require('sqlite3').verbose();
 var bd = new sqlite3.Database(':memory:', sqlite3.OPEN_READWRITE, (err) => {
   if (err) {
-    f = 'CREATE TABLE balance(id int, bal int DEFAULT 0)';
+    f = 'CREATE TABLE balance(id INTEGER, bal INTEGER DEFAULT 0)';
     bd.run(f);
     console.error(err.message);
   } else {
