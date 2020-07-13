@@ -44,8 +44,21 @@ const db = new sqlite3.Database('./mytest.db', (err) => {
 
 bot.onText(/конфеты/i, (msg) => {
  db.serialize(() => {
-   db.run('INSERT INTO ba(id) VALUES(' + msg.from.id + ')')
-     .get('SELECT bal FROM ba WHERE id = ' + msg.from.id, (err, row) => {
+   db.all('SELEST id FROM ba',(err, results) => {
+     if (err) {
+       throw err;
+     }
+     var test = results;
+     for (i = 0; i < test.lenth; i++) {
+       if (test[i].id === msg.from.id) {
+           p = 1;
+           }
+     }
+   });
+   if (p === 1)
+   db.run('INSERT INTO ba(id) VALUES(' + msg.from.id + ')');
+ }
+   db.get('SELECT bal FROM ba WHERE id = ' + msg.from.id, (err, row) => {
      if (err){
         throw err;
        console.log('error');
