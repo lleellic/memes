@@ -59,7 +59,37 @@ var inline1 = {
   }
 };
 
-
+bot.onText(/конфеты/i, (msg) => {
+ f = 'SELEST bal FROM balance WHERE id = ' + msg.from.id;
+  console.log('0');
+ bd.each(f, (err, row) => {
+   console.log('1');
+  if (row.bal === 'undefined') {
+    console.log('2.1')
+ f = 'INSERT INTO balance(id, bal) VALUES (' + msg.from.id + ', 0)';
+ bd.run(f, (err, row) => {
+ bot.sendMessage(msg.chat.id,'Твой баланс 0 🍬');
+});
+} else {
+  console.log('2.2')
+hal1 = row.bal;
+hal = hal1.split('')
+hal1 = ' ';
+rest = hal1.length;
+rest %= 3;
+for(i = 0; i < hal1.length; i++) {
+hal1+= hal[i];
+rest--;
+if (rest === 0) {
+hal1 += ' ';
+}
+}
+hal.length = 0;
+bot.sendMessage(msg.chat.id,'Твой баланс '+hal1+' 🍬');
+}
+})
+bd.close();
+})
 
 
 
