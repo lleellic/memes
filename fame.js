@@ -50,7 +50,7 @@ var inline1 = {
 };
 
 bot.onText(/криат/i, (msg) => {
-f = ('CREATE TABLE balance(id int, bal int DEFAULT 0)';
+f = 'CREATE TABLE balance(id int, bal int DEFAULT 0)';
  db.run(f);
 f = 'INSERT INTO balance(id, bal) VALUES '+msg.from.id;
  db.run(f, (err) => {
