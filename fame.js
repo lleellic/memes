@@ -65,7 +65,7 @@ bot.onText(/конфеты/i, (msg) => {
  bd.get(f, (err, result) => {
    resu = result;
  });
-  if (resu === 'undefined') {
+  if (resu === "undefined") {
     console.log('2.1')
  f = 'INSERT INTO balance(id, bal) VALUES (' + msg.from.id + ', 0)';
  bd.run(f, (err, row) => {
@@ -75,7 +75,7 @@ bot.onText(/конфеты/i, (msg) => {
 hal1 = resu;
 }
 hal.length = 0;
-bot.sendMessage(msg.chat.id,'Твой баланс '+hal1+' 🍬');
+bot.sendMessage(msg.chat.id,'Твой баланс '+resu+' 🍬');
 bd.close();
 })
 
