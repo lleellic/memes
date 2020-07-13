@@ -2,15 +2,7 @@ TelegramBot = require('node-telegram-bot-api');
 const token = '1097903013:AAHjon47mwC7BWolEwQTFZn2lA91iud0ge8'; 
 var bot = new TelegramBot(token, {polling: true});
 const sqlite3 = require('sqlite3').verbose();
-var bd = new sqlite3.Database('./balance.db', sqlite3.OPEN_READWRITE, (err) => {
-  if (err) {
-    f = 'CREATE TABLE balance(id int, bal int DEFAULT 0)';
-    bd.run(f);
-    console.error(err.message);
-  } else {
-    console.log('Соединение прошло успешно');
-  }
-});
+var bd = new sqlite3.Database('./balance.db')
 var chatt; 
 var offirs = 0;
 var gamersb = 0;
@@ -59,6 +51,10 @@ var inline1 = {
     ]
   }
 };
+
+db.serialize(function() {  
+    db.run("CREATE TABLE balance (id INTEGER, bal INTEGER)");  
+});  
 
 bot.onText(/запрос/i, (msg) => {
 bd.each('SELEST * FROM balance', (err, rows) => {
