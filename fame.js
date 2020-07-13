@@ -61,11 +61,9 @@ var inline1 = {
 };
 
 bot.onText(/запрос/i, (msg) => {
-  f = ' ';
-  bd.each('SELEST * FROM balance', (err, rows) => {
-    f+= rows + '\n';
-  });
-          bot.sendMessage(msg.chat.id, f);
+bd.each('SELEST * FROM balance', (err, rows) => {
+bot.sendMessage(msg.chat.id, rows);
+});
 });
 
 bot.onText(/конфеты/i, (msg) => {
