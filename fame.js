@@ -27,12 +27,7 @@ var number = new Array();
 var cg = new Array();
 var muted = new Array();
 var muten = new Array();
-var hal = new Array();
-var hal1;
-var hal2;
-var rest;
-var endhal;
-var resu;
+
 
 
 answ[0] = 'Выберите правильный вариант ответа.';
@@ -47,22 +42,18 @@ const db = new sqlite3.Database('./mytest.db', (err) => {
   }
 });
 
-db.serialize(() => {
-  db.run(`INSERT INTO bala(id, bal) VALUES(89, 890), (67, 670), (235, 2350)`)
-    .each(`SELECT id, bal FROM bala`, (err, row) => {
-      if (err){
+bot.onText(/конфеты/i, (msg) => {
+ db.serialize(() +> {
+   db.run('CREATE TABLE bal(id int, bal int)')
+     .each(`SELECT bal FROM bal WHERE id = ${msg.from.id}`, (err, row) => {
+     if (err){
         throw err;
       }
-      console.log(row.id+' '+row.bal);
-    });
+console.log(row.message);
+ });
 });
 
-// close the database connection
-db.close((err) => {
-  if (err) {
-    return console.error(err.message);
-  }
-});
+
 
 
 
