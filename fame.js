@@ -27,7 +27,7 @@ var number = new Array();
 var cg = new Array();
 var muted = new Array();
 var muten = new Array();
-
+var resul;
 
 
 answ[0] = 'Выберите правильный вариант ответа.';
@@ -68,7 +68,72 @@ bot.onText(/конфеты/i, (msg) => {
  });
 });
 
-
+bot.onText(/+(.+)/, (msg) => {
+  tex = msg.text;
+  let text = tex.split('');
+  text.splice(1, 1);
+  tex = null;
+  for (i = 0; i < text.length; i++) {
+    tex += text[i];
+  }
+ db.serialize(() => {
+   db.all('SELECT id FROM ba',(err, results) => {
+     if (err) {
+       throw err;
+     }
+     var test = results;
+     for (i = 0; i < test.lenth; i++) {
+       if (test[i].id === msg.from.id) {
+           p = 1;
+           }
+     }
+   });
+   if (p === 1) {
+   db.run('INSERT INTO ba(id) VALUES(' + msg.from.id + ')');
+   }
+   db.get('SELECT bal FROM ba WHERE id = ' + msg.from.id, (err, row) => {
+     if (err){
+        throw err;
+       console.log('error');
+      } 
+     resul = row.bal;
+ });
+ });
+  if (msg.from.id !== admins[0]) {
+    if (resul >= tex) {
+      db.serialize(() => {
+      db.run('UPDATE ba SET bal = '+(resul - tex)+' WHERE id = '+msg.from.id+';);
+       });
+    } else {
+    bot.sendMessage(msg.chat.id,'У вас недостаточно 🍬')
+}
+}
+  db.serialize(() => {
+      db.all('SELECT id FROM ba',(err, results) => {
+     if (err) {
+       throw err;
+     }
+     var test = results;
+     for (i = 0; i < test.lenth; i++) {
+       if (test[i].id === msg.reply_to_message.from.id) {
+           p = 1;
+           }
+     }
+   });
+   if (p === 1) {
+   db.run('INSERT INTO ba(id) VALUES(' + msg.from.reply_to_message.id + ')');
+   }
+   db.get('SELECT bal FROM ba WHERE id = ' + msg.reply_to_message.from.id, (err, row) => {
+     if (err){
+        throw err;
+       console.log('error');
+      } 
+     resul = row.bal
+ });
+      db.run('UPDATE ba SET bal = '+(resul + tex)+' WHERE id = '+msg.reply_to_message.from.id+';);
+}) 
+    resul = -1;
+})
 
 
 
