@@ -2,11 +2,11 @@ TelegramBot = require('node-telegram-bot-api');
 const token = '1097903013:AAHjon47mwC7BWolEwQTFZn2lA91iud0ge8'; 
 var bot = new TelegramBot(token, {polling: true});
 const sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database('./root/bot/memes/balance.db', sqlite3.OPEN_READWRITE, (err) => {
+var sqlite3 = new sqlite3.Database('./root/bot/memes/balance.db', sqlite3.OPEN_READWRITE, (err) => {
   if (err) {
     console.error(err.message);
     f = 'CREATE TABLE balance(id int, bal int DEFAULT 0)';
-    sqlite3.each(f);
+    sqlite3.run(f);
   } else {
   console.log('Соединение прошло успешно');
   }
