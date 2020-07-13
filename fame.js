@@ -9,7 +9,6 @@ var bd = new sqlite3.Database(':memory:', sqlite3.OPEN_READWRITE, (err) => {
     console.error(err.message);
   } else {
     console.log('Соединение прошло успешно');
-    bd.close();
   }
 });
 var chatt; 
@@ -67,7 +66,7 @@ bot.onText(/конфеты/i, (msg) => {
    console.log('1');
   if (row.bal == 'undefined') {
     console.log('2.1')
- f = 'INSERT INTO balance(id, bal) VALUES (' + msg.from.id + ')';
+ f = 'INSERT INTO balance(id, bal) VALUES (' + msg.from.id + ', 0)';
  bd.run(f, (err, row) => {
  bot.sendMessage(msg.chat.id,'Ты зарегистрирован! Твой баланс 0');
 });
