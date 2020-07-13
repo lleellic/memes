@@ -43,10 +43,9 @@ const db = new sqlite3.Database('./mytest.db', (err) => {
 });
 
 bot.onText(/конфеты/i, (msg) => {
-  console.log('1');
  db.serialize(() => {
-   console.log('МХ');
    db.each(`SELECT bal FROM bal WHERE id = ${msg.from.id}`, (err, row) => {
+     console.log('2');
      if (err){
         throw err;
        console.log('error');
