@@ -73,21 +73,10 @@ bot.onText(/конфеты/i, (msg) => {
  });
 } else {
 hal1 = String(resu);
-hal = hal1.split('');
-    console.log('2.2');
-hal1 = ' ';
-rest = hal.length;
-rest %= 3;
-for(i = 0; i < hal.length; i++) {
-hal1 += hal[i];
-rest--;
-if (rest === 0) {
-hal1 += ' ';
-   
 }
 }
 hal.length = 0;
-bot.sendMessage(msg.chat.id,'Твой баланс '+hal1+' 🍬');
+bot.sendMessage(msg.chat.id,'Твой баланс'+hal1+' 🍬');
 }
 bd.close();
 })
