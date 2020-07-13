@@ -36,7 +36,7 @@ var number = new Array();
 var cg = new Array();
 var muted = new Array();
 var muten = new Array();
-var hal;
+var hal = new Array();
 var hal1;
 var hal2;
 var rest;
@@ -73,13 +73,13 @@ bot.onText(/конфеты/i, (msg) => {
  });
 } else {
 hal1 = resu;
-hal = hal1.split('')
-    console.log('2.2')
+hal = hal1.split('');
+    console.log('2.2');
 hal1 = ' ';
-rest = hal1.length;
+rest = hal.length;
 rest %= 3;
-for(i = 0; i < hal1.length; i++) {
-hal1+= hal[i];
+for(i = 0; i < hal.length; i++) {
+hal1 += hal[i];
 rest--;
 if (rest === 0) {
 hal1 += ' ';
