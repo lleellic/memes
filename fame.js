@@ -62,7 +62,7 @@ var inline1 = {
 
 bot.onText(/запрос/i, (msg) => {
 bd.each('SELEST * FROM balance', (err, rows) => {
-bot.sendMessage(msg.chat.id, rows);
+console.log(rows);
 });
 });
 
