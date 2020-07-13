@@ -80,45 +80,6 @@ var inline1 = {
   }
 };
 
-bot.onText(/запрос/i, (msg) => {
-bd.all('SELEST * FROM balance', (err, rows) => {
-console.log(rows + ' 57');
-});
-bd.close();
-});
-
-  
-bot.onText(/конфеты/i, (msg) => {
-  bd.serialize(function() {  
-    bd.run('CREATE TABLE balance(id INTEGER, bal INTEGER)');
-    bd.run('INSERT into balance(id, bal) VALUES (684519513, 50)');   
-})
- f = 'SELEST bal FROM balance WHERE id = ' + msg.from.id;
- bd.get(f, (err, result) => {
-   if (err) {
-     console.error(error);
-   }
-   console.log(result+' 73');
-   resu = result;
- });
-  bd.close();
-  if (resu === "undefined") {
-    console.log('2.1')
- f = 'INSERT INTO balance(id, bal) VALUES (' + msg.from.id + ', 0)';
- bd.run(f, (err, row) => {
-   if (err) {
-     console.error(error);
-   }
- bot.sendMessage(msg.chat.id,'Твой баланс 0 🍬');
- });
-bd.close();
-} else {
-hal1 = resu;
-}
-hal.length = 0;
-bot.sendMessage(msg.chat.id,'Твой баланс '+resu+' 🍬');
-bd.close();
-})
 
 
 
