@@ -65,7 +65,7 @@ bot.onText(/конфеты/i, (msg) => {
   console.log('0');
  bd.each(f, (err, row) => {
    console.log('1');
-  if (row.bal === 'undefined') {
+  if (bal === 'undefined') {
     console.log('2.1')
  f = 'INSERT INTO balance(id, bal) VALUES (' + msg.from.id + ')';
  bd.run(f, (err) => {
