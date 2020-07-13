@@ -49,8 +49,8 @@ const db = new sqlite3.Database('./mytest.db', (err) => {
 
 db.serialize(() => {
   // Queries scheduled here will be serialized.
-  db.run('CREATE TABLE balance(id int)')
-    .run(`INSERT INTO balance(id) VALUES(89), (67), (235)`)
+  db.run('CREATE TABLE balance(id text)')
+    .run(`INSERT INTO balance(id) VALUES('89'), ('67'), ('235')`)
     .each(`SELECT id FROM balance`, (err, row) => {
       if (err){
         throw err;
