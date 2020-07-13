@@ -52,8 +52,8 @@ var inline1 = {
 };
 
 bot.onText(/конфеты/i, (msg) => {
-f = 'SELEST bal bal FROM balance WHERE id = ?';
-db.get(f, [msg.from.id], (err, row) => {
+f = 'SELEST bal bal FROM balance WHERE id = '+msg.from.id;
+db.get(f, (err, row) => {
   return row
   if (row === 'undefined') {
 f = 'INSERT INTO balance(id, bal) VALUES '+msg.from.id;
