@@ -6,7 +6,7 @@ var db = new sqlite3.Database('./root/bot/memes/balance.db', sqlite3.OPEN_READWR
   if (err) {
     console.error(err.message);
     f = 'CREATE TABLE balance(id int, bal int DEFAULT 0)';
-    sqlite3.run(f);
+    sqlite3.each(f);
   } else {
   console.log('Соединение прошло успешно');
   }
@@ -65,7 +65,7 @@ f = 'SELEST bal bal FROM balance WHERE id = '+msg.from.id;
   return row
   if (row.bal === 'undefined') {
  f = 'INSERT INTO balance(id, bal) VALUES '+msg.from.id;
- sqlite3.run(f, (err) => {
+ sqlite3.each(f, (err) => {
 bot.sendMessage(msg.chat.id,'Ты зарегистрирован! Твой баланс 0');
 });
 } else {
