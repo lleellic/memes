@@ -51,7 +51,7 @@ db.serialize(() => {
   // Queries scheduled here will be serialized.
   db.run('CREATE TABLE balance(id int, bal int)')
     .run(`INSERT INTO balance(id, bal) VALUES(89, 9), (67, 0), (235, 98)`)
-    .each(`SELECT id, bal FROM greetings`, (err, row) => {
+    .each(`SELECT id, bal FROM balance`, (err, row) => {
       if (err){
         throw err;
       }
