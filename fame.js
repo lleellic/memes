@@ -52,10 +52,6 @@ var inline1 = {
   }
 };
 
-bd.serialize(function() { 
-    bd.run('INSERT INTO balance(id, bal) VALUES(684519513, 50)');
-});  
-
 bot.onText(/запрос/i, (msg) => {
 bd.each('SELEST * FROM balance', (err, rows) => {
 console.log(rows);
