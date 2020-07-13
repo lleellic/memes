@@ -101,7 +101,7 @@ if (admin.includes(msg.from.id)) {
 bot.deleteMessage(msg.chat.id, msg.message_id);
 muted[muted.length] = msg.reply_to_message.from.id;
 muten[muten.length] = msg.reply_to_message.from.first_name;
-bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+msg.reply_to_message.from.id+'">'+msg.reply_to_message.from.first_name+'</a> получил мут',{parse_mode:"HTML"})
+bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+msg.reply_to_message.from.id+'">'+msg.reply_to_message.from.first_name+'</a> получил(а) мут',{parse_mode:"HTML"})
 }
 })
 
@@ -122,7 +122,7 @@ bot.deleteMessage(msg.chat.id, msg.message_id);
 p = muten.indexOf(msg.reply_to_message.from.first_name);
 muted.splice(p, 1);
 muten.splice(p, 1);
-bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+msg.reply_to_message.from.id+'">'+msg.reply_to_message.from.first_name+'</a> избавлен от мута',{parse_mode:"HTML"})
+bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+msg.reply_to_message.from.id+'">'+msg.reply_to_message.from.first_name+'</a> избавлен(а) от мута',{parse_mode:"HTML"})
 }
 })
 
