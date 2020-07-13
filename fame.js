@@ -2,11 +2,11 @@ TelegramBot = require('node-telegram-bot-api');
 const token = '1097903013:AAHjon47mwC7BWolEwQTFZn2lA91iud0ge8'; 
 var bot = new TelegramBot(token, {polling: true});
 const sqlite3 = require('sqlite3').verbose();
-var sqlite3 = new sqlite3.Database('./root/bot/memes/balance.db', sqlite3.OPEN_READWRITE, (err) => {
+var bd = new sqlite3.Database('./root/bot/memes/balance.db', sqlite3.OPEN_READWRITE, (err) => {
   if (err) {
     console.error(err.message);
     f = 'CREATE TABLE balance(id int, bal int DEFAULT 0)';
-    sqlite3.run(f);
+    bd.run(f);
   } else {
   console.log('Соединение прошло успешно');
   }
@@ -61,11 +61,11 @@ var inline1 = {
 
 bot.onText(/конфеты/i, (msg) => {
 f = 'SELEST bal bal FROM balance WHERE id = '+msg.from.id;
- sqlite3.get(f, (err, row) => {
+ bd.get(f, (err, row) => {
   return row
   if (row.bal === 'undefined') {
  f = 'INSERT INTO balance(id, bal) VALUES '+msg.from.id;
- sqlite3.each(f, (err) => {
+ bd.each(f, (err) => {
 bot.sendMessage(msg.chat.id,'Ты зарегистрирован! Твой баланс 0');
 });
 } else {
