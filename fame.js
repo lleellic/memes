@@ -54,7 +54,7 @@ var inline1 = {
 
 bot.onText(/запрос/i, (msg) => {
 bd.all('SELEST * FROM balance', (err, rows) => {
-console.log(rows);
+console.log(rows + ' 57');
 });
 bd.close();
 });
@@ -68,9 +68,9 @@ bot.onText(/конфеты/i, (msg) => {
  f = 'SELEST bal FROM balance WHERE id = ' + msg.from.id;
  bd.get(f, (err, result) => {
    if (err) {
-     console.error(error);
+     console.error(error+' 71');
    }
-   console.log(result);
+   console.log(result+' 73');
    resu = result;
  });
   bd.close();
@@ -79,7 +79,7 @@ bot.onText(/конфеты/i, (msg) => {
  f = 'INSERT INTO balance(id, bal) VALUES (' + msg.from.id + ', 0)';
  bd.run(f, (err, row) => {
    if (err) {
-     console.error(error);
+     console.error(error+' 82');
    }
  bot.sendMessage(msg.chat.id,'Твой баланс 0 🍬');
  });
