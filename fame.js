@@ -63,12 +63,18 @@ bd.close();
 bot.onText(/конфеты/i, (msg) => {
  f = 'SELEST bal FROM balance WHERE id = ' + msg.from.id;
  bd.get(f, (err, result) => {
+   if (err) {
+     console.error(error);
+   }
    resu = result;
  });
   if (resu === "undefined") {
     console.log('2.1')
  f = 'INSERT INTO balance(id, bal) VALUES (' + msg.from.id + ', 0)';
  bd.run(f, (err, row) => {
+   if (err) {
+     console.error(error);
+   }
  bot.sendMessage(msg.chat.id,'Твой баланс 0 🍬');
  });
 } else {
