@@ -51,6 +51,7 @@ bot.onText(/конфеты/i, (msg) => {
       }
 console.log(row.message);
  });
+ });
 });
 
 
