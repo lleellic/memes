@@ -62,10 +62,9 @@ var inline1 = {
 bot.onText(/конфеты/i, (msg) => {
  f = 'SELEST bal FROM balance WHERE id = ' + msg.from.id;
   console.log('0');
- bd.run(f, (err, row) => {
-   return row;
+ bd.get(f, (err, result) => {
    console.log('1');
-  if (row.bal === 'undefined') {
+  if (result === 'undefined') {
     console.log('2.1')
  f = 'INSERT INTO balance(id, bal) VALUES (' + msg.from.id + ', 0)';
  bd.run(f, (err, row) => {
@@ -73,7 +72,7 @@ bot.onText(/конфеты/i, (msg) => {
 });
 } else {
   console.log('2.2')
-hal1 = row.bal;
+hal1 = result;
 hal = hal1.split('')
 hal1 = ' ';
 rest = hal1.length;
