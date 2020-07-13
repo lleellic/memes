@@ -52,7 +52,7 @@ var inline1 = {
   }
 };
 
-db.serialize(function() {  
+bd.serialize(function() {  
     db.run("CREATE TABLE balance (id INTEGER, bal INTEGER)");  
 });  
 
