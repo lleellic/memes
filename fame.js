@@ -66,7 +66,7 @@ db.get(f, [msg.from.id], (err, row) => {
   if (row === 'undefined') {
 f = 'INSERT INTO balance(id, bal) VALUES '+msg.from.id;
  db.run(f, (err) => {
-bot.sendMessage(msg.chat.id,’Ты зарегистрирован! Твой баланс 0',{reply_to_message = msg.message_id});
+bot.sendMessage(msg.chat.id,'Ты зарегистрирован! Твой баланс 0',reply_to_message_id = msg.message_id);
 });
 } else {
 hal1 = row.bal;
@@ -82,7 +82,7 @@ hal1 += ' ';
 }
 }
 hal.length = 0;
-bot.sendMessage(msg.chat.id,'Твой баланс конфет - '+hal1,{reply_to_message_id = msg.message_id});
+bot.sendMessage(msg.chat.id,'Твой баланс конфет - '+hal1,reply_to_message_id = msg.message_id);
 }
 })
 db.close();
