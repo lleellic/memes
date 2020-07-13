@@ -68,7 +68,7 @@ bot.onText(/конфеты/i, (msg) => {
  });
 });
 
-bot.onText(/конфетку (.+)/, (msg, match) => {
+bot.onText(/\+ (.+)/, (msg, match) => {
   tex = match[1];
  db.serialize(() => {
    db.all('SELECT id FROM ba',(err, results) => {
