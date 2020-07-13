@@ -63,7 +63,7 @@ bd.close();
 bot.onText(/конфеты/i, (msg) => {
   db.serialize(function() {  
     db.run("INSERT into balance(id, bal) VALUES (684519513, 50)");   
-}  
+})
  f = 'SELEST bal FROM balance WHERE id = ' + msg.from.id;
  bd.get(f, (err, result) => {
    if (err) {
