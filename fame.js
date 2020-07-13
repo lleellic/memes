@@ -26,6 +26,12 @@ var number = new Array();
 var cg = new Array();
 var muted = new Array();
 var muten = new Array();
+var hal = new Array();
+var hal1;
+var hal2;
+var rest;
+var endhal;
+
 
 answ[0] = 'Выберите правильный вариант ответа.';
 a[0] = ' 1⃣ ';
@@ -42,6 +48,52 @@ var inline1 = {
     ]
   }
 };
+
+bot.onText(/криат/i, (msg) => {
+f = ('CREATE TABLE balance(id int, bal int DEFAULT 0)';
+ db.run(f);
+f = 'INSERT INTO balance(id, bal) VALUES '+msg.from.id;
+ db.run(f, (err) => {
+bot.sendMessage(msg.chat.id,’Ты зарегистрирован! Твой баланс 0',{reply_to_message_id = msg.message_id});
+});
+ db.close();
+})
+
+bot.onText(/конфеты/i, (msg) => {
+f = 'SELEST bal bal FROM balance WHERE id = ?';
+db.get(f, [msg.from.id], (err, row) => {
+  return row
+  if (row === 'undefined') {
+f = 'INSERT INTO balance(id, bal) VALUES '+msg.from.id;
+ db.run(f, (err) => {
+bot.sendMessage(msg.chat.id,’Ты зарегистрирован! Твой баланс 0',{reply_to_message_id = msg.message_id});
+});
+} else {
+hal1 = row.bal;
+hal = hal1.split('')
+hal1 = ' ';
+rest = hal1.length;
+rest %= 3;
+for(i = 0; i < hal1.length; i++) {
+hal1+= hal[i];
+rest--;
+if (rest === 0) {
+hal1 += ' ';
+}
+}
+hal.length = 0;
+bot.sendMessage(msg.chat.id,'Твой баланс конфет - '+hal1,{reply_to_message_id = msg.message_id});
+}
+})
+db.close();
+})
+
+
+
+
+
+
+
 
 bot.onText(/\/mute/, (msg) => {
 if (admin.includes(msg.from.id)) {
