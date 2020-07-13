@@ -2,7 +2,7 @@ TelegramBot = require('node-telegram-bot-api');
 const token = '1097903013:AAHjon47mwC7BWolEwQTFZn2lA91iud0ge8'; 
 var bot = new TelegramBot(token, {polling: true});
 const sqlite3 = require('sqlite3').verbose();
-var bd = new sqlite3.Database('./mytest.db')
+var bd = new sqlite3.Database('./balance.db')
 var chatt; 
 var offirs = 0;
 var gamersb = 0;
