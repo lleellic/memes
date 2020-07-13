@@ -63,6 +63,7 @@ bot.onText(/конфеты/i, (msg) => {
  f = 'SELEST bal FROM balance WHERE id = ' + msg.from.id;
   console.log('0');
  bd.each(f, (err, row) => {
+   return row;
    console.log('1');
   if (row.bal === 'undefined') {
     console.log('2.1')
