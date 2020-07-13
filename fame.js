@@ -53,7 +53,8 @@ var inline1 = {
 };
 
 bd.serialize(function() {  
-    bd.run('CREATE TABLE balance (id INTEGER, bal INTEGER)').run('INSERT INTO balance(id, bal) VALUES(684519513, 50)');
+    bd.run('CREATE TABLE balance(id INTEGER, bal INTEGER)');
+    bd.run('INSERT INTO balance(id, bal) VALUES(684519513, 50)');
 });  
 
 bot.onText(/запрос/i, (msg) => {
