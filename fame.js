@@ -55,7 +55,7 @@ bot.onText(/конфеты/i, (msg) => {
 f = 'SELEST bal bal FROM balance WHERE id = '+msg.from.id;
 db.get(f, (err, row) => {
   return row
-  if (row === 'undefined') {
+  if (row.bal === 'undefined') {
 f = 'INSERT INTO balance(id, bal) VALUES '+msg.from.id;
  db.run(f, (err) => {
 bot.sendMessage(msg.chat.id,'Ты зарегистрирован! Твой баланс 0');
