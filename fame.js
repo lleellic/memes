@@ -6,7 +6,7 @@ var db = new sqlite3.Database('./root/bot/memes/balance.db', sqlite3.OPEN_READWR
   if (err) {
     console.error(err.message);
     f = 'CREATE TABLE balance(id int, bal int DEFAULT 0)';
-    db.run(f);
+    sqlite3.run(f);
   } else {
   console.log('Соединение прошло успешно');
   }
@@ -61,11 +61,11 @@ var inline1 = {
 
 bot.onText(/конфеты/i, (msg) => {
 f = 'SELEST bal bal FROM balance WHERE id = '+msg.from.id;
-db.get(f, (err, row) => {
+ sqlite3.get(f, (err, row) => {
   return row
   if (row.bal === 'undefined') {
-f = 'INSERT INTO balance(id, bal) VALUES '+msg.from.id;
- db.run(f, (err) => {
+ f = 'INSERT INTO balance(id, bal) VALUES '+msg.from.id;
+ sqlite3.run(f, (err) => {
 bot.sendMessage(msg.chat.id,'Ты зарегистрирован! Твой баланс 0');
 });
 } else {
@@ -85,7 +85,7 @@ hal.length = 0;
 bot.sendMessage(msg.chat.id,'Твой баланс конфет - '+hal1);
 }
 })
-db.close();
+sqlite3.close();
 })
 
 
