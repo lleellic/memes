@@ -99,15 +99,14 @@ bot.onText(/+(.+)/, (msg) => {
      resul = row.bal;
  });
  });
-  if (msg.from.id !== admins[0]) {
     if (resul >= tex) {
       db.serialize(() => {
-      db.run('UPDATE ba SET bal = '+(resul - tex)+' WHERE id = '+msg.from.id+');
+         if (msg.from.id !== admins[0]) {
+      db.run('UPDATE ba SET bal = '+(resul - tex)+' WHERE id = '+msg.from.id);
+         }
        });
-    } else {
-    bot.sendMessage(msg.chat.id,'У вас недостаточно 🍬')
-}
-}
+    
+ 
   db.serialize(() => {
       db.all('SELECT id FROM ba',(err, results) => {
      if (err) {
@@ -132,7 +131,12 @@ bot.onText(/+(.+)/, (msg) => {
  });
       db.run('UPDATE ba SET bal = '+(resul + tex)+' WHERE id = '+msg.reply_to_message.from.id+';);
 }) 
-    resul = -1;
+    
+  bot.sendMessage(msg.chat.id,'Вы передали '+msg.reply_to_message.from.firdt_name+' '+tex+' 🍬')
+    } else {
+    bot.sendMessage(msg.chat.id,'У вас недостаточно 🍬')
+} 
+  resul = -1;
 })
 
 
