@@ -9,7 +9,7 @@ var bd = new sqlite3.Database(':memory:', sqlite3.OPEN_READWRITE, (err) => {
     console.error(err.message);
   } else {
     console.log('Соединение прошло успешно');
-    db.close();
+    bd.close();
   }
 });
 var chatt; 
