@@ -68,6 +68,7 @@ bot.onText(/конфеты/i, (msg) => {
    }
    resu = result;
  });
+  bd.close();
   if (typeof resu === "undefined") {
     console.log('2.1')
  f = 'INSERT INTO balance(id, bal) VALUES (' + msg.from.id + ', 0)';
@@ -77,6 +78,7 @@ bot.onText(/конфеты/i, (msg) => {
    }
  bot.sendMessage(msg.chat.id,'Твой баланс 0 🍬');
  });
+bd.close();
 } else {
 hal1 = resu;
 }
