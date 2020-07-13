@@ -49,13 +49,13 @@ const db = new sqlite3.Database('./mytest.db', (err) => {
 
 db.serialize(() => {
   // Queries scheduled here will be serialized.
-  db.run('CREATE TABLE greetings(message text)')
-    .run(`INSERT INTO greetings(message) VALUES('Hi'), ('Hello'), ('Welcome')`)
-    .each(`SELECT message FROM greetings`, (err, row) => {
+  db.run('CREATE TABLE balance(id int, bal int)')
+    .run(`INSERT INTO balance(id, bal) VALUES(89, 9), (67, 0), (235, 98)`)
+    .each(`SELECT id, bal FROM greetings`, (err, row) => {
       if (err){
         throw err;
       }
-      console.log(row.message);
+      console.log(row.id+' '+row.bal);
     });
 });
 
