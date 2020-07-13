@@ -61,13 +61,13 @@ var inline1 = {
 };
 
 bot.onText(/конфеты/i, (msg) => {
-f = 'SELEST bal FROM balance WHERE id = '+msg.from.id;
- bd.get(f, (err, row) => {
-  return row
+f = 'SELEST bal FROM balance WHERE id = ' + msg.from.id;
+ bd.each(f, (err, row) => {
+   return row
    console.log('1');
   if (row.bal === 'undefined') {
     console.log('2.1')
- f = 'INSERT INTO balance(id, bal) VALUES '+msg.from.id;
+ f = 'INSERT INTO balance(id, bal) VALUES ' + msg.from.id;
  bd.run(f, (err) => {
  bot.sendMessage(msg.chat.id,'Ты зарегистрирован! Твой баланс 0');
 });
