@@ -49,6 +49,7 @@ bot.onText(/конфеты/i, (msg) => {
         throw err;
       }
 console.log(row.bal);
+     console.log('Хм');
  });
  });
 });
