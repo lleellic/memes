@@ -60,7 +60,7 @@ var inline1 = {
 };
 
 bot.onText(/конфеты/i, (msg) => {
-f = 'SELEST bal bal FROM balance WHERE id = '+msg.from.id;
+f = 'SELEST bal FROM balance WHERE id = '+msg.from.id;
  bd.get(f, (err, row) => {
   return row
   if (row.bal === 'undefined') {
