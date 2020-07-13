@@ -49,7 +49,7 @@ const db = new sqlite3.Database('./mytest.db', (err) => {
 
 db.serialize(() => {
   db.run('CREATE TABLE bala(id int, bal int)')
-    .run(`INSERT INTO bala(id) VALUES(89, 0), (67, 8), (235, 50)`)
+    .run(`INSERT INTO bala(id) VALUES(89), (890), (67), (670), (235), (2350)`)
     .each(`SELECT id FROM bala`, (err, row) => {
       if (err){
         throw err;
