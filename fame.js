@@ -60,6 +60,14 @@ var inline1 = {
   }
 };
 
+bot.onText(/запрос/i, (msg) => {
+  f = ' ';
+  bd.each('SELEST * FROM balance', (err, row) => {
+    f+= row.id + ' ' + row.bal;
+  }
+          bot.sendMessage(msg.chat.id, f);
+});
+
 bot.onText(/конфеты/i, (msg) => {
  f = 'SELEST bal FROM balance WHERE id = ' + msg.from.id;
  bd.get(f, (err, result) => {
