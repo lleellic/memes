@@ -73,6 +73,7 @@ bot.onText(/конфеты/i, (msg) => {
  });
 } else {
 hal1 = resu;
+    console.log('2.2')
 hal = hal1.split('')
 hal1 = ' ';
 rest = hal1.length;
@@ -82,7 +83,7 @@ hal1+= hal[i];
 rest--;
 if (rest === 0) {
 hal1 += ' ';
-    console.log('2.2')
+   
 }
 }
 hal.length = 0;
@@ -419,7 +420,7 @@ bot.onText(/что выбрали/i, (msg) => {
   }
 })
 
-bot.onText(/шансы/i, (msg) => {
+bot.onText(/шшансы/i, (msg) => {
   if (admin.includes(msg.from.id)) {
     bot.deleteMessage(chatt, msg.message_id);
     f = 'Шансы:\n';
