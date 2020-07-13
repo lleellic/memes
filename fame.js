@@ -47,8 +47,9 @@ bot.onText(/конфеты/i, (msg) => {
    db.each(`SELECT bal FROM bal WHERE id = ${msg.from.id}`, (err, row) => {
      if (err){
         throw err;
+       console.log('error');
       }
-console.log(row.bal);
+     console.log(row.bal);
      console.log('Хм');
  });
  });
