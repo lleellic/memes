@@ -2,7 +2,6 @@ TelegramBot = require('node-telegram-bot-api');
 const token = '1097903013:AAHjon47mwC7BWolEwQTFZn2lA91iud0ge8'; 
 var bot = new TelegramBot(token, {polling: true});
 const sqlite3 = require('sqlite3').verbose();
-var bd = new sqlite3.Database('./mytest.db')
 var chatt; 
 var offirs = 0;
 var gamersb = 0;
@@ -42,7 +41,7 @@ b[0] = ' 2️⃣ ';
 c[0] = ' 3️⃣ ';
 d[0] = ' 4️⃣ ';
 
-let db = new sqlite3.Database(':memory:', (err) => {
+const db = new sqlite3.Database('./mytest.db', (err) => {
   if (err) {
     console.error(err.message);
   }
