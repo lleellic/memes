@@ -72,69 +72,7 @@ bot.onText(/конфеты/i, (msg) => {
  });
 });
 
-bot.onText(/\+ (.+)/, (msg, match) => {
-  tex = match[1];
- db.serialize(() => {
-   db.all('SELECT id FROM ba',(err, results) => {
-     if (err) {
-       throw err;
-     }
-     var test = results;
-     for (i = 0; i < test.lenth; i++) {
-       if (test[i].id === msg.from.id) {
-           p = 1;
-           }
-     }
-   });
-   if (p === 1) {
-   db.run('INSERT INTO ba(id, bal) VALUES(' + msg.from.id + ', 0)');
-   }
-   db.get('SELECT bal FROM ba WHERE id = ' + msg.from.id, (err, row) => {
-     if (err){
-        throw err;
-       console.log('error');
-      } 
-     resul = row.bal;
- });
- });
-    if (resul >= tex) {
-      db.serialize(() => {
-         if (msg.from.id !== admins[0]) {
-      db.run('UPDATE ba SET bal = '+(resul - tex)+' WHERE id = '+msg.from.id);
-         }
-       });
-  db.serialize(() => {
-      db.all('SELECT id FROM ba',(err, results) => {
-     if (err) {
-       throw err;
-     }
-     var test = results;
-     for (i = 0; i < test.lenth; i++) {
-       if (test[i].id === msg.reply_to_message.from.id) {
-           p = 1;
-           }
-     }
-   });
-   if (p === 1) {
-   db.run('INSERT INTO ba(id, bal) VALUES(' + msg.reply_to_message.from.id + ', 0)');
-   }
-   db.get('SELECT bal FROM ba WHERE id = ' + msg.reply_to_message.from.id, (err, row) => {
-     if (err){
-        throw err;
-       console.log('error');
-      } 
-     resul = row.bal
- });
-      db.run('UPDATE ba SET bal = '+(resul + tex)+' WHERE id = '+msg.reply_to_message.from.id);
-});
-  bot.sendMessage(msg.chat.id,'Вы передали '+msg.reply_to_message.from.firdt_name+' '+tex+' 🍬')
-    } else {
-      if (msg.from.id !== admins[0]) {
-    bot.sendMessage(msg.chat.id,'У вас недостаточно 🍬');
-      }
-} 
-  resul = -1;
-})
+
 
 
 
