@@ -53,7 +53,7 @@ var inline1 = {
 };
 
 bot.onText(/запрос/i, (msg) => {
-bd.each('SELEST * FROM balance', (err, rows) => {
+bd.all('SELEST * FROM balance', (err, rows) => {
 console.log(rows);
 });
 });
