@@ -102,7 +102,7 @@ bot.onText(/+(.+)/, (msg) => {
   if (msg.from.id !== admins[0]) {
     if (resul >= tex) {
       db.serialize(() => {
-      db.run('UPDATE ba SET bal = '+(resul - tex)+' WHERE id = '+msg.from.id+';);
+      db.run('UPDATE ba SET bal = '+(resul - tex)+' WHERE id = '+msg.from.id+');
        });
     } else {
     bot.sendMessage(msg.chat.id,'У вас недостаточно 🍬')
