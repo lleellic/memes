@@ -44,7 +44,7 @@ const db = new sqlite3.Database('./mytest.db', (err) => {
 
 bot.onText(/конфеты/i, (msg) => {
  db.serialize(() => {
-   db.all('SELEST id FROM ba',(err, results) => {
+   db.all('SELECT id FROM ba',(err, results) => {
      if (err) {
        throw err;
      }
