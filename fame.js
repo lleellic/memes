@@ -36,7 +36,7 @@ var number = new Array();
 var cg = new Array();
 var muted = new Array();
 var muten = new Array();
-var hal = new Array();
+var hal;
 var hal1;
 var hal2;
 var rest;
