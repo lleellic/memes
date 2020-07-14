@@ -66,7 +66,7 @@ db.run('INSERT INTO ba(id, bal) SELECT '+msg.from.id+', 0 FROM ba WHERE NOT EXIS
   if (err) {
     throw err;
   }
-bot.sendMessage(msg.chat.id, 'Твой баланс ' + row.bal + ' 🍬', {reply_to_message_id:msg.message_id} )
+bot.sendMessage(msg.chat.id, 'Твой баланс ' + row.bal + ' 🍬', {reply_to_message_id:msg.message_id})
 
 });
 });
@@ -81,14 +81,17 @@ db.run('INSERT INTO ba(id, bal) SELECT '+msg.from.id+', 0 FROM ba WHERE NOT EXIS
   if (err) {
     throw err;
   }
-  resul = row.bal;
-});
-});
-  if (resul >= tex) {
-    bot.sendMessage(msg.chat.id,' ');
+ if (row.bal >= tex) {
+    bot.sendMessage(msg.chat.id,' ', {reply_to_message_id:msg.message_id});
   } else {
-    bot.sendMessage(msg.chat.id,'У вас недостаточно 🍬 ('+row.bal+')');
+    bot.sendMessage(msg.chat.id,'У вас недостаточно 🍬 ('+row.bal+')', {reply_to_message_id:msg.message_id});
   }
+  
+  
+  
+  
+});
+});  
 })
 
 bot.onText(/^бонус (.+) (.+)/i, (msg, match) => {
