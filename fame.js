@@ -66,12 +66,12 @@ db.serialize(() => {
   db.query('SELECT bal FROM ba WHERE id ='+msg.from.id, (err, result) => {
     if (err) throw err;
     console.log(result)
-    if (result == undefined) {
+   // if (result == undefined) {
     //  db.run('INSERT INTO ba(id, bal) VALUES('+msg.from.id+', 0)')
-      bot.sendMessage(msg.chat.id,'Твой баланс 0 🍬', {reply_to_message_id:msg.message_id})
-    } else {
-      bot.sendMessage(msg.chat.id,'Твой баланс 0 🍬', {reply_to_message_id:msg.message_id})
-    }
+   //   bot.sendMessage(msg.chat.id,'Твой баланс 0 🍬', {reply_to_message_id:msg.message_id})
+  //  } else {
+  //    bot.sendMessage(msg.chat.id,'Твой баланс 0 🍬', {reply_to_message_id:msg.message_id})
+  //  }
   })
 })
 })
