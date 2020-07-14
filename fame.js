@@ -50,10 +50,10 @@ db.run('INSERT INTO ba(id, bal) SELECT '+msg.from.id+', 0 FROM ba WHERE NOT EXIS
   if (err) {
     throw err;
   }
-console.log(row.bal)
+bot.sendMessage(msg.chat.id, 'Твой баланс ' + row.bal + ' 🍬', {reply_to_message_id:msg.message_id} )
+
 });
 });
-bot.sendMessage(msg.chat.id, 'Твой баланс ' + admin[0] + ' 🍬', {reply_to_message_id:msg.message_id} )
 });
 
 bot.onText(/^\$(.+)/, (msg) => {
