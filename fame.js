@@ -52,7 +52,7 @@ bot.onText(/^показать бд/i, (msg) => {
       }
       f = '';
       for (i in row) {
-        f += row[i].id + row[i].bal +'\n';
+        f += row[i].id +' '+ row[i].bal +'\n';
       }
       bot.sendMessage(msg.chat.id, f);
     })
