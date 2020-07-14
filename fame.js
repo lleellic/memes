@@ -63,7 +63,9 @@ bot.onText(/^показать бд/i, (msg) => {
 
 db.serialize(() => {
  db.get('SELECT bal FROM ba WHERE id = 897', (err, row) => {
-   console.log(row)
+  if (row == 'undefined') {
+   console.log('1')
+  }
    if (err) {
      throw (err);
    }
