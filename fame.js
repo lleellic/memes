@@ -75,6 +75,12 @@ db.run('INSERT INTO ba(id, bal) SELECT '+msg.from.id+', 0 FROM ba WHERE NOT EXIS
   }
 })
 
+bot.onText(/^бонус (.+) (.+)/, (msg, match) => {
+  pid = match[1];
+  psum = match[2];
+  console.log(pid + ' ' + psum)
+  })
+
 
 var inline1 = {
   reply_markup:{
