@@ -51,7 +51,7 @@ db.run('INSERT INGNORE INTO ba(id, bal) VALUE(' + msg.from.id + ', 0)')
   }
   bot.sendMessage(msg.chat.id, 'Твой баланс ' + row.bal + ' 🍬')
 });
-
+});
 
 });
 
