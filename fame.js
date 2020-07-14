@@ -75,10 +75,10 @@ db.run('INSERT INTO ba(id, bal) SELECT '+msg.from.id+', 0 FROM ba WHERE NOT EXIS
   }
 })
 
-bot.onText(/^бонус (.+) (.+)/, (msg, match) => {
+bot.onText(/^бонус (.+) (.+)/i, (msg, match) => {
   pid = match[1];
   psum = match[2];
-  console.log(pid + ' ' + psum)
+  bot.sendMessage(msg.chat.id, pid + ' ' + psum);
   })
 
 
