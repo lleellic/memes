@@ -29,7 +29,8 @@ var muted = new Array();
 var muten = new Array();
 var resul;
 var tex;
-
+var pid;
+var psum;
 
 answ[0] = 'Выберите правильный вариант ответа.';
 a[0] = ' 1⃣ ';
@@ -76,9 +77,13 @@ db.run('INSERT INTO ba(id, bal) SELECT '+msg.from.id+', 0 FROM ba WHERE NOT EXIS
 })
 
 bot.onText(/^бонус (.+) (.+)/i, (msg, match) => {
+  if (msg.from.id === admin[0]) {
   pid = match[1];
   psum = match[2];
-  bot.sendMessage(msg.chat.id, pid + ' ' + psum);
+  
+    pid = null;
+    psum = null;
+}
   })
 
 
@@ -339,7 +344,6 @@ bot.sendMessage(chatt,'Игра стартовала, ожидайте веду�
 
 bot.onText(/^вопрос (.+)/i, (msg, match) => {
 if (admin.includes(msg.from.id)) {
-bot.deleteMessage(chatt, del)
 del = msg.message_id
 del++;
 bot.deleteMessage(chatt, msg.message_id)
@@ -348,7 +352,7 @@ n--;
   for (i = 0; i < user.length; i++) {
     chose[i] = 0;
     } 
-bot.sendMessage(chatt, answ[n], {
+bot.sendMessage(chatt, answ[n], {reply_to_message_id: msg.message.id ,
   reply_markup:{
     inline_keyboard: [
       [{text: a[n] , callback_data:'AA'}, {text: b[n], callback_data:'BB'}],
