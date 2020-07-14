@@ -43,11 +43,11 @@ const db = new sqlite3.Database('./mytest.db', (err) => {
 });
 
 db.serialize(() => {
- db.all('SELECT id FROM ba',(err, rows) => {
+ db.all('SELECT * FROM ba',(err, rows) => {
      if (err) {
        throw err;
      }
-           console.log(rows.id);
+           console.log(rows.id + ' ' + rows.bal);
    });
  });
 
