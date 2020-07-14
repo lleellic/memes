@@ -57,6 +57,7 @@ bot.onText(/^показать бд/i, (msg) => {
     })
     bot.sendMessage(msg.chat.id, f)
   })
+  })
   }
 })
 
