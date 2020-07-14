@@ -112,7 +112,8 @@ bot.onText(/^бонус (.+) (.+)/i, (msg, match) => {
            resul = {bal: row.bal}
                    }
          });
-           db.run('UPDATE ba3 SET bal = '+(resul.bal + psum)+' WHERE id = '+pid);
+    resul.bal += psum;
+           db.run('UPDATE ba3 SET bal = '+(resul.bal)+' WHERE id = '+pid);
     bot.sendMessage(msg.chat.id,'Бонус '+psum+' 🍬 передан успешно!')
     bot.sendMessage(pid,'Вам бонус! '+psum+' 🍬')
     pid = null;
