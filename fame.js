@@ -68,7 +68,7 @@ if (err) {
   throw err;
 }
 })
-.get('SELECT bal FROM ba WHERE id ='msg.from.id, (err, row) => {
+db.get('SELECT bal FROM ba WHERE id ='msg.from.id, (err, row) => {
   bot.sendMessage(mag.chat.id,'Твой баланс '+row.bal+' 🍬', {reply_to_message_id:msg.message_id})
 })
 })
