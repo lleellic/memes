@@ -54,7 +54,10 @@ bot.onText(/^показать бд/i, (msg) => {
         throw err;
       }
       f = '';
-      console.log(row)
+      for (i in row) {
+        f+= row.id + ' - ' + row.bal+'\n';
+      }
+      bot.sendMessage(msg.chat.id, f)
     })
   })
   }
@@ -65,7 +68,7 @@ db.serialize(() => {
   db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, result) => {
     if (err) throw err;
     if (result == undefined) {
-    db.run('INSERT INTO ba2(id, bal) VALUES('+msg.from.id+', 0)')
+    db.run('INSERT INTO ba3(id, bal) VALUES('+msg.from.id+', 0)')
   bot.sendMessage(msg.chat.id,'Твой баланс 0 🍬', {reply_to_message_id:msg.message_id})
   } else {
    bot.sendMessage(msg.chat.id,'Твой баланс '+result.bal+' 🍬', {reply_to_message_id:msg.message_id})
