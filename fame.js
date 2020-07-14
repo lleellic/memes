@@ -88,7 +88,8 @@ bot.onText(/^\$(.+)/, (msg) => {
     db.run('SELECT * FROM ba WHERE id ='+msg.from.id, (err, row) => {
   if (err) {
     throw err;
-  } else if (row) {
+  } 
+   if (row) {
    db.get('SELECT bal FROM ba WHERE id = ' + msg.from.id, (err, row) => {
   if (err) {
     throw err;
@@ -116,7 +117,7 @@ bot.onText(/^\$(.+)/, (msg) => {
     bot.sendMessage(msg.chat.id, 'У вас недостаточно 🍬 (0)', {reply_to_message_id:msg.message_id})
   }
 })
-});  
+}) 
 })
 
   
