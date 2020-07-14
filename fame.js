@@ -63,7 +63,7 @@ bot.onText(/^показать бд/i, (msg) => {
 
 bot.onText(/^конфеты/i, (msg) => {
 db.serialize(() => {
-  db.query('SELECT bal FROM ba WHERE id ='+msg.from.id, (err, result) => {
+  db.get('SELECT bal FROM ba WHERE id ='+msg.from.id, (err, result) => {
     if (err) throw err;
     console.log(result)
    // if (result == undefined) {
