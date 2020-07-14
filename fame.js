@@ -50,11 +50,10 @@ bot.onText(/^показать бд/i, (msg) => {
   if (msg.from.id === admin[0]) {
   db.serialize(() => {
      f = '';
-    db.each('SELECT id, bal FROM ba3', (err, row) => {
+    db.all('SELECT id, bal FROM ba3', (err, row) => {
       if (err) throw err;
-     
-      for (i in row) {
-        f+= row.id + ' - ' + row.bal + '\n';
+      row.forEach((row) => {
+        f += row+'\n';
       }
     })
     bot.sendMessage(msg.chat.id, f)
