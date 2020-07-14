@@ -47,7 +47,7 @@ db.serialize(() => {
      if (err) {
        throw err;
      }
-           console.log(rows);
+           console.log(rows.id);
    });
  });
 
