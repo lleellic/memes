@@ -66,9 +66,6 @@ db.serialize(() => {
   if (row == 'undefined') {
    console.log('1')
   }
-   if (err) {
-     throw (err);
-   }
   console.log(row.bal)
  })
 })
