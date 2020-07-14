@@ -89,8 +89,9 @@ bot.onText(/^\$(.+)/, (msg) => {
       .get('SELECT bal FROM ba WHERE id = ' + msg.reply_to_message.from.id , (err, row) => {
   if (err) {
     throw err;
+  }
     db.run('UPDATE ba SET bal = '+(row.bal+tex)+' WHERE id = '+msg.reply_to_message.from.id)
-  })
+  });
     db.get('SELECT bal FROM ba WHERE id = ' + msg.from.id, (err, row) => {
   if (err) {
     throw err;
