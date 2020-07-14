@@ -55,8 +55,8 @@ bot.onText(/^показать бд/i, (msg) => {
       for (i in row) {
         f+= row.id + ' - ' + row.bal + '\n';
       }
-     bot.sendMessage(msg.chat.id, f)
     })
+    bot.sendMessage(msg.chat.id, f)
   })
   }
 })
