@@ -344,15 +344,15 @@ bot.sendMessage(chatt,'Игра стартовала, ожидайте веду�
 
 bot.onText(/^вопрос (.+)/i, (msg, match) => {
 if (admin.includes(msg.from.id)) {
+bot.deleteMessage(chatt, del)
 del = msg.message_id
 del++;
-bot.deleteMessage(chatt, msg.message_id)
 n = match[1];
 n--;
   for (i = 0; i < user.length; i++) {
     chose[i] = 0;
     } 
-bot.sendMessage(chatt, answ[n], {reply_to_message_id: msg.message.id ,
+bot.sendMessage(chatt, answ[n], {reply_to_message_id: msg.message_id ,
   reply_markup:{
     inline_keyboard: [
       [{text: a[n] , callback_data:'AA'}, {text: b[n], callback_data:'BB'}],
