@@ -49,7 +49,7 @@ const db = new sqlite3.Database('./mytest.db', (err) => {
 bot.onText(/^показать бд/i, (msg) => {
   if (msg.from.id === admin[0]) {
   db.serialize(() => {
-    db.all('SELECT * FROM ba3', (err, row) => {
+    db.all('SELECT id, bal FROM ba3', (err, row) => {
       if (err) {
         throw err;
       }
