@@ -120,12 +120,13 @@ bot.onText(/^бонус (.+) (.+)/i, (msg, match) => {
   }
      db.run('INSERT INTO ba(bal) VOLUME ('+(row.bal+psum)+') WHERE id = '+pid);
   })
+  })
   bot.sendMessage(pid,'Вам бонус '+psum+' 🍬 от разработчика бота (/link)');
   bot.sendMessage(msg.chat.id,'Бонус '+psum+' 🍬 отправлен');
   pid = null;
   psum = null;
-}
-  })
+  }
+})
 
 
 var inline1 = {
