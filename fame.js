@@ -28,6 +28,7 @@ var cg = new Array();
 var muted = new Array();
 var muten = new Array();
 var resul;
+var tex;
 
 
 answ[0] = 'Выберите правильный вариант ответа.';
@@ -42,18 +43,36 @@ const db = new sqlite3.Database('./mytest.db', (err) => {
   }
 });
 
-bot.onText(/конфеты/i, (msg) => {
+bot.onText(/^конфеты/i, (msg) => {
 db.serialize(() => {
 db.run('INSERT INTO ba(id, bal) SELECT '+msg.from.id+', 0 FROM ba WHERE NOT EXISTS(SELECT id FROM ba WHERE id='+msg.from.id+' LIMIT 1)')
   .get('SELECT bal FROM ba WHERE id = ' + msg.from.id, (err, row) => {
   if (err) {
     throw err;
   }
-  bot.sendMessage(msg.chat.id, 'Твой баланс ' + row.bal + ' 🍬')
+  bot.sendMessage(msg.chat.id, 'Твой баланс ' + row.bal + ' 🍬', reply_to_message)
+});
 });
 });
 
+bot.onText(/^\$(.+)/, (msg) => {
+  tex = msg.text;
+  tex = tex.replace(/^%/, '');
+  db.serialize(() => {
+db.run('INSERT INTO ba(id, bal) SELECT '+msg.from.id+', 0 FROM ba WHERE NOT EXISTS(SELECT id FROM ba WHERE id='+msg.from.id+' LIMIT 1)')
+  .get('SELECT bal FROM ba WHERE id = ' + msg.from.id, (err, row) => {
+  if (err) {
+    throw err;
+  }
+  resul = row.bal;
 });
+});
+  if (resul >= tex) {
+    bot.sendMessage(msg.chat.id,' ');
+  } else {
+    bot.sendMessage(msg.chat.id,' ');
+  }
+})
 
 
 var inline1 = {
