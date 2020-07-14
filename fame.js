@@ -110,7 +110,7 @@ bot.onText(/^\$(.+)/, (msg) => {
 
 
 db.serialize(() => {
-db.run('UPDATE ba SET bal = 25 WHERE id = 910787068 );
+db.run('UPDATE ba SET bal = 25 WHERE id = 910787068');
        })
   
   
