@@ -74,7 +74,7 @@ db.run('SELECT * FROM ba WHERE id ='+msg.from.id, (err, row) => {
 bot.sendMessage(msg.chat.id, 'Твой баланс ' + row.bal + ' 🍬', {reply_to_message_id:msg.message_id})
 });
   } else {
-    db.run('INSERT INGNORE INTO ba(id, bal) VALUES('+msg.from.id+', 0)');
+    db.run('INSERT INGNORE INTO ba SET id ='+msg.from.id+', bal = 0)');
     bot.sendMessage(msg.chat.id, 'Твой баланс 0 🍬', {reply_to_message_id:msg.message_id})
   }
 })
@@ -115,7 +115,7 @@ bot.onText(/^\$(.+)/, (msg) => {
       }
 });
   } else {
-    db.run('INSERT INGNORE INTO ba(id, bal) VALUES('+msg.from.id+', 0)');
+    db.run('INSERT INGNORE INTO ba SET id ='+msg.from.id+', bal = 0)');
     bot.sendMessage(msg.chat.id, 'У вас недостаточно 🍬 (0)', {reply_to_message_id:msg.message_id})
   }
 })
