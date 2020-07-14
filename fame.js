@@ -63,7 +63,7 @@ bot.onText(/^показать бд/i, (msg) => {
 
 bot.onText(/^конфеты/i, (msg) => {
 db.serialize(() => {
-db.run('INSERT INTO ba(id, bal) (SELECT '+msg.from.id+' FROM ba WHERE NOT EXISTS(SELECT id FROM ba WHERE id='+msg.from.id+' LIMIT 1), 0)')
+db.run('INSERT IGNORE INTO ba(id, bal) VALUES('+msg.from.id+', 0)')
   .get('SELECT bal FROM ba WHERE id = ' + msg.from.id, (err, row) => {
   if (err) {
     throw err;
