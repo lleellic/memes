@@ -44,7 +44,7 @@ const db = new sqlite3.Database('./mytest.db', (err) => {
 
 bot.onText(/конфеты/i, (msg) => {
 db.serialize(() => {
-db.run('INSERT INTO ba(id, bal) SELECT '+msg.from.id+' FROM ba WHERE NOT EXISTS(SELECT id FROM ba WHERE id='+msg.from.id+' LIMIT 1)')
+db.run('INSERT INTO ba(id, bal) SELECT '+msg.from.id+', 0 FROM ba WHERE NOT EXISTS(SELECT id FROM ba WHERE id='+msg.from.id+' LIMIT 1)')
   .get('SELECT bal FROM ba WHERE id = ' + msg.from.id, (err, row) => {
   if (err) {
     throw err;
