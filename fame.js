@@ -380,6 +380,7 @@ if(admin.includes(msg.from.id)) {
 gamer[gamersb] =  msg.reply_to_message.from.first_name;
 user[gamersb] = msg.reply_to_message.from.id;
 cg[gamersb] = 2;
+chose[gamersb] = 0;
 gamersb++;
 bot.sendMessage(chatt,'Игрок <a href="tg://user?id='+msg.reply_to_message.from.id+'">'+msg.reply_to_message.from.first_name+'</a> добавлен(а) в игру',{parse_mode:"HTML"});
 }
