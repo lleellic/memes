@@ -54,7 +54,7 @@ bot.onText(/^показать бд/i, (msg) => {
         throw err;
       }
       f = '';
-      condsole.log(row)
+      console.log(row)
      // bot.sendMessage(msg.chat.id, f)
     })
   })
