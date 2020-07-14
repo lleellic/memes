@@ -77,7 +77,6 @@ db.serialize(() => {
 bot.onText(/^\$(.+)/, (msg) => {
   tex = msg.text;
   tex = tex.replace(/^$/, '');
-  if (tex > 0) {
   db.serialize(() => {
           db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, row) => {
        if (!row) db.run('INSERT INTO ba3(id, bal) VALUES('+msg.from.id+', 0)')
@@ -99,7 +98,6 @@ bot.onText(/^\$(.+)/, (msg) => {
        }
      });
   })
- } 
 })
 
 
