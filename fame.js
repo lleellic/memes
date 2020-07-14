@@ -45,10 +45,10 @@ const db = new sqlite3.Database('./mytest.db', (err) => {
 });
 
 
-bot.onText(/^del (.+)/i, (msg) => {
+bot.onText(/^del (.+)/i, (msg, match) => {
   if (msg.from.id == admin[0]) {
    db.serialize(() => {
-     db.run('DELETE FROM ba3 WHERE bal ='+match[1])
+     db.run('DELETE FROM ba3 WHERE id ='+match[1])
    })
 }
 })
