@@ -47,12 +47,7 @@ db.serialize(() => {
      if (err) {
        throw err;
      }
-     var test = results;
-     for (i = 0; i < test.lenth; i++) {
-       if (test[i].id === msg.from.id) {
-           console.log(test[i].id);
-           }
-     }
+           console.log(result);
    });
  });
 
