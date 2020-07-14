@@ -64,7 +64,7 @@ bot.onText(/^показать бд/i, (msg) => {
 bot.onText(/^конфеты/i, (msg) => {
 db.serialize(() => {
   db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, result) => {
-    if (return row) {
+    if (row) {
       bot.sendMessage(msg.chat.id,'Твой баланс '+result.bal+' 🍬', {reply_to_message_id:msg.message_id}) 
     } else {
        db.run('INSERT INTO ba3(id, bal) VALUES('+msg.from.id+', 0)')
