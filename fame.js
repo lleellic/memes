@@ -75,7 +75,7 @@ bot.sendMessage(msg.chat.id, 'Твой баланс ' + row.bal + ' 🍬', {repl
 });
   } else {
     db.run('INSERT INTO ba(id, bal) VALUES('+msg.from.id+', 0)');
-    bot.sendMessage(msg.chat.id, 'Твой баланс 00 🍬', {reply_to_message_id:msg.message_id})
+    bot.sendMessage(msg.chat.id, 'Твой баланс 0 🍬', {reply_to_message_id:msg.message_id})
   }
 })
 });
@@ -85,32 +85,37 @@ bot.onText(/^\$(.+)/, (msg) => {
   tex = msg.text;
   tex = tex.replace(/^$/, '');
   db.serialize(() => {
-  db.run('INSERT INTO ba(id, bal) VOLUME(SELECT '+msg.from.id+' FROM ba WHERE NOT EXISTS(SELECT id FROM ba WHERE id='+msg.from.id+' LIMIT 1), 0)')
-    .get('SELECT bal FROM ba WHERE id = ' + msg.from.id, (err, row) => {
+    db.run('SELECT * FROM ba WHERE id ='+msg.from.id, (err, row) => {
+  if (err) {
+    throw err;
+  } else if (row) {
+   db.get('SELECT bal FROM ba WHERE id = ' + msg.from.id, (err, row) => {
   if (err) {
     throw err;
   }
-    if (tex <= 0) {
-      bot.sendMessage(msg.chat.id,'Нельзя столько передавать 🤪', {reply_to_message_id:msg.message_id});
-    } else if (row.bal >= tex) {
-    db.run('INSERT INTO ba(id, bal) VOLUME(SELECT '+msg.reply_to_message.from.id+' FROM ba WHERE NOT EXISTS(SELECT id FROM ba WHERE id='+msg.reply_to_message.from.id+' LIMIT 1), 0)')
-      .get('SELECT bal FROM ba WHERE id = ' + msg.reply_to_message.from.id , (err, row) => {
-  if (err) {
-    throw err;
-  }
-    db.run('UPDATE ba SET bal = '+(row.bal+tex)+' WHERE id = '+msg.reply_to_message.from.id)
-  });
-    db.get('SELECT bal FROM ba WHERE id = ' + msg.from.id, (err, row) => {
-  if (err) {
-    throw err;
-  }
-    db.run('UPDATE ba SET bal = '+(row.bal-tex)+' WHERE id ='+msg.from.id)
-    })
-    bot.sendMessage(msg.chat.id,'Вы передали '+msg.reply_to_message.from.first_name+' '+tex+' 🍬\n Ваш баланс '+(row.bal - tex)+' 🍬', {reply_to_message_id:msg.message_id});
-  } else {
-    bot.sendMessage(msg.chat.id,'У вас недостаточно 🍬 ('+row.bal+')', {reply_to_message_id:msg.message_id});
-  }
+      if (tex <= 0) {
+         bot.sendMessage(msg.chat.id,'Нельзя столько передавать 🤪', {reply_to_message_id:msg.message_id});
+      } else if (tex >= row.bal) {
+        db.get('SELECT bal FROM ba WHERE id = ' + msg.reply_to_message.from.id , (err, row) => {
+          if (err) {
+            throw err;
+          }
+        db.run('UPDATE ba SET bal = '+(row.bal+tex)+' WHERE id = '+msg.reply_to_message.from.id)
+        .get('SELECT bal FROM ba WHERE id = ' + msg.from.id , (err, row) => {
+          if (err) {
+            throw err;
+          }
+        db.run('UPDATE ba SET bal = '+(row.bal-tex)+' WHERE id = '+msg.from.id)
+        bot.sendMessage(msg.chat.id,'Вы передали '+msg.reply_to_message.from.first_name+' '+tex+' 🍬\n Ваш баланс '+(row.bal - tex)+' 🍬', {reply_to_message_id:msg.message_id});
+      } else {
+       bot.sendMessage(msg.chat.id,'У вас недостаточно 🍬 ('+row.bal+')', {reply_to_message_id:msg.message_id});
+      }
 });
+  } else {
+    db.run('INSERT INTO ba(id, bal) VALUES('+msg.from.id+', 0)');
+    bot.sendMessage(msg.chat.id, 'У вас недостаточно 🍬 (0)', {reply_to_message_id:msg.message_id})
+  }
+})
 });  
 })
 
