@@ -27,7 +27,7 @@ var number = new Array();
 var cg = new Array();
 var muted = new Array();
 var muten = new Array();
-var resul = {bal; 0};
+var resul = {bal: 0};
 var tex;
 var pid;
 var psum;
