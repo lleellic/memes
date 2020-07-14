@@ -44,9 +44,7 @@ const db = new sqlite3.Database('./mytest.db', (err) => {
   }
 });
 
-db.serialize(() => {
- db.run('CREATE TABLE ba3(id int, bal int)')
-})
+
 
 bot.onText(/^показать бд/i, (msg) => {
   if (msg.from.id === admin[0]) {
@@ -56,10 +54,7 @@ bot.onText(/^показать бд/i, (msg) => {
         throw err;
       }
       f = '';
-      for (i in row) {
-        f += row[i].id +' - '+ row[i].bal +' 🍬\n';
-      }
-      bot.sendMessage(msg.chat.id, f);
+      console.log(row)
     })
   })
   }
