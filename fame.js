@@ -45,7 +45,13 @@ const db = new sqlite3.Database('./mytest.db', (err) => {
 });
 
 
-
+bot.onText(/^del (.+)/i, (msg) => {
+  if (msg.from.id == admin[0]) {
+   db.serialize(() => {
+     db.run('DELETE FROM ba3 WHERE id ='+match[1])
+   })
+}
+})
 
 bot.onText(/^показать бд/i, (msg) => {
   if (msg.from.id === admin[0]) {
