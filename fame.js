@@ -72,6 +72,7 @@ db.serialize(() => {
     }
   })
 })
+})
 
 var inline1 = {
   reply_markup:{
