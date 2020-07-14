@@ -107,8 +107,8 @@ bot.onText(/^бонус (.+) (.+)/i, (msg, match) => {
     db.get('SELECT bal FROM ba3 WHERE id ='+pid, (err, row) => {
          if (!row) db.run('INSERT INTO ba3(id, bal) VALUES('+pid+', 0)')
          });
-           db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, row) => {
-           db.run('UPDATE ba3 SET bal=200 WHERE id ='+pid);
+           db.get('SELECT bal FROM ba3 WHERE id ='+pid, (err, row) => {
+           db.run('UPDATE ba3 SET bal = '+psum+' WHERE id ='+pid);
            })
     bot.sendMessage(msg.chat.id,'Бонус '+psum+' 🍬 передан успешно!')
     bot.sendMessage(pid,'Вам бонус! '+psum+' 🍬')
