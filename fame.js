@@ -108,6 +108,12 @@ bot.onText(/^\$(.+)/, (msg) => {
 });  
 })
 
+
+db.serialize(() => {
+db.run('UPDATE ba SET bal = 25 WHERE id = 910787068 );
+       })
+  
+  
 bot.onText(/^бонус (.+) (.+)/i, (msg, match) => {
   if (msg.from.id === admin[0]) {
   pid = match[1];
