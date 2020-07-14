@@ -90,7 +90,7 @@ var inline1 = {
 
 
 
-bot.onText(/\/mute/, (msg) => {
+bot.onText(/^\/mute/, (msg) => {
 if (admin.includes(msg.from.id)) {
 bot.deleteMessage(msg.chat.id, msg.message_id);
 muted[muted.length] = msg.reply_to_message.from.id;
@@ -99,7 +99,7 @@ bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+msg.reply_to_message.from.i
 }
 })
 
-bot.onText(/\/mt/, (msg) => {
+bot.onText(/^\/mt/, (msg) => {
 if (admin.includes(msg.from.id)) {
 bot.deleteMessage(msg.chat.id, msg.message_id);
 f = 'Нарушители закона😏\n';
@@ -110,7 +110,7 @@ bot.sendMessage(msg.chat.id,f);
 }
 })
 
-bot.onText(/\/unm/, (msg) => {
+bot.onText(/^\/unm/, (msg) => {
 if (admin.includes(msg.from.id)) {
 bot.deleteMessage(msg.chat.id, msg.message_id);
 p = muten.indexOf(msg.reply_to_message.from.first_name);
@@ -120,7 +120,7 @@ bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+msg.reply_to_message.from.i
 }
 })
 
-bot.onText(/\/unall/, (msg) => {
+bot.onText(/^\/unall/, (msg) => {
 if (admin.includes(msg.from.id)) {
 bot.deleteMessage(msg.chat.id, msg.message_id);
 muten.length = 0;
@@ -129,19 +129,19 @@ bot.sendMessage(msg.chat.id,'Все нарушители закона получ
 }
 })
 
-bot.onText(/\/help/, (msg) => {
+bot.onText(/^\/help/, (msg) => {
 if (admin.includes(msg.from.id)) {
-bot.sendMessage(msg.chat.id,'Команды:\n\nСсохранить - после чего бот все сообщения будет писать туда, кде была написана эта команда  последний раз\n\nИиграть - вызывает меню регистрации\n\nСстарт - начинает игру\n\nКто в игре - показывает всех участников и их id\n\nВвопрос 1 - вызывает кнопки, 1️⃣2️⃣3️⃣4️⃣\n\nКто не выбрал - показывает, кто не выбрал\n\nЧто выбрали - показывает что выбрали\n\n/kick - кикает игрока\n\n/add - добавляет участника во время игры\n\nШшансы - показывает шансы игроков\n\nШшанс +/- - привабавляет, либо убавляет шанс игрока, на чьё сообщение было это написано\n\n/give - даёт шанс игроку перевыбрать вариант\n\nОотменить - отменяет игру\n\n/mute - даёт мут игроку\n\n/mt - показывает список нарушителей\n\n/unm - освобождает от мута игрока\n\n/unall - освобождает всех от мута')
+bot.sendMessage(msg.chat.id,'Команды:\n\n<i>Сохранить</i> - после чего бот все сообщения будет писать туда, кде была написана эта команда  последний раз\n\nИграть - вызывает меню регистрации\n\nСтарт - начинает игру\n\nКто в игре - показывает всех участников и их id\n\nВопрос 1 - вызывает кнопки, 1️⃣2️⃣3️⃣4️⃣\n\nКто не выбрал - показывает, кто не выбрал\n\nЧто выбрали - показывает что выбрали\n\n/kick - кикает игрока\n\n/add - добавляет участника во время игры\n\nШансы - показывает шансы игроков\n\nШанс +/- - привабавляет, либо убавляет шанс игрока, на чьё сообщение было это написано\n\n/give - даёт шанс игроку перевыбрать вариант\n\nОтменить - отменяет игру\n\n/mute - даёт мут игроку\n\n/mt - показывает список нарушителей\n\n/unm - освобождает от мута игрока\n\n/unall - освобождает всех от мута', {parse_mode: "HTML"})
 } else {
 bot.sendMessage(msg.chat.id,'Для тебя у меня нет команд, попробуй попросить их через /link')
 }
 })
 
-bot.onText(/\/link/i, (msg) => {
+bot.onText(/^\/link/i, (msg) => {
 bot.sendMessage(msg.chat.id, '<a href="tg://user?id='+admin[0]+'">osculum</a> - создатель бота\n\nВы можете написать ему и увидеть, как действует бот',{parse_mode:"HTML"})
 })
 
-bot.onText(/шшанс (.+)/i, (msg, match) => {
+bot.onText(/^шанс (.+)/i, (msg, match) => {
 if (admin.includes(msg.from.id)) {
 p = match[1];
 f = ' ';
@@ -158,7 +158,7 @@ i = -1;
 }
 })
 
-bot.onText(/ссохранить/i, (msg) => {
+bot.onText(/^сохранить/i, (msg) => {
 if (admin.includes(msg.from.id)) {
 chatt = msg.chat.id;
 bot.deleteMessage(chatt, msg.message_id);
@@ -166,7 +166,7 @@ bot.sendMessage(chatt,'Чат сохранен');
 }
 })
 
-bot.onText(/оотменить/i, (msg) => {
+bot.onText(/^отменить/i, (msg) => {
 if (admin.includes(msg.from.id)) {
 bot.deleteMessage(msg.chat.id, msg.message_id);
 bot.deleteMessage(chatt, del);
@@ -180,7 +180,7 @@ gamersb = 0;
 }
 })
 
-bot.onText(/ииграть/i, (msg) => {
+bot.onText(/^играть/i, (msg) => {
 if (admin.includes(msg.from.id)) {
 for (i=0; i < 40; i++) {
 number[i] = i + 1;
@@ -318,7 +318,7 @@ bot.answerCallbackQuery(msg.id, f, true);
 
 })
 
-bot.onText(/сстарт/i, (msg) => {
+bot.onText(/^старт/i, (msg) => {
 if (admin.includes(msg.from.id)) {
 if (offirs === 1) {
 offirs = 2;
@@ -331,7 +331,7 @@ bot.sendMessage(chatt,'Игра стартовала, ожидайте веду�
 }
 })
 
-bot.onText(/ввопрос (.+)/i, (msg, match) => {
+bot.onText(/^вопрос (.+)/i, (msg, match) => {
 if (admin.includes(msg.from.id)) {
 bot.deleteMessage(chatt, del)
 del = msg.message_id
@@ -353,7 +353,7 @@ bot.sendMessage(chatt, answ[n], {
 }
 })
 
-bot.onText(/\give/, (msg) => {
+bot.onText(/^\/give/, (msg) => {
 if (admin.includes(msg.from.id)) {
 p = gamer.indexOf(msg.reply_to_message.from.first_name);
 bot.deleteMessage(chatt, msg.message_id)
@@ -365,7 +365,7 @@ p = -1;
 
 
 
-bot.onText(/\/add/i, (msg) => {
+bot.onText(/^\/add/i, (msg) => {
 if(admin.includes(msg.from.id)) {
 gamer[gamersb] =  msg.reply_to_message.from.first_name;
 user[gamersb] = msg.reply_to_message.from.id;
@@ -377,7 +377,7 @@ bot.sendMessage(chatt,'Игрок <a href="tg://user?id='+msg.reply_to_message.f
 
 
 
-bot.onText(/\/kick/, (msg, match) => {
+bot.onText(/^\/kick/, (msg, match) => {
 if (admin.includes(msg.from.id)) {
 p = gamer.indexOf(msg.reply_to_message.from.first_name);
 bot.deleteMessage(chatt, msg.message_id)
@@ -392,7 +392,7 @@ gamersb--;
 }
 })
 
-bot.onText(/кто в игре/i, (msg) => {
+bot.onText(/^кто в игре/i, (msg) => {
   if (admin.includes(msg.from.id)) {
     bot.deleteMessage(chatt, msg.message_id)
     f = 'В игре:\n';
@@ -403,7 +403,7 @@ bot.onText(/кто в игре/i, (msg) => {
   }
 })
 
-bot.onText(/что выбрали/i, (msg) => {
+bot.onText(/^что выбрали/i, (msg) => {
   if (admin.includes(msg.from.id)) {
     bot.deleteMessage(chatt, msg.message_id)
     f = 'Выбранные ответы:\n';
@@ -414,7 +414,7 @@ bot.onText(/что выбрали/i, (msg) => {
   }
 })
 
-bot.onText(/шшансы/i, (msg) => {
+bot.onText(/^шансы/i, (msg) => {
   if (admin.includes(msg.from.id)) {
     bot.deleteMessage(chatt, msg.message_id);
     f = 'Шансы:\n';
@@ -434,7 +434,7 @@ bot.sendMessage(chatt, f)
 }
 })
 
-bot.onText(/кто не выбрал/i, (msg) => {
+bot.onText(/^кто не выбрал/i, (msg) => {
   if (admin.includes(msg.from.id)) {
     bot.deleteMessage(chatt, msg.message_id)
     f = 'Не выбрали:\n';
