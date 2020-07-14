@@ -53,7 +53,7 @@ bot.onText(/^показать бд/i, (msg) => {
     db.all('SELECT id, bal FROM ba3', (err, row) => {
       if (err) throw err;
       row.forEach((row) => {
-        f += row+'\n';
+        f += row.id + ' - ' + row.bal +'\n';
     })
     bot.sendMessage(msg.chat.id, f)
   })
