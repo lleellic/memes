@@ -138,9 +138,11 @@ var inline1 = {
   }
 };
 
-
-
-
+bot.onText(/^\/getid/, (msg) => {
+if (admin.includes(msg.from.id)){
+  bot.sendMessage(msg.chat.id,'<code>'msg.reply_to_message.from.id'</code>',{parse_mode: "HTML"})
+}
+})
 
 
 bot.onText(/^\/mute/, (msg) => {
