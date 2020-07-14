@@ -108,7 +108,7 @@ bot.onText(/^\$(.+)/, (msg) => {
           }
         db.run('UPDATE ba SET bal = '+(row.bal-tex)+' WHERE id = '+msg.from.id)
         bot.sendMessage(msg.chat.id,'Вы передали '+msg.reply_to_message.from.first_name+' '+tex+' 🍬\n Ваш баланс '+(row.bal - tex)+' 🍬', {reply_to_message_id:msg.message_id});
-        })
+        })})
         } else {
        bot.sendMessage(msg.chat.id,'У вас недостаточно 🍬 ('+row.bal+')', {reply_to_message_id:msg.message_id});
       }
