@@ -63,13 +63,21 @@ bot.onText(/^показать бд/i, (msg) => {
 
 bot.onText(/^конфеты/i, (msg) => {
 db.serialize(() => {
-db.run('INSERT IGNORE INTO ba(id, bal) VALUES('+msg.from.id+', 0)')
-  .get('SELECT bal FROM ba WHERE id = ' + msg.from.id, (err, row) => {
+db.run('SELECT * FROM ba WHERE id ='+msg.from.id, (err, row) => {
+  if (err) {
+    throw err;
+  } else if (row) {
+    db.get('SELECT bal FROM ba WHERE id = ' + msg.from.id, (err, row) => {
   if (err) {
     throw err;
   }
 bot.sendMessage(msg.chat.id, 'Твой баланс ' + row.bal + ' 🍬', {reply_to_message_id:msg.message_id})
 });
+  } else {
+    db.run('INSERT INTO ba(id, bal) VALUES('+msg.from.id+', 0)');
+    bot.sendMessage(msg.chat.id, 'Твой баланс 00 🍬', {reply_to_message_id:msg.message_id})
+  }
+})
 });
 });
 
