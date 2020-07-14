@@ -63,7 +63,7 @@ bot.onText(/^показать бд/i, (msg) => {
 
 bot.onText(/^конфеты/i, (msg) => {
 db.serialize(() => {
-db.run('INSERT INTO ba(id, bal) SELECT '+msg.from.id+', 0 FROM ba WHERE NOT EXISTS(SELECT id FROM ba WHERE id='+msg.from.id+' LIMIT 1)')
+db.run('INSERT INTO ba(id, bal) (SELECT '+msg.from.id+' FROM ba WHERE NOT EXISTS(SELECT id FROM ba WHERE id='+msg.from.id+' LIMIT 1), 0)')
   .get('SELECT bal FROM ba WHERE id = ' + msg.from.id, (err, row) => {
   if (err) {
     throw err;
@@ -77,16 +77,15 @@ bot.onText(/^\$(.+)/, (msg) => {
   tex = msg.text;
   tex = tex.replace(/^$/, '');
   db.serialize(() => {
-  db.run('INSERT INTO ba(id, bal) SELECT '+msg.from.id+', 0 FROM ba WHERE NOT EXISTS(SELECT id FROM ba WHERE id='+msg.from.id+' LIMIT 1)')
+  db.run('INSERT INTO ba(id, bal) VOLUME(SELECT '+msg.from.id+' FROM ba WHERE NOT EXISTS(SELECT id FROM ba WHERE id='+msg.from.id+' LIMIT 1), 0)')
     .get('SELECT bal FROM ba WHERE id = ' + msg.from.id, (err, row) => {
   if (err) {
     throw err;
   }
     if (tex <= 0) {
       bot.sendMessage(msg.chat.id,'Нельзя столько передавать 🤪', {reply_to_message_id:msg.message_id});
-    } else {
- if (row.bal >= tex) {
-    db.run('INSERT INTO ba(id, bal) SELECT '+msg.reply_to_message.from.id+', 0 FROM ba WHERE NOT EXISTS(SELECT id FROM ba WHERE id='+msg.reply_to_message.from.id+' LIMIT 1)')
+    } else if (row.bal >= tex) {
+    db.run('INSERT INTO ba(id, bal) VOLUME(SELECT '+msg.reply_to_message.from.id+' FROM ba WHERE NOT EXISTS(SELECT id FROM ba WHERE id='+msg.reply_to_message.from.id+' LIMIT 1), 0)')
       .get('SELECT bal FROM ba WHERE id = ' + msg.reply_to_message.from.id , (err, row) => {
   if (err) {
     throw err;
@@ -103,15 +102,10 @@ bot.onText(/^\$(.+)/, (msg) => {
   } else {
     bot.sendMessage(msg.chat.id,'У вас недостаточно 🍬 ('+row.bal+')', {reply_to_message_id:msg.message_id});
   }
- }
 });
 });  
 })
 
-
-db.serialize(() => {
-db.run('UPDATE ba SET bal = 25 WHERE id = 910787068');
-       })
   
   
 bot.onText(/^бонус (.+) (.+)/i, (msg, match) => {
@@ -119,7 +113,7 @@ bot.onText(/^бонус (.+) (.+)/i, (msg, match) => {
   pid = match[1];
   psum = match[2];
   db.serialize(() => {
-    db.run('INSERT INTO ba(id, bal) SELECT '+pid+', 0 FROM ba WHERE NOT EXISTS(SELECT id FROM ba WHERE id='+pid+' LIMIT 1)')
+    db.run('INSERT INTO ba(id, bal) VOLUME(SELECT '+pid+', 0 FROM ba WHERE NOT EXISTS(SELECT id FROM ba WHERE id='+pid+' LIMIT 1), 0)')
       .get('SELECT bal FROM ba WHERE id = ' + pid , (err, row) => {
   if (err) {
     throw err;
