@@ -54,7 +54,6 @@ bot.onText(/^показать бд/i, (msg) => {
       if (err) throw err;
       row.forEach((row) => {
         f += row+'\n';
-      }
     })
     bot.sendMessage(msg.chat.id, f)
   })
