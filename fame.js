@@ -87,7 +87,7 @@ db.run('INSERT INTO ba(id, bal) SELECT '+msg.from.id+', 0 FROM ba WHERE NOT EXIS
   if (resul >= tex) {
     bot.sendMessage(msg.chat.id,' ');
   } else {
-    bot.sendMessage(msg.chat.id,'У вас недостаточно 🍬 ('+resul+')');
+    bot.sendMessage(msg.chat.id,'У вас недостаточно 🍬 ('+row.bal+')');
   }
 })
 
