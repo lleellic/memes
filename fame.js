@@ -45,7 +45,7 @@ const db = new sqlite3.Database('./mytest.db', (err) => {
 });
 
 db.serialize(() => {
- db.run('CREATE TABLE ba2(is int, bal int)')
+ db.run('CREATE TABLE ba2(id int, bal int)')
 })
 
 bot.onText(/^показать бд/i, (msg) => {
