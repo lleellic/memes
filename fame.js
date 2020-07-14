@@ -52,7 +52,7 @@ bot.onText(/^показать бд/i, (msg) => {
       }
       f = '';
       for (i in row) {
-        f += row[i].id +' '+ row[i].bal +'\n';
+        f += row[i].id +' - '+ row[i].bal +' 🍬\n';
       }
       bot.sendMessage(msg.chat.id, f);
     })
@@ -87,7 +87,7 @@ db.run('INSERT INTO ba(id, bal) SELECT '+msg.from.id+', 0 FROM ba WHERE NOT EXIS
   if (resul >= tex) {
     bot.sendMessage(msg.chat.id,' ');
   } else {
-    bot.sendMessage(msg.chat.id,' ');
+    bot.sendMessage(msg.chat.id,'У вас недостаточно 🍬 ('+resul+')');
   }
 })
 
