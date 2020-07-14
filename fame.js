@@ -61,80 +61,14 @@ bot.onText(/^показать бд/i, (msg) => {
   }
 })
 
-bot.onText(/^конфеты/i, (msg) => {
 db.serialize(() => {
-db.run('IF NOT EXIST(SELECT * FROM ba WHERE id = '+msg.from.id+') INSERT INTO ba SET id = '+msg.from.id+', bal = 0', (err, row) => {
-if (err) {
-  throw err;
-}
-})
-db.get('SELECT bal FROM ba WHERE id ='+msg.from.id, (err, row) => {
-  bot.sendMessage(mag.chat.id,'Твой баланс '+row.bal+' 🍬', {reply_to_message_id:msg.message_id})
-})
-})
-});
-
-bot.onText(/^\$(.+)/, (msg) => {
-  tex = msg.text;
-  tex = tex.replace(/^$/, '');
-  db.serialize(() => {
-    db.run('SELECT * FROM ba WHERE id ='+msg.from.id, (err, row) => {
-  if (err) {
-    throw err;
-  } 
-   if (row) {
-   db.get('SELECT bal FROM ba WHERE id = ' + msg.from.id, (err, row) => {
-  if (err) {
-    throw err;
-  }
-      if (tex <= 0) {
-         bot.sendMessage(msg.chat.id,'Нельзя столько передавать 🤪', {reply_to_message_id:msg.message_id});
-      } else if (tex >= row.bal) {
-        db.get('SELECT bal FROM ba WHERE id = ' + msg.reply_to_message.from.id , (err, row) => {
-          if (err) {
-            throw err;
-          }
-        db.query('UPDATE ba SET bal = '+(row.bal+tex)+' WHERE id = '+msg.reply_to_message.from.id)
-        .get('SELECT bal FROM ba WHERE id = ' + msg.from.id , (err, row) => {
-          if (err) {
-            throw err;
-          }
-        db.query('UPDATE ba SET bal = '+(row.bal-tex)+' WHERE id = '+msg.from.id)
-        bot.sendMessage(msg.chat.id,'Вы передали '+msg.reply_to_message.from.first_name+' '+tex+' 🍬\n Ваш баланс '+(row.bal - tex)+' 🍬', {reply_to_message_id:msg.message_id});
-        })
-        })
-        } else {
-       bot.sendMessage(msg.chat.id,'У вас недостаточно 🍬 ('+row.bal+')', {reply_to_message_id:msg.message_id});
-      }
-});
-  } else {
-    db.run('INSERT IGNORE INTO ba SET id ='+msg.from.id+', bal = 0)');
-    bot.sendMessage(msg.chat.id, 'У вас недостаточно 🍬 (0)', {reply_to_message_id:msg.message_id})
-  }
-})
-}) 
-})
-
+ db.get('SELECT bal FROM ba WHERE id = 897', (err, row) => {
+   console.log(row)
+   if (err) {
+     throw (err);
+   }
   
-  
-bot.onText(/^бонус (.+) (.+)/i, (msg, match) => {
-  if (msg.from.id === admin[0]) {
-  pid = match[1];
-  psum = match[2];
-  db.serialize(() => {
-    db.run('INSERT INTO ba(id, bal) VOLUME(SELECT '+pid+', 0 FROM ba WHERE NOT EXISTS(SELECT id FROM ba WHERE id='+pid+' LIMIT 1), 0)')
-      .get('SELECT bal FROM ba WHERE id = ' + pid , (err, row) => {
-  if (err) {
-    throw err;
-  }
-     db.run('UPDATE ba SET bal = '+(psum)+' WHERE id = '+ pid);
-  })
-  })
-  bot.sendMessage(pid,'Вам бонус '+psum+' 🍬 от разработчика бота (/link)');
-  bot.sendMessage(msg.chat.id,'Бонус '+psum+' 🍬 отправлен');
-  pid = null;
-  psum = null;
-  }
+ })
 })
 
 
