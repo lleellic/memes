@@ -54,10 +54,8 @@ bot.onText(/^показать бд/i, (msg) => {
         throw err;
       }
       f = '';
-      for (i in row) {
-        f+= row.id + ' - ' + row.bal+'\n';
-      }
-      bot.sendMessage(msg.chat.id, f)
+      condsole.log(row)
+     // bot.sendMessage(msg.chat.id, f)
     })
   })
   }
