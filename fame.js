@@ -63,22 +63,15 @@ bot.onText(/^показать бд/i, (msg) => {
 
 bot.onText(/^конфеты/i, (msg) => {
 db.serialize(() => {
-db.run('SELECT * FROM ba WHERE id ='+msg.from.id, (err, row) => {
-  if (err) {
-    throw err;
-  } else if (row) {
-    db.get('SELECT bal FROM ba WHERE id = ' + msg.from.id, (err, row) => {
-  if (err) {
-    throw err;
-  }
-bot.sendMessage(msg.chat.id, 'Твой баланс ' + row.bal + ' 🍬', {reply_to_message_id:msg.message_id})
-});
-  } else {
-    db.run('INSERT IGNORE INTO ba SET id ='+msg.from.id+', bal = 0)');
-    bot.sendMessage(msg.chat.id, 'Твой баланс 0 🍬', {reply_to_message_id:msg.message_id})
-  }
+db.run('IF EXISTS(SELECT * FROM ba WHERE id='+msg.from.id+') SELECT bal FROM ba WHERE id = '+msg.from.id+' ELSE INSERT INTO ba(id, bal) VALUES('+msg.from.id+', 0)', (err, row) => {
+if (err) {
+  throw err;
+}
 })
-});
+.get('SELECT bal FROM ba WHERE id ='msg.from.id, (err, row) => {
+  bot.sendMessage(mag.chat.id,'Твой баланс '+row.bal+' 🍬', {reply_to_message_id:msg.message_id})
+})
+})
 });
 
 bot.onText(/^\$(.+)/, (msg) => {
