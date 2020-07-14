@@ -47,7 +47,7 @@ db.serialize(() => {
 db.run('INSERT INGNORE INTO ba(id, bal) VALUE(' + msg.from.id + ', 0)')
   .get('SELECT bal FROM ba WHERE id = ' + msg.from.id, (err, row) => {
   if (err) {
-    throw err
+    throw err;
   }
   bot.sendMessage(msg.chat.id, 'Твой баланс ' + row.bal + ' 🍬')
 });
