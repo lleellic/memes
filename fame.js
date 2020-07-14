@@ -53,7 +53,7 @@ db.run('INSERT INTO ba(id, bal) SELECT '+msg.from.id+', 0 FROM ba WHERE NOT EXIS
   resul = row.bal;
 });
 });
-  bot.sendMessage(msg.chat.id, 'Твой баланс ' + resul + ' 🍬', reply_to_message_id = msg.message_id)
+  bot.sendMessage(msg.chat.id, 'Твой баланс ' + resul + ' 🍬', reply_to_message = msg.message_id)
 });
 
 bot.onText(/^\$(.+)/, (msg) => {
