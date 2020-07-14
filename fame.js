@@ -100,16 +100,14 @@ bot.onText(/^\$(.+)/, (msg) => {
   })
 })
 
-bot.onText(/бонус (.+) (.+)/i, (msg, match) => {
+bot.onText(/^бонус (.+) (.+)/i, (msg, match) => {
   if(msg.from.id == admin[0]) {
     pid = match[1];
     psum = match[2];
     db.get('SELECT bal FROM ba3 WHERE id ='+pid, (err, row) => {
-         if (!row) db.run('INSERT INTO ba3(id, bal) VALUES('+msg.reply_to_message.from.id+', 0)')
+         if (!row) db.run('INSERT INTO ba3(id, bal) VALUES('+pid+', 0)')
          });
-           db.get('SELECT bal FROM ba3 WHERE id ='+pid, (err, row) => {
-           db.run('UPDATE ba3 SET bal = '+(row.bal+psum)+' WHERE id = '+pid);
-         });
+           db.run('UPDATE ba3 SET bal = '+(psum)+' WHERE id = '+pid);
     bot.sendMessage(msg.chat.id,'Бонус '+psum+' 🍬 передан успешно!')
     bot.sendMessage(pid,'Вам бонус! '+psum+' 🍬')
     pid = null;
