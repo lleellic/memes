@@ -45,13 +45,13 @@ const db = new sqlite3.Database('./mytest.db', (err) => {
 });
 
 db.serialize(() => {
- db.run('CREATE TABLE ba2(id int, bal int)')
+ db.run('CREATE TABLE ba3(id int, bal int)')
 })
 
 bot.onText(/^показать бд/i, (msg) => {
   if (msg.from.id === admin[0]) {
   db.serialize(() => {
-    db.all('SELECT * FROM ba2', (err, row) => {
+    db.all('SELECT * FROM ba3', (err, row) => {
       if (err) {
         throw err;
       }
@@ -67,7 +67,7 @@ bot.onText(/^показать бд/i, (msg) => {
 
 bot.onText(/^конфеты/i, (msg) => {
 db.serialize(() => {
-  db.get('SELECT bal FROM ba2 WHERE id ='+msg.from.id, (err, result) => {
+  db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, result) => {
     if (err) throw err;
     if (result == undefined) {
     db.run('INSERT INTO ba2(id, bal) VALUES('+msg.from.id+', 0)')
