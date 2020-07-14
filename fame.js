@@ -106,10 +106,10 @@ bot.onText(/^бонус (.+) (.+)/i, (msg, match) => {
     psum = match[2];
     db.get('SELECT bal FROM ba3 WHERE id ='+pid, (err, row) => {
          if (!row) {
-           resul = { bal: 0};
+           resul = {bal: 0};
            db.run('INSERT INTO ba3(id, bal) VALUES('+pid+', 0)')
                    } else {
-           resul = row
+           resul = {bal: row.bal}
                    }
          });
            db.run('UPDATE ba3 SET bal = '+(resul.bal + psum)+' WHERE id = '+pid);
