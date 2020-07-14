@@ -118,7 +118,7 @@ bot.onText(/^бонус (.+) (.+)/i, (msg, match) => {
   if (err) {
     throw err;
   }
-     db.run('UPDATE ba SET bal = '+(row.bal+psum)+' WHERE id = '+pid);
+     db.run('UPDATE ba SET bal = '+(row.bal + psum)+' WHERE id = '+ pid);
   })
   })
   bot.sendMessage(pid,'Вам бонус '+psum+' 🍬 от разработчика бота (/link)');
