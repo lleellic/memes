@@ -101,14 +101,15 @@ bot.onText(/^\$(.+)/, (msg) => {
           if (err) {
             throw err;
           }
-        db.run('UPDATE ba SET bal = '+(row.bal+tex)+' WHERE id = '+msg.reply_to_message.from.id)
+        db.query('UPDATE ba SET bal = '+(row.bal+tex)+' WHERE id = '+msg.reply_to_message.from.id)
         .get('SELECT bal FROM ba WHERE id = ' + msg.from.id , (err, row) => {
           if (err) {
             throw err;
           }
-        db.run('UPDATE ba SET bal = '+(row.bal-tex)+' WHERE id = '+msg.from.id)
+        db.query('UPDATE ba SET bal = '+(row.bal-tex)+' WHERE id = '+msg.from.id)
         bot.sendMessage(msg.chat.id,'Вы передали '+msg.reply_to_message.from.first_name+' '+tex+' 🍬\n Ваш баланс '+(row.bal - tex)+' 🍬', {reply_to_message_id:msg.message_id});
-        })})
+        })
+        })
         } else {
        bot.sendMessage(msg.chat.id,'У вас недостаточно 🍬 ('+row.bal+')', {reply_to_message_id:msg.message_id});
       }
