@@ -63,9 +63,9 @@ bot.onText(/^показать бд/i, (msg) => {
 
 bot.onText(/^конфеты/i, (msg) => {
 db.serialize(() => {
-  db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, result) => {
+  db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, row) => {
     if (row) {
-      bot.sendMessage(msg.chat.id,'Твой баланс '+result.bal+' 🍬', {reply_to_message_id:msg.message_id}) 
+      bot.sendMessage(msg.chat.id,'Твой баланс '+row.bal+' 🍬', {reply_to_message_id:msg.message_id}) 
     } else {
        db.run('INSERT INTO ba3(id, bal) VALUES('+msg.from.id+', 0)')
        bot.sendMessage(msg.chat.id,'Твой баланс 0 🍬', {reply_to_message_id:msg.message_id})
