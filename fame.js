@@ -115,7 +115,7 @@ bot.onText(/^\$(.+)/, (msg) => {
       }
 });
   } else {
-    db.run('INSERT INTO ba(id, bal) VALUES('+msg.from.id+', 0)');
+    db.run('INSERT INGNORE INTO ba(id, bal) VALUES('+msg.from.id+', 0)');
     bot.sendMessage(msg.chat.id, 'У вас недостаточно 🍬 (0)', {reply_to_message_id:msg.message_id})
   }
 })
