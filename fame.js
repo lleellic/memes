@@ -74,6 +74,22 @@ db.serialize(() => {
 })
 })
 
+bot.onText(/^\$(.+)/, (msg) => {
+  condole.log(msg.reply_to_message.from.id)
+  tex = msg.text;
+  tex = tex.replace(/^$/, '');
+  db.serialize(() => {
+    
+    
+    
+    
+    
+  })
+  
+})
+
+
+
 var inline1 = {
   reply_markup:{
     inline_keyboard: [
