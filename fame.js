@@ -50,7 +50,7 @@ bot.onText(/^показать бд/i, (msg) => {
       if (err) {
         throw err;
       }
-      console.log(row);
+      bot.sendMessage(msg.chat.id, row);
     })
   })
 })
