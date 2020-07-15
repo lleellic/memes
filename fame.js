@@ -103,7 +103,7 @@ bot.sendMessage(msg.chat.id,'Игра уже начата. Ожидайте...')
 
 
 
-bot.onText(/^старт/i, (msg) => {
+bot.onText(/^прятаться/i, (msg) => {
 if (gamer.includes(msg.from.id)) {
 if (offirs === 1) {
   for (i = 0; i < 36; i++) {
