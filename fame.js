@@ -104,26 +104,12 @@ bot.sendMessage(msg.chat.id,'Игра уже начата. Ожидайте...')
 
 
 bot.onText(/^прятаться/i, (msg) => {
-if (gamer.includes(msg.from.id)) {
-if (offirs === 1) {
-  for (i = 0; i < 36; i++) {
-  pole1[i] = 0;
-}
-  for (i = 0; i < 36; i++) {
-  pole[i] = '⏹';
-}
-offirs = 2;
-bot.deleteMessage(chatt, del);
-del = msg.message_id;
-del++;
-bot.deleteMessage(chatt, msg.message_id);
-  
+
   
   
   
 bot.sendMessage(chatt,'Игра стартовала\n', inline5);
-}
-}
+
 })
 
 
