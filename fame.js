@@ -93,8 +93,8 @@ bot.onText(/^\$(.+)/, (msg) => {
           db.get('SELECT bal FROM ba3 WHERE id ='+msg.reply_to_message.from.id, (err, row) => {
           if (!row) db.run('INSERT INTO ba3(id, bal) VALUES('+msg.reply_to_message.from.id+', 0)')
           });
-           db.run('UPDATE ba3 SET bal += '+tex+' WHERE id = '+msg.reply_to_message.from.id);
-           db.run('UPDATE ba3 SET bal -= '+tex+' WHERE id = '+msg.from.id);
+           db.run('UPDATE ba3 SET bal = bal + '+tex+' WHERE id = '+msg.reply_to_message.from.id);
+           db.run('UPDATE ba3 SET bal = bal - '+tex+' WHERE id = '+msg.from.id);
            bot.sendMessage(msg.chat.id,'Ты передал '+msg.reply_to_message.from.first_name+' '+tex+' \nТвой баланс'+(row.bal-tex)+' 🍬', {reply_to_message_id:msg.message_id})
          } else {
          bot.sendMessage(msg.chat.id,'Твой баланс 🍬 слишком мал ('+row.bal+')', {reply_to_message_id:msg.message_id})
@@ -111,7 +111,7 @@ bot.onText(/^бонус (.+) (.+)/i, (msg, match) => {
     db.get('SELECT bal FROM ba3 WHERE id ='+pid, (err, row) => {
          if (!row) db.run('INSERT INTO ba3(id, bal) VALUES('+pid+', 0)')
          });
-           db.run('UPDATE ba3 SET bal += '+(psum)+' WHERE id = '+pid);
+           db.run('UPDATE ba3 SET bal = bal + '+(psum)+' WHERE id = '+pid);
     bot.sendMessage(msg.chat.id,'Бонус '+psum+' 🍬 передан успешно!')
     bot.sendMessage(pid,'Вам бонус! '+psum+' 🍬')
     pid = null;
