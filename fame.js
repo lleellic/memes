@@ -83,6 +83,7 @@ db.serialize(() => {
 bot.onText(/^\$(.+)/, (msg) => {
   tex = msg.text;
   tex = tex.substr(1);
+  console.log(msg);
   if (tex < 0) {
     bot.sendMessage(msg.chat.id,'Нельзя передавать столько 🍬', {reply_to_message_id:msg.message_id})
   } else if (tex = 0) {
