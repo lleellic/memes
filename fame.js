@@ -32,19 +32,49 @@ var pid;
 var psum;
 var pole = new Array();
 var pole1 = new Array();
-
+var opt;
 
 var i2 = {
   reply_markup:{
     inline_keyboard: [
-      [{text:'Играть 😏', callback_data:'togame'}, {text:'Выйти 😒', callback_data:'nogame'}],
-      [{text:'Сколько уч.?', callback_data:'members'}, {text:'Кто уч.?', callback_data:'whois'}]
+      [{text: pole[1], callback_data:'p1'}, {text: pole[2], callback_data:'p2'}],
+      [{text: pole[3], callback_data:'p3'}, {text: pole[4], callback_data:'p4'}]
     ]
   }
 };
 
+var i3 = {
+  reply_markup:{
+    inline_keyboard: [
+      [{text: pole[1], callback_data:'p1'}, {text: pole[2], callback_data:'p2'}, {text: pole[3], callback_data:'p3'}],
+      [{text: pole[4], callback_data:'p4'}, {text: pole[5], callback_data:'p5'}, {text: pole[6], callback_data:'p6'}],
+      [{text: pole[7], callback_data:'p7'}, {text: pole[8], callback_data:'p8'}, {text: pole[9], callback_data:'p9'}]
+    ]
+  }
+};
 
+var i4 = {
+  reply_markup:{
+    inline_keyboard: [
+      [{text: pole[1], callback_data:'p1'},   {text: pole[2], callback_data:'p2'},   {text: pole[3], callback_data:'p3'},   {text: pole[4],  callback_data:'p4'} ],
+      [{text: pole[5], callback_data:'p5'},   {text: pole[6], callback_data:'p6'},   {text: pole[7], callback_data:'p7'},   {text: pole[8],  callback_data:'p8'} ],
+      [{text: pole[9], callback_data:'p9'},   {text: pole[10], callback_data:'p10'}, {text: pole[11], callback_data:'p11'}, {text: pole[12], callback_data:'p12'}],
+      [{text: pole[13], callback_data:'p13'}, {text: pole[14], callback_data:'p14'}, {text: pole[15], callback_data:'p15'}, {text: pole[16], callback_data:'p16'}]
+    ]
+  }
+};
 
+var i5 = {
+  reply_markup:{
+    inline_keyboard: [
+      [{text: pole[1], callback_data:'p1'},     {text: pole[2], callback_data:'p2'},     {text: pole[3], callback_data:'p3'},     {text: pole[4],  callback_data:'p4'},   {text: pole[5], callback_data:'p5'}  ],
+      [{text: pole[6], callback_data:'p6'},     {text: pole[7], callback_data:'p7'},     {text: pole[8], callback_data:'p8'},     {text: pole[9],  callback_data:'p9'},   {text: pole[10], callback_data:'p10'}],
+      [{text: pole[11], callback_data:'p11'},   {text: pole[12], callback_data:'p12'},   {text: pole[12], callback_data:'p13'},   {text: pole[14],  callback_data:'p14'}, {text: pole[15], callback_data:'p15'}],
+      [{text: pole[16], callback_data:'p16'},   {text: pole[17], callback_data:'p17'},   {text: pole[18], callback_data:'p18'},   {text: pole[19],  callback_data:'p19'}, {text: pole[20], callback_data:'p20'}],
+      [{text: pole[21], callback_data:'p21'},   {text: pole[22], callback_data:'p22'},   {text: pole[23], callback_data:'p23'},   {text: pole[24],  callback_data:'p24'}, {text: pole[25], callback_data:'p25'}],
+    ]
+  }
+};
 
 
 answ[0] = 'Выберите правильный вариант ответа.';
@@ -77,14 +107,21 @@ bot.onText(/^старт/i, (msg) => {
 if (gamer.includes(msg.from.id)) {
 if (offirs === 1) {
   for (i = 0; i < 36; i++) {
-  pole[i] = 0;
+  pole1[i] = 0;
+}
+  for (i = 0; i < 36; i++) {
+  pole[i] = '⏹';
 }
 offirs = 2;
 bot.deleteMessage(chatt, del);
 del = msg.message_id;
 del++;
 bot.deleteMessage(chatt, msg.message_id);
-bot.sendMessage(chatt,'Игра стартовала, ожидайте ведущего');
+  
+  
+  
+  
+bot.sendMessage(chatt,'Игра стартовала\n', opt);
 }
 }
 })
