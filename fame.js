@@ -108,7 +108,7 @@ bot.onText(/^прятаться/i, (msg) => {
   
   
   
-bot.sendMessage(chatt,'Игра стартовала\n', inline5);
+bot.sendMessage(chatt,'Игра стартовала\n', in5);
 
 })
 
