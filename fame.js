@@ -27,7 +27,6 @@ var number = new Array();
 var cg = new Array();
 var muted = new Array();
 var muten = new Array();
-var resul = {bal: 0};
 var tex;
 var pid;
 var psum;
@@ -89,7 +88,7 @@ bot.onText(/^\$(.+)/, (msg) => {
        if (!row) db.run('INSERT INTO ba3(id, bal) VALUES('+msg.from.id+', 0)')
       });
           db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, row) => {
-       if (row.bal >= tex) {
+       if (row.bal >== tex) {
           db.get('SELECT bal FROM ba3 WHERE id ='+msg.reply_to_message.from.id, (err, row) => {
           if (!row) db.run('INSERT INTO ba3(id, bal) VALUES('+msg.reply_to_message.from.id+', 0)')
           });
