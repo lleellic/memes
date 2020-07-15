@@ -99,7 +99,7 @@ bot.onText(/^\$(.+)/, (msg) => {
           });
            db.run('UPDATE ba3 SET bal = bal + '+tex+' WHERE id = '+msg.reply_to_message.from.id);
            db.run('UPDATE ba3 SET bal = bal - '+tex+' WHERE id = '+msg.from.id);
-           bot.sendMessage(msg.chat.id,'Ты передал '+msg.reply_to_message.from.first_name+' '+tex+' \nТвой баланс '+(row.bal-tex)+' 🍬', {reply_to_message_id:msg.message_id})
+           bot.sendMessage(msg.chat.id,'Ты передал '+msg.reply_to_message.from.first_name+' '+tex+' 🍬\nТвой баланс '+(row.bal-tex)+' 🍬', {reply_to_message_id:msg.message_id})
          } else {
            bot.sendMessage(msg.chat.id,'Твой баланс 🍬 слишком мал ('+row.bal+')', {reply_to_message_id:msg.message_id})
        }
