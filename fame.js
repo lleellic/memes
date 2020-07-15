@@ -113,14 +113,19 @@ bot.onText(/^бонус (.+) (.+)/i, (msg, match) => {
   if(msg.from.id == admin[0]) {
     pid = match[1];
     psum = match[2];
-    db.get('SELECT bal FROM ba3 WHERE id ='+pid, (err, row) => {
+    if (pid === 'всем') {
+      db.run('UPDATE ba3 SET bal = bal + '+(psum));
+      bot.sendMessage(msg.chat.id,'Бонус всем в количестве '+psum+' 🍬 передан успешно!')
+    } else {
+      db.get('SELECT bal FROM ba3 WHERE id ='+pid, (err, row) => {
          if (!row) db.run('INSERT INTO ba3(id, bal) VALUES('+pid+', 0)')
          });
-           db.run('UPDATE ba3 SET bal = bal + '+(psum)+' WHERE id = '+pid);
+      db.run('UPDATE ba3 SET bal = bal + '+(psum)+' WHERE id = '+pid);
     bot.sendMessage(msg.chat.id,'Бонус '+psum+' 🍬 передан успешно!')
     bot.sendMessage(pid,'Вам бонус! '+psum+' 🍬')
     pid = null;
     psum = null;
+    }
   }
 })
 
