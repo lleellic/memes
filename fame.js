@@ -121,7 +121,7 @@ bot.deleteMessage(chatt, msg.message_id);
   
   
   
-bot.sendMessage(chatt,'Игра стартовала\n', opt);
+bot.sendMessage(chatt,'Игра стартовала\n', inline5);
 }
 }
 })
