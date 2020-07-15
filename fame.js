@@ -34,6 +34,12 @@ var pole = new Array();
 var pole1 = new Array();
 var opt;
 
+  for (i = 0; i < 36; i++) {
+  pole1[i] = 0;
+}
+  for (i = 0; i < 36; i++) {
+  pole[i] = '⏹';
+}
 var i2 = {
   reply_markup:{
     inline_keyboard: [
@@ -106,12 +112,7 @@ bot.sendMessage(msg.chat.id,'Игра уже начата. Ожидайте...')
 bot.onText(/^прятаться/i, (msg) => {
 if (user.includes(msg.from.id)) {
 if (offirs === 1) {
-  for (i = 0; i < 36; i++) {
-  pole1[i] = 0;
-}
-  for (i = 0; i < 36; i++) {
-  pole[i] = '⏹';
-}
+
 offirs = 2;
 bot.deleteMessage(chatt, del);
 del = msg.message_id;
