@@ -83,8 +83,11 @@ db.serialize(() => {
 bot.onText(/^\$(.+)/, (msg) => {
   tex = msg.text;
   tex = tex.substr(1);
-  console.log(typeof tex);
-  console.log(tex);
+  if (tex < 0) {
+    bot.sendMessage(msg.chat.id,'Нельзя передавать столько 🍬', {reply_to_message_id:msg.message_id})
+  } else if (tex = 0) {
+    bot.sendMessage(msg.chat.id,'Нельзя передавать столько 🍬', {reply_to_message_id:msg.message_id})
+  } else {
   db.serialize(() => {
           db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, row) => {
        if (!row) db.run('INSERT INTO ba3(id, bal) VALUES('+msg.from.id+', 0)')
@@ -96,12 +99,13 @@ bot.onText(/^\$(.+)/, (msg) => {
           });
            db.run('UPDATE ba3 SET bal = bal + '+tex+' WHERE id = '+msg.reply_to_message.from.id);
            db.run('UPDATE ba3 SET bal = bal - '+tex+' WHERE id = '+msg.from.id);
-           bot.sendMessage(msg.chat.id,'Ты передал '+msg.reply_to_message.from.first_name+' '+tex+' \nТвой баланс'+(row.bal-tex)+' 🍬', {reply_to_message_id:msg.message_id})
+           bot.sendMessage(msg.chat.id,'Ты передал '+msg.reply_to_message.from.first_name+' '+tex+' \nТвой баланс '+(row.bal-tex)+' 🍬', {reply_to_message_id:msg.message_id})
          } else {
-         bot.sendMessage(msg.chat.id,'Твой баланс 🍬 слишком мал ('+row.bal+')', {reply_to_message_id:msg.message_id})
+           bot.sendMessage(msg.chat.id,'Твой баланс 🍬 слишком мал ('+row.bal+')', {reply_to_message_id:msg.message_id})
        }
      });
   })
+}
 })
 
 
