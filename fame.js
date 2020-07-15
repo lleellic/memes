@@ -9,6 +9,12 @@ var p;
 var ag;
 var bb;
 var f;
+var em;
+var seek = new Array();
+var hide = new Array();
+var hidefn = new Array();
+var place = new Array();
+var placeval = new Array();
 var admin = new Array();
 var gamer = new Array();
 var user = new Array();
@@ -33,20 +39,18 @@ var psum;
 var pole = new Array();
 var pole1 = new Array();
 var opt;
+var s;
+var h;
+var can;
+var inl;
+var rea;
 
 
-
-  for (i = 0; i < 36; i++) {
-  pole1[i] = 0;
-}
-  for (i = 0; i < 36; i++) {
-  pole[i] = '⏹';
-}
-var i2 = {
+  var i2 = {
   reply_markup:{
     inline_keyboard: [
-      [{text: pole[1], callback_data:'p1'}, {text: pole[2], callback_data:'p2'}],
-      [{text: pole[3], callback_data:'p3'}, {text: pole[4], callback_data:'p4'}]
+      [{text: pole[1], callback_data:1}, {text: pole[2], callback_data:2}],
+      [{text: pole[3], callback_data:3}, {text: pole[4], callback_data:4}]
     ]
   }
 };
@@ -54,9 +58,9 @@ var i2 = {
 var i3 = {
   reply_markup:{
     inline_keyboard: [
-      [{text: pole[1], callback_data:'p1'}, {text: pole[2], callback_data:'p2'}, {text: pole[3], callback_data:'p3'}],
-      [{text: pole[4], callback_data:'p4'}, {text: pole[5], callback_data:'p5'}, {text: pole[6], callback_data:'p6'}],
-      [{text: pole[7], callback_data:'p7'}, {text: pole[8], callback_data:'p8'}, {text: pole[9], callback_data:'p9'}]
+      [{text: pole[1], callback_data:1}, {text: pole[2], callback_data:3}, {text: pole[3], callback_data:3}],
+      [{text: pole[4], callback_data:4}, {text: pole[5], callback_data:5}, {text: pole[6], callback_data:6}],
+      [{text: pole[7], callback_data:7}, {text: pole[8], callback_data:8}, {text: pole[9], callback_data:9}]
     ]
   }
 };
@@ -64,10 +68,10 @@ var i3 = {
 var i4 = {
   reply_markup:{
     inline_keyboard: [
-      [{text: pole[1], callback_data:'p1'},   {text: pole[2], callback_data:'p2'},   {text: pole[3], callback_data:'p3'},   {text: pole[4],  callback_data:'p4'} ],
-      [{text: pole[5], callback_data:'p5'},   {text: pole[6], callback_data:'p6'},   {text: pole[7], callback_data:'p7'},   {text: pole[8],  callback_data:'p8'} ],
-      [{text: pole[9], callback_data:'p9'},   {text: pole[10], callback_data:'p10'}, {text: pole[11], callback_data:'p11'}, {text: pole[12], callback_data:'p12'}],
-      [{text: pole[13], callback_data:'p13'}, {text: pole[14], callback_data:'p14'}, {text: pole[15], callback_data:'p15'}, {text: pole[16], callback_data:'p16'}]
+      [{text: pole[1], callback_data:1},   {text: pole[2], callback_data:2},   {text: pole[3], callback_data:3},   {text: pole[4],  callback_data:4} ],
+      [{text: pole[5], callback_data:5},   {text: pole[6], callback_data:6},   {text: pole[7], callback_data:7},   {text: pole[8],  callback_data:8} ],
+      [{text: pole[9], callback_data:9},   {text: pole[10], callback_data:10}, {text: pole[11], callback_data:11}, {text: pole[12], callback_data:12}],
+      [{text: pole[13], callback_data:13}, {text: pole[14], callback_data:14}, {text: pole[15], callback_data:15}, {text: pole[16], callback_data:16}]
     ]
   }
 };
@@ -75,15 +79,18 @@ var i4 = {
 var i5 = {
   reply_markup:{
     inline_keyboard: [
-      [{text: pole[1], callback_data:'p1'},     {text: pole[2], callback_data:'p2'},     {text: pole[3], callback_data:'p3'},     {text: pole[4],  callback_data:'p4'},   {text: pole[5], callback_data:'p5'}  ],
-      [{text: pole[6], callback_data:'p6'},     {text: pole[7], callback_data:'p7'},     {text: pole[8], callback_data:'p8'},     {text: pole[9],  callback_data:'p9'},   {text: pole[10], callback_data:'p10'}],
-      [{text: pole[11], callback_data:'p11'},   {text: pole[12], callback_data:'p12'},   {text: pole[12], callback_data:'p13'},   {text: pole[14],  callback_data:'p14'}, {text: pole[15], callback_data:'p15'}],
-      [{text: pole[16], callback_data:'p16'},   {text: pole[17], callback_data:'p17'},   {text: pole[18], callback_data:'p18'},   {text: pole[19],  callback_data:'p19'}, {text: pole[20], callback_data:'p20'}],
-      [{text: pole[21], callback_data:'p21'},   {text: pole[22], callback_data:'p22'},   {text: pole[23], callback_data:'p23'},   {text: pole[24],  callback_data:'p24'}, {text: pole[25], callback_data:'p25'}],
+      [{text: pole[1], callback_data:1},     {text: pole[2], callback_data:2},     {text: pole[3], callback_data:3},     {text: pole[4],  callback_data:4},   {text: pole[5], callback_data:5}  ],
+      [{text: pole[6], callback_data:6},     {text: pole[7], callback_data:7},     {text: pole[8], callback_data:8},     {text: pole[9],  callback_data:9},   {text: pole[10], callback_data:10}],
+      [{text: pole[11], callback_data:11},   {text: pole[12], callback_data:12},   {text: pole[12], callback_data:13},   {text: pole[14],  callback_data:14}, {text: pole[15], callback_data:15}],
+      [{text: pole[16], callback_data:16},   {text: pole[17], callback_data:17},   {text: pole[18], callback_data:18},   {text: pole[19],  callback_data:19}, {text: pole[20], callback_data:20}],
+      [{text: pole[21], callback_data:21},   {text: pole[22], callback_data:22},   {text: pole[23], callback_data:23},   {text: pole[24],  callback_data:24}, {text: pole[25], callback_data:25}],
     ]
   }
 };
 
+function getRandomInRange(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 answ[0] = 'Выберите правильный вариант ответа.';
 a[0] = ' 1⃣ ';
@@ -97,7 +104,14 @@ const db = new sqlite3.Database('./mytest.db', (err) => {
   }
 });
 
-
+var inline3 = {
+  reply_markup:{
+    inline_keyboard: [
+      [{text:'Играть 😏', callback_data:'togame2'}, {text:'Выйти 😒', callback_data:'nogame2'}],
+      [{text:'Сколько уч.?', callback_data:'members'}, {text:'Кто уч.?', callback_data:'whois'}]
+    ]
+  }
+};
 
 
 
@@ -119,16 +133,117 @@ bot.sendMessage(msg.chat.id,'Игра уже начата. Ожидайте...')
 
 bot.onText(/^прятаться/i, (msg) => {
 if (user.includes(msg.from.id)) {
+  em = msg.message_id;
+  em++;
 if (offirs === 1) {
+for (i = 0; i < 36; i++) {
+  pole1[i] = 0;
+}
+  for (i = 0; i < 36; i++) {
+  pole[i] = '⏹';
+}
+i2 = {
+  parse_mode: "HTML",
+  reply_markup:{
+    inline_keyboard: [
+      [{text: pole[1], callback_data:1}, {text: pole[2], callback_data:2}],
+      [{text: pole[3], callback_data:3}, {text: pole[4], callback_data:4}],
+      [{text: 'Готово', callback_data:'ready'}]
+    ]
+  }
+};
 
+i3 = {
+  parse_mode: "HTML",
+  reply_markup:{
+    inline_keyboard: [
+      [{text: pole[1], callback_data:1}, {text: pole[2], callback_data:3}, {text: pole[3], callback_data:3}],
+      [{text: pole[4], callback_data:4}, {text: pole[5], callback_data:5}, {text: pole[6], callback_data:6}],
+      [{text: pole[7], callback_data:7}, {text: pole[8], callback_data:8}, {text: pole[9], callback_data:9}],
+      [{text: 'Готово', callback_data:'ready'}]
+    ]
+  }
+};
+
+i4 = {  
+  parse_mode: "HTML",
+  reply_markup:{
+    inline_keyboard: [
+      [{text: pole[1], callback_data:1},   {text: pole[2], callback_data:2},   {text: pole[3], callback_data:3},   {text: pole[4],  callback_data:4} ],
+      [{text: pole[5], callback_data:5},   {text: pole[6], callback_data:6},   {text: pole[7], callback_data:7},   {text: pole[8],  callback_data:8} ],
+      [{text: pole[9], callback_data:9},   {text: pole[10], callback_data:10}, {text: pole[11], callback_data:11}, {text: pole[12], callback_data:12}],
+      [{text: pole[13], callback_data:13}, {text: pole[14], callback_data:14}, {text: pole[15], callback_data:15}, {text: pole[16], callback_data:16}],
+      [{text: 'Готово', callback_data:'ready'}]
+    ]
+  }
+};
+
+i5 = {
+  parse_mode: "HTML",
+  reply_markup:{
+    inline_keyboard: [
+      [{text: pole[1], callback_data:1},     {text: pole[2], callback_data:2},     {text: pole[3], callback_data:3},     {text: pole[4],  callback_data:4},   {text: pole[5], callback_data:5}  ],
+      [{text: pole[6], callback_data:6},     {text: pole[7], callback_data:7},     {text: pole[8], callback_data:8},     {text: pole[9],  callback_data:9},   {text: pole[10], callback_data:10}],
+      [{text: pole[11], callback_data:11},   {text: pole[12], callback_data:12},   {text: pole[12], callback_data:13},   {text: pole[14],  callback_data:14}, {text: pole[15], callback_data:15}],
+      [{text: pole[16], callback_data:16},   {text: pole[17], callback_data:17},   {text: pole[18], callback_data:18},   {text: pole[19],  callback_data:19}, {text: pole[20], callback_data:20}],
+      [{text: pole[21], callback_data:21},   {text: pole[22], callback_data:22},   {text: pole[23], callback_data:23},   {text: pole[24],  callback_data:24}, {text: pole[25], callback_data:25}],
+      [{text: 'Готово', callback_data:'ready'}]
+    ]
+  }
+}; 
 offirs = 2;
 bot.deleteMessage(chatt, del);
 del = msg.message_id;
 del++;
 bot.deleteMessage(chatt, msg.message_id);
-  
-  
-bot.sendMessage(chatt,'Игра стартовала\n', i5);
+switch(gamersb) {
+  case 2: s = 1; can = 2; inl = 2; break;
+  case 3: s = 1; can = 5; inl = 3; break;
+  case 4: s = 1; can = 4; inl = 3; break;
+  case 5: s = 1; can = 3; inl = 3; break;
+  case 6: s = 2; can = 9; inl = 4; break;
+  case 7: s = 2; can = 8; inl = 4; break;
+  case 8: s = 2; can = 7; inl = 4; break;
+  case 9: s = 3; can = 13; inl = 5; break;
+  case 10: s = 3; can = 13; inl = 5; break;
+  case 11: s = 3; can = 12; inl = 5; break;
+  case 12: s = 3; can = 11; inl = 5; break;
+  case 13: s = 3; can = 10; inl = 5; break;
+  case 14: s = 3; can = 10; inl = 5; break;
+  case 15: s = 4; can = 20; inl = 6; break;
+  case 16: s = 4; can = 19; inl = 6; break;
+  case 17: s = 4; can = 18; inl = 6; break;
+  case 18: s = 4; can = 17; inl = 6; break;
+  case 19: s = 4; can = 17; inl = 6; break;
+}
+  switch(inl) {
+  case 2: opt = i2; break;
+  case 3: opt = i3; break;
+  case 4: opt = i4; break;
+  case 5: opt = i5; break;
+  case 6: opt = 0; break;  
+}
+f = '';
+for (i = 0; i < s) {
+p = getRandomInRange(0, gamersb);
+if (!seek.includes(gamer[p])) {
+  seek[seek.length] = user[p];
+  seekfn[seek.fn] = gamer[p];
+  i++;
+  f += i+'. <a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a>\n';
+}
+}
+  for (i = 0; i < gamer.length; i++) {
+    if (!seek.includes(user[i])) {
+      hide[hide.length] = user[i];
+      hide[hidefn.length] = gamer[i];
+    }
+  }
+  for (i = 0; i < hide.length; i++) {
+    place[i] = 0;
+  }
+  rea = 2;
+bot.sendMessage(chatt,'Игра стартовала!\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+hide.length+'\n\nВнимание!\nКоманда: прятаться!', opt);
 }
 }
 })
@@ -360,9 +475,119 @@ bot.deleteMessage(msg.chat.id, msg.message_id);
 
 bot.on('callback_query', function (msg) {
 
+  switch (msg.data) {
+    case 1: 
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+    case 7:
+    case 8:
+    case 9:
+    case 10:
+    case 11:
+    case 12:
+    case 13:
+    case 14:
+    case 15:
+    case 16:
+    case 17:
+    case 18:
+    case 19:
+    case 20:
+    case 21:
+    case 22:
+    case 23:
+    case 24:
+    case 25:
+      if (rea > 0) {
+      if (hide.includes(msg.from.id)) {
+      if (place.includes(msg.data)) {
+        bot.answerCallbackQuery(msg.id,'Место занято', false);
+      } else {
+        place[hidefn.indexOf(msg.from.first_name)] = msg.data;
+        placeval[msg.data] = 1;
+        bot.answerCallbackQuery(msg.id,'Вы выбрали это место', true);
+      }
+  } else {
+    bot.answerCallbackQuery(msg.id,'Не вы прячетесь', false);
+  } else {
+    if (seek.includes(msg.from.id)) {
+      if (can != 0) {
+      if (placeval[msg.data] == 2) {
+        bot.answerCallbackQuery(msg.id,'Сюда уже тыкали', false);
+      } else if ((placeval[msg.data] == 1)) {
+        can--;
+        bot.answerCallbackQuery(msg.id,'Вы нашли игрока!', true);
+        placeval[msg.data] = 2;
+        pole[msg.data] = '✅';
+           switch(inl) {
+            case 2: opt.reply_markup = i2; break;
+            case 3: opt.reply_markup = i3; break;
+            case 4: opt.reply_markup = i4; break;
+            case 5: opt.reply_markup = i5; break;
+            case 6: opt.reply_markup = 0; break;  
+           }
+        bot.editMessageText('Игра стартовала!\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+hide.length+'\n\nВнимание!\nКоманда: искать!', opt); 
+      } else {
+        can--;
+        bot.answerCallbackQuery(msg.id,'Тут никого нет', true);
+        placeval[msg.data] = 2;
+        pole[msg.data] = '❌';
+          switch(inl) {
+            case 2: opt.reply_markup = i2; break;
+            case 3: opt.reply_markup = i3; break;
+            case 4: opt.reply_markup = i4; break;
+            case 5: opt.reply_markup = i5; break;
+            case 6: opt.reply_markup = 0; break;  
+           }
+        bot.editMessageText('Игра стартовала!\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+hide.length+'\n\nВнимание!\nКоманда: искать!', opt);  
+      }
+        if (can == 0) {
+          
+          
+          
+          bot.editMessageText('Окончена!\n\Победители:\n'+f+'\nОстальные прячущиеся - '+hide.length+'\n\nВнимание!\nКоманда: искать!', opt); 
+          offirs = 0;
+          gamer.length = 0;
+          user.length = 0;
+          hide.length = 0;
+          hidefn.length = 0;
+          seek.length = 0;
+          seekfn.length = 0;
+          gamersb = 0;
+        }
+    } else {
+      bot.answerCallbackQuery(msg.id,'Вы не искатель', false);
+    }
+  }
+} 
+}
+  
+if (msg.data === 'ready') {
+ if(hide.includes(msg.from.id)) {
+   if (place.includes(0)) {
+      bot.answerCallbackQuery(msg.id,'Не все выбрали своё место', false);
+   } else {
+     if (rea == 2) {
+       rea--;
+       bot.answerCallbackQuery(msg.id,'Точно готовы?', true);
+     } else if (rea == 1) {
+       bot.answerCallbackQuery(msg.id,'Поехали!', true);
+       opt.chat_id = chatt;
+       opt.message_id = em;
+       bot.editMessageText('Игра стартовала!\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+hide.length+'\n\nВнимание!\nКоманда: искать!', opt);
+     } else {
+       bot.answerCallbackQuery(msg.id,'Уже идёт поиск', false);
+     }
+   }
+ }
+}
+  
 if (msg.data === 'togame') {
 if (gamer.includes(msg.from.first_name)) {
-bot.answerCallbackQuery(msg.id,'Вы уже в игре', true)
+bot.answerCallbackQuery(msg.id,'Вы уже в игре', false)
 } else {
 gamer[gamersb] =  msg.from.first_name;
 user[gamersb] = msg.from.id;
@@ -371,26 +596,63 @@ gamersb++;
 bot.answerCallbackQuery(msg.id,'Вы вошли в игру', true);
 } 
 }
-
+  
+  
 if (msg.data === 'nogame') {
 if (user.includes(msg.from.id)) {
 p = gamer.indexOf(msg.from.first_name);
 gamer.splice(p, 1);
 user.splice(p, 1);
 cg.splice(p, 1);
-p = -1;
+p = null;
 gamersb--;
 bot.answerCallbackQuery(msg.id,'Вы вышли из игры',true);
 } else {  
-bot.answerCallbackQuery(msg.id,'Вы итак не в игре 😳',true)
+bot.answerCallbackQuery(msg.id,'Вы итак не в игре 😳',false)
 }
-  p = -1;
 } 
 
 if (msg.data === 'members'){
 bot.answerCallbackQuery(msg.id,gamersb+' участник(а/ов)',true)
 }
 
+  
+  
+if (msg.data === 'togame2') {
+if (gamer.includes(msg.from.first_name)) {
+bot.answerCallbackQuery(msg.id,'Вы уже в игре', true)
+} else {
+  db.serialize(() => {
+  db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, row) => {
+    if (row) {
+       db.run('UPDATE ba3 SET bal = bal - 1 WHERE id = '+msg.from.id);
+       gamer[gamersb] =  msg.from.first_name;
+       user[gamersb] = msg.from.id;
+       gamersb++;
+       bot.answerCallbackQuery(msg.id,'Вы вошли в игру (вам сняли 1 🍬 с баланса)', true);
+    } else {
+       db.run('INSERT INTO ba3(id, bal) VALUES('+msg.from.id+', 0)')
+       bot.answerCallbackQuery(msg.id,'Нужно иметь хотя бы 1 🍬 для игры', false);
+    }
+})
+})
+} 
+}
+
+if (msg.data === 'nogame2') {
+if (user.includes(msg.from.id)) {
+p = gamer.indexOf(msg.from.first_name);
+gamer.splice(p, 1);
+user.splice(p, 1);
+p = null;
+db.run('UPDATE ba3 SET bal = bal + 1 WHERE id = '+msg.from.id);
+gamersb--;
+bot.answerCallbackQuery(msg.id,'Вы вышли из игры (вам вернули 1 🍬 с баланса)',true);
+} else {  
+bot.answerCallbackQuery(msg.id,'Вы итак не в игре 😳',false)
+}
+} 
+ 
 
 if (msg.data === 'whois') {
 f = ' ';
@@ -407,9 +669,9 @@ if (chose[p] === 0) {
 bot.answerCallbackQuery(msg.id,'Вы выбрали 1⃣ вариант ответа', true);
   chose[p] = 1;
 } else {
-bot.answerCallbackQuery(msg.id,'Вы уже выбрали вариант ответа ('+chose[p]+')', true);
+bot.answerCallbackQuery(msg.id,'Вы уже выбрали вариант ответа ('+chose[p]+')', false);
 }
-  p = -1;
+  p = null;
 } else {
 bot.answerCallbackQuery(msg.id,'Вы не в игре', false);
 }
@@ -422,9 +684,9 @@ if (chose[p] === 0) {
 bot.answerCallbackQuery(msg.id,'Вы выбрали 2⃣ вариант ответа', true);
   chose[p] = 2;
 } else {
-bot.answerCallbackQuery(msg.id,'Вы уже выбрали вариант ответа ('+chose[p]+')', true);
+bot.answerCallbackQuery(msg.id,'Вы уже выбрали вариант ответа ('+chose[p]+')', false);
 }
-p = -1;
+p = null;
 } else {
 bot.answerCallbackQuery(msg.id,'Вы не в игре', false);
 }
@@ -437,9 +699,9 @@ if (chose[p] === 0) {
 bot.answerCallbackQuery(msg.id,'Вы выбрали 3⃣ вариант ответа', true);
   chose[p] = 3;
 } else {
-bot.answerCallbackQuery(msg.id,'Вы уже выбрали вариант ответа ('+chose[p]+')', true);
+bot.answerCallbackQuery(msg.id,'Вы уже выбрали вариант ответа ('+chose[p]+')', false);
 }
-  p = -1;
+  p = null;
 } else {
 bot.answerCallbackQuery(msg.id,'Вы не в игре', false);
 }
@@ -452,9 +714,9 @@ if (chose[p] === 0) {
 bot.answerCallbackQuery(msg.id,'Вы выбрали 4⃣ вариант ответа', true);
   chose[p] = 4;
 } else {
-bot.answerCallbackQuery(msg.id,'Вы уже выбрали вариант ответа ('+chose[p]+')', true);
+bot.answerCallbackQuery(msg.id,'Вы уже выбрали вариант ответа ('+chose[p]+')', false);
 }
-p = -1;
+p = null;
 } else {
 bot.answerCallbackQuery(msg.id,'Вы не в игре', false);
 }
