@@ -55,7 +55,6 @@ bot.onText(/^del (.+)/i, (msg, match) => {
 bot.onText(/^показать бд/i, (msg) => {
   if (msg.from.id === admin[0]) {
   db.serialize(() => {
-    db.run('ALTER TABLE ba3 ADD COLUMN game int');
      f = '';
     db.all('SELECT id, bal FROM ba3', (err, row) => {
       if (err) throw err;
