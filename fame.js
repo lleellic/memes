@@ -121,10 +121,9 @@ bot.onText(/^конфеты/i, (msg) => {
 db.serialize(() => {
   db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, row) => {
     if (row) {
-      db.run('UPDATE ba3 SET fn = '+msg.from.first_name+' WHERE id = '+msg.from.id);
       bot.sendMessage(msg.chat.id,'Твой баланс '+row.bal+' 🍬', {reply_to_message_id:msg.message_id}) 
     } else {
-       db.run('INSERT INTO ba3(id, bal, fn) VALUES('+msg.from.id+', 0, '+msg.from.first_name+')')
+       db.run('INSERT INTO ba3(id, bal) VALUES('+msg.from.id+', 0)')
        bot.sendMessage(msg.chat.id,'Твой баланс 0 🍬', {reply_to_message_id:msg.message_id})
     }
 })
@@ -142,7 +141,7 @@ bot.onText(/^\$(.+)/, (msg) => {
   db.serialize(() => {
           db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, row) => {
           if (!row) {
-            db.run('INSERT INTO ba3(id, bal, fn) VALUES('+msg.from.id+', 0, '+msg.from.first_name+')')
+            db.run('INSERT INTO ba3(id, bal) VALUES('+msg.from.id+', 0)')
           } 
           });
           db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, row) => {
