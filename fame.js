@@ -82,7 +82,7 @@ db.serialize(() => {
 
 bot.onText(/^\$(.+)/, (msg) => {
   tex = msg.text;
-  tex = tex.replace(/^%/,'');
+  tex = tex.splice(0, 1);
   console.log(typeof tex);
   console.log(tex);
   db.serialize(() => {
