@@ -83,11 +83,10 @@ db.serialize(() => {
 bot.onText(/^\$(.+)/, (msg) => {
   tex = msg.text;
   tex = tex.substr(1);
-  console.log(msg);
-  if (tex < 0) {
+  if (tex <= 0) {
     bot.sendMessage(msg.chat.id,'Нельзя передавать столько 🍬', {reply_to_message_id:msg.message_id})
   } else if (msg.reply_to_message.from.is_bot == true) {
-    bot.sendMessage(msg.chat.id,'Нельзя передавать 🍬 ботамб они ими не питаются!', {reply_to_message_id:msg.message_id})
+    bot.sendMessage(msg.chat.id,'Нельзя передавать 🍬 ботам они ими не питаются!', {reply_to_message_id:msg.message_id})
   } else {
   db.serialize(() => {
           db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, row) => {
