@@ -30,6 +30,22 @@ var muten = new Array();
 var tex;
 var pid;
 var psum;
+var pole = new Array();
+var pole1 = new Array();
+
+
+var i2 = {
+  reply_markup:{
+    inline_keyboard: [
+      [{text:'Играть 😏', callback_data:'togame'}, {text:'Выйти 😒', callback_data:'nogame'}],
+      [{text:'Сколько уч.?', callback_data:'members'}, {text:'Кто уч.?', callback_data:'whois'}]
+    ]
+  }
+};
+
+
+
+
 
 answ[0] = 'Выберите правильный вариант ответа.';
 a[0] = ' 1⃣ ';
@@ -42,6 +58,40 @@ const db = new sqlite3.Database('./mytest.db', (err) => {
     console.error(err.message);
   }
 });
+
+bot.onText(/^прятки/i, (msg) => {
+del = msg.message_id;
+del++;
+bot.deleteMessage(msg.chat.id, msg.message_id);
+if (offirs === 0) {
+bot.sendMessage(chatt,'Стартовал набор игроков для игры «Прятки»', inline1); 
+offirs = 1;
+} else {
+bot.sendMessage(msg.chat.id,'Игра уже начата. Ожидайте...');
+} 
+})
+
+
+
+bot.onText(/^старт/i, (msg) => {
+if (gamer.includes(msg.from.id)) {
+if (offirs === 1) {
+  for (i = 0; i < 36; i++) {
+  pole[i] = 0;
+}
+offirs = 2;
+bot.deleteMessage(chatt, del);
+del = msg.message_id;
+del++;
+bot.deleteMessage(chatt, msg.message_id);
+bot.sendMessage(chatt,'Игра стартовала, ожидайте ведущего');
+}
+}
+})
+
+
+
+
 
 
 bot.onText(/^del (.+)/i, (msg, match) => {
@@ -93,9 +143,7 @@ bot.onText(/^\$(.+)/, (msg) => {
           db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, row) => {
           if (!row) {
             db.run('INSERT INTO ba3(id, bal, fn) VALUES('+msg.from.id+', 0, '+msg.from.first_name+')')
-          } else {
-            db.run('UPDATE ba3 SET fn = '+msg.from.first_name+' WHERE id = '+msg.from.id);
-          }
+          } 
           });
           db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, row) => {
        if (row.bal >= tex) {
