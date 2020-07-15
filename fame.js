@@ -34,6 +34,8 @@ var pole = new Array();
 var pole1 = new Array();
 var opt;
 
+
+
   for (i = 0; i < 36; i++) {
   pole1[i] = 0;
 }
@@ -95,12 +97,18 @@ const db = new sqlite3.Database('./mytest.db', (err) => {
   }
 });
 
+
+
+
+
+
+
 bot.onText(/^прятки/i, (msg) => {
 del = msg.message_id;
 del++;
 bot.deleteMessage(msg.chat.id, msg.message_id);
 if (offirs === 0) {
-bot.sendMessage(chatt,'Стартовал набор игроков для игры «Прятки»', inline1); 
+bot.sendMessage(chatt,'Стартовал набор игроков для игры «Прятки»', inline3); 
 offirs = 1;
 } else {
 bot.sendMessage(msg.chat.id,'Игра уже начата. Ожидайте...');
@@ -169,6 +177,7 @@ db.serialize(() => {
 bot.onText(/^\$(.+)/, (msg) => {
   tex = msg.text;
   tex = tex.substr(1);
+  if (msg.from.id != msg.reply_to_message.from.id) {
   if (tex <= 0) {
     bot.sendMessage(msg.chat.id,'Нельзя передавать столько 🍬', {reply_to_message_id:msg.message_id})
   } else if (msg.reply_to_message.from.is_bot == true) {
@@ -193,6 +202,7 @@ bot.onText(/^\$(.+)/, (msg) => {
        }
      });
   })
+}
 }
 })
 
