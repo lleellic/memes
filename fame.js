@@ -228,13 +228,13 @@ f = '';
 
 for (i = 0; i < s; i += 0) {
 p = Math.floor(Math.random() * (gamersb + 1)); 
-
 if (!seek.includes(gamer[p])) {
-    console.log('1');
   seek[seek.length] = user[p];
   seekfn[seekfn.length] = gamer[p];
+      console.log('1');
   i++;
   f += i+'. <a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a>\n';
+      console.log('2');
 }
 }   
  
