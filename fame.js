@@ -673,7 +673,7 @@ console.log('changed');
           h = 0;
           f2 = '';
           f = '';
-          for (i = 0; i < placeval.length; i++) {
+          for (i = 0; i < place.length; i++) {
             if (placeval[i] === 1) {
               for (i2 = 0; i2 < place.length; i2++) {
                 if (place[i2] === i) {
