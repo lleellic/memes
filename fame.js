@@ -539,6 +539,7 @@ if (msg.data > 0) {
   } else {
     if (seek.includes(msg.from.id)) {
       if (can !== 0) {
+        console.log('clickcan');
       if (placeval[msg.data] === 2) {
         bot.answerCallbackQuery(msg.id,'Сюда уже тыкали', false);
       } else if (placeval[msg.data] === 1) {
@@ -602,6 +603,7 @@ i5 = {
        opt.chat_id = chatt;
        opt.message_id = em;
         bot.editMessageText('Игра стартовала!\n\nШансов на поиск ('+can+')\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+(hide.length-found)+'\n\nВнимание!\nКоманда: искать!', opt);
+      console.log('plus');
       } else {
         can--;
         bot.answerCallbackQuery(msg.id,'Тут никого нет', true);
@@ -662,9 +664,10 @@ i5 = {
         opt.chat_id = chatt;
         opt.message_id = em;
         bot.editMessageText('Игра стартовала!\n\nШансов на поиск ('+can+')\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+(hide.length-found)+'\n\nВнимание!\nКоманда: искать!', opt);
+console.log('changed');
       }
         if (!placeval.includes(1)) {
-          console.log('includes')
+console.log('includes');
           can = -1;
           h = 0;
           f2 = '';
@@ -695,8 +698,7 @@ i5 = {
           seek.length = 0;
           seekfn.length = 0;
           gamersb = 0;
-        }
-        if (can === 0) {
+        } else if (can === 0) {
           h = 0;
           f2 = '';
           f = '';
@@ -712,13 +714,13 @@ i5 = {
               }
             }
           }
-                    console.log('can')
+console.log('can');
           s = Math.floor(((gamersb - h) * 2)/s);
           for (i = 0; i < seek.length; i++) {
             f += (i+1)+'. '+seekfn[i]+' +'+s+' 🍬\n';
             db.run('UPDATE ba3 SET bal = bal + '+s+' WHERE id = '+seek[i]);
           }
-                    console.log('can1')
+console.log('can1');
           bot.deleteMessage(chatt, em);
           bot.sendMessage(chatt,'Игра окончена!\n\Победители:\n'+f+'\nКого не нашли:\n\n'+f2+'\n\nПоздравляем!', {parse_mode: "HTML"}); 
           offirs = 0;
