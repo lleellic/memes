@@ -603,13 +603,13 @@ i5 = {
        opt.chat_id = chatt;
        opt.message_id = em;
         bot.editMessageText('Игра стартовала!\n\nШансов на поиск ('+can+')\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+(hide.length-found)+'\n\nВнимание!\nКоманда: искать!', opt);
-      console.log('plus');
+console.log('plus');
       } else {
         can--;
         bot.answerCallbackQuery(msg.id,'Тут никого нет', true);
         placeval[msg.data] = 2;
         pole[msg.data] = ' ❌ ';
-        i2 = {
+i2 = {
   parse_mode: "HTML",
   reply_markup:{
     inline_keyboard: [
@@ -672,24 +672,13 @@ console.log('includes');
           h = 0;
           f2 = '';
           f = '';
-          for (i = 0; i < placeval.length; i++) {
-            if (placeval[i] === 1) {
-              for (i2 = 0; i2 < place.length; i++) {
-                if (place[i2] === i) {
-                  h++;
-                  f2 += h+'. '+hidefn[i2]+' +2 🍬\n';
-                  db.run('UPDATE ba3 SET bal = bal + 2 WHERE id = '+hide[i2]);
-                }
-              }
-            }
-          }
           s = Math.floor(((gamersb - h) * 2)/s);
           for (i = 0; i < seek.length; i++) {
             f += (i+1)+'. '+seekfn[i]+' +'+s+' 🍬\n';
             db.run('UPDATE ba3 SET bal = bal + '+s+' WHERE id = '+seek[i]);
           }
           bot.deleteMessage(chatt, em);
-          bot.sendMessage(chatt, 'Игра окончена!\n\Победители:\n'+f+'\nКого не нашли:\n\n'+f2+'\n\nПоздравляем!', {parse_mode: "HTML"}); 
+          bot.sendMessage(chatt, 'Игра окончена!\n\Победители:\n'+f+'\nВсех нашли\n\nПоздравляем искателей!', {parse_mode: "HTML"}); 
           offirs = 0;
           gamer.length = 0;
           user.length = 0;
@@ -707,8 +696,7 @@ console.log('includes');
               for (i2 = 0; i2 < place.length; i++) {
                 if (place[i2] === i) {
                   h++;
-                  f2 += h+'. '+hidefn[i2]+' +2 🍬\n';
-                  pole[i] = '  ';
+                  f2 += h +'. '+hidefn[i2]+' +2 🍬\n';
                   db.run('UPDATE ba3 SET bal = bal + 2 WHERE id = '+hide[i2]);
                 }
               }
