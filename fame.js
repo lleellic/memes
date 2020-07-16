@@ -542,6 +542,7 @@ if (msg.data > 0) {
   } else {
     if (seek.includes(msg.from.id)) {
       if (can === 0) {
+        console.log('can');
           h = 0;
           f2 = '';
           f = '';
@@ -556,7 +557,7 @@ if (msg.data > 0) {
               }
             }
           }
-console.log('can');
+
           s = Math.floor(((gamersb - h) * 2)/s);
           for (i = 0; i < seek.length; i++) {
             f += (i+1)+'. '+seekfn[i]+' +'+s+' 🍬\n';
