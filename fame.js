@@ -542,7 +542,6 @@ if (msg.data > 0) {
   } else {
     if (seek.includes(msg.from.id)) {
       if (can !== 0) {
-        console.log('clickcan');
       if (placeval[msg.data] === 2) {
         bot.answerCallbackQuery(msg.id,'Сюда уже тыкали', false);
       } else if (placeval[msg.data] === 1) {
@@ -676,16 +675,12 @@ console.log('changed');
           f = '';
           for (i = 0; i < place.length; i++) {
             if (placeval[i] === 1) {
-              for (i2 = 0; i2 < place.length; i2++) {
-                if (place[i2] === i) {
                   h++;
-                  f2 += h +'. '+hidefn[i2]+' +2 🍬\n';
-                  db.run('UPDATE ba3 SET bal = bal + 2 WHERE id = '+hide[i2]);
-                }
-              }
+                  f2 += h +'. '+hidefn[i]+' +2 🍬\n';
+                  db.run('UPDATE ba3 SET bal = bal + 2 WHERE id = '+hide[i2/];
             }
           }
-          s = Math.floor(((gamersb - h) * 2)/s);
+          s = Math.floor(((gamersb - h) * 2)/s) - (h * 2);
           for (i = 0; i < seek.length; i++) {
             f += (i+1)+'. '+seekfn[i]+' +'+s+' 🍬\n';
             db.run('UPDATE ba3 SET bal = bal + '+s+' WHERE id = '+seek[i]);
