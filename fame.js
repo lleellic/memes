@@ -698,7 +698,6 @@ i5 = {
           gamersb = 0;
         }
         if (can === 0) {
-          console.log('can')
           h = 0;
           f2 = '';
           f = '';
@@ -714,11 +713,13 @@ i5 = {
               }
             }
           }
+                    console.log('can')
           s = Math.floor(((gamersb - h) * 2)/s);
           for (i = 0; i < seek.length; i++) {
             f += (i+1)+'. '+seekfn[i]+' +'+s+' 🍬\n';
             db.run('UPDATE ba3 SET bal = bal + '+s+' WHERE id = '+seek[i]);
           }
+                    console.log('can1')
           bot.deleteMessage(chatt, em);
           bot.sendMessage(chatt,'Игра окончена!\n\Победители:\n'+f+'\nКого не нашли:\n\n'+f2+'\n\nПоздравляем!', {parse_mode: "HTML"}); 
           offirs = 0;
