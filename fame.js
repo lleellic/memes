@@ -604,10 +604,11 @@ if (msg.data === 'ready') {
        rea--;
        bot.answerCallbackQuery(msg.id,'Точно готовы?', true);
      } else if (rea == 1) {
+       res--;
        bot.answerCallbackQuery(msg.id,'Поехали!', true);
        opt.chat_id = chatt;
        opt.message_id = em;
-       bot.editMessageText('Игра стартовала!\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+hide.length+'\n\nВнимание!\nКоманда: искать!', opt);
+       bot.editMessageText('Игра стартовала!\n\nШансов на поиск ('+can+')\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+hide.length+'\n\nВнимание!\nКоманда: искать!', opt);
      } else {
        bot.answerCallbackQuery(msg.id,'Уже идёт поиск', false);
      }
