@@ -685,7 +685,6 @@ console.log('changed');
               }
             }
           }
-
           s = Math.floor(((gamersb - h) * 2)/s);
           for (i = 0; i < seek.length; i++) {
             f += (i+1)+'. '+seekfn[i]+' +'+s+' 🍬\n';
@@ -703,7 +702,8 @@ console.log('changed');
           gamersb = 0;
       } else {
           f = '';
-        } else {
+      };
+      } else {
           f = '';
 console.log('includes');
           can = -1;
