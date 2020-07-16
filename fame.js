@@ -235,7 +235,6 @@ switch(gamersb) {
   case 18: s = 4; can = 17; inl = 6; break;
   case 19: s = 4; can = 17; inl = 6; break;
 }
-  can++;
   switch(inl) {
   case 2: opt = i2; break;
   case 3: opt = i3; break;
@@ -638,7 +637,7 @@ i5 = {
            };
        opt.chat_id = chatt;
        opt.message_id = em;
-        bot.editMessageText('Игра стартовала!\n\nШансов на поиск ('+(can-1)+')\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+(hide.length-found)+'\n\nВнимание!\nКоманда: искать!', opt);
+        bot.editMessageText('Игра стартовала!\n\nШансов на поиск ('+can+')\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+(hide.length-found)+'\n\nВнимание!\nКоманда: искать!', opt);
 console.log('plus');
       } else {
         can--;
@@ -699,7 +698,7 @@ i5 = {
            }
         opt.chat_id = chatt;
         opt.message_id = em;
-        bot.editMessageText('Игра стартовала!\n\nШансов на поиск ('+(can-1)+')\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+(hide.length-found)+'\n\nВнимание!\nКоманда: искать!', opt);
+        bot.editMessageText('Игра стартовала!\n\nШансов на поиск ('+can+')\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+(hide.length-found)+'\n\nВнимание!\nКоманда: искать!', opt);
 console.log('changed');
       }
         if (placeval.includes(1)) {
