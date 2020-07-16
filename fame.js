@@ -728,6 +728,7 @@ console.log('includes');
           seekfn.length = 0;
           gamersb = 0;
         }
+      }
     } else {
       bot.answerCallbackQuery(msg.id,'Вы не искатель', false);
     }
