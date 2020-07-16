@@ -701,7 +701,6 @@ console.log('changed');
           seek.length = 0;
           seekfn.length = 0;
           gamersb = 0;
-      }
       } else {
           f = '';
         } else {
