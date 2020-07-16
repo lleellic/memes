@@ -128,6 +128,7 @@ var inline3 = {
 
 
 bot.onText(/^прятки$/i, (msg) => {
+  rea = 2;
   chatt = msg.chat.id;
 del = msg.message_id;
 del++;
@@ -155,6 +156,9 @@ for (i = 0; i < 36; i++) {
 }
   for (i = 0; i < 36; i++) {
   pole[i] = ' ⏹ ';
+}
+      for (i = 0; i < 36; i++) {
+  poleval[i] = 0;
 }
   
 i2 = {
