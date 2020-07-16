@@ -533,7 +533,7 @@ if (msg.data > 0) {
             case 5: opt.reply_markup = i5; break;
             case 6: opt.reply_markup = 0; break;  
            }
-        bot.editMessageText('Игра стартовала!\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+hide.length+'\n\nВнимание!\nКоманда: искать!', opt); 
+        bot.editMessageText('Игра стартовала!\n\nШансов на поиск ('+can+')\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+hide.length+'\n\nВнимание!\nКоманда: искать!', opt);
       } else {
         can--;
         bot.answerCallbackQuery(msg.id,'Тут никого нет', true);
@@ -546,10 +546,9 @@ if (msg.data > 0) {
             case 5: opt.reply_markup = i5; break;
             case 6: opt.reply_markup = 0; break;  
            }
-        bot.editMessageText('Игра стартовала!\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+hide.length+'\n\nВнимание!\nКоманда: искать!', opt);  
+        bot.editMessageText('Игра стартовала!\n\nШансов на поиск ('+can+')\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+hide.length+'\n\nВнимание!\nКоманда: искать!', opt);
       }
-        if (can == 0) {
-          
+        if ((can == 0) || (!placeval.includes(1))) {
           h = 0;
           f2 = '';
           f = '';
