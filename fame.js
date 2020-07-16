@@ -324,7 +324,7 @@ db.serialize(() => {
       bot.sendMessage(msg.chat.id,'Твой баланс '+row.bal+' 🍬', {reply_to_message_id:msg.message_id}) 
     } else {
        db.run('INSERT INTO ba3(id, fn, bal) VALUES('+msg.from.id+', "'+msg.from.first_name+'", 5)')
-       bot.sendMessage(msg.chat.id,'Твой баланс 0 🍬', {reply_to_message_id:msg.message_id})
+       bot.sendMessage(msg.chat.id,'Твой баланс 5 🍬', {reply_to_message_id:msg.message_id})
     }
 })
 })
