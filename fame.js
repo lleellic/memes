@@ -54,7 +54,55 @@ b[0] = ' 2️⃣ ';
 c[0] = ' 3️⃣ ';
 d[0] = ' 4️⃣ ';
 
+var i2 = {
+  parse_mode: "HTML",
+  reply_markup:{
+    inline_keyboard: [
+      [{text: pole[1], callback_data:1}, {text: pole[2], callback_data:2}],
+      [{text: pole[3], callback_data:3}, {text: pole[4], callback_data:4}],
+      [{text: 'Готово', callback_data:'ready'}]
+    ]
+  }
+};
 
+var i3 = {
+  parse_mode: "HTML",
+  reply_markup:{
+    inline_keyboard: [
+      [{text: pole[1], callback_data:1}, {text: pole[2], callback_data:3}, {text: pole[3], callback_data:3}],
+      [{text: pole[4], callback_data:4}, {text: pole[5], callback_data:5}, {text: pole[6], callback_data:6}],
+      [{text: pole[7], callback_data:7}, {text: pole[8], callback_data:8}, {text: pole[9], callback_data:9}],
+      [{text: 'Готово', callback_data:'ready'}]
+    ]
+  }
+};
+
+var i4 = {  
+  parse_mode: "HTML",
+  reply_markup:{
+    inline_keyboard: [
+      [{text: pole[1], callback_data:1},   {text: pole[2], callback_data:2},   {text: pole[3], callback_data:3},   {text: pole[4],  callback_data:4} ],
+      [{text: pole[5], callback_data:5},   {text: pole[6], callback_data:6},   {text: pole[7], callback_data:7},   {text: pole[8],  callback_data:8} ],
+      [{text: pole[9], callback_data:9},   {text: pole[10], callback_data:10}, {text: pole[11], callback_data:11}, {text: pole[12], callback_data:12}],
+      [{text: pole[13], callback_data:13}, {text: pole[14], callback_data:14}, {text: pole[15], callback_data:15}, {text: pole[16], callback_data:16}],
+      [{text: 'Готово', callback_data:'ready'}]
+    ]
+  }
+};
+
+var i5 = {
+  parse_mode: "HTML",
+  reply_markup:{
+    inline_keyboard: [
+      [{text: pole[1], callback_data:1},     {text: pole[2], callback_data:2},     {text: pole[3], callback_data:3},     {text: pole[4],  callback_data:4},   {text: pole[5], callback_data:5}  ],
+      [{text: pole[6], callback_data:6},     {text: pole[7], callback_data:7},     {text: pole[8], callback_data:8},     {text: pole[9],  callback_data:9},   {text: pole[10], callback_data:10}],
+      [{text: pole[11], callback_data:11},   {text: pole[12], callback_data:12},   {text: pole[12], callback_data:13},   {text: pole[14],  callback_data:14}, {text: pole[15], callback_data:15}],
+      [{text: pole[16], callback_data:16},   {text: pole[17], callback_data:17},   {text: pole[18], callback_data:18},   {text: pole[19],  callback_data:19}, {text: pole[20], callback_data:20}],
+      [{text: pole[21], callback_data:21},   {text: pole[22], callback_data:22},   {text: pole[23], callback_data:23},   {text: pole[24],  callback_data:24}, {text: pole[25], callback_data:25}],
+      [{text: 'Готово', callback_data:'ready'}]
+    ]
+  }
+}; 
 
 
 
@@ -503,12 +551,14 @@ if (msg.data > 0) {
         pole[msg.data] = ' ❌ ';
         console.log('3.2')
           switch(inl) {
-            case 2: opt.reply_markup = i2; break;
-            case 3: opt.reply_markup = i3; break;
-            case 4: opt.reply_markup = i4; break;
-            case 5: opt.reply_markup = i5; break;
-            case 6: opt.reply_markup = 0; break;  
+            case 2: opt = i2; break;
+            case 3: opt = i3; break;
+            case 4: opt = i4; break;
+            case 5: opt = i5; break;
+            case 6: opt = 0; break;  
            }
+        opt.chat_id = chatt;
+       opt.message_id = em;
         console.log('3.3')
         bot.editMessageText('Игра стартовала!\n\nШансов на поиск ('+can+')\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+(hide.length-found)+'\n\nВнимание!\nКоманда: искать!', opt);
       }
@@ -534,12 +584,14 @@ if (msg.data > 0) {
             db.run('UPDATE ba3 SET bal = bal + '+s+' WHERE id = '+seek[i]);
           }
           switch(inl) {
-            case 2: opt.reply_markup = i2; break;
-            case 3: opt.reply_markup = i3; break;
-            case 4: opt.reply_markup = i4; break;
-            case 5: opt.reply_markup = i5; break;
-            case 6: opt.reply_markup = 0; break;  
+            case 2: opt = i2; break;
+            case 3: opt = i3; break;
+            case 4: opt = i4; break;
+            case 5: opt = i5; break;
+            case 6: opt = 0; break;  
            }
+          opt.chat_id = chatt;
+       opt.message_id = em;
           bot.editMessageText('Игра окончена!\n\Победители:\n'+f+'\nКого не нашли:\n\n'+f2+'\n\nПоздравляем!', opt); 
           offirs = 0;
           gamer.length = 0;
