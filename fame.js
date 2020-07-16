@@ -542,13 +542,12 @@ if (msg.data > 0) {
   } else {
     if (seek.includes(msg.from.id)) {
       if (can === 0) {
-        console.log('can');
           h = 0;
           f2 = '';
           f = '';
           for (i = 0; i < placeval.length; i++) {
             if (placeval[i] === 1) {
-              for (i2 = 0; i2 < place.length; i++) {
+              for (i2 = 0; i2 < place.length; i2++) {
                 if (place[i2] === i) {
                   h++;
                   f2 += h +'. '+hidefn[i2]+' +2 🍬\n';
@@ -563,7 +562,6 @@ if (msg.data > 0) {
             f += (i+1)+'. '+seekfn[i]+' +'+s+' 🍬\n';
             db.run('UPDATE ba3 SET bal = bal + '+s+' WHERE id = '+seek[i]);
           }
-console.log('can1');
           bot.deleteMessage(chatt, em);
           bot.sendMessage(chatt,'Игра окончена!\n\Искатели:\n'+f+'\nКого не нашли:\n\n'+f2+'\n\nПоздравляем!', {parse_mode: "HTML"}); 
           offirs = 0;
@@ -701,6 +699,38 @@ i5 = {
         opt.message_id = em;
         bot.editMessageText('Игра стартовала!\n\nШансов на поиск ('+can+')\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+(hide.length-found)+'\n\nВнимание!\nКоманда: искать!', opt);
 console.log('changed');
+      }
+        if (can === 0) {
+          h = 0;
+          f2 = '';
+          f = '';
+          for (i = 0; i < placeval.length; i++) {
+            if (placeval[i] === 1) {
+              for (i2 = 0; i2 < place.length; i2++) {
+                if (place[i2] === i) {
+                  h++;
+                  f2 += h +'. '+hidefn[i2]+' +2 🍬\n';
+                  db.run('UPDATE ba3 SET bal = bal + 2 WHERE id = '+hide[i2]);
+                }
+              }
+            }
+          }
+
+          s = Math.floor(((gamersb - h) * 2)/s);
+          for (i = 0; i < seek.length; i++) {
+            f += (i+1)+'. '+seekfn[i]+' +'+s+' 🍬\n';
+            db.run('UPDATE ba3 SET bal = bal + '+s+' WHERE id = '+seek[i]);
+          }
+          bot.deleteMessage(chatt, em);
+          bot.sendMessage(chatt,'Игра окончена!\n\Искатели:\n'+f+'\nКого не нашли:\n\n'+f2+'\n\nПоздравляем!', {parse_mode: "HTML"}); 
+          offirs = 0;
+          gamer.length = 0;
+          user.length = 0;
+          hide.length = 0;
+          hidefn.length = 0;
+          seek.length = 0;
+          seekfn.length = 0;
+          gamersb = 0;
       }
         if (placeval.includes(1)) {
           f = '';
