@@ -483,7 +483,9 @@ if (msg.data > 0) {
         bot.answerCallbackQuery(msg.id,'Вы нашли игрока!', true);
         found++;
         placeval[msg.data] = 2;
+        console.log('2.1')
         pole[msg.data] = ' ✅ ';
+        console.log('2.2')
            switch(inl) {
             case 2: opt.reply_markup = i2; break;
             case 3: opt.reply_markup = i3; break;
@@ -491,12 +493,15 @@ if (msg.data > 0) {
             case 5: opt.reply_markup = i5; break;
             case 6: opt.reply_markup = 0; break;  
            }
+        console.log('2.3')
         bot.editMessageText('Игра стартовала!\n\nШансов на поиск ('+can+')\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+(hide.length-found)+'\n\nВнимание!\nКоманда: искать!', opt);
       } else {
         can--;
         bot.answerCallbackQuery(msg.id,'Тут никого нет', true);
         placeval[msg.data] = 2;
+        console.log('3.1')
         pole[msg.data] = ' ❌ ';
+        console.log('3.2')
           switch(inl) {
             case 2: opt.reply_markup = i2; break;
             case 3: opt.reply_markup = i3; break;
@@ -504,6 +509,7 @@ if (msg.data > 0) {
             case 5: opt.reply_markup = i5; break;
             case 6: opt.reply_markup = 0; break;  
            }
+        console.log('3.3')
         bot.editMessageText('Игра стартовала!\n\nШансов на поиск ('+can+')\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+(hide.length-found)+'\n\nВнимание!\nКоманда: искать!', opt);
       }
         if ((can == 0) || (!placeval.includes(1))) {
