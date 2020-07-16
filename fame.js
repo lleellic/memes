@@ -716,7 +716,7 @@ console.log('includes');
           for (i = 0; i < seek.length; i++) {
             f += (i+1)+'. '+seekfn[i]+' +'+s+' 🍬\n';
             db.run('UPDATE ba3 SET bal = bal + '+s+' WHERE id = '+seek[i]);
-          }
+}
           bot.deleteMessage(chatt, em);
           bot.sendMessage(chatt, 'Игра окончена!\n\Победители:\n'+f+'\nВсех нашли\n\nПоздравляем искателей!', {parse_mode: "HTML"}); 
           offirs = 0;
@@ -727,12 +727,10 @@ console.log('includes');
           seek.length = 0;
           seekfn.length = 0;
           gamersb = 0;
-        }
-      }
-    } else {
+}
+} else {
       bot.answerCallbackQuery(msg.id,'Вы не искатель', false);
-    }
-  }
+}
 } 
 }
 }
