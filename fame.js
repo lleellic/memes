@@ -118,6 +118,7 @@ var inline3 = {
 
 
 bot.onText(/^прятки/i, (msg) => {
+  chatt = msg.chat.id;
 del = msg.message_id;
 del++;
 bot.deleteMessage(msg.chat.id, msg.message_id);
@@ -430,14 +431,6 @@ i = -1;
 }
 })
 
-bot.onText(/^сохранить/i, (msg) => {
-if (admin.includes(msg.from.id)) {
-chatt = msg.chat.id;
-bot.deleteMessage(chatt, msg.message_id);
-bot.sendMessage(chatt,'Чат сохранен'); 
-}
-})
-
 bot.onText(/^отменить/i, (msg) => {
 if (admin.includes(msg.from.id)) {
 bot.deleteMessage(msg.chat.id, msg.message_id);
@@ -454,6 +447,7 @@ gamersb = 0;
 
 bot.onText(/^играть/i, (msg) => {
 if (admin.includes(msg.from.id)) {
+  chatt = msg.chat.id;
 for (i=0; i < 40; i++) {
 number[i] = i + 1;
 }
