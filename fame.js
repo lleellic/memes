@@ -315,7 +315,8 @@ bot.onText(/^топ конфет$/i, (msg) => {
         i++;
         f += i + '. '+row.fn+'  ' + row.bal +' 🍬\n';
     })
-    bot.sendMessage(msg.chat.id, f)
+    bot.sendMessage(msg.chat.id, f);
+      f = '';
   })
   })
 })
@@ -528,8 +529,10 @@ if (msg.data > 0) {
       if (hide.includes(msg.from.id)) {
       if (place.includes(msg.data)) {
         bot.answerCallbackQuery(msg.id,'Место занято', false);
+      } else if (place[hidefn.indexOf(msg.from.first_name)] > 0) {
+      bot.answerCallbackQuery(msg.id,'Вы уже спрятались', false);
       } else {
-        place[hidefn.indexOf(msg.from.first_name)] = msg.data;
+          place[hidefn.indexOf(msg.from.first_name)] = msg.data;
         placeval[msg.data] = 1;
         bot.answerCallbackQuery(msg.id,'Вы выбрали это место', true);
       }
