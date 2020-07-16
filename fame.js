@@ -671,7 +671,6 @@ i5 = {
                 if (place[i2] === i) {
                   h++;
                   f2 += h+'. '+hidefn[i2]+' +2 🍬\n';
-                  pole[i] = '  '
                   db.run('UPDATE ba3 SET bal = bal + 2 WHERE id = '+hide[i2]);
                 }
               }
