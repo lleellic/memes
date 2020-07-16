@@ -292,6 +292,25 @@ bot.onText(/^показать бд/i, (msg) => {
   }
 })
 
+bot.onText(/^топ конфет/i, (msg) => {
+  db.serialize(() => {
+     f = '';
+    db.all('SELECT id, bal, fn FROM ba3 ORDER BY bal DESC LIMIT 10', (err, row) => {
+      if (err) throw err;
+      i = 0;
+      row.forEach((row) => {
+        i++;
+        f += i + '. '+row.fn+'  ' + row.bal +' 🍬\n';
+    })
+    bot.sendMessage(msg.chat.id, f)
+  })
+  })
+})
+
+
+
+
+
 bot.onText(/^конфеты/i, (msg) => {
 db.serialize(() => {
   db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, row) => {
