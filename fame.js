@@ -13,6 +13,7 @@ var i2;
 var f;
 var em;
 var seek = new Array();
+var seekfn = new Array();
 var hide = new Array();
 var hidefn = new Array();
 var place = new Array();
