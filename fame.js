@@ -193,9 +193,8 @@ i5 = {
     ]
   }
 }; 
-  console.log('1')
+
 offirs = 2;
-bot.deleteMessage(chatt, del);
 del = msg.message_id;
 del++;
 bot.deleteMessage(chatt, msg.message_id);
@@ -227,6 +226,7 @@ switch(gamersb) {
   case 6: opt = 0; break;  
 }
 f = '';
+    console.log('1');
 for (i = 0; i < s; i += 0) {
 p = getRandomInRange(0, gamersb);
 if (!seek.includes(gamer[p])) {
