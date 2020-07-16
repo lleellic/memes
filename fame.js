@@ -604,7 +604,7 @@ if (msg.data === 'ready') {
        rea--;
        bot.answerCallbackQuery(msg.id,'Точно готовы?', true);
      } else if (rea == 1) {
-       res--;
+       rea--;
        bot.answerCallbackQuery(msg.id,'Поехали!', true);
        opt.chat_id = chatt;
        opt.message_id = em;
