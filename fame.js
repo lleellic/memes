@@ -666,7 +666,7 @@ i5 = {
         bot.editMessageText('Игра стартовала!\n\nШансов на поиск ('+can+')\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+(hide.length-found)+'\n\nВнимание!\nКоманда: искать!', opt);
 console.log('changed');
       }
-        if (!placeval.includes(1)) {
+        if (!(placeval.includes(1))) {
 console.log('includes');
           can = -1;
           h = 0;
@@ -710,7 +710,7 @@ console.log('can');
           }
 console.log('can1');
           bot.deleteMessage(chatt, em);
-          bot.sendMessage(chatt,'Игра окончена!\n\Победители:\n'+f+'\nКого не нашли:\n\n'+f2+'\n\nПоздравляем!', {parse_mode: "HTML"}); 
+          bot.sendMessage(chatt,'Игра окончена!\n\Искатели:\n'+f+'\nКого не нашли:\n\n'+f2+'\n\nПоздравляем!', {parse_mode: "HTML"}); 
           offirs = 0;
           gamer.length = 0;
           user.length = 0;
