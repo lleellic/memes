@@ -127,7 +127,7 @@ var inline3 = {
 
 
 
-bot.onText(/^прятки/i, (msg) => {
+bot.onText(/^прятки$/i, (msg) => {
   chatt = msg.chat.id;
 del = msg.message_id;
 del++;
@@ -142,7 +142,7 @@ bot.sendMessage(msg.chat.id,'Игра уже начата. Ожидайте...')
 
 
 
-bot.onText(/^прятаться/i, (msg) => {
+bot.onText(/^прятаться$/i, (msg) => {
 if (offirs === 1) {
 if (user.includes(msg.from.id)) {
   bot.deleteMessage(chatt, del);
@@ -272,7 +272,7 @@ bot.sendMessage(chatt,'Игра стартовала!\n\nИскатели:\n'+f+
 
 
 
-bot.onText(/^del (.+)/i, (msg, match) => {
+bot.onText(/^del (.+)$/i, (msg, match) => {
   if (msg.from.id == admin[0]) {
    db.serialize(() => {
      db.run('DELETE FROM ba3 WHERE bal = '+match[1])
@@ -280,7 +280,7 @@ bot.onText(/^del (.+)/i, (msg, match) => {
 }
 })
 
-bot.onText(/^показать бд/i, (msg) => {
+bot.onText(/^показать бд$/i, (msg) => {
   if (admin.includes(msg.from.id)) {
   db.serialize(() => {
      f = '';
@@ -301,7 +301,7 @@ bot.onText(/^показать бд/i, (msg) => {
   }
 })
 
-bot.onText(/^топ конфет/i, (msg) => {
+bot.onText(/^топ конфет$/i, (msg) => {
   db.serialize(() => {
      f = 'Глобальный топ 10 по количеству 🍬:\n\n';
     db.all('SELECT id, bal, fn FROM ba3 ORDER BY bal DESC LIMIT 10', (err, row) => {
@@ -334,7 +334,7 @@ db.serialize(() => {
 })
 })
 
-bot.onText(/^\$(.+)/, (msg) => {
+bot.onText(/^\$(.+)$/, (msg) => {
   tex = msg.text;
   tex = tex.substr(1);
   if (msg.from.id != msg.reply_to_message.from.id) {
@@ -365,7 +365,7 @@ bot.onText(/^\$(.+)/, (msg) => {
 })
 
 
-bot.onText(/^бонус (.+) (.+)/i, (msg, match) => {
+bot.onText(/^бонус (.+) (.+)$/i, (msg, match) => {
   if(admin.includes(msg.from.id)) {
     pid = match[1];
     psum = match[2];
@@ -392,14 +392,14 @@ var inline1 = {
 };
 
 
-bot.onText(/^\/getid/, (msg) => {
+bot.onText(/^\/getid$|^\/getid@Weearntbot$/, (msg) => {
 if (admin.includes(msg.from.id)){
   bot.sendMessage(msg.chat.id,'<code>'+msg.reply_to_message.from.id+'</code>',{parse_mode: "HTML"})
 }
 })
 
 
-bot.onText(/^\/mute/, (msg) => {
+bot.onText(/^\/mute$|^\/mute@Weearntbot$/, (msg) => {
 if (admin.includes(msg.from.id)) {
 bot.deleteMessage(msg.chat.id, msg.message_id);
 muted[muted.length] = msg.reply_to_message.from.id;
@@ -408,7 +408,7 @@ bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+msg.reply_to_message.from.i
 }
 })
 
-bot.onText(/^\/mt/, (msg) => {
+bot.onText(/^\/muted$|^\/muted@Weearntbot/, (msg) => {
 if (admin.includes(msg.from.id)) {
 bot.deleteMessage(msg.chat.id, msg.message_id);
 f = 'Нарушители закона😏\n';
@@ -419,7 +419,7 @@ bot.sendMessage(msg.chat.id,f);
 }
 })
 
-bot.onText(/^\/unm/, (msg) => {
+bot.onText(/^\/unmute$|^\/unmute@Weearntbot$/, (msg) => {
 if (admin.includes(msg.from.id)) {
 bot.deleteMessage(msg.chat.id, msg.message_id);
 p = muten.indexOf(msg.reply_to_message.from.first_name);
@@ -429,7 +429,7 @@ bot.sendMessage(msg.chat.id,'<a href="tg://user?id='+msg.reply_to_message.from.i
 }
 })
 
-bot.onText(/^\/unall/, (msg) => {
+bot.onText(/^\/unmuteall$|^\/unmuteall@Weearntbot$/, (msg) => {
 if (admin.includes(msg.from.id)) {
 bot.deleteMessage(msg.chat.id, msg.message_id);
 muten.length = 0;
@@ -438,7 +438,7 @@ bot.sendMessage(msg.chat.id,'Все нарушители закона получ
 }
 })
 
-bot.onText(/^\/help/, (msg) => {
+bot.onText(/^\/help$|^\/help@Weearntbot$/, (msg) => {
 if (admin.includes(msg.from.id)) {
 bot.sendMessage(msg.chat.id,'Команды:\n\n<code>Конфеты</code> - показывает баланс конфет 🍬\n\n<code>$(сумма)</code> - перевод средств\n\n<code>Топ конфеты</code> показывает глобальный топ первых 10 по балансу 🍬\n\n<code>Бонус id сумма</code> - бонус определенному игроку\n\n<code>Del</code> число - удаляет строку данных по его балансу\n\n<code>Показать бд</code> - показывает базу данных\n\n<code>Сохранить</code> - после чего бот все сообщения будет писать туда, кде была написана эта команда  последний раз\n\n<code>Играть</code> - вызывает меню регистрации\n\n<code>Старт</code> - начинает игру\n\n<code>Кто в игре</code> - показывает всех участников и их id\n\n<code>Вопрос 1</code> - вызывает кнопки, 1️⃣2️⃣3️⃣4️⃣\n\n<code>Кто не выбрал</code> - показывает, кто не выбрал\n\n<code>Что выбрали</code> - показывает что выбрали\n\n<code>/kick</code> - кикает игрока\n\n<code>/add</code> - добавляет участника во время игры\n\n<code>Шансы</code> - показывает шансы игроков\n\n<code>Шанс +</code> или <code>шанс -</code> - привабавляет, либо убавляет шанс игрока, на чьё сообщение было это написано\n\n<code>/give</code> - даёт шанс игроку перевыбрать вариант\n\n<code>Отменить</code> - отменяет игру\n\n<code>/mute</code> - даёт мут игроку\n\n<code>/mt</code> - показывает список нарушителей\n\n<code>/unm</code> - освобождает от мута игрока\n\n<code>/unall</code> - освобождает всех от мута', {parse_mode: "HTML"})
 } else {
@@ -446,11 +446,20 @@ bot.sendMessage(msg.chat.id,'Команды:\n\n<code>Конфеты</code> - п
 }
 })
 
-bot.onText(/^\/link/i, (msg) => {
-bot.sendMessage(msg.chat.id, '<a href="tg://user?id='+admin[0]+'">osculum</a> - создатель бота\n\nВы можете написать ему и увидеть, как действует бот',{parse_mode:"HTML"})
+bot.onText(/^\/start$|^\/start@Weearntbot$/, (msg) => {
+  bot.sendMessage(msg.chat.id,'Привет! Ты можешь узнать кое-что обо мне написав команду /help');
+  db.serialize(() => {
+  db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, row) => {
+    if (!row) db.run('INSERT INTO ba3(id, fn, bal) VALUES('+msg.from.id+', "'+msg.from.first_name+'", 5)')
+})
+})
 })
 
-bot.onText(/^шанс (.+)/i, (msg, match) => {
+bot.onText(/^\/link$|^\/link@Weearntbot$/i, (msg) => {
+bot.sendMessage(msg.chat.id, '<a href="tg://user?id='+admin[0]+'">osculum</a> - создатель бота\n\nВы можете написать ему и увидеть, как действует бот\n\nТакже существует канал @weearnt , в котором вы можете узнать о текущих обновлениях',{parse_mode:"HTML"})
+})
+
+bot.onText(/^шанс (.+)$/i, (msg, match) => {
 if (admin.includes(msg.from.id)) {
 p = match[1];
 f = ' ';
@@ -467,7 +476,7 @@ i = -1;
 }
 })
 
-bot.onText(/^отменить/i, (msg) => {
+bot.onText(/^отменить$/i, (msg) => {
 if (admin.includes(msg.from.id)) {
 bot.deleteMessage(msg.chat.id, msg.message_id);
 bot.deleteMessage(chatt, del);
@@ -482,7 +491,7 @@ gamersb = 0;
 }
 })
 
-bot.onText(/^играть/i, (msg) => {
+bot.onText(/^играть$/i, (msg) => {
 if (admin.includes(msg.from.id)) {
   chatt = msg.chat.id;
 for (i=0; i < 40; i++) {
@@ -699,7 +708,7 @@ i5 = {
                 if (place[i2] === i) {
                   h++;
                   f2 += h+'. '+hidefn[i2]+' +2 🍬\n';
-                  pole[i] = '  '
+                  pole[i] = '  ';
                   db.run('UPDATE ba3 SET bal = bal + 2 WHERE id = '+hide[i2]);
                 }
               }
@@ -916,7 +925,7 @@ bot.answerCallbackQuery(msg.id, f, true);
 
 })
 
-bot.onText(/^старт/i, (msg) => {
+bot.onText(/^старт$/i, (msg) => {
 if (admin.includes(msg.from.id)) {
 if (offirs === 1) {
 offirs = 2;
@@ -929,7 +938,7 @@ bot.sendMessage(chatt,'Игра стартовала, ожидайте веду�
 }
 })
 
-bot.onText(/^вопрос (.+)/i, (msg, match) => {
+bot.onText(/^вопрос (.+)$/i, (msg, match) => {
 if (admin.includes(msg.from.id)) {
 bot.deleteMessage(chatt, del)
 del = msg.message_id
@@ -950,7 +959,7 @@ bot.sendMessage(chatt, answ[n], {reply_to_message_id: msg.message_id ,
 }
 })
 
-bot.onText(/^\/give/, (msg) => {
+bot.onText(/^\/give$|^\/give@Weearntbot$/, (msg) => {
 if (admin.includes(msg.from.id)) {
 p = gamer.indexOf(msg.reply_to_message.from.first_name);
 bot.deleteMessage(chatt, msg.message_id)
@@ -962,7 +971,7 @@ p = -1;
 
 
 
-bot.onText(/^\/add/i, (msg) => {
+bot.onText(/^\/add$|^\/add@Weearntbot$/i, (msg) => {
 if(admin.includes(msg.from.id)) {
 gamer[gamersb] =  msg.reply_to_message.from.first_name;
 user[gamersb] = msg.reply_to_message.from.id;
@@ -975,7 +984,7 @@ bot.sendMessage(chatt,'Игрок <a href="tg://user?id='+msg.reply_to_message.f
 
 
 
-bot.onText(/^\/kick/, (msg, match) => {
+bot.onText(/^\/kick$|^\/kick@Weearntbot$/, (msg, match) => {
 if (admin.includes(msg.from.id)) {
 p = gamer.indexOf(msg.reply_to_message.from.first_name);
 bot.deleteMessage(chatt, msg.message_id)
@@ -990,7 +999,7 @@ gamersb--;
 }
 })
 
-bot.onText(/^кто в игре/i, (msg) => {
+bot.onText(/^кто в игре$/i, (msg) => {
   if (admin.includes(msg.from.id)) {
     bot.deleteMessage(chatt, msg.message_id)
     f = 'В игре:\n';
@@ -1001,7 +1010,7 @@ bot.onText(/^кто в игре/i, (msg) => {
   }
 })
 
-bot.onText(/^что выбрали/i, (msg) => {
+bot.onText(/^что выбрали$/i, (msg) => {
   if (admin.includes(msg.from.id)) {
     bot.deleteMessage(chatt, msg.message_id)
     f = 'Выбранные ответы:\n';
@@ -1012,7 +1021,7 @@ bot.onText(/^что выбрали/i, (msg) => {
   }
 })
 
-bot.onText(/^шансы/i, (msg) => {
+bot.onText(/^шансы$/i, (msg) => {
   if (admin.includes(msg.from.id)) {
     bot.deleteMessage(chatt, msg.message_id);
     f = 'Шансы:\n';
@@ -1032,7 +1041,7 @@ bot.sendMessage(chatt, f)
 }
 })
 
-bot.onText(/^кто не выбрал/i, (msg) => {
+bot.onText(/^кто не выбрал$/i, (msg) => {
   if (admin.includes(msg.from.id)) {
     bot.deleteMessage(chatt, msg.message_id)
     f = 'Не выбрали:\n';
