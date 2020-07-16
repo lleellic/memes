@@ -293,7 +293,8 @@ bot.onText(/^показать бд$/i, (msg) => {
       row.forEach((row) => {
         i++;
         if (i >= 15) {
-              bot.sendMessage(msg.chat.id, f);
+              i = 0;
+              bot.sendMessage(msg.chat.id, f, {parse_mode:"HTML"});
           f = '';
         }
         f += '<code>'+row.id + '</code> '+row.fn+' - ' + row.bal +' 🍬\n';
