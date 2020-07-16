@@ -320,7 +320,7 @@ bot.onText(/^топ конфет/i, (msg) => {
 
 
 
-bot.onText(/^конфеты/i, (msg) => {
+bot.onText(/^конфеты^/i, (msg) => {
 db.serialize(() => {
   db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, row) => {
     if (row) {
@@ -533,9 +533,7 @@ if (msg.data > 0) {
         bot.answerCallbackQuery(msg.id,'Вы нашли игрока!', true);
         found++;
         placeval[msg.data] = 2;
-        console.log('2.1')
         pole[msg.data] = ' ✅ ';
-        console.log('2.2')
          i2 = {
   parse_mode: "HTML",
   reply_markup:{
@@ -657,6 +655,7 @@ i5 = {
         bot.editMessageText('Игра стартовала!\n\nШансов на поиск ('+can+')\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+(hide.length-found)+'\n\nВнимание!\nКоманда: искать!', opt);
       }
         if (!placeval.includes(1)) {
+          console.log('includes')
           can = -1;
           h = 0;
           f2 = '';
@@ -743,6 +742,7 @@ i5 = {
           gamersb = 0;
         }
         if (can === 0) {
+          console.log('can')
           h = 0;
           f2 = '';
           f = '';
