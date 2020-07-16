@@ -7,7 +7,9 @@ var offirs = 0;
 var gamersb = 0;
 var p;
 var ag;
+var f2;
 var bb;
+var i2;
 var f;
 var em;
 var seek = new Array();
@@ -140,7 +142,7 @@ for (i = 0; i < 36; i++) {
   pole1[i] = 0;
 }
   for (i = 0; i < 36; i++) {
-  pole[i] = '⏹';
+  pole[i] = ' ⏹ ';
 }
 i2 = {
   parse_mode: "HTML",
@@ -521,7 +523,7 @@ bot.on('callback_query', function (msg) {
         can--;
         bot.answerCallbackQuery(msg.id,'Вы нашли игрока!', true);
         placeval[msg.data] = 2;
-        pole[msg.data] = '✅';
+        pole[msg.data] = ' ✅ ';
            switch(inl) {
             case 2: opt.reply_markup = i2; break;
             case 3: opt.reply_markup = i3; break;
@@ -534,7 +536,7 @@ bot.on('callback_query', function (msg) {
         can--;
         bot.answerCallbackQuery(msg.id,'Тут никого нет', true);
         placeval[msg.data] = 2;
-        pole[msg.data] = '❌';
+        pole[msg.data] = ' ❌ ';
           switch(inl) {
             case 2: opt.reply_markup = i2; break;
             case 3: opt.reply_markup = i3; break;
@@ -546,9 +548,34 @@ bot.on('callback_query', function (msg) {
       }
         if (can == 0) {
           
-          
-          
-          bot.editMessageText('Окончена!\n\Победители:\n'+f+'\nОстальные прячущиеся - '+hide.length+'\n\nВнимание!\nКоманда: искать!', opt); 
+          h = 0;
+          f2 = '';
+          f = '';
+          for (i = 0; i < placeval.length; i++) {
+            if (placeval[i] === 1) {
+              for (i2 = 0; i2 < place.length; i++) {
+                if (place[i2] === i) {
+                  h++;
+                  f2 += h+'. '+hidefn[i2]+' +2 🍬\n';
+                  pole[i] = '  '
+                  db.run('UPDATE ba3 SET bal = bal + 2 WHERE id = '+hide[i2]);
+                }
+              }
+            }
+          }
+          s = Math.floor(((gamersb - h) * 2)/s);
+          for (i = 0; i < seek.length; i++) {
+            f += (i+1)+'. '+seekfn[i]+' +'+s+' 🍬\n';
+            db.run('UPDATE ba3 SET bal = bal + '+s+' WHERE id = '+seek[i]);
+          }
+          switch(inl) {
+            case 2: opt.reply_markup = i2; break;
+            case 3: opt.reply_markup = i3; break;
+            case 4: opt.reply_markup = i4; break;
+            case 5: opt.reply_markup = i5; break;
+            case 6: opt.reply_markup = 0; break;  
+           }
+          bot.editMessageText('Игра окончена!\n\Победители:\n'+f+'\nКого не нашли:\n\n'+f2+'\n\nПоздравляем!', opt); 
           offirs = 0;
           gamer.length = 0;
           user.length = 0;
