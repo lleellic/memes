@@ -264,9 +264,9 @@ if (!seek.includes(gamer[p])) {
     place[i] = 0;
   }
 bot.sendMessage(chatt,'Игра стартовала!\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+hide.length+'\n\nВнимание!\nКоманда: прятаться!', opt);
-}
 } else {
   bot.sendMessage(chatt,'Слишком мало игроков, необходимо минимум 2',{reply_to_message_id:msg.message_id});
+} 
 }
 }
 })
