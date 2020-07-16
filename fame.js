@@ -238,7 +238,7 @@ if (!seek.includes(gamer[p])) {
   for (i = 0; i < gamer.length; i++) {
     if (!seek.includes(user[i])) {
       hide[hide.length] = user[i];
-      hide[hidefn.length] = gamer[i];
+      hidefn[hidefn.length] = gamer[i];
     }
   }
   for (i = 0; i < hide.length; i++) {
