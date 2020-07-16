@@ -686,12 +686,13 @@ if (msg.data === 'whois') {
 f = '';
   if (gamer.length === 0) {
     f += 'Пока никого нет';
+    bot.answerCallbackQuery(msg.id, f, false);
   } else {
 for (i = 0; i < gamer.length; i++) {
 f += gamer[i]+'\n';
 }
-  }
 bot.answerCallbackQuery(msg.id, f, true);
+}
 }
 
 if (msg.data === 'AA') {
