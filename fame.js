@@ -228,8 +228,9 @@ f = '';
 
 for (i = 0; i < s; i += 0) {
 p = Math.floor(Math.random() * (gamersb + 1)); 
-  console.log('1');
+
 if (!seek.includes(gamer[p])) {
+    console.log('1');
   seek[seek.length] = user[p];
   seekfn[seekfn.length] = gamer[p];
   i++;
