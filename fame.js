@@ -303,7 +303,7 @@ bot.onText(/^показать бд/i, (msg) => {
 
 bot.onText(/^топ конфет/i, (msg) => {
   db.serialize(() => {
-     f = '';
+     f = 'Глобальный топ 10 по количеству 🍬:\n\n';
     db.all('SELECT id, bal, fn FROM ba3 ORDER BY bal DESC LIMIT 10', (err, row) => {
       if (err) throw err;
       i = 0;
