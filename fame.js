@@ -146,9 +146,9 @@ bot.sendMessage(msg.chat.id,'Игра уже начата. Ожидайте...')
 bot.onText(/^прятаться$/i, (msg) => {
 if (offirs === 1) {
 if (user.includes(msg.from.id)) {
+if (gamersb > 1) {
   bot.deleteMessage(chatt, del);
   found = 0;
-  if (gamersb > 1) {
   em = msg.message_id;
   em++;
 for (i = 0; i < 36; i++) {
@@ -158,7 +158,7 @@ for (i = 0; i < 36; i++) {
   pole[i] = ' ⏹ ';
 }
       for (i = 0; i < 36; i++) {
-  poleval[i] = 0;
+  placeval[i] = 0;
 }
   
 i2 = {
@@ -210,6 +210,7 @@ i5 = {
     ]
   }
 }; 
+    
 offirs = 2;
 del = msg.message_id;
 del++;
@@ -262,7 +263,6 @@ if (!seek.includes(gamer[p])) {
   for (i = 0; i < hide.length; i++) {
     place[i] = 0;
   }
-  rea = 2;
 bot.sendMessage(chatt,'Игра стартовала!\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+hide.length+'\n\nВнимание!\nКоманда: прятаться!', opt);
 }
 } else {
