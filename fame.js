@@ -844,9 +844,9 @@ user.splice(p, 1);
 p = null;
 db.run('UPDATE ba3 SET bal = bal + 1 WHERE id = '+msg.from.id);
 gamersb--;
-bot.answerCallbackQuery(msg.id,'Вы вышли из игры (вам вернули 1 🍬 с баланса)',true);
+bot.answerCallbackQuery(msg.id,'Вы вышли из игры (вам вернули 1 🍬 на баланс)', true);
 } else {  
-bot.answerCallbackQuery(msg.id,'Вы итак не в игре 😳',false)
+bot.answerCallbackQuery(msg.id,'Вы итак не в игре 😳', false)
 }
 } 
  
