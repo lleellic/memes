@@ -669,7 +669,8 @@ i5 = {
         bot.editMessageText('Игра стартовала!\n\nШансов на поиск ('+can+')\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+(hide.length-found)+'\n\nВнимание!\nКоманда: искать!', opt);
 console.log('changed');
       }
-        if (can === 0) {
+        if (placeval.includes(1)) {
+          if (can === 0) {
           h = 0;
           f2 = '';
           f = '';
@@ -701,7 +702,7 @@ console.log('changed');
           seekfn.length = 0;
           gamersb = 0;
       }
-        if (placeval.includes(1)) {
+      } else {
           f = '';
         } else {
           f = '';
