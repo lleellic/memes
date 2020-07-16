@@ -543,7 +543,6 @@ if (msg.data > 0) {
   } else {
     if (seek.includes(msg.from.id)) {
       if (can === 0) {
-        
           h = 0;
           f2 = '';
           f = '';
@@ -728,10 +727,9 @@ console.log('includes');
           seekfn.length = 0;
           gamersb = 0;
 }
-} else {
-      bot.answerCallbackQuery(msg.id,'Вы не искатель', false);
-}
 } 
+} else bot.answerCallbackQuery(msg.id,'Вы не искатель', false);
+}
 }
 }
   
