@@ -366,7 +366,7 @@ bot.onText(/^\$(.+)/, (msg) => {
 
 
 bot.onText(/^бонус (.+) (.+)/i, (msg, match) => {
-  if(msg.from.id == admin[0]) {
+  if(admin.includes(msg.from.id)) {
     pid = match[1];
     psum = match[2];
     if (pid === 'всем') {
