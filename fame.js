@@ -320,7 +320,7 @@ bot.onText(/^топ конфет/i, (msg) => {
 
 
 
-bot.onText(/^конфеты^/i, (msg) => {
+bot.onText(/^конфеты/i, (msg) => {
 db.serialize(() => {
   db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, row) => {
     if (row) {
