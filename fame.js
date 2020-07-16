@@ -229,7 +229,7 @@ for (i = 0; i < s; i += 0) {
 p = Math.floor(Math.random() * (gamersb + 1));
 if (!seek.includes(gamer[p])) {
   seek[seek.length] = user[p];
-  seekfn[seek.fn] = gamer[p];
+  seekfn[seekfn.length] = gamer[p];
   i++;
   f += i+'. <a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a>\n';
 }
