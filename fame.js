@@ -226,7 +226,7 @@ switch(gamersb) {
   case 6: opt = 0; break;  
 }
 f = '';
-    console.log('1');
+
 for (i = 0; i < s; i += 0) {
 p = getRandomInRange(0, gamersb);
 if (!seek.includes(gamer[p])) {
@@ -235,7 +235,8 @@ if (!seek.includes(gamer[p])) {
   i++;
   f += i+'. <a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a>\n';
 }
-}
+}   
+  console.log('1');
   for (i = 0; i < gamer.length; i++) {
     if (!seek.includes(user[i])) {
       hide[hide.length] = user[i];
