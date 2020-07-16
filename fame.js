@@ -140,6 +140,7 @@ bot.sendMessage(msg.chat.id,'Игра уже начата. Ожидайте...')
 
 bot.onText(/^прятаться/i, (msg) => {
 if (user.includes(msg.from.id)) {
+  if (gamersb > 1) {
   em = msg.message_id;
   em++;
 if (offirs === 1) {
@@ -255,6 +256,9 @@ if (!seek.includes(gamer[p])) {
   }
   rea = 2;
 bot.sendMessage(chatt,'Игра стартовала!\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+hide.length+'\n\nВнимание!\nКоманда: прятаться!', opt);
+}
+} else {
+  bot.sendMessage(chatt,'Слишком мало игроков, необходимо минимум 2',{reply_to_message_id:msg.message_id});
 }
 }
 })
