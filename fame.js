@@ -548,9 +548,7 @@ if (msg.data > 0) {
         can--;
         bot.answerCallbackQuery(msg.id,'Тут никого нет', true);
         placeval[msg.data] = 2;
-        console.log('3.1')
         pole[msg.data] = ' ❌ ';
-        console.log('3.2')
           switch(inl) {
             case 2: opt = i2; break;
             case 3: opt = i3; break;
@@ -560,8 +558,8 @@ if (msg.data > 0) {
            }
         opt.chat_id = chatt;
        opt.message_id = em;
-        console.log('3.3')
         bot.editMessageText('Игра стартовала!\n\nШансов на поиск ('+can+')\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+(hide.length-found)+'\n\nВнимание!\nКоманда: искать!', opt);
+       console.log('3')
       }
         if ((can == 0) || (!placeval.includes(1))) {
           h = 0;
