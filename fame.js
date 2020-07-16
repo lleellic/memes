@@ -193,6 +193,7 @@ i5 = {
     ]
   }
 }; 
+  console.log('1')
 offirs = 2;
 bot.deleteMessage(chatt, del);
 del = msg.message_id;
