@@ -226,7 +226,8 @@ switch(gamersb) {
 f = '';
 
 for (i = 0; i < s; i += 0) {
-p = Math.floor(Math.random() * (gamersb + 1));
+p = Math.floor(Math.random() * (gamersb + 1)); 
+  console.log('1');
 if (!seek.includes(gamer[p])) {
   seek[seek.length] = user[p];
   seekfn[seekfn.length] = gamer[p];
@@ -234,7 +235,7 @@ if (!seek.includes(gamer[p])) {
   f += i+'. <a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a>\n';
 }
 }   
-  console.log('1');
+ 
   for (i = 0; i < gamer.length; i++) {
     if (!seek.includes(user[i])) {
       hide[hide.length] = user[i];
