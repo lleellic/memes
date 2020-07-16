@@ -305,7 +305,7 @@ db.serialize(() => {
       db.run('UPDATE ba3 SET fn = '+msg.from.first_name+' WHERE id = '+msg.from.id);
       bot.sendMessage(msg.chat.id,'Твой баланс '+row.bal+' 🍬', {reply_to_message_id:msg.message_id}) 
     } else {
-       db.run('INSERT INTO ba3(id, fn, bal) VALUES('+msg.from.id+', msg, 0)')
+       db.run('INSERT INTO ba3(id, fn, bal) VALUES('+msg.from.id+', "'+msg.from.first_name+'", 0)')
        bot.sendMessage(msg.chat.id,'Твой баланс 0 🍬', {reply_to_message_id:msg.message_id})
     }
 })
