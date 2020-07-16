@@ -69,7 +69,7 @@ var i3 = {
   parse_mode: "HTML",
   reply_markup:{
     inline_keyboard: [
-      [{text: pole[1], callback_data:1}, {text: pole[2], callback_data:3}, {text: pole[3], callback_data:3}],
+      [{text: pole[1], callback_data:1}, {text: pole[2], callback_data:2}, {text: pole[3], callback_data:3}],
       [{text: pole[4], callback_data:4}, {text: pole[5], callback_data:5}, {text: pole[6], callback_data:6}],
       [{text: pole[7], callback_data:7}, {text: pole[8], callback_data:8}, {text: pole[9], callback_data:9}],
       [{text: 'Готово', callback_data:'ready'}]
@@ -143,13 +143,13 @@ bot.sendMessage(msg.chat.id,'Игра уже начата. Ожидайте...')
 
 
 bot.onText(/^прятаться/i, (msg) => {
+if (offirs === 1) {
 if (user.includes(msg.from.id)) {
   bot.deleteMessage(chatt, del);
   found = 0;
   if (gamersb > 1) {
   em = msg.message_id;
   em++;
-if (offirs === 1) {
 for (i = 0; i < 36; i++) {
   pole1[i] = 0;
 }
@@ -172,7 +172,7 @@ i3 = {
   parse_mode: "HTML",
   reply_markup:{
     inline_keyboard: [
-      [{text: pole[1], callback_data:1}, {text: pole[2], callback_data:3}, {text: pole[3], callback_data:3}],
+      [{text: pole[1], callback_data:1}, {text: pole[2], callback_data:2}, {text: pole[3], callback_data:3}],
       [{text: pole[4], callback_data:4}, {text: pole[5], callback_data:5}, {text: pole[6], callback_data:6}],
       [{text: pole[7], callback_data:7}, {text: pole[8], callback_data:8}, {text: pole[9], callback_data:9}],
       [{text: 'Готово', callback_data:'ready'}]
@@ -206,7 +206,6 @@ i5 = {
     ]
   }
 }; 
-
 offirs = 2;
 del = msg.message_id;
 del++;
@@ -526,9 +525,9 @@ if (msg.data > 0) {
   } else {
     if (seek.includes(msg.from.id)) {
       if (can != 0) {
-      if (placeval[msg.data] == 2) {
+      if (placeval[msg.data] === 2) {
         bot.answerCallbackQuery(msg.id,'Сюда уже тыкали', false);
-      } else if ((placeval[msg.data] == 1)) {
+      } else if ((placeval[msg.data] === 1)) {
         can--;
         bot.answerCallbackQuery(msg.id,'Вы нашли игрока!', true);
         found++;
@@ -588,6 +587,8 @@ i5 = {
             case 5: opt = i5; break;
             case 6: opt = 0; break;  
            }
+       opt.chat_id = chatt;
+       opt.message_id = em;
         bot.editMessageText('Игра стартовала!\n\nШансов на поиск ('+can+')\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+(hide.length-found)+'\n\nВнимание!\nКоманда: искать!', opt);
       } else {
         can--;
@@ -651,9 +652,8 @@ i5 = {
             case 6: opt = 0; break;  
            }
         opt.chat_id = chatt;
-       opt.message_id = em;
+        opt.message_id = em;
         bot.editMessageText('Игра стартовала!\n\nШансов на поиск ('+can+')\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+(hide.length-found)+'\n\nВнимание!\nКоманда: искать!', opt);
-       console.log('3')
       }
         if ((can == 0) || (!placeval.includes(1))) {
           h = 0;
