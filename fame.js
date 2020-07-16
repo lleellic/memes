@@ -477,6 +477,7 @@ gamer.length = 0;
 user.length = 0;
 summ.length = 0;
 chose.length = 0;
+  
 gamersb = 0;
 }
 })
@@ -524,10 +525,10 @@ if (msg.data > 0) {
   }
   } else {
     if (seek.includes(msg.from.id)) {
-      if (can != 0) {
+      if (can !== 0) {
       if (placeval[msg.data] === 2) {
         bot.answerCallbackQuery(msg.id,'Сюда уже тыкали', false);
-      } else if ((placeval[msg.data] === 1)) {
+      } else if (placeval[msg.data] === 1) {
         can--;
         bot.answerCallbackQuery(msg.id,'Вы нашли игрока!', true);
         found++;
@@ -586,7 +587,7 @@ i5 = {
             case 4: opt = i4; break;
             case 5: opt = i5; break;
             case 6: opt = 0; break;  
-           }
+           };
        opt.chat_id = chatt;
        opt.message_id = em;
         bot.editMessageText('Игра стартовала!\n\nШансов на поиск ('+can+')\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+(hide.length-found)+'\n\nВнимание!\nКоманда: искать!', opt);
@@ -655,7 +656,7 @@ i5 = {
         opt.message_id = em;
         bot.editMessageText('Игра стартовала!\n\nШансов на поиск ('+can+')\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+(hide.length-found)+'\n\nВнимание!\nКоманда: искать!', opt);
       }
-        if ((can == 0) || (!placeval.includes(1))) {
+        if ((can === 0) || (!placeval.includes(1))) {
           h = 0;
           f2 = '';
           f = '';
@@ -681,8 +682,7 @@ i5 = {
   reply_markup:{
     inline_keyboard: [
       [{text: pole[1], callback_data:1}, {text: pole[2], callback_data:2}],
-      [{text: pole[3], callback_data:3}, {text: pole[4], callback_data:4}],
-      [{text: 'Готово', callback_data:'ready'}]
+      [{text: pole[3], callback_data:3}, {text: pole[4], callback_data:4}]
     ]
   }
 };
@@ -693,8 +693,7 @@ i3 = {
     inline_keyboard: [
       [{text: pole[1], callback_data:1}, {text: pole[2], callback_data:3}, {text: pole[3], callback_data:3}],
       [{text: pole[4], callback_data:4}, {text: pole[5], callback_data:5}, {text: pole[6], callback_data:6}],
-      [{text: pole[7], callback_data:7}, {text: pole[8], callback_data:8}, {text: pole[9], callback_data:9}],
-      [{text: 'Готово', callback_data:'ready'}]
+      [{text: pole[7], callback_data:7}, {text: pole[8], callback_data:8}, {text: pole[9], callback_data:9}]
     ]
   }
 };
@@ -706,8 +705,7 @@ i4 = {
       [{text: pole[1], callback_data:1},   {text: pole[2], callback_data:2},   {text: pole[3], callback_data:3},   {text: pole[4],  callback_data:4} ],
       [{text: pole[5], callback_data:5},   {text: pole[6], callback_data:6},   {text: pole[7], callback_data:7},   {text: pole[8],  callback_data:8} ],
       [{text: pole[9], callback_data:9},   {text: pole[10], callback_data:10}, {text: pole[11], callback_data:11}, {text: pole[12], callback_data:12}],
-      [{text: pole[13], callback_data:13}, {text: pole[14], callback_data:14}, {text: pole[15], callback_data:15}, {text: pole[16], callback_data:16}],
-      [{text: 'Готово', callback_data:'ready'}]
+      [{text: pole[13], callback_data:13}, {text: pole[14], callback_data:14}, {text: pole[15], callback_data:15}, {text: pole[16], callback_data:16}]
     ]
   }
 };
@@ -720,25 +718,19 @@ i5 = {
       [{text: pole[6], callback_data:6},     {text: pole[7], callback_data:7},     {text: pole[8], callback_data:8},     {text: pole[9],  callback_data:9},   {text: pole[10], callback_data:10}],
       [{text: pole[11], callback_data:11},   {text: pole[12], callback_data:12},   {text: pole[12], callback_data:13},   {text: pole[14],  callback_data:14}, {text: pole[15], callback_data:15}],
       [{text: pole[16], callback_data:16},   {text: pole[17], callback_data:17},   {text: pole[18], callback_data:18},   {text: pole[19],  callback_data:19}, {text: pole[20], callback_data:20}],
-      [{text: pole[21], callback_data:21},   {text: pole[22], callback_data:22},   {text: pole[23], callback_data:23},   {text: pole[24],  callback_data:24}, {text: pole[25], callback_data:25}],
-      [{text: 'Готово', callback_data:'ready'}]
+      [{text: pole[21], callback_data:21},   {text: pole[22], callback_data:22},   {text: pole[23], callback_data:23},   {text: pole[24],  callback_data:24}, {text: pole[25], callback_data:25}]
     ]
   }
 }; 
-     
-          
-          
-          
-          
           switch(inl) {
             case 2: opt = i2; break;
             case 3: opt = i3; break;
             case 4: opt = i4; break;
             case 5: opt = i5; break;
             case 6: opt = 0; break;  
-           }
+           };
           opt.chat_id = chatt;
-       opt.message_id = em;
+          opt.message_id = em;
           bot.editMessageText('Игра окончена!\n\Победители:\n'+f+'\nКого не нашли:\n\n'+f2+'\n\nПоздравляем!', opt); 
           offirs = 0;
           gamer.length = 0;
