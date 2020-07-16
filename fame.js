@@ -678,7 +678,7 @@ i5 = {
             db.run('UPDATE ba3 SET bal = bal + '+s+' WHERE id = '+seek[i]);
           }
           bot.deleteMessage(chatt, em);
-          bot.sendMessage('Игра окончена!\n\Победители:\n'+f+'\nКого не нашли:\n\n'+f2+'\n\nПоздравляем!', {parse_mode: "HTML"}); 
+          bot.sendMessage(chatt, 'Игра окончена!\n\Победители:\n'+f+'\nКого не нашли:\n\n'+f2+'\n\nПоздравляем!', {parse_mode: "HTML"}); 
           offirs = 0;
           gamer.length = 0;
           user.length = 0;
@@ -711,7 +711,7 @@ i5 = {
             db.run('UPDATE ba3 SET bal = bal + '+s+' WHERE id = '+seek[i]);
           }
           bot.deleteMessage(chatt, em);
-          bot.sendMessage('Игра окончена!\n\Победители:\n'+f+'\nКого не нашли:\n\n'+f2+'\n\nПоздравляем!', {parse_mode: "HTML"}); 
+          bot.sendMessage(chatt,'Игра окончена!\n\Победители:\n'+f+'\nКого не нашли:\n\n'+f2+'\n\nПоздравляем!', {parse_mode: "HTML"}); 
           offirs = 0;
           gamer.length = 0;
           user.length = 0;
