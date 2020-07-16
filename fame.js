@@ -232,14 +232,14 @@ switch(gamersb) {
 f = '';
 
 for (i = 0; i < s; i += 0) {
-p = Math.floor(Math.random() * (gamersb + 1)); 
+p = Math.floor(Math.random() * gamersb); 
 if (!seek.includes(gamer[p])) {
   seek[seek.length] = user[p];
+    console.log('1');
   seekfn[seekfn.length] = gamer[p];
-      console.log('1');
+      console.log('2');
   i++;
   f += i+'. <a href="tg://user?id='+user[p]+'">'+gamer[p]+'</a>\n';
-      console.log('2');
 }
 }   
  
