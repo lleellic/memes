@@ -90,9 +90,7 @@ var i5 = {
   }
 };
 
-function getRandomInRange(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+
 
 answ[0] = 'Выберите правильный вариант ответа.';
 a[0] = ' 1⃣ ';
@@ -228,7 +226,7 @@ switch(gamersb) {
 f = '';
 
 for (i = 0; i < s; i += 0) {
-p = getRandomInRange(0, gamersb);
+p = Math.floor(Math.random() * (gamersb + 1));
 if (!seek.includes(gamer[p])) {
   seek[seek.length] = user[p];
   seekfn[seek.fn] = gamer[p];
