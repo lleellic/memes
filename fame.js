@@ -318,7 +318,7 @@ db.serialize(() => {
       db.run('UPDATE ba3 SET fn = "'+msg.from.first_name+'" WHERE id = '+msg.from.id);
       bot.sendMessage(msg.chat.id,'Твой баланс '+row.bal+' 🍬', {reply_to_message_id:msg.message_id}) 
     } else {
-       db.run('INSERT INTO ba3(id, fn, bal) VALUES('+msg.from.id+', "'+msg.from.first_name+'", 0)')
+       db.run('INSERT INTO ba3(id, fn, bal) VALUES('+msg.from.id+', "'+msg.from.first_name+'", 5)')
        bot.sendMessage(msg.chat.id,'Твой баланс 0 🍬', {reply_to_message_id:msg.message_id})
     }
 })
@@ -336,12 +336,12 @@ bot.onText(/^\$(.+)/, (msg) => {
   } else {
   db.serialize(() => {
           db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, row) => {
-          if (!row) db.run('INSERT INTO ba3(id, fn, bal) VALUES('+msg.from.id+', '+msg.from.first_name+', 0)')
+          if (!row) db.run('INSERT INTO ba3(id, fn, bal) VALUES('+msg.from.id+', "'+msg.from.first_name+'", 5)')
           });
           db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, row) => {
        if (row.bal >= tex) {
           db.get('SELECT bal FROM ba3 WHERE id ='+msg.reply_to_message.from.id, (err, row) => {
-          if (!row) db.run('INSERT INTO ba3(id, fn, bal) VALUES('+msg.reply_to_message.from.id+', "'+msg.reply_to_message.from.first_name+'", 0)')
+          if (!row) db.run('INSERT INTO ba3(id, fn, bal) VALUES('+msg.reply_to_message.from.id+', "'+msg.reply_to_message.from.first_name+'", 5)')
           });
            db.run('UPDATE ba3 SET bal = bal + '+tex+' WHERE id = '+msg.reply_to_message.from.id);
            db.run('UPDATE ba3 SET bal = bal - '+tex+' WHERE id = '+msg.from.id);
@@ -685,8 +685,12 @@ bot.answerCallbackQuery(msg.id,'Вы уже в игре', false)
         bot.answerCallbackQuery(msg.id,'Нужно иметь хотя бы 1 🍬 для игры', false);
       }
     } else {
-       db.run('INSERT INTO ba3(id, fn, bal) VALUES('+msg.from.id+', "'+msg.from.first_name+'", 0)')
-       bot.answerCallbackQuery(msg.id,'Нужно иметь хотя бы 1 🍬 для игры', false);
+       db.run('INSERT INTO ba3(id, fn, bal) VALUES('+msg.from.id+', "'+msg.from.first_name+'", 5)')
+       db.run('UPDATE ba3 SET bal = bal - 1 WHERE id = '+msg.from.id);
+       gamer[gamersb] =  msg.from.first_name;
+       user[gamersb] = msg.from.id;
+       gamersb++;
+       bot.answerCallbackQuery(msg.id,'Вы вошли в игру (вам сняли 1 🍬 с баланса)', true);
     }
 })
 })
