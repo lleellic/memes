@@ -514,6 +514,7 @@ bot.on('callback_query', function (msg) {
       }
   } else {
     bot.answerCallbackQuery(msg.id,'Не вы прячетесь', false);
+  }
   } else {
     if (seek.includes(msg.from.id)) {
       if (can != 0) {
