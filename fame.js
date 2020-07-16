@@ -648,16 +648,20 @@ bot.answerCallbackQuery(msg.id,gamersb+' участник(а/ов)',true)
   
 if (msg.data === 'togame2') {
 if (gamer.includes(msg.from.first_name)) {
-bot.answerCallbackQuery(msg.id,'Вы уже в игре', true)
+bot.answerCallbackQuery(msg.id,'Вы уже в игре', false)
 } else {
   db.serialize(() => {
   db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, row) => {
     if (row) {
+      if (row.bal >= 1) {
        db.run('UPDATE ba3 SET bal = bal - 1 WHERE id = '+msg.from.id);
        gamer[gamersb] =  msg.from.first_name;
        user[gamersb] = msg.from.id;
        gamersb++;
        bot.answerCallbackQuery(msg.id,'Вы вошли в игру (вам сняли 1 🍬 с баланса)', true);
+      } else {
+        bot.answerCallbackQuery(msg.id,'Нужно иметь хотя бы 1 🍬 для игры', false);
+      }
     } else {
        db.run('INSERT INTO ba3(id, bal) VALUES('+msg.from.id+', 0)')
        bot.answerCallbackQuery(msg.id,'Нужно иметь хотя бы 1 🍬 для игры', false);
