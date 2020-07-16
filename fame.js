@@ -243,10 +243,9 @@ switch(gamersb) {
   case 6: opt = 0; break;  
 }
 f = '';
-
 for (i = 0; i < s; i += 0) {
 p = Math.floor(Math.random() * gamersb); 
-if (!seek.includes(gamer[p])) {
+if (!seek.includes(user[p])) {
   seek[seek.length] = user[p];
   seekfn[seekfn.length] = gamer[p];
   i++;
