@@ -235,6 +235,7 @@ switch(gamersb) {
   case 18: s = 4; can = 17; inl = 6; break;
   case 19: s = 4; can = 17; inl = 6; break;
 }
+  can++;
   switch(inl) {
   case 2: opt = i2; break;
   case 3: opt = i3; break;
@@ -693,7 +694,7 @@ console.log('includes');
           seekfn.length = 0;
           gamersb = 0;
         }
-        if (can === 0) {
+        if (can === 1) {
           h = 0;
           f2 = '';
           f = '';
