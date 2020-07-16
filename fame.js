@@ -226,7 +226,7 @@ switch(gamersb) {
   case 6: opt = 0; break;  
 }
 f = '';
-for (i = 0; i < s) {
+for (i = 0; i < s; i += 0) {
 p = getRandomInRange(0, gamersb);
 if (!seek.includes(gamer[p])) {
   seek[seek.length] = user[p];
