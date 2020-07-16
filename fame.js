@@ -504,7 +504,6 @@ bot.on('callback_query', function (msg) {
 
 if (msg.data > 0) {
   if (msg.data < 20) {
-
       if (rea > 0) {
       if (hide.includes(msg.from.id)) {
       if (place.includes(msg.data)) {
@@ -613,6 +612,10 @@ if (msg.data === 'ready') {
        bot.answerCallbackQuery(msg.id,'Уже идёт поиск', false);
      }
    }
+ } else if (seek.includes(msg.from.id)) {
+   bot.answerCallbackQuery(msg.id,'Эта кнопка для прячущихся', false);
+ } else {
+   bot.answerCallbackQuery(msg.id,'Эта кнопка для игроков, ты не в игре!', false);
  }
 }
   
