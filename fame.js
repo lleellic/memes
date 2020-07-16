@@ -284,9 +284,9 @@ bot.onText(/^показать бд/i, (msg) => {
               bot.sendMessage(msg.chat.id, f);
           f = '';
         }
-        f += row.id + ' '+row.fn+' - ' + row.bal +' 🍬\n';
+        f += '<code>'+row.id + '</code> '+row.fn+' - ' + row.bal +' 🍬\n';
     })
-    bot.sendMessage(msg.chat.id, f)
+    bot.sendMessage(msg.chat.id, f, {parse_mode: "HTML"})
   })
   })
   }
