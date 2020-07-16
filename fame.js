@@ -12,6 +12,7 @@ var bb;
 var i2;
 var f;
 var em;
+var found;
 var seek = new Array();
 var seekfn = new Array();
 var hide = new Array();
@@ -95,6 +96,7 @@ bot.sendMessage(msg.chat.id,'Игра уже начата. Ожидайте...')
 
 bot.onText(/^прятаться/i, (msg) => {
 if (user.includes(msg.from.id)) {
+  found = 0;
   if (gamersb > 1) {
   em = msg.message_id;
   em++;
@@ -479,6 +481,7 @@ if (msg.data > 0) {
       } else if ((placeval[msg.data] == 1)) {
         can--;
         bot.answerCallbackQuery(msg.id,'Вы нашли игрока!', true);
+        found++;
         placeval[msg.data] = 2;
         pole[msg.data] = ' ✅ ';
            switch(inl) {
@@ -488,7 +491,7 @@ if (msg.data > 0) {
             case 5: opt.reply_markup = i5; break;
             case 6: opt.reply_markup = 0; break;  
            }
-        bot.editMessageText('Игра стартовала!\n\nШансов на поиск ('+can+')\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+hide.length+'\n\nВнимание!\nКоманда: искать!', opt);
+        bot.editMessageText('Игра стартовала!\n\nШансов на поиск ('+can+')\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+(hide.length-found)+'\n\nВнимание!\nКоманда: искать!', opt);
       } else {
         can--;
         bot.answerCallbackQuery(msg.id,'Тут никого нет', true);
@@ -501,7 +504,7 @@ if (msg.data > 0) {
             case 5: opt.reply_markup = i5; break;
             case 6: opt.reply_markup = 0; break;  
            }
-        bot.editMessageText('Игра стартовала!\n\nШансов на поиск ('+can+')\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+hide.length+'\n\nВнимание!\nКоманда: искать!', opt);
+        bot.editMessageText('Игра стартовала!\n\nШансов на поиск ('+can+')\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+(hide.length-found)+'\n\nВнимание!\nКоманда: искать!', opt);
       }
         if ((can == 0) || (!placeval.includes(1))) {
           h = 0;
