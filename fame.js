@@ -144,6 +144,7 @@ bot.sendMessage(msg.chat.id,'Игра уже начата. Ожидайте...')
 
 bot.onText(/^прятаться/i, (msg) => {
 if (user.includes(msg.from.id)) {
+  bot.deleteMessage(chatt, del);
   found = 0;
   if (gamersb > 1) {
   em = msg.message_id;
