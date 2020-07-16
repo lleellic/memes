@@ -48,6 +48,10 @@ var inl;
 var rea;
 
 
+
+
+
+
   var i2 = {
   reply_markup:{
     inline_keyboard: [
@@ -103,6 +107,13 @@ const db = new sqlite3.Database('./mytest.db', (err) => {
     console.error(err.message);
   }
 });
+
+db.serialize(() => {
+  db.run('DROP TABLE ba3');
+  db.run('CREATE TABLE ba3(id int, fn varchar(45), bal int)');
+})
+
+
 
 var inline3 = {
   reply_markup:{
@@ -270,10 +281,16 @@ bot.onText(/^показать бд/i, (msg) => {
   if (msg.from.id === admin[0]) {
   db.serialize(() => {
      f = '';
-    db.all('SELECT id, bal FROM ba3', (err, row) => {
+    db.all('SELECT id, bal, fn FROM ba3', (err, row) => {
       if (err) throw err;
+      i = 0;
       row.forEach((row) => {
-        f += row.id + ' - ' + row.bal +' 🍬\n';
+        i++;
+        if (i >= 15) {
+              bot.sendMessage(msg.chat.id, f);
+          f = '';
+        }
+        f += row.id + ' '+row.fn+' - ' + row.bal +' 🍬\n';
     })
     bot.sendMessage(msg.chat.id, f)
   })
@@ -285,9 +302,10 @@ bot.onText(/^конфеты/i, (msg) => {
 db.serialize(() => {
   db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, row) => {
     if (row) {
+      db.run('UPDATE ba3 SET fn = '+msg.from.first_name+' WHERE id = '+msg.from.id);
       bot.sendMessage(msg.chat.id,'Твой баланс '+row.bal+' 🍬', {reply_to_message_id:msg.message_id}) 
     } else {
-       db.run('INSERT INTO ba3(id, bal) VALUES('+msg.from.id+', 0)')
+       db.run('INSERT INTO ba3(id, fn, bal) VALUES('+msg.from.id+', '+msg.from.first_name+', 0)')
        bot.sendMessage(msg.chat.id,'Твой баланс 0 🍬', {reply_to_message_id:msg.message_id})
     }
 })
@@ -305,18 +323,16 @@ bot.onText(/^\$(.+)/, (msg) => {
   } else {
   db.serialize(() => {
           db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, row) => {
-          if (!row) {
-            db.run('INSERT INTO ba3(id, bal) VALUES('+msg.from.id+', 0)')
-          } 
+          if (!row) db.run('INSERT INTO ba3(id, fn, bal) VALUES('+msg.from.id+', '+msg.from.first_name+', 0)')
           });
           db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, row) => {
        if (row.bal >= tex) {
           db.get('SELECT bal FROM ba3 WHERE id ='+msg.reply_to_message.from.id, (err, row) => {
-          if (!row) db.run('INSERT INTO ba3(id, bal) VALUES('+msg.reply_to_message.from.id+', 0)')
+          if (!row) db.run('INSERT INTO ba3(id, fn, bal) VALUES('+msg.reply_to_message.from.id+', '+msg.reply_to_message.from.first_name+', 0)')
           });
            db.run('UPDATE ba3 SET bal = bal + '+tex+' WHERE id = '+msg.reply_to_message.from.id);
            db.run('UPDATE ba3 SET bal = bal - '+tex+' WHERE id = '+msg.from.id);
-           bot.sendMessage(msg.chat.id,'Ты передал '+msg.reply_to_message.from.first_name+' '+tex+' 🍬\nТвой баланс '+(row.bal-tex)+' 🍬', {reply_to_message_id:msg.message_id})
+           bot.sendMessage(msg.chat.id,'Ты передал '+msg.reply_to_message.from.first_name+' '+tex+' 🍬. Твой баланс '+(row.bal-tex)+' 🍬', {reply_to_message_id:msg.message_id})
          } else {
            bot.sendMessage(msg.chat.id,'Твой баланс 🍬 слишком мал ('+row.bal+')', {reply_to_message_id:msg.message_id})
        }
@@ -335,9 +351,6 @@ bot.onText(/^бонус (.+) (.+)/i, (msg, match) => {
       db.run('UPDATE ba3 SET bal = bal + '+(psum));
       bot.sendMessage(msg.chat.id,'Бонус всем в количестве '+psum+' 🍬 передан успешно!')
     } else {
-      db.get('SELECT bal FROM ba3 WHERE id ='+pid, (err, row) => {
-         if (!row) db.run('INSERT INTO ba3(id, bal) VALUES('+pid+', 0)')
-         });
       db.run('UPDATE ba3 SET bal = bal + '+(psum)+' WHERE id = '+pid);
     bot.sendMessage(msg.chat.id,'Бонус '+psum+' 🍬 передан успешно!')
     bot.sendMessage(pid,'Вам бонус! '+psum+' 🍬')
@@ -659,7 +672,7 @@ bot.answerCallbackQuery(msg.id,'Вы уже в игре', false)
         bot.answerCallbackQuery(msg.id,'Нужно иметь хотя бы 1 🍬 для игры', false);
       }
     } else {
-       db.run('INSERT INTO ba3(id, bal) VALUES('+msg.from.id+', 0)')
+       db.run('INSERT INTO ba3(id, fn, bal) VALUES('+msg.from.id+', '+msg.from.first_name+', 0)')
        bot.answerCallbackQuery(msg.id,'Нужно иметь хотя бы 1 🍬 для игры', false);
     }
 })
