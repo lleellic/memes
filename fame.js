@@ -281,7 +281,7 @@ bot.onText(/^del (.+)/i, (msg, match) => {
 })
 
 bot.onText(/^показать бд/i, (msg) => {
-  if (msg.from.id === admin[0]) {
+  if (admin.includes(msg.from.id)) {
   db.serialize(() => {
      f = '';
     db.all('SELECT id, bal, fn FROM ba3', (err, row) => {
