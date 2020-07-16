@@ -683,10 +683,14 @@ bot.answerCallbackQuery(msg.id,'Вы итак не в игре 😳',false)
  
 
 if (msg.data === 'whois') {
-f = ' ';
+f = '';
+  if (gamer.length === 0) {
+    f += 'Пока никого нет';
+  } else {
 for (i = 0; i < gamer.length; i++) {
-f += '❗' + gamer[i];
+f += gamer[i]+'\n';
 }
+  }
 bot.answerCallbackQuery(msg.id, f, true);
 }
 
