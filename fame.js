@@ -772,8 +772,60 @@ i5 = {
             f += (i+1)+'. '+seekfn[i]+' +'+s+' 🍬\n';
             db.run('UPDATE ba3 SET bal = bal + '+s+' WHERE id = '+seek[i]);
 }
+                    i2 = {
+  parse_mode: "HTML",
+  reply_markup:{
+    inline_keyboard: [
+      [{text: pole[1], callback_data:0}, {text: pole[2], callback_data:0}],
+      [{text: pole[3], callback_data:0}, {text: pole[4], callback_data:0}]
+    ]
+  }
+};
+
+i3 = {
+  parse_mode: "HTML",
+  reply_markup:{
+    inline_keyboard: [
+      [{text: pole[1], callback_data:0}, {text: pole[2], callback_data:0}, {text: pole[3], callback_data:0}],
+      [{text: pole[4], callback_data:0}, {text: pole[5], callback_data:0}, {text: pole[6], callback_data:0}],
+      [{text: pole[7], callback_data:0}, {text: pole[8], callback_data:0}, {text: pole[9], callback_data:0}]
+    ]
+  }
+};
+
+i4 = {  
+  parse_mode: "HTML",
+  reply_markup:{
+    inline_keyboard: [
+      [{text: pole[1], callback_data:0},  {text: pole[2], callback_data:0},  {text: pole[3], callback_data:0},  {text: pole[4],  callback_data:0} ],
+      [{text: pole[5], callback_data:0},  {text: pole[6], callback_data:0},  {text: pole[7], callback_data:0},  {text: pole[8],  callback_data:0} ],
+      [{text: pole[9], callback_data:0},  {text: pole[10], callback_data:0}, {text: pole[11], callback_data:0}, {text: pole[12], callback_data:0}],
+      [{text: pole[13], callback_data:0}, {text: pole[14], callback_data:0}, {text: pole[15], callback_data:0}, {text: pole[16], callback_data:0}]
+    ]
+  }
+};
+
+i5 = {
+  parse_mode: "HTML",
+  reply_markup:{
+    inline_keyboard: [
+      [{text: pole[1], callback_data:0},    {text: pole[2], callback_data:0},    {text: pole[3], callback_data:0},    {text: pole[4],  callback_data:0},  {text: pole[5], callback_data:0} ],
+      [{text: pole[6], callback_data:0},    {text: pole[7], callback_data:0},    {text: pole[8], callback_data:0},    {text: pole[9],  callback_data:0},  {text: pole[10], callback_data:0}],
+      [{text: pole[11], callback_data:0},   {text: pole[12], callback_data:0},   {text: pole[12], callback_data:0},   {text: pole[14],  callback_data:0}, {text: pole[15], callback_data:0}],
+      [{text: pole[16], callback_data:0},   {text: pole[17], callback_data:0},   {text: pole[18], callback_data:0},   {text: pole[19],  callback_data:0}, {text: pole[20], callback_data:0}],
+      [{text: pole[21], callback_data:0},   {text: pole[22], callback_data:0},   {text: pole[23], callback_data:0},   {text: pole[24],  callback_data:0}, {text: pole[25], callback_data:0}]
+    ]
+  }
+}; 
+            switch(inl) {
+            case 2: opt = i2; break;
+            case 3: opt = i3; break;
+            case 4: opt = i4; break;
+            case 5: opt = i5; break;
+            case 6: opt = 0; break;  
+           }
           bot.deleteMessage(chatt, em);
-          bot.sendMessage(chatt, 'Игра окончена!\n\Победители:\n'+f+'\nВсех нашли!\n\nПоздравляем искателей!', {parse_mode: "HTML"}); 
+          bot.sendMessage(chatt, 'Игра окончена!\n\Победители:\n'+f+'\nВсех нашли!\n\nПоздравляем искателей!', opt); 
           offirs = 0;
           gamer.length = 0;
           user.length = 0;
