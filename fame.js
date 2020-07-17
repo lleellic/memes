@@ -115,7 +115,7 @@ em1 = msg.reply_to_message.message_id;
 em2 = msg.reply_to_message.message_id;
 } else {
 if (em1 < em2) {
-for (i = em1; i <= em 2; i++) {
+for (i = em1; i <= em2; i++) {
 bot.deleteMessagr(msg.chat.id, i);
 }
 bot.sendMessage(msg.chat.id,'Очистка прошла успешно!',{reply_to_message_id: msg.message_id})
