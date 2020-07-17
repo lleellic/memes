@@ -612,7 +612,6 @@ i5 = {
        opt.chat_id = chatt;
        opt.message_id = em;
         bot.editMessageText('Игра стартовала!\n\nШансов на поиск ('+can+')\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+(hide.length-found)+'\n\nВнимание!\nКоманда: искать!', opt);
-console.log('plus');
       } else {
         can--;
         bot.answerCallbackQuery(msg.id,'Тут никого нет', true);
