@@ -539,6 +539,7 @@ if (msg.data > 0) {
       bot.answerCallbackQuery(msg.id,'Вы уже спрятались', false);
       } else {
           place[hidefn.indexOf(msg.from.first_name)] = msg.data;
+        console.log(hidefn.indexOf(msg.from.first_name) + ' index ' + msg.data);
           placeval[msg.data] = 1;
         bot.answerCallbackQuery(msg.id,'Вы выбрали это место', true);
       }
@@ -677,20 +678,23 @@ i5 = {
           h = 0;
           f2 = '';
           f = '';
+           pole1.length = 0;
           for (i = 0; i < 36; i++) {
-            console.log(i + ' - 1')
             if (placeval[i] === 1) {
                   h++; 
                  pole[i] = ' ☑️ ';
-              for (i2 = 0; i2 < 20; i2++) {
-                console.log(i2 + ' - 2')
-                if (place[i2] === i) {
-                  f2 += h +'. '+hidefn[i2]+' +2 🍬\n';
-                  db.run('UPDATE ba3 SET bal = bal + 2 WHERE id = '+hide[i2]);
-                }
-              }
+              pole1[pole1.length] = i;
             }
           }
+            for (i = 0; i < 20; i++) {
+                console.log(i + ' - 2')
+                if (place[i] === pole1[0]) {
+                  pole1.splice(1, 1);
+                  i = 0;
+                  f2 += h +'. '+hidefn[i]+' +2 🍬\n';
+                  db.run('UPDATE ba3 SET bal = bal + 2 WHERE id = '+hide[i]);
+                }
+              }
           s = Math.floor((gamersb * 2)/s) - (h * 2);
           for (i = 0; i < seek.length; i++) {
             f += (i+1)+'. '+seekfn[i]+' +'+s+' 🍬\n';
@@ -842,7 +846,7 @@ i5 = {
 }
   
 if (msg.data === 0) {
-    bot.answerCallbackQuery(msg.id,'Не тыкаёте просто так', false);
+    bot.answerCallbackQuery(msg.id,'Не тыкайте просто так!', false);
 }
   
 if (msg.data === 'ready') {
