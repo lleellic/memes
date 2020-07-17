@@ -12,8 +12,6 @@ var bb;
 var i2;
 var f;
 var em;
-var em1;
-var em2;
 var found;
 var seek = new Array();
 var seekfn = new Array();
@@ -107,27 +105,7 @@ var i5 = {
 }; 
 
 
-bot.onText(/^1️⃣$|^2️⃣$|^1️⃣2️⃣$/, (msg) => {
-if (admin.includes(msg.from.id)) {
-if (msg.text == '1️⃣') {
-em1 = msg.reply_to_message.message_id;
-  bot.sendMessage(msg.chat.id,'Я запомнил 1️⃣',{reply_to_message_id: msg.message_id})
-} else if (msg.text == '2️⃣') {
-em2 = msg.reply_to_message.message_id;
-   bot.sendMessage(msg.chat.id,'Я запомнил 2️⃣',{reply_to_message_id: msg.message_id})
-} else {
-if (em1 < em2) {
-em = em2 - em1;
-for (i = 0; i <= em; i++) {
-bot.deleteMessage(msg.chat.id, (i + em1));
-}
-bot.sendMessage(msg.chat.id,'Очистка прошла успешно!',{reply_to_message_id: msg.message_id})
-} else {
-bot.sendMessage(msg.chat.id,'Неправильные параметры',{reply_to_message_id: msg.message_id});
-}
-}
-}
-})
+
 
 const db = new sqlite3.Database('./mytest.db', (err) => {
   if (err) {
