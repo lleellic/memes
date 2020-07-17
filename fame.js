@@ -682,7 +682,7 @@ i5 = {
             if (placeval[i] === 1) {
                   h++;
                   f2 += h +'. '+hidefn[i]+' +2 🍬\n';
-                  db.run('UPDATE ba3 SET bal = bal + 2 WHERE id = '+hide[i2]);
+                  db.run('UPDATE ba3 SET bal = bal + 2 WHERE id = '+hide[i]);
             }
           }
           s = Math.floor(((gamersb - h) * 2)/s) - (h * 2);
