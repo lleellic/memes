@@ -677,13 +677,13 @@ i5 = {
           h = 0;
           f2 = '';
           f = '';
-          for (i in place) {
+          for (i = 0; i < 36; i++) {
             console.log(i + ' - 1')
             if (placeval[i] === 1) {
                   h++; 
                  pole[i] = ' ☑️ ';
-              for (i2 in hide) {
-                console.log(i + ' - 2')
+              for (i2 = 0; i2 < 20; i2++) {
+                console.log(i2 + ' - 2')
                 if (place[i2] === i) {
                   f2 += h +'. '+hidefn[i2]+' +2 🍬\n';
                   db.run('UPDATE ba3 SET bal = bal + 2 WHERE id = '+hide[i2]);
