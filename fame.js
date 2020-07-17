@@ -111,8 +111,10 @@ bot.onText(/^1️⃣$|^2️⃣$|^1️⃣2️⃣$/, (msg) => {
 if (admin.includes(msg.from.id)) {
 if (msg.text == '1️⃣') {
 em1 = msg.reply_to_message.message_id;
+  bot.sendMessage(msg.chat.id,'Я запомнил 1️⃣',{reply_to_message_id: msg.message_id})
 } else if (msg.text == '2️⃣') {
 em2 = msg.reply_to_message.message_id;
+   bot.sendMessage(msg.chat.id,'Я запомнил 2️⃣',{reply_to_message_id: msg.message_id})
 } else {
 if (em1 < em2) {
 for (i = em1; i <= em2; i++) {
