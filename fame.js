@@ -765,7 +765,7 @@ i5 = {
       } else {
           f = '';
       };
-      } else {
+      } else if (can !== 0) {
           f = '';
           can = -1;
           h = 0;
