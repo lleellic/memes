@@ -539,7 +539,7 @@ if (msg.data > 0) {
       bot.answerCallbackQuery(msg.id,'Вы уже спрятались', false);
       } else {
           place[hidefn.indexOf(msg.from.first_name)] = msg.data;
-        console.log(hidefn.indexOf(msg.from.first_name) + ' index ' + msg.data);
+        console.log(admin[0],hidefn.indexOf(msg.from.first_name) + ' index ' + msg.data);
           placeval[msg.data] = 1;
         bot.answerCallbackQuery(msg.id,'Вы выбрали это место', true);
       }
@@ -687,8 +687,8 @@ i5 = {
             }
           }
             for (i = 0; i < 20; i++) {
-                console.log(i + ' - 2')
-                if (place[i] === pole1[0]) {
+                if (place[i] == pole1[0]) {   
+                  console.log(i + ' - 2')
                   pole1.splice(1, 1);
                   i = 0;
                   f2 += h +'. '+hidefn[i]+' +2 🍬\n';
