@@ -151,9 +151,6 @@ if (gamersb > 1) {
   found = 0;
   em = msg.message_id;
   em++;
-for (i = 0; i < 36; i++) {
-  pole1[i] = 0;
-}
   for (i = 0; i < 36; i++) {
   pole[i] = ' ⏹ ';
 }
@@ -538,11 +535,11 @@ if (msg.data > 0) {
       if (hide.includes(msg.from.id)) {
       if (place.includes(msg.data)) {
         bot.answerCallbackQuery(msg.id,'Место занято', false);
-      } else if (place[hidefn.indexOf(msg.from.first_name)] > 0) {
+      } else if (placeval[msg.data] > 0) {
       bot.answerCallbackQuery(msg.id,'Вы уже спрятались', false);
       } else {
           place[hidefn.indexOf(msg.from.first_name)] = msg.data;
-        placeval[msg.data] = 1;
+          placeval[msg.data] = 1;
         bot.answerCallbackQuery(msg.id,'Вы выбрали это место', true);
       }
   } else {
@@ -682,10 +679,14 @@ i5 = {
           f = '';
           for (i in place) {
             if (placeval[i] === 1) {
-                  h++;
-                  f2 += h +'. '+hidefn[i-1]+' +2 🍬\n';
-                  place[i] = ' ☑️ ';
-                  db.run('UPDATE ba3 SET bal = bal + 2 WHERE id = '+hide[i-1]);
+                  h++; 
+                 pole[i2] = ' ☑️ ';
+              for (i2 in hide) {
+                if (place[i2] === i) {
+                  f2 += h +'. '+hidefn[i2]+' +2 🍬\n';
+                  db.run('UPDATE ba3 SET bal = bal + 2 WHERE id = '+hide[i2]);
+                }
+              }
             }
           }
           s = Math.floor(((gamersb - h) * 2)/s) - (h * 2);
