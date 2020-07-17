@@ -452,7 +452,7 @@ bot.sendMessage(msg.chat.id,'Команды:\n\n<code>Конфеты</code> - п
 }
 } else {
 bot.sendMessage(msg.chat.id,'Команду /help можно использовать только в ЛС с ботом',{reply_to_message_id: msg.message_id});
-]
+}
 })
 
 bot.onText(/^\/start$|^\/start@Weearntbot$/, (msg) => {
