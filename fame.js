@@ -683,9 +683,9 @@ i5 = {
           for (i in place) {
             if (placeval[i] === 1) {
                   h++;
-                  f2 += h +'. '+hidefn[i]+' +2 🍬\n';
+                  f2 += h +'. '+hidefn[i-1]+' +2 🍬\n';
                   place[i] = ' ☑️ ';
-                  db.run('UPDATE ba3 SET bal = bal + 2 WHERE id = '+hide[i]);
+                  db.run('UPDATE ba3 SET bal = bal + 2 WHERE id = '+hide[i-1]);
             }
           }
           s = Math.floor(((gamersb - h) * 2)/s) - (h * 2);
