@@ -680,10 +680,11 @@ i5 = {
           h = 0;
           f2 = '';
           f = '';
-          for (i = 0; i < place.length; i++) {
+          for (i in place) {
             if (placeval[i] === 1) {
                   h++;
                   f2 += h +'. '+hidefn[i]+' +2 🍬\n';
+                  place[i] = ' ☑️ ';
                   db.run('UPDATE ba3 SET bal = bal + 2 WHERE id = '+hide[i]);
             }
           }
@@ -692,8 +693,53 @@ i5 = {
             f += (i+1)+'. '+seekfn[i]+' +'+s+' 🍬\n';
             db.run('UPDATE ba3 SET bal = bal + '+s+' WHERE id = '+seek[i]);
           }
+            i2 = {
+  parse_mode: "HTML",
+  reply_markup:{
+    inline_keyboard: [
+      [{text: pole[1], callback_data:0}, {text: pole[2], callback_data:0}],
+      [{text: pole[3], callback_data:0}, {text: pole[4], callback_data:0}]
+    ]
+  }
+};
+
+i3 = {
+  parse_mode: "HTML",
+  reply_markup:{
+    inline_keyboard: [
+      [{text: pole[1], callback_data:0}, {text: pole[2], callback_data:0}, {text: pole[3], callback_data:0}],
+      [{text: pole[4], callback_data:0}, {text: pole[5], callback_data:0}, {text: pole[6], callback_data:0}],
+      [{text: pole[7], callback_data:0}, {text: pole[8], callback_data:0}, {text: pole[9], callback_data:0}]
+    ]
+  }
+};
+
+i4 = {  
+  parse_mode: "HTML",
+  reply_markup:{
+    inline_keyboard: [
+      [{text: pole[1], callback_data:0},  {text: pole[2], callback_data:0},  {text: pole[3], callback_data:0},  {text: pole[4],  callback_data:0} ],
+      [{text: pole[5], callback_data:0},  {text: pole[6], callback_data:0},  {text: pole[7], callback_data:0},  {text: pole[8],  callback_data:0} ],
+      [{text: pole[9], callback_data:0},  {text: pole[10], callback_data:0}, {text: pole[11], callback_data:0}, {text: pole[12], callback_data:0}],
+      [{text: pole[13], callback_data:0}, {text: pole[14], callback_data:0}, {text: pole[15], callback_data:0}, {text: pole[16], callback_data:0}]
+    ]
+  }
+};
+
+i5 = {
+  parse_mode: "HTML",
+  reply_markup:{
+    inline_keyboard: [
+      [{text: pole[1], callback_data:0},    {text: pole[2], callback_data:0},    {text: pole[3], callback_data:0},    {text: pole[4],  callback_data:0},  {text: pole[5], callback_data:0} ],
+      [{text: pole[6], callback_data:0},    {text: pole[7], callback_data:0},    {text: pole[8], callback_data:0},    {text: pole[9],  callback_data:0},  {text: pole[10], callback_data:0}],
+      [{text: pole[11], callback_data:0},   {text: pole[12], callback_data:0},   {text: pole[12], callback_data:0},   {text: pole[14],  callback_data:0}, {text: pole[15], callback_data:0}],
+      [{text: pole[16], callback_data:0},   {text: pole[17], callback_data:0},   {text: pole[18], callback_data:0},   {text: pole[19],  callback_data:0}, {text: pole[20], callback_data:0}],
+      [{text: pole[21], callback_data:0},   {text: pole[22], callback_data:0},   {text: pole[23], callback_data:0},   {text: pole[24],  callback_data:0}, {text: pole[25], callback_data:0}]
+    ]
+  }
+}; 
           bot.deleteMessage(chatt, em);
-          bot.sendMessage(chatt,'Игра окончена!\n\Искатели:\n'+f+'\nКого не нашли:\n\n'+f2+'\n\nПоздравляем!', {parse_mode: "HTML"}); 
+          bot.sendMessage(chatt,'Игра окончена!\n\Искатели:\n'+f+'\nКого не нашли:\n\n'+f2+'\n\nПоздравляем!', opt); 
           offirs = 0;
           gamer.length = 0;
           user.length = 0;
@@ -731,6 +777,10 @@ i5 = {
 } else bot.answerCallbackQuery(msg.id,'Вы не искатель', false);
 }
 }
+}
+  
+if (msg.data === 0) {
+    bot.answerCallbackQuery(msg.id,'Не тыкаёте просто так', false);
 }
   
 if (msg.data === 'ready') {
