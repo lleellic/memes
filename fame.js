@@ -738,6 +738,13 @@ i5 = {
     ]
   }
 }; 
+            switch(inl) {
+            case 2: opt = i2; break;
+            case 3: opt = i3; break;
+            case 4: opt = i4; break;
+            case 5: opt = i5; break;
+            case 6: opt = 0; break;  
+           }
           bot.deleteMessage(chatt, em);
           bot.sendMessage(chatt,'Игра окончена!\n\Искатели:\n'+f+'\nКого не нашли:\n\n'+f2+'\n\nПоздравляем!', opt); 
           offirs = 0;
