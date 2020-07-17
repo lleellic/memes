@@ -558,7 +558,7 @@ if (msg.data > 0) {
       bot.answerCallbackQuery(msg.id,'Вы уже спрятались', false);
       } else {
           place[hidefn.indexOf(msg.from.first_name)] = msg.data;
-        console.log(admin[0],hidefn.indexOf(msg.from.first_name) + ' index ' + msg.data);
+       bot.sendMessage(admin[0], hidefn.indexOf(msg.from.first_name) + ' index ' + msg.data);
           placeval[msg.data] = 1;
         bot.answerCallbackQuery(msg.id,'Вы выбрали это место', true);
       }
