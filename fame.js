@@ -495,7 +495,10 @@ gamer.length = 0;
 user.length = 0;
 summ.length = 0;
 chose.length = 0;
-  
+hide.length = 0;
+hidefn.length = 0;
+seek.length = 0;
+seekfn.length = 0;
 gamersb = 0;
 }
 })
@@ -670,7 +673,6 @@ i5 = {
         opt.chat_id = chatt;
         opt.message_id = em;
         bot.editMessageText('Игра стартовала!\n\nШансов на поиск ('+can+')\n\nИскатели:\n'+f+'\nОстальные прячущиеся - '+(hide.length-found)+'\n\nВнимание!\nКоманда: искать!', opt);
-console.log('changed');
       }
         if (placeval.includes(1)) {
           if (can === 0) {
@@ -704,7 +706,6 @@ console.log('changed');
       };
       } else {
           f = '';
-console.log('includes');
           can = -1;
           h = 0;
           f2 = '';
