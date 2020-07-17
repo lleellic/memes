@@ -534,11 +534,10 @@ if (msg.data > 0) {
       if (hide.includes(msg.from.id)) {
       if (place.includes(msg.data)) {
         bot.answerCallbackQuery(msg.id,'Место занято', false);
-      } else if (placeval[msg.data] > 0) {
+      } else if (place[hidefn.indexOf(msg.from.first_name)] > 0) {
       bot.answerCallbackQuery(msg.id,'Вы уже спрятались', false);
       } else {
           place[hidefn.indexOf(msg.from.first_name)] = msg.data;
-       bot.sendMessage(admin[0], hidefn.indexOf(msg.from.first_name) + ' index ' + msg.data);
           placeval[msg.data] = 1;
         bot.answerCallbackQuery(msg.id,'Вы выбрали это место', true);
       }
@@ -756,6 +755,8 @@ i5 = {
           offirs = 0;
           gamer.length = 0;
           user.length = 0;
+place.length = 0;
+placeval.length = 0;
           hide.length = 0;
           hidefn.length = 0;
           seek.length = 0;
