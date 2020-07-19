@@ -685,13 +685,16 @@ i5 = {
             }
           }
             for (i = 0; i < 20; i++) {
+if (pole1.length == 0) {
+i = 20;
+} else {
                 if (place[i] == pole1[0]) {   
-                  console.log(i + ' - 2')
                   pole1.splice(1, 1);
                   i = 0;
                   f2 += h +'. '+hidefn[i]+' +2 🍬\n';
                   db.run('UPDATE ba3 SET bal = bal + 2 WHERE id = '+hide[i]);
                 }
+}
               }
           s = Math.floor((gamersb * 2)/s) - (h * 2);
           for (i = 0; i < seek.length; i++) {
