@@ -617,6 +617,12 @@ if (msg.data > 0) {
         found++;
         placeval[msg.data] = 2;
         pole[msg.data] = ' ✅ ';
+          for (i = 0; i < gamer.length; i++) {
+    if (!seek.includes(user[i])) {
+      hide[hide.length] = user[i];
+      hidefn[hidefn.length] = gamer[i];
+    }
+  }
          i2 = {
   parse_mode: "HTML",
   reply_markup:{
@@ -676,7 +682,12 @@ i5 = {
         can--;
         bot.answerCallbackQuery(msg.id,'Тут никого нет', true);
         placeval[msg.data] = 2;
-        pole[msg.data] = ' ❌ ';
+        pole[msg.data] = ' ❌ ';  for (i = 0; i < gamer.length; i++) {
+    if (!seek.includes(user[i])) {
+      hide[hide.length] = user[i];
+      hidefn[hidefn.length] = gamer[i];
+    }
+  }
 i2 = {
   parse_mode: "HTML",
   reply_markup:{
@@ -735,6 +746,7 @@ i5 = {
       }
         if (placeval.includes(1)) {
           if (can < 1) {
+            
           h = 0;
           f2 = '';
           f = '';
