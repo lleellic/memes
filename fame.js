@@ -737,7 +737,7 @@ i5 = {
                   db.run('UPDATE ba3 SET bal = bal + 2 WHERE id = '+hide[i]);
                }
               }
-          s = Math.floor((gamersb * 2)/s) - (h * 2);
+          s = Math.floor((gamersb * 3)/s) - (h * 2);
           for (i = 0; i < seek.length; i++) {
             f += (i+1)+'. '+seekfn[i]+' +'+s+' 🍬\n';
             db.run('UPDATE ba3 SET bal = bal + '+s+' WHERE id = '+seek[i]);
