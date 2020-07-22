@@ -75,7 +75,7 @@ var p1 = {
 
 
 
-bot.onText(/^покер /d$/, (msg, match) => {
+bot.onText(/^покер$/, (msg, match) => {
 db.serialize(() => {
 db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, row) => {
 if (!row) db.run('INSERT INTO ba3(id, fn, bal) VALUES('+msg.from.id+', "'+msg.from.first_name+'", 5)')
