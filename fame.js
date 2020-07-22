@@ -59,8 +59,8 @@ var p1 = {
   parse_mode: "HTML",
   reply_markup:{
     inline_keyboard: [
-      [{text: '+5 ', callback_data: fife}, {text: 'Удвоить', callback_data: two}],
-      [{text: 'Отменить', callback_data: otmena}, {text: 'Раздать', callback_data: gou}]
+      [{text: '+5 ', callback_data: 'fife'}, {text: 'Удвоить', callback_data: 'two'}],
+      [{text: 'Отменить', callback_data: 'otmena'}, {text: 'Раздать', callback_data: 'gou'}]
     ]
   }
 };
@@ -68,7 +68,7 @@ var p1 = {
   parse_mode: "HTML",
   reply_markup:{
     inline_keyboard: [
-      [{text: 'Пас', callback_data: fife}, {text: 'Принять', callback_data: two}, {text: 'Удвоить', callback_data: otmena}]
+      [{text: 'Пас', callback_data: 'fife'}, {text: 'Принять', callback_data: 'two'}, {text: 'Удвоить', callback_data: 'otmena'}]
     ]
   }
 };
