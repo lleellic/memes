@@ -53,6 +53,62 @@ a[0] = ' 1⃣ ';
 b[0] = ' 2️⃣ ';
 c[0] = ' 3️⃣ ';
 d[0] = ' 4️⃣ ';
+var gamer = new Array();
+var p1 = {
+  parse_mode: "HTML",
+  reply_markup:{
+    inline_keyboard: [
+      [{text: '+5 ', callback_data: fife}, {text: 'Удвоить', callback_data: two}],
+      [{text: 'Отменить', callback_data: otmena}, {text: 'Раздать', callback_data: gou}]
+    ]
+  }
+};
+var p1 = {
+  parse_mode: "HTML",
+  reply_markup:{
+    inline_keyboard: [
+      [{text: 'Пас', callback_data: fife}, {text: 'Принять', callback_data: two}, {text: 'Удвоить', callback_data: otmena}]
+    ]
+  }
+};
+
+
+
+bot.onText(/^покер /d$/, (msg, match) => {
+db.serialize(() => {
+db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, row) => {
+if (!row) db.run('INSERT INTO ba3(id, fn, bal) VALUES('+msg.from.id+', "'+msg.from.first_name+'", 5)')
+});
+db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, row) => {
+if (row.bal <= match[1]) {
+if (!(gamer.includes(msg.chat.id))) {
+gamers[msg.chat.id] = {id: [msg.from.id], fn: [msg.from.first_name], stavka: [match[1]], timer: timerId, volumegame: 0, timer: 0};
+bot.sendMessage(msg.chat.id, 'Открыт набор игроков для покера\n', p1)
+gamers[msg.chat.id].timerId = setInterval(() => {
+if (gamers[msg.chat.id].timer == 150) {
+clearInterval(gamers[msg.chat.id].timerId)
+  
+}
+gamers[msg.chat.id].timer++;
+}, 1000);
+} else {
+gamers[msg.chat.id].id.push(msg.from.id);
+gamers[msg.chat.id].fn.push(msg.from.first_name);
+gamers[msg.chat.id].stavka.push(match[1]);
+  
+}
+} else {
+bot.sendMessage(msg.chat.id, '<a href="tg://user?id='+msg.from.id+'">'+msg.from.first_name+'</a>, твой баланс 🍬 слишком мал ('+row.bal+')', {parse_mode: "HTML"});
+}
+})
+
+
+
+
+
+
+
+
 
 var i2 = {
   parse_mode: "HTML",
