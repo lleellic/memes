@@ -75,38 +75,7 @@ var p1 = {
 
 
 
-bot.onText(/^покер$/, (msg, match) => {
-db.serialize(() => {
-db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, row) => {
-if (!row) db.run('INSERT INTO ba3(id, fn, bal) VALUES('+msg.from.id+', "'+msg.from.first_name+'", 5)')
-});
-db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, row) => {
-if (row.bal <= match[1]) {
-db.run('UPDATE ba3 SET bal = bal - '+match[1]+' WHERE id = '+msg.from.id);
-if (!(gamer.includes(msg.chat.id))) {
-gamers[msg.chat.id] = {id: [msg.from.id], fn: [msg.from.first_name], stavka: [match[1]], timer: timerId, volumegame: 0, timer: 0};
-bot.sendMessage(msg.chat.id, 'Открыт набор игроков для покера\n', p1);
-f3 +='<a href="tg://user?id='+msg.from.id+'">'+msg.from.first_name+'</a>, ставка '+match[1]+' принята\n';
-gamers[msg.chat.id].timerId = setInterval(() => {
-if (gamers[msg.chat.id].timer == 150) {
-clearInterval(gamers[msg.chat.id].timerId);
-}
-if (timer%5 == 0) {
-bot.sendMessage(msg.chat.id, f3, {parse_mode: "HTML"});
-f3 = '';
-}
-gamers[msg.chat.id].timer++;
-}, 1000);
-} else {
-gamers[msg.chat.id].id.push(msg.from.id);
-gamers[msg.chat.id].fn.push(msg.from.first_name);
-gamers[msg.chat.id].stavka.push(match[1]);
-f3 +='<a href="tg://user?id='+msg.from.id+'">'+msg.from.first_name+'</a>, ставка '+match[1]+' принята\n';
-}
-} else {
-bot.sendMessage(msg.chat.id, '<a href="tg://user?id='+msg.from.id+'">'+msg.from.first_name+'</a>, твой баланс 🍬 слишком мал ('+row.bal+')', {parse_mode: "HTML"});
-}
-})
+
 
 
 
