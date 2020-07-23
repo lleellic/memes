@@ -80,11 +80,6 @@ var p1 = {
 
 
 
-
-
-
-
-
 var i2 = {
   parse_mode: "HTML",
   reply_markup:{
