@@ -73,8 +73,9 @@ var p1 = {
   }
 };
 
+db.run('CREATE TABLE statswedding(id int, fn text, sms int)');
 
-
+var timerId = setInterval(() => itog(), 86400000);
 
 
 const db = new sqlite3.Database('./mytest.db', (err) => {
@@ -94,7 +95,22 @@ var inline3 = {
 };
 
 
-
+function itog() {
+f='🤑ЕЖЕДНЕВНАЯ победа!🤑 \nФОНД 1 квинтиллионов\n\n';
+db.serialize(() => {
+db.all('SELECT sms, id, fn FROM statswedding ORDER BY sms DESC LIMIT 5', (err, row) => {
+ if (err) throw err;
+i=0;
+row.forEach((row) => {
+i++;
+f += i+ '. <a href="tg://user?id='+row.id+'">'+row.fn+'</a> - '+row.sms+' сообщений';
+})
+db.run('UPDATE statswedding SET sms = 0')
+})
+}
+f+='Коллектив чата поздравляет вас!\n\n💰Админы, выдайте победителям призы!\n\n🤓Случайные призы выдаются за активную игру в рулетку, слова, блекджек и даже за общение!\n\n😋Тут много случайных бонусов!\n\n😎Играйте у нас, в чате @wedding_Pedro!\n\nPS. Админы могут отсутствовать в чате, не тегайте много раз, иначе место приза будет бан.\nКто нибудь зайдет, увидит и даст.\n\nДля отчета от бота:  @fa11en_aHge1, @LadyDrak,  @Elena_S_O, @iamkamazik, @oscuIum\n\nPS: После выдачи приза просьба удалить это сообщение.;
+bot.sendMessage(1344668642, f, {papse_mode: "HTML");
+}
 
 
 bot.onText(/^del (.+)$/i, (msg, match) => {
@@ -346,6 +362,17 @@ bot.sendMessage(msg.chat.id,'Игра уже начата. Ожидайте...')
 
 
 bot.on('message',  (msg) => {
+if (msg.chat.id == 1344668642) {
+db.serialize(() => {
+ db.get('SELECT sms FROM statswedding WHERE id = '+msg.from.id, (err, row) => {
+if (row) {
+db.run('UPDATE statswedding SET sms = sms + 1 WHERE id = '+msg.from.id);
+} else {
+db.run('INSERT INTO statswedding(id, fn, sms) VALUES('+msg.from.id+', "'+msg.from.first_name+'", 1)')
+}
+})
+}
+}
 if (muted.includes(msg.from.id)) {
 bot.deleteMessage(msg.chat.id, msg.message_id);
 }
