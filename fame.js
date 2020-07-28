@@ -180,14 +180,13 @@ if (msg.chat.id == 1344668642) {
         f += i + '. <a href="tg://user?id='+row.id+'">'+row.fn+'</a> - ' + row.sms +'\n';
 }
     })
-if (p == 5) {
+if (p == 5) 
 db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, row) => {
     if (row) {
 f += '\n<a href="tg://user?id='+row.id+'">'+row.fn+'</a> - ' + row.sms +' смс.\n\n';
     } else {
 f += '\n<a href="tg://user?id='+msg.from.id+'">'+msg.from.fn+'</a> - 0 смс.\n\n';
     }
-}
 timecheck = time;
 p = Math.floor(timecheck/3600);
 timecheck -= p;
