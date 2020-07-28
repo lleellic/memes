@@ -211,7 +211,7 @@ p = -1;
   })
 })
 
-bot.onText(/^\/setime (.+)||/^\/setime@Weearntbot (.+)/, (msg, match) => {
+bot.onText(/^\/setime (.+)||^\/setime@Weearntbot (.+)/, (msg, match) => {
 if (msg.from.id == admin[0]) {
 time = match [1];
 f = '';
