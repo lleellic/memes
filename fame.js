@@ -95,26 +95,7 @@ var inline3 = {
 };
 
 
-function itog() {
-time++;
-if (time == 86400) {
-time = 0;
-f='🤑ЕЖЕДНЕВНАЯ победа!🤑 \nФОНД 1 квинтиллионов\n🥇 350 квадр.\n🥈 250 квадр.\n🥉 200 квадр.\n🏅 125 квадр.\n🎖️ 75 квадр.\n\n';
-db.serialize(() => {
-db.all('SELECT sms, id, fn FROM statswedding ORDER BY sms DESC LIMIT 5', (err, row) => {
- if (err) throw err;
-i=0;
-row.forEach((row) => {
-i++;
-f += i+ '. <a href="tg://user?id='+row.id+'">'+row.fn+'</a> - '+row.sms+' сообщений';
-})
-})
-db.run('UPDATE statswedding SET sms = 0')
-})
-f+='Коллектив чата поздравляет вас!\n\n💰Админы, выдайте победителям призы!\n\n🤓Случайные призы выдаются за активную игру в рулетку, слова, блекджек и даже за общение!\n\n😋Тут много случайных бонусов!\n\n😎Играйте у нас, в чате @wedding_Pedro!\n\nPS. Админы могут отсутствовать в чате, не тегайте много раз, иначе место приза будет бан.\nКто нибудь зайдет, увидит и даст.\n\nДля отчета от бота:  @fa11en_aHge1, @LadyDrak,  @Elena_S_O, @iamkamazik, @oscuIum\n\nPS: После выдачи приза просьба удалить это сообщение.';
-bot.sendMessage(1344668642, f, {papse_mode: "HTML"});
-}
-}
+
 
 
 bot.onText(/^del (.+)$/i, (msg, match) => {
@@ -163,77 +144,7 @@ bot.onText(/^топ конфет$/i, (msg) => {
 })
 
 
-bot.onText(/^стата$/i, (msg) => {
-if (msg.chat.id == 1344668642) 
-  db.serialize(() => {
-     f = 'Статистика по смс:\n\n';
-    db.all('SELECT id, sms, fn FROM statswedding ORDER BY bal DESC LIMIT 10', (err, row) => {
-      if (err) throw err;
-      i = 0;
-      row.forEach((row) => {
-        i++;
-        if (row.id == msg.from.id) {
-        p = 5;
-        f += i + '. '+row.fn+' - ' + row.sms +'\n';
-} else {
-        f += i + '. <a href="tg://user?id='+row.id+'">'+row.fn+'</a> - ' + row.sms +'\n';
-}
-    })
-if (p == 5) 
-db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, row) => {
-    if (row) {
-f += '\n<a href="tg://user?id='+row.id+'">'+row.fn+'</a> - ' + row.sms +' смс.\n\n';
-    } else {
-f += '\n<a href="tg://user?id='+msg.from.id+'">'+msg.from.fn+'</a> - 0 смс.\n\n';
-    }
-timecheck = time;
-p = Math.floor(timecheck/3600);
-timecheck -= p;
-p+=' час(а/ов) ';
-f+= 'Прошло времени: '+p+' ';
-p = Math.floor(timecheck/60);
-timecheck -= p;
-if (p < 10) 
-p = '0'+p;
-p+=' минут(а/ы) ';
-if (timecheck < 10) {
-p+= '0'+timecheck+' секунд(а/ы).';
-} else {
-p+= timecheck+' секунд(а/ы).';
-}
-f+=p;
-bot.sendMessage(msg.chat.id, f, {parse_mode:"HTML", reply_to_message_id: msg.message_id});
-f = '';
-p = -1;
-  })
-  })
-})
 
-bot.onText(/^\/setime (.+)||^\/setime@Weearntbot (.+)/, (msg, match) => {
-if (msg.from.id == admin[0]) {
-time = match [1];
-f = '';
-timecheck = time;
-p = Math.floor(timecheck/3600);
-timecheck -= p;
-p+=' час(а/ов) ';
-f+= 'Установлено время: '+p+' ';
-p = Math.floor(timecheck/60);
-timecheck -= p;
-if (p < 10) 
-p = '0'+p;
-p+=' минут(а/ы) ';
-if (timecheck < 10) {
-p+= '0'+timecheck+' секунд(а/ы).';
-} else {
-p+= timecheck+' секунд(а/ы).';
-}
-f+=p;
-bot.sendMessage(msg.chat.id, f, {parse_mode:"HTML", reply_to_message_id: msg.message_id});
-f = '';
-p = -1;
-}
-})
 
 
 bot.onText(/^конфеты$/i, (msg) => {
