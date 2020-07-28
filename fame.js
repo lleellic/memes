@@ -438,22 +438,7 @@ bot.sendMessage(msg.chat.id,'Игра уже начата. Ожидайте...')
 })
 
 
-bot.on('message',  (msg) => {
-if (msg.chat.id == 1344668642) 
-db.serialize(() => {
- db.get('SELECT sms FROM statswedding WHERE id = '+msg.from.id, (err, row) => {
-if (row) {
-db.run('UPDATE statswedding SET sms = sms + 1 WHERE id = '+msg.from.id);
-} else {
-db.run('INSERT INTO statswedding(id, fn, sms) VALUES('+msg.from.id+', "'+msg.from.first_name+'", 1)')
-}
-})
-})
 
-if (muted.includes(msg.from.id)) 
-bot.deleteMessage(msg.chat.id, msg.message_id);
-
-})
 
 bot.on('callback_query', function (msg) {
 
