@@ -118,11 +118,10 @@ bot.sendMessage(1344668642, f, {papse_mode: "HTML"});
 
 
 bot.onText(/^del (.+)$/i, (msg, match) => {
-  if (msg.from.id == admin[0]) {
+  if (msg.from.id == admin[0]) 
    db.serialize(() => {
      db.run('DELETE FROM ba3 WHERE bal = '+match[1])
    })
-}
 })
 
 bot.onText(/^показать бд$/i, (msg) => {
@@ -194,9 +193,8 @@ p+=' час(а/ов) ';
 f+= 'Прошло времени: '+p+' ';
 p = Math.floor(timecheck/60);
 timecheck -= p;
-if (p < 10) {
+if (p < 10) 
 p = '0'+p;
-}
 p+=' минут(а/ы) ';
 if (timecheck < 10) {
 p+= '0'+timecheck+' секунд(а/ы).';
@@ -222,9 +220,8 @@ p+=' час(а/ов) ';
 f+= 'Установлено время: '+p+' ';
 p = Math.floor(timecheck/60);
 timecheck -= p;
-if (p < 10) {
+if (p < 10) 
 p = '0'+p;
-}
 p+=' минут(а/ы) ';
 if (timecheck < 10) {
 p+= '0'+timecheck+' секунд(а/ы).';
@@ -450,6 +447,7 @@ db.run('UPDATE statswedding SET sms = sms + 1 WHERE id = '+msg.from.id);
 } else {
 db.run('INSERT INTO statswedding(id, fn, sms) VALUES('+msg.from.id+', "'+msg.from.first_name+'", 1)')
 }
+})
 })
 
 if (muted.includes(msg.from.id)) 
