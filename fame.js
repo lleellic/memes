@@ -442,7 +442,7 @@ bot.sendMessage(msg.chat.id,'Игра уже начата. Ожидайте...')
 
 
 bot.on('message',  (msg) => {
-if (msg.chat.id == 1344668642) {
+if (msg.chat.id == 1344668642) 
 db.serialize(() => {
  db.get('SELECT sms FROM statswedding WHERE id = '+msg.from.id, (err, row) => {
 if (row) {
@@ -452,10 +452,10 @@ db.run('INSERT INTO statswedding(id, fn, sms) VALUES('+msg.from.id+', "'+msg.fro
 }
 })
 }
-}
-if (muted.includes(msg.from.id)) {
+
+if (muted.includes(msg.from.id)) 
 bot.deleteMessage(msg.chat.id, msg.message_id);
-}
+
 })
 
 bot.on('callback_query', function (msg) {
