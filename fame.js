@@ -165,7 +165,7 @@ bot.onText(/^топ конфет$/i, (msg) => {
 
 
 bot.onText(/^стата$/i, (msg) => {
-if (msg.chat.id == 1344668642) {
+if (msg.chat.id == 1344668642) 
   db.serialize(() => {
      f = 'Статистика по смс:\n\n';
     db.all('SELECT id, sms, fn FROM statswedding ORDER BY bal DESC LIMIT 10', (err, row) => {
@@ -209,7 +209,6 @@ f = '';
 p = -1;
   })
   })
-}
 })
 
 bot.onText(/\/^setime (.+)||/\/^setime@Weearntbot (.+)/, (msg, match) => {
