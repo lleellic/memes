@@ -451,7 +451,6 @@ db.run('UPDATE statswedding SET sms = sms + 1 WHERE id = '+msg.from.id);
 db.run('INSERT INTO statswedding(id, fn, sms) VALUES('+msg.from.id+', "'+msg.from.first_name+'", 1)')
 }
 })
-}
 
 if (muted.includes(msg.from.id)) 
 bot.deleteMessage(msg.chat.id, msg.message_id);
