@@ -185,7 +185,7 @@ db.get('SELECT bal FROM ba3 WHERE id ='+msg.from.id, (err, row) => {
     if (row) {
 f += '\n<a href="tg://user?id='+row.id+'">'+row.fn+'</a> - ' + row.sms +' смс.\n\n';
     } else {
-f += '\n<a href="tg://user?id='+msg.from.id+'">'+msg.from.fn+'</a> - ' 0 смс.\n\n';
+f += '\n<a href="tg://user?id='+msg.from.id+'">'+msg.from.fn+'</a> - 0 смс.\n\n';
     }
 }
 timecheck = time;
