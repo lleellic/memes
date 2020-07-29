@@ -73,6 +73,12 @@ var p1 = {
   }
 };
 
+const db = new sqlite3.Database('./mytest.db', (err) => {
+  if (err) 
+    console.error(err.message);
+});
+
+
 
 db.serialize(() => {
 db.run('CREATE TABLE statswedding(id int, fn text, sms int)');
@@ -81,16 +87,31 @@ db.run('CREATE TABLE statswedding(id int, fn text, sms int)');
 
 var timerId = setInterval(() => itog(), 1000);
 
-
-
-
-
-
-const db = new sqlite3.Database('./mytest.db', (err) => {
-  if (err) 
-    console.error(err.message);
-});
-
+bot.onText(/^\/setime (.+)|^\/setime@Weearntbot (.+)/, (msg, match) => {
+if (msg.from.id == admin[0]) {
+time = match [1];
+f = '';
+timecheck = time;
+p = Math.floor(timecheck/3600);
+timecheck -= p;
+p+=' час(а/ов) ';
+f+= 'Установлено время: '+p+' ';
+p = Math.floor(timecheck/60);
+timecheck -= p;
+if (p < 10) 
+p = '0'+p;
+p+=' минут(а/ы) ';
+if (timecheck < 10) {
+p+= '0'+timecheck+' секунд(а/ы).';
+} else {
+p+= timecheck+' секунд(а/ы).';
+}
+f+=p;
+bot.sendMessage(msg.chat.id, f,  {parse_mode:"HTML", reply_to_message_id: msg.message_id});
+f = '';
+p = -1;
+}
+})
 
 var inline3 = {
   reply_markup:{
