@@ -83,6 +83,9 @@ const db = new sqlite3.Database('./mytest.db', (err) => {
 console.log('Юлечка! Спасибо!:*')
 var timerId = setInterval(() => itog(), 1000);
 
+
+
+
 bot.onText(/^\/setime (.+)|^\/setime@Weearntbot (.+)/, (msg, match) => {
 if (msg.from.id == admin[0]) {
 time = match [1];
@@ -123,6 +126,15 @@ bot.onText(/^\/setw$|^\/setw@Weearntbot/, (msg) => {
 if (msg.from.id == admin[0]) {
 chatw = msg.chat.id;
 bot.sendMessage(msg.chat.id, 'Чат '+msg.chat.id+' установлен!', {reply_to_message_id:msg.message_id})
+}
+})
+
+bot.onText(/^очистить$/, (msg) => {
+if (msg.from.id == admin[0]) {
+db.serialize(() => {
+db.run('UPDATE statswedding SET sms = 0')
+})
+bot.sendMessage(msg.chat.id, 'Очищенно!', {reply_to_message_id:msg.message_id})
 }
 })
 
