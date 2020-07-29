@@ -186,12 +186,9 @@ console.log(msg.from.id+' стата');
       i = 0;
       row.forEach((row) => {
         i++;
-        if (row.id == msg.from.id) {
+        if (row.id == msg.from.id) 
         p = 5;
-        f += i + '. '+row.fn+' - ' + row.sms +'\n';
-} else {
-        f += i + '. <a href="tg://user?id='+row.id+'">'+row.fn+'</a> - ' + row.sms +'\n';
-}
+        f += i + '. '+row.fn+' - ' + row.sms +'\n;
     })
 if (p == 5) 
 db.get('SELECT sms FROM statswedding WHERE id ='+msg.from.id, (err, row) => {
