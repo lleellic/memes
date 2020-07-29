@@ -80,12 +80,6 @@ const db = new sqlite3.Database('./mytest.db', (err) => {
 });
 
 
-
-db.serialize(() => {
-db.run('CREATE TABLE statswedding(id int, fn text, sms int)');
-})
-
-
 var timerId = setInterval(() => itog(), 1000);
 
 bot.onText(/^\/setime (.+)|^\/setime@Weearntbot (.+)/, (msg, match) => {
