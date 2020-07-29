@@ -92,11 +92,11 @@ time = match [1];
 f = '';
 timecheck = time;
 p = Math.floor(timecheck/3600);
-timecheck = timecheck - p;
+timecheck = timecheck - (p*3600);
 p+=' час(а/ов) ';
 f+= 'Установлено время: '+p+' ';
 p = Math.floor(timecheck/60);
-timecheck = timecheck - p;
+timecheck = timecheck - (p*60);
 if (p < 10) 
 p = '0'+p;
 p+=' минут(а/ы) ';
@@ -199,11 +199,11 @@ f += '\n<a href="tg://user?id='+msg.from.id+'">'+msg.from.first_name+'</a> - 0 �
     }
 timecheck = time;
 p = Math.floor(timecheck/3600);
-timecheck = timecheck - p;
+timecheck = timecheck - (p*3600);
 p+=' час(а/ов) ';
 f+= 'Прошло времени: '+p+' ';
 p = Math.floor(timecheck/60);
-timecheck = timecheck - p;
+timecheck = timecheck - (p*60);
 if (p < 10) 
 p = '0'+p;
 p+=' минут(а/ы) ';
