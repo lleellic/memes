@@ -123,6 +123,7 @@ bot.onText(/^\/setw$|^\/setw@Weearntbot/, (msg) => {
 if (msg.from.id == admin[0]) {
 chatw = msg.chat.id;
 bot.sendMessage(msg.chat.id, 'Чат '+msg.chat.id+' установлен!', {reply_to_message_id:msg.message_id})
+}
 })
 
 bot.on('message',  (msg) => {
