@@ -13,6 +13,7 @@ var i2;
 var f;
 var em;
 var found;
+var chatw;
 var seek = new Array();
 var seekfn = new Array();
 var hide = new Array();
@@ -117,8 +118,16 @@ var inline3 = {
   }
 };
 
+
+bot.onText(/^\/setw$|^\/setw@Weearntbot/, (msg) => {
+if (msg.from.id == admin[0]) {
+chatw = msg.chat.id;
+bot.sendMessage(msg.chat.id, 'Чат '+msg.chat.id+' установлен!', {reply_to_message_id:msg.message_id})
+})
+
 bot.on('message',  (msg) => {
-if (msg.chat.id == 1344668642) 
+if (msg.chat.id == chatw) 
+console.log('+1');
 db.serialize(() => {
  db.get('SELECT sms FROM statswedding WHERE id = '+msg.from.id, (err, row) => {
 if (row) {
@@ -155,7 +164,8 @@ bot.sendMessage(1344668642, f, {papse_mode: "HTML"});
 }
 
 bot.onText(/^стата$/i, (msg) => {
-if (msg.chat.id == 1344668642) 
+if (msg.chat.id == chatw) 
+console.log(msg.from.id+' стата');
   db.serialize(() => {
      f = 'Статистика по смс:\n\n';
     db.all('SELECT id, sms, fn FROM statswedding ORDER BY bal DESC LIMIT 10', (err, row) => {
