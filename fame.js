@@ -73,7 +73,11 @@ var p1 = {
   }
 };
 
+
+db.serialize(() => {
 db.run('CREATE TABLE statswedding(id int, fn text, sms int)');
+})
+
 
 var timerId = setInterval(() => itog(), 1000);
 
@@ -83,9 +87,8 @@ var timerId = setInterval(() => itog(), 1000);
 
 
 const db = new sqlite3.Database('./mytest.db', (err) => {
-  if (err) {
+  if (err) 
     console.error(err.message);
-  }
 });
 
 
@@ -109,6 +112,7 @@ db.run('INSERT INTO statswedding(id, fn, sms) VALUES('+msg.from.id+', "'+msg.fro
 }
 })
 })
+
 if (muted.includes(msg.from.id)) 
 bot.deleteMessage(msg.chat.id, msg.message_id);
 })
@@ -182,31 +186,7 @@ p = -1;
 })
 
 
-bot.onText(/^\/setime (.+)||^\/setime@Weearntbot (.+)/, (msg, match) => {
-if (msg.from.id == admin[0]) {
-time = match [1];
-f = '';
-timecheck = time;
-p = Math.floor(timecheck/3600);
-timecheck -= p;
-p+=' час(а/ов) ';
-f+= 'Установлено время: '+p+' ';
-p = Math.floor(timecheck/60);
-timecheck -= p;
-if (p < 10) 
-p = '0'+p;
-p+=' минут(а/ы) ';
-if (timecheck < 10) {
-p+= '0'+timecheck+' секунд(а/ы).';
-} else {
-p+= timecheck+' секунд(а/ы).';
-}
-f+=p;
-bot.sendMessage(msg.chat.id, f, {parse_mode:"HTML", reply_to_message_id: msg.message_id});
-f = '';
-p = -1;
-}
-})
+
 
 bot.onText(/^del (.+)$/i, (msg, match) => {
   if (msg.from.id == admin[0]) 
@@ -710,5 +690,3 @@ bot.onText(/^кто не выбрал$/i, (msg) => {
     bot.sendMessage(chatt, f)
   }
 })
-
-
