@@ -132,7 +132,7 @@ bot.sendMessage(msg.chat.id, 'Чат '+msg.chat.id+' установлен!', {re
 bot.onText(/^очистить$/, (msg) => {
 if (msg.from.id == admin[0]) {
 db.serialize(() => {
-db.run('UPDATE statswedding SET sms = 0')
+db.run('DELETE FROM statswedding')
 })
 bot.sendMessage(msg.chat.id, 'Очищенно!', {reply_to_message_id:msg.message_id})
 }
