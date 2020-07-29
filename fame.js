@@ -442,8 +442,6 @@ bot.sendMessage(msg.chat.id,'Игра уже начата. Ожидайте...')
 
 
 bot.on('callback_query', function (msg) {
-
-
   
 if (msg.data === 'togame') {
 if (gamer.includes(msg.from.first_name)) {
@@ -548,16 +546,6 @@ p = null;
 } else {
 bot.answerCallbackQuery(msg.id,'Вы не в игре', false);
 }
-}
-
-if (msg.data === 'whonot') {
-f = ' ';
-for (i = 0; i < user.length; i++) {
-if (chose[i] === 0) {
-f += ' ▫️' + gamer[i];
-}
-}
-bot.answerCallbackQuery(msg.id, f, true);
 }
 
 })
