@@ -80,7 +80,7 @@ const db = new sqlite3.Database('./mytest.db', (err) => {
     console.error(err.message);
 });
 
-
+console.log('Юлечка! Спасибо!:*')
 var timerId = setInterval(() => itog(), 1000);
 
 bot.onText(/^\/setime (.+)|^\/setime@Weearntbot (.+)/, (msg, match) => {
@@ -184,9 +184,9 @@ console.log(msg.from.id+' стата');
 if (p == 5) 
 db.get('SELECT sms FROM statswedding WHERE id ='+msg.from.id, (err, row) => {
     if (row) {
-f += '\n<a href="tg://user?id='+row.id+'">'+row.fn+'</a> - ' + row.sms +' смс.\n\n';
+f += '\n<a href="tg://user?id='+msg.from.id+'">'+msg.from.first_name+'</a> - ' + row.sms +' смс.\n\n';
     } else {
-f += '\n<a href="tg://user?id='+msg.from.id+'">'+msg.from.fn+'</a> - 0 смс.\n\n';
+f += '\n<a href="tg://user?id='+msg.from.id+'">'+msg.from.first_name+'</a> - 0 смс.\n\n';
     }
 timecheck = time;
 p = Math.floor(timecheck/3600);
