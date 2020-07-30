@@ -186,17 +186,14 @@ console.log(msg.from.id+' стата');
       i = 0;
       row.forEach((row) => {
         i++;
-        if (row.id == msg.from.id) 
-        p = 5;
         f += i + '. '+row.fn+' - ' + row.sms +'\n';
     })
-if (p == 5) 
 db.get('SELECT sms FROM statswedding WHERE id ='+msg.from.id, (err, row) => {
     if (row) {
 f += '\n<a href="tg://user?id='+msg.from.id+'">'+msg.from.first_name+'</a> - ' + row.sms +' смс.\n\n';
     } else {
 f += '\n<a href="tg://user?id='+msg.from.id+'">'+msg.from.first_name+'</a> - 0 смс.\n\n';
-    }
+   }
 timecheck = time;
 p = Math.floor(timecheck/3600);
 timecheck = timecheck - (p*3600);
